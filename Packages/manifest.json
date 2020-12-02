@@ -40,6 +40,6 @@
     "com.unity.modules.vr": "1.0.0",
     "com.unity.modules.wind": "1.0.0",
     "com.unity.modules.xr": "1.0.0",
-    "com.unity.2d.tilemap.extras": "https://github.com/Unity-Technologies/2d-extras.git#master"
+    "com.unity.2d.tilemap.extras": "https://github.com/Unity-Technologies/2d-extras.git#2019.4"
   }
 }
