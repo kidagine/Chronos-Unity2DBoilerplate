@@ -133,7 +133,6 @@ GameObject:
   - component: {fileID: 133901215}
   - component: {fileID: 133901214}
   - component: {fileID: 133901213}
-  - component: {fileID: 133901212}
   m_Layer: 5
   m_Name: MainMenu_canvas
   m_TagString: Untagged
@@ -162,24 +161,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &133901212
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 133901210}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2905b6cd058918439302472175c1113, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _splashScreenLogo: {fileID: 0}
-  _startWaitTime: 1
-  _fadeInTime: 1
-  _idleTime: 4
-  _fadeOutTime: 1
-  _endWaitTime: 2
 --- !u!114 &133901213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -529,7 +510,7 @@ GameObject:
   - component: {fileID: 1873229205}
   - component: {fileID: 1873229204}
   m_Layer: 0
-  m_Name: SplashScreen_eventSystem
+  m_Name: MainMenu_eventSystem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

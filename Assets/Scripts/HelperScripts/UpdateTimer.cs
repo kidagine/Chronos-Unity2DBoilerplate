@@ -1,26 +1,16 @@
-﻿using UnityEngine;
+﻿using System.Threading.Tasks;
+using UnityEngine;
 
-public class UpdateTimer : MonoBehaviour
+public static class UpdateTimer
 {
-    private float _duration;
-
-	public bool TimerEnded { get; private set; }
-
-	void Update()
+    public static async Task WaitFor(float waitTime)
     {
-        Debug.Log("2");
-
-        _duration -= Time.deltaTime;
-        if (_duration <= 0)
+        if (waitTime <= 0f) return;
+        float timer = 0;
+        while (timer < waitTime)
         {
-            TimerEnded = true;
+            timer += Time.deltaTime;
+            await Task.Yield();
         }
-    }
-
-    public void StartTimer(float duration)
-    {
-        Debug.Log("1");
-        TimerEnded = false;
-        _duration = duration;
     }
 }
