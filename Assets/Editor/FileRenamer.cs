@@ -49,7 +49,6 @@ public class FileRenamer : EditorWindow
         GetWindow(typeof(FileRenamer), false, "File Renamer");
     }
 
-    #region OnGui
     void OnGUI()
     {
         DisplayModeToggleSection();
@@ -193,5 +192,4 @@ public class FileRenamer : EditorWindow
             EditorGUILayout.LabelField(consoleError, errorStyle);
         }
     }
-    #endregion
 }
