@@ -43,18 +43,13 @@ public class FileRenamer : EditorWindow
     private readonly List<string> _consoleErrorsList = new List<string>();
 
 
-    [MenuItem("Window/File Renamer")]
+    [MenuItem("Cronos/File Renamer")]
     public static void ShowWindow()
     {
         GetWindow(typeof(FileRenamer), false, "File Renamer");
     }
 
     void OnGUI()
-    {
-        DisplayModeToggleSection();
-    }
-
-    private void DisplayModeToggleSection()
     {
         EditorGUILayout.Space();
         if (GUILayout.Button("Rename Files", GUILayout.Height(60f)))
@@ -89,7 +84,8 @@ public class FileRenamer : EditorWindow
         if (_hasStartedRenaming)
         {
             ShowRenameResults();
-		}
+            _hasStartedRenaming = false;
+        }
         Console();
     }
 
