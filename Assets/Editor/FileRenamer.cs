@@ -15,9 +15,11 @@ public class FileRenamer : EditorWindow
     private readonly string _soundsPath = "Assets/Sounds/";
     private readonly string _animationsPath = "Assets/Animations/";
     private readonly string _presetsPath = "Assets/Presets/";
-    private readonly string _palettesPath = "Assets/Tilemaps/Palettes";
-    private readonly string _ruleTilesPath = "Assets/Tilemaps/RuleTiles";
-    private readonly string _tilesetsPath = "Assets/Tilemaps/Tilesets";
+    private readonly string _fontsPath = "Assets/Fonts/";
+    private readonly string _materialsPath = "Assets/Materials/";
+    private readonly string _palettesPath = "Assets/Tilemaps/Palettes/";
+    private readonly string _ruleTilesPath = "Assets/Tilemaps/RuleTiles/";
+    private readonly string _tilesetsPath = "Assets/Tilemaps/Tilesets/";
 
 
     private readonly string _scenesAppendix = "_SCN";
@@ -26,6 +28,8 @@ public class FileRenamer : EditorWindow
     private readonly string _soundsAppendix = "_SND";
     private readonly string _animationsAppendix = "_ANM";
     private readonly string _presetsAppendix = "_PST";
+    private readonly string _materialsAppendix = "_MAT";
+    private readonly string _fontsAppendix = "_FNT";
     private readonly string _palettesAppendix = "_PLT";
     private readonly string _ruleTilesAppendix = "_RTL";
     private readonly string _tilesetsAppendix = "_TLS";
@@ -36,6 +40,8 @@ public class FileRenamer : EditorWindow
     private bool _shouldRenameSounds;
     private bool _shouldRenameAnimations;
     private bool _shouldRenamePresets;
+    private bool _shouldRenameFonts;
+    private bool _shouldRenameMaterials;
     private bool _shouldRenamePalettes;
     private bool _shouldRenameRuleTiles;
     private bool _shouldRenameTilesets;
@@ -75,6 +81,8 @@ public class FileRenamer : EditorWindow
         _shouldRenameSounds = GUILayout.Toggle(_shouldRenameSounds, "Rename Sounds", GUILayout.Height(40f));
         _shouldRenameAnimations = GUILayout.Toggle(_shouldRenameAnimations, "Rename Animations", GUILayout.Height(40f));
         _shouldRenamePresets = GUILayout.Toggle(_shouldRenamePresets, "Rename Presets", GUILayout.Height(40f));
+        _shouldRenameFonts = GUILayout.Toggle(_shouldRenameFonts, "Rename Fonts", GUILayout.Height(40f));
+        _shouldRenameMaterials = GUILayout.Toggle(_shouldRenameMaterials, "Rename Materials", GUILayout.Height(40f));
         _shouldRenamePalettes = GUILayout.Toggle(_shouldRenamePalettes, "Rename Palettes", GUILayout.Height(40f));
         _shouldRenameRuleTiles = GUILayout.Toggle(_shouldRenameRuleTiles, "Rename Rule Tiles", GUILayout.Height(40f));
         _shouldRenameTilesets = GUILayout.Toggle(_shouldRenameTilesets, "Rename Tilesets", GUILayout.Height(40f));
@@ -97,6 +105,8 @@ public class FileRenamer : EditorWindow
         _shouldRenameSounds = true;
         _shouldRenameAnimations = true;
         _shouldRenamePresets = true;
+        _shouldRenameFonts = true;
+        _shouldRenameMaterials = true;
         _shouldRenamePalettes = true;
         _shouldRenameRuleTiles = true;
         _shouldRenameTilesets = true;
@@ -110,6 +120,8 @@ public class FileRenamer : EditorWindow
         _shouldRenameSounds = false;
         _shouldRenameAnimations = false;
         _shouldRenamePresets = false;
+        _shouldRenameFonts = false;
+        _shouldRenameMaterials = false;
         _shouldRenamePalettes = false;
         _shouldRenameRuleTiles = false;
         _shouldRenameTilesets = false;
@@ -132,6 +144,10 @@ public class FileRenamer : EditorWindow
             RenameFolderFiles(_animationsPath, _animationsAppendix);
         if (_shouldRenamePresets)
             RenameFolderFiles(_presetsPath, _presetsAppendix);
+        if (_shouldRenameFonts)
+            RenameFolderFiles(_fontsPath, _fontsAppendix);
+        if (_shouldRenameMaterials)
+            RenameFolderFiles(_materialsPath, _materialsAppendix);
         if (_shouldRenamePalettes)
             RenameFolderFiles(_palettesPath, _palettesAppendix);
         if (_shouldRenameRuleTiles)
