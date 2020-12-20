@@ -54,9 +54,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Roboto_FNT
   m_EditorClassIdentifier: 
-  hashCode: -955500245
+  hashCode: 2008137416
   material: {fileID: 2028101749964312758}
-  materialHashCode: 1555322923
+  materialHashCode: -1137376792
   m_Version: 1.1.0
   m_SourceFontFileGUID: 485bd6236a6605b44a3d7f8003845a89
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 485bd6236a6605b44a3d7f8003845a89,
