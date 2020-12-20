@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(PlayerAnimator))]
-public class PlayerMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour, IPushboxResponder
 {
     [SerializeField] private PlayerAnimator _playerAnimator = default;
     [SerializeField] private Rigidbody2D _rigidbody = default;
     [SerializeField] private float _moveSpeed = 5.0f;
     [SerializeField] private float _jumpImpulse = 5.0f;
+    [SerializeField] private int _maxJumpCount = 1;
+    private int _jumpCount;
     private bool _lockMovement;
 
     public Vector2 MovementInput { private get; set; }
@@ -43,8 +44,12 @@ public class PlayerMovement : MonoBehaviour
 
     public void JumpAction()
     {
-        _rigidbody.AddForce(new Vector2(0.0f, _jumpImpulse), ForceMode2D.Impulse);
-        _playerAnimator.JumpAnimation();
+        if (_jumpCount < _maxJumpCount)
+        {
+            _jumpCount++;
+            _rigidbody.AddForce(new Vector2(0.0f, _jumpImpulse), ForceMode2D.Impulse);
+            _playerAnimator.JumpAnimation();
+        }
     }
 
     public void CrouchAction()
@@ -60,8 +65,14 @@ public class PlayerMovement : MonoBehaviour
         _playerAnimator.StandUpAnimation();
     }
 
-	private void OnCollisionEnter2D(Collision2D other)
+	public void OnGrounded()
 	{
-        Debug.Log(other.contacts[0].normal);
+        _jumpCount = 0;
+        _playerAnimator.GroundedAnimation();
 	}
+
+    public void OnAir()
+    {
+        _playerAnimator.AirAnimation();
+    }
 }

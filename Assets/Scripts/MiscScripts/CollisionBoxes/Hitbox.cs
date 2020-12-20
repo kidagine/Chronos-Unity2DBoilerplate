@@ -4,30 +4,30 @@ public class Hitbox : MonoBehaviour
 {
     [SerializeField] private Vector2 _hitboxSize = default;
     private Color _hitboxColor = Color.red;
-    private LayerMask _hurtboxLayerMask;
     private IHitboxResponder _hitboxResponder;
-    private readonly string _hurtBoxLayerMaskName = "Hurtbox";
+        
 
-
-	void Start()
+	void OnEnable()
 	{
-        _hurtboxLayerMask = LayerMask.GetMask(_hurtBoxLayerMaskName);
         _hitboxResponder = GetComponent<IHitboxResponder>();
-	}
+    }
 
-	void Update()
+    void Update()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, _hitboxSize, 0.0f, Vector2.zero, 0.0f, _hurtboxLayerMask);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, _hitboxSize, 0.0f, Vector2.zero);
         if (hit.collider != null)
         {
-            if (_hitboxResponder != null)
-                _hitboxResponder.HitboxCollided(hit);
+            if (hit.collider.TryGetComponent(out Hurtbox hurtbox))
+            {
+                if (_hitboxResponder != null)
+                    _hitboxResponder.HitboxCollided(hit, hurtbox);
+            }
+            else
+            {
+                _hitboxColor = Color.red;
+            }
         }
-        else
-        {
-            _hitboxColor = Color.red;
-        }
-    }
+	}
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()

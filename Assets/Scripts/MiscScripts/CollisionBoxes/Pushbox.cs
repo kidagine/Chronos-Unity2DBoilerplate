@@ -6,10 +6,46 @@ public class Pushbox : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D _boxCollider = default;
     [SerializeField] private bool _showGizmo = true;
+    [SerializeField] private bool _isGroundCheck = default;
+    [ConditionalHide("_isGroundCheck", true)]
+    [SerializeField] private GameObject _pushboxResponderObject = default;
     private Color _pushboxColor = Color.blue;
+    private IPushboxResponder _pushboxResponder;
+    private int _collisionsCount;
 
 
-    private void OnDrawGizmos()
+    void Awake()
+    {
+        if (_isGroundCheck)
+            _pushboxResponder = _pushboxResponderObject.GetComponent<IPushboxResponder>();
+    }
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        if (_isGroundCheck)
+        {
+            Vector2 contactPoint = other.contacts[0].normal;
+            if (contactPoint == Vector2.up)
+            {
+                _collisionsCount++;
+                _pushboxResponder.OnGrounded();
+            }
+        }
+    }
+
+	private void OnCollisionExit2D(Collision2D collision)
+	{
+        if (_isGroundCheck)
+        {
+            _collisionsCount--;
+            if (_collisionsCount == 0)
+            {
+                _pushboxResponder.OnAir();
+            }
+        }
+    }
+
+	private void OnDrawGizmos()
     {
         if (_boxCollider.enabled && _showGizmo)
         {

@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerInput : MonoBehaviour
 {
+    [SerializeField] private Player _player = default;
     [SerializeField] private PlayerMovement _playerMovement = default;
     private PlayerInputActions _playerInput;
 
@@ -19,6 +20,7 @@ public class PlayerInput : MonoBehaviour
         _playerInput.Controls.Jump.performed += Jump;
         _playerInput.Controls.Crouch.performed += Crouch;
         _playerInput.Controls.Crouch.canceled += StandUp;
+        _playerInput.Controls.Attack.canceled += Attack;
     }
 
     private void SetMove(InputAction.CallbackContext context)
@@ -39,6 +41,11 @@ public class PlayerInput : MonoBehaviour
     private void StandUp(InputAction.CallbackContext context)
     {
         _playerMovement.StandUpAction();
+    }
+
+    private void Attack(InputAction.CallbackContext context)
+    {
+        _player.AttackAction();
     }
 
     void OnEnable()

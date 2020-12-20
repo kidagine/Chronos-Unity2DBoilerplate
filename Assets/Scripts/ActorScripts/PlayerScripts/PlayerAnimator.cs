@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(PlayerAnimator))]
+[RequireComponent(typeof(Animator))]
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private Animator _animator = default;
@@ -36,5 +36,30 @@ public class PlayerAnimator : MonoBehaviour
     public void JumpAnimation()
     {
         _animator.SetTrigger("Jump");
+    }
+
+    public void GroundedAnimation()
+    {
+        _animator.SetBool("IsGrounded", true);
+    }
+
+    public void AirAnimation()
+    {
+        _animator.SetBool("IsGrounded", false);
+    }
+
+    public void AttackAnimation()
+    {
+        _animator.SetTrigger("Attack");
+    }
+
+    public void HurtAnimation()
+    {
+        _animator.SetTrigger("Hurt");
+    }
+
+    public void DeathAnimation()
+    {
+        _animator.SetTrigger("Dead");
     }
 }
