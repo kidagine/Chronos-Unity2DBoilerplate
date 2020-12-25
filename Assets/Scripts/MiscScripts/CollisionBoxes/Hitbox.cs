@@ -5,29 +5,27 @@ public class Hitbox : MonoBehaviour
     [SerializeField] private Vector2 _hitboxSize = default;
     private Color _hitboxColor = Color.red;
     private IHitboxResponder _hitboxResponder;
-        
 
-	void OnEnable()
+
+    void OnEnable()
 	{
         _hitboxResponder = GetComponent<IHitboxResponder>();
     }
 
     void Update()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, _hitboxSize, 0.0f, Vector2.zero);
+        RaycastHit2D hit = Physics2D.BoxCast(transform.position, _hitboxSize, 0.0f, Vector2.zero, 0.0f, LayerProvider.GetLayerMask(LayerMasksEnum.Hurtbox));
         if (hit.collider != null)
         {
-            if (hit.collider.TryGetComponent(out Hurtbox hurtbox))
+            if (_hitboxResponder != null && !hit.collider.transform.IsChildOf(transform.root))
             {
-                if (_hitboxResponder != null)
+                if (hit.collider.transform.TryGetComponent(out Hurtbox hurtbox))
+                {
                     _hitboxResponder.HitboxCollided(hit, hurtbox);
-            }
-            else
-            {
-                _hitboxColor = Color.red;
+                }
             }
         }
-	}
+    }
 
 #if UNITY_EDITOR
     private void OnDrawGizmos()

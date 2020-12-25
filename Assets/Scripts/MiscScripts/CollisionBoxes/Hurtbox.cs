@@ -19,10 +19,10 @@ public class Hurtbox : MonoBehaviour
             _hurtboxResponder = _hurtboxResponderObject.GetComponent<IHurtboxResponder>();
 	}
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(int damage, Vector2 knockbackDirection = default, float knockbackForce = default)
     {
         if (_damageable)
-            _hurtboxResponder.TakeDamage(damage);
+            _hurtboxResponder.TakeDamage(damage, knockbackDirection, knockbackForce);
     }
 
 	private void OnDrawGizmos()

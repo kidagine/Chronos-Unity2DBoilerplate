@@ -2,22 +2,55 @@
 
 public class GameManager : Singleton<GameManager>
 {
-    private GameObject _player;
+    [SerializeField] private GameObject _playerOne;
+    [SerializeField] private GameObject _playerTwo;
 
 
-    void Awake()
+	void Update()
+	{
+		CheckPlayersFlip();
+	}
+
+	private void CheckPlayersFlip()
+	{
+		if (_playerOne.transform.position.x > _playerTwo.transform.position.x)
+		{
+			if (_playerOne.TryGetComponent(out Player player))
+			{
+				if (!player.IsFlipped)
+				{
+					player.FlipSide();
+				}
+			}
+			if (_playerTwo.TryGetComponent(out Player playerTwo))
+			{
+				if (!playerTwo.IsFlipped)
+				{
+					playerTwo.FlipSide();
+				}
+			}
+		}
+		else
+		{
+			if (_playerOne.TryGetComponent(out Player playerOne))
+			{
+				if (playerOne.IsFlipped)
+				{
+					playerOne.FlipSide();
+				}
+			}
+			if (_playerTwo.TryGetComponent(out Player playerTwo))
+			{
+				if (playerTwo.IsFlipped)
+				{
+					playerTwo.FlipSide();
+				}
+			}
+		}
+	}
+
+	public GameObject GetPlayer()
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    void Start()
-    {
-        _player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-
-    public GameObject GetPlayer()
-    {
-        return _player;
+        return _playerOne;
     }
 }

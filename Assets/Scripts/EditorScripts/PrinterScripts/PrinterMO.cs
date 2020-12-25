@@ -29,7 +29,7 @@ public class PrinterMO : MonoBehaviour
     public void Log(Print print)
     {
         GameObject textPrefab = Instantiate(_textPrefab, _printScrollViewContent);
-        TextMeshProUGUI printText = textPrefab.GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI printText = textPrefab.GetComponentInChildren<TextMeshProUGUI>();
         if (print.PrintToScreen)
         {
             printText.text = print.Message.ToString();
@@ -50,7 +50,7 @@ public class PrinterMO : MonoBehaviour
     {
         if (_printScrollViewContent.childCount > 0)
         {
-            int defaultGap = -25;
+            int defaultGap = -50;
 			for (int i = _printScrollViewContent.childCount - 1; i > -1; i--)
 			{
                 Transform childPrintText = _printScrollViewContent.GetChild(i);

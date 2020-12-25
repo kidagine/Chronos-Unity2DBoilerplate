@@ -11,34 +11,29 @@ public class Pushbox : MonoBehaviour
     [SerializeField] private GameObject _pushboxResponderObject = default;
     private Color _pushboxColor = Color.blue;
     private IPushboxResponder _pushboxResponder;
-    private int _collisionsCount;
 
 
     void Awake()
     {
         if (_isGroundCheck)
-            _pushboxResponder = _pushboxResponderObject.GetComponent<IPushboxResponder>();
-    }
-
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (_isGroundCheck)
         {
-            Vector2 contactPoint = other.contacts[0].normal;
-            if (contactPoint == Vector2.up)
-            {
-                _collisionsCount++;
-                _pushboxResponder.OnGrounded();
-            }
+            _pushboxResponder = _pushboxResponderObject.GetComponent<IPushboxResponder>();
         }
     }
 
-	private void OnCollisionExit2D(Collision2D collision)
+	void Update()
 	{
         if (_isGroundCheck)
         {
-            _collisionsCount--;
-            if (_collisionsCount == 0)
+            RaycastHit2D hit = Physics2D.BoxCast(transform.position, _boxCollider.size, 0.0f, Vector2.zero, 0.0f, LayerProvider.GetLayerMask(LayerMasksEnum.Ground));
+            if (hit.collider != null)
+            {
+                if (hit.normal == Vector2.up)
+                {
+                    _pushboxResponder.OnGrounded();
+                }
+            }
+            else
             {
                 _pushboxResponder.OnAir();
             }

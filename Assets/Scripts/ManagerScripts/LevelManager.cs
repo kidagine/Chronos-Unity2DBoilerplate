@@ -9,4 +9,9 @@ public class LevelManager : Singleton<LevelManager>
     {
         SceneManager.LoadScene(levels.LevelsEnums + _sceneAppendix);
     }
+
+    public void RestartLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
 }

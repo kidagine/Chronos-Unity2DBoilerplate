@@ -35,6 +35,14 @@
                     "id": "91ee6abc-1699-4cbf-b278-f2fcc21efc9f",
                     "expectedControlType": "Button",
                     "processors": "",
+                    "interactions": "Tap(duration=0.01)"
+                },
+                {
+                    "name": "Menu",
+                    "type": "Button",
+                    "id": "1987c80a-35e0-4b44-840c-015f9156707f",
+                    "expectedControlType": "Button",
+                    "processors": "",
                     "interactions": ""
                 }
             ],
@@ -201,6 +209,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Attack",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "74c245f8-1ae5-4a7e-bbe3-335ab735ef30",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Mouse&Keyboard",
+                    "action": "Menu",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

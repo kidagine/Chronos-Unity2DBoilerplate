@@ -53,6 +53,11 @@ public class PlayerAnimator : MonoBehaviour
         _animator.SetTrigger("Attack");
     }
 
+    public void CrouchAttackAnimation()
+    {
+        _animator.SetTrigger("CrouchAttack");
+    }
+
     public void HurtAnimation()
     {
         _animator.SetTrigger("Hurt");
