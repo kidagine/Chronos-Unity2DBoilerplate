@@ -90,5 +90,4 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	{
 		_rigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
 	}
-
 }

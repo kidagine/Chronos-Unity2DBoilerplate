@@ -16,13 +16,17 @@ public class Hurtbox : MonoBehaviour
     void Awake()
 	{
         if (_damageable)
+        {
             _hurtboxResponder = _hurtboxResponderObject.GetComponent<IHurtboxResponder>();
-	}
+        }
+    }
 
     public void TakeDamage(int damage, Vector2 knockbackDirection = default, float knockbackForce = default)
     {
         if (_damageable)
+        {
             _hurtboxResponder.TakeDamage(damage, knockbackDirection, knockbackForce);
+        }
     }
 
 	private void OnDrawGizmos()
