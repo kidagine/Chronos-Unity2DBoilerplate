@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     {
         if (!IsCrouched && !IsStunned)
         {
-            _rigidbody.velocity = new Vector2(MovementInput.x * _currentMoveSpeed, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(MovementInput.x * _currentMoveSpeed   , _rigidbody.velocity.y);
             if (_rigidbody.velocity != Vector2.zero)
             {
                 if (_rigidbody.velocity.x > 0.0f)
