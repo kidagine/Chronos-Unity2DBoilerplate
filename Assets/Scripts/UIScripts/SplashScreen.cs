@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class SplashScreen : MonoBehaviour
 {
+    [SerializeField] private Levels _levels = default;
     [SerializeField] private Image _splashScreenLogo = default;
     [Range(0.0f, 10.0f)]
     [SerializeField] private float _startWaitTime = 1.0f;
@@ -30,6 +30,6 @@ public class SplashScreen : MonoBehaviour
         await UpdateTimer.WaitFor(_idleTime);
         CoroutineManager.Instance.ImageFade(ref _splashScreenLogo, _splashScreenLogo.color.a, 0.0f, _fadeInTime);
         await UpdateTimer.WaitFor(_idleTime);
-        SceneManager.LoadScene(1);
+        LevelManager.Instance.GoToLevel(_levels);
     }
 }

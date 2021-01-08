@@ -14,8 +14,11 @@ public class LevelManager : Singleton<LevelManager>
         {
             SceneManager.LoadScene(levels.LevelsEnums + _sceneAppendix);
         }
-        _cachedLevel = levels;
-        _sceneTransitions.FadeIn();
+        else
+        {
+            _cachedLevel = levels;
+            _sceneTransitions.FadeIn();
+        }
     }
 
     public void GoToCachedLevel()

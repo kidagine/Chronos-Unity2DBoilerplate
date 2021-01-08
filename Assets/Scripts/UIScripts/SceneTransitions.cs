@@ -5,13 +5,17 @@ public class SceneTransitions : MonoBehaviour
 {
     [SerializeField] private Animator _animator = default;
     [SerializeField] private bool _fadeOutStart = true;
+    [SerializeField] private bool _fadeOutSound = true;
 
 
     void Start()
     {
         if (_fadeOutStart)
         {
-            SoundManager.Instance.FadeInMasterVolume();
+            if (_fadeOutSound)
+            {
+                SoundManager.Instance.FadeInMasterVolume();
+            }
             _animator.SetTrigger("FadeOut");
         }
     }
