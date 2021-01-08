@@ -5,6 +5,7 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private SceneTransitions _sceneTransitions = default;
     private readonly string _sceneAppendix = "_SCN";
+    private Levels _cachedLevel;
 
 
     public void GoToLevel(Levels levels)
@@ -13,7 +14,17 @@ public class LevelManager : Singleton<LevelManager>
         {
             SceneManager.LoadScene(levels.LevelsEnums + _sceneAppendix);
         }
+        _cachedLevel = levels;
         _sceneTransitions.FadeIn();
+    }
+
+    public void GoToCachedLevel()
+    {
+        if (_cachedLevel != null)
+        {
+            SoundManager.Instance.SetMasterVolumeToCached();
+            SceneManager.LoadScene(_cachedLevel.LevelsEnums + _sceneAppendix);
+        }
     }
 
     public void RestartLevel()

@@ -12,6 +12,7 @@ public class ControlledScrollView : MonoBehaviour
     [SerializeField] private UnityEvent _onEnd = default;
     private float _topBound;
     private float _bottomBound;
+    private bool _finishedScroll;
 
 
 	void Start()
@@ -26,16 +27,19 @@ public class ControlledScrollView : MonoBehaviour
         MoveScrollView();
     }
 
-    private async void MoveScrollView()
+    private void MoveScrollView()
     {
-        if (_content.anchoredPosition.y <= _bottomBound && _content.anchoredPosition.y >= _topBound)
+        if (!_finishedScroll)
         {
-            _content.Translate(Vector2.up * (_scrollingSpeed / 2));
-        }
-        else
-        {
-            await UpdateTimer.WaitFor(_timeUntilOnEndInvoke);
-            _onEnd.Invoke();
+            if (_content.anchoredPosition.y <= _bottomBound && _content.anchoredPosition.y >= _topBound)
+            {
+                _content.Translate(Vector2.up * (_scrollingSpeed / 2));
+            }
+            else
+            {
+                _finishedScroll = true;
+                _onEnd.Invoke();
+            }
         }
     }
 }
