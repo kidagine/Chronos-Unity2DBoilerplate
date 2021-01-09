@@ -1,5 +1,4 @@
-﻿#if UNITY_EDITOR
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Triggererbox : MonoBehaviour
@@ -7,7 +6,7 @@ public class Triggererbox : MonoBehaviour
     [SerializeField] private BoxCollider2D _boxCollider = default;
     private Color _triggererboxColor = Color.black;
 
-
+#if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (_boxCollider.enabled)
@@ -21,5 +20,5 @@ public class Triggererbox : MonoBehaviour
             Gizmos.DrawWireCube(Vector3.zero, gizmoPosition);
         }
     }
-}
 #endif
+}

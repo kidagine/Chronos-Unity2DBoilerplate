@@ -16,7 +16,7 @@ TagManager:
   - Hitbox
   - Hurtbox
   - Ground
-  - 
+  - GroundedBox
   - 
   - 
   - 

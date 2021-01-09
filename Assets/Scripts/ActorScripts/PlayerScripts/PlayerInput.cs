@@ -18,8 +18,6 @@ public class PlayerInput : MonoBehaviour
         _playerInput = new PlayerInputActions();
         _playerInput.Controls.Movement.performed += SetMove;
         _playerInput.Controls.Jump.performed += Jump;
-        _playerInput.Controls.Crouch.performed += Crouch;
-        _playerInput.Controls.Crouch.canceled += StandUp;
 		_playerInput.Controls.Attack.canceled += Attack;
         _playerInput.Controls.Menu.performed += Menu;
     }
@@ -32,16 +30,6 @@ public class PlayerInput : MonoBehaviour
     private void Jump(InputAction.CallbackContext context)
     {
         _playerMovement.JumpAction();
-    }
-
-    private void Crouch(InputAction.CallbackContext context)
-    {
-        _playerMovement.CrouchAction();
-    }
-
-    private void StandUp(InputAction.CallbackContext context)
-    {
-        _playerMovement.StandUpAction();
     }
 
     private void Attack(InputAction.CallbackContext context)

@@ -1,5 +1,4 @@
-﻿#if UNITY_EDITOR
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(BoxCollider2D))]
 public class Hurtbox : MonoBehaviour
@@ -28,8 +27,8 @@ public class Hurtbox : MonoBehaviour
             _hurtboxResponder.TakeDamage(damage, knockbackDirection, knockbackForce);
         }
     }
-
-	private void OnDrawGizmos()
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
     {
         if (_boxCollider.enabled)
         {
@@ -51,5 +50,5 @@ public class Hurtbox : MonoBehaviour
             Gizmos.DrawWireCube(Vector3.zero, gizmoPosition);
         }
     }
-}
 #endif
+}

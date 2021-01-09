@@ -1,4 +1,5 @@
-﻿using UnityEngine.InputSystem;
+﻿#if UNITY_EDITOR
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class DebugInputSystem : MonoBehaviour
@@ -39,3 +40,4 @@ public class DebugInputSystem : MonoBehaviour
         _debugInput.Disable();
     }
 }
+#endif

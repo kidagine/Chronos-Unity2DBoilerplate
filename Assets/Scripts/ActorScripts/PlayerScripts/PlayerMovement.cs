@@ -5,8 +5,10 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 {
     [SerializeField] private PlayerAnimator _playerAnimator = default;
     [SerializeField] private Rigidbody2D _rigidbody = default;
+    [SerializeField] private EntityAudio _playerAudio = default;
+    [SerializeField] private GameObject _jumpSmokePrefab = default;
+    [SerializeField] private GameObject _landSmokePrefab = default; 
     [SerializeField] private float _groundMoveSpeed = 5.0f;
-    [SerializeField] private float _airMoveSpeed = 7.0f;
     [SerializeField] private float _jumpImpulse = 5.0f;
     [SerializeField] private int _maxJumpCount = 1;
     private float _currentMoveSpeed;
@@ -18,6 +20,12 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     public Vector2 MovementInput { private get; set; }
 
 
+    void Update()
+    {
+        HandleSpriteFlip();
+        _playerAnimator.SetVerticalVelocity(_rigidbody.velocity.y); 
+    }
+
     void FixedUpdate()
     {
         Movement();
@@ -27,17 +35,10 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     {
         if (!IsCrouched && !IsStunned)
         {
-            _rigidbody.velocity = new Vector2(MovementInput.x * _currentMoveSpeed   , _rigidbody.velocity.y);
-            if (_rigidbody.velocity != Vector2.zero)
+            _rigidbody.velocity = new Vector2(MovementInput.x * _currentMoveSpeed, _rigidbody.velocity.y);
+            if (_rigidbody.velocity != Vector2.zero && MovementInput.x != 0.0f)
             {
-                if (_rigidbody.velocity.x > 0.0f)
-                {
-                    _playerAnimator.WalkForwardAnimation();
-                }
-                else
-                {
-                    _playerAnimator.WalkBackwardAnimation();
-                }
+                _playerAnimator.RunningAnimation();
             }
             else
             {
@@ -46,12 +47,26 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
         }
     }
 
+    private void HandleSpriteFlip()
+    {
+        if (MovementInput.x > 0.0f)
+        {
+            _playerAnimator.FlipBody(false);
+        }
+        else if (MovementInput.x < 0.0f)
+        {
+            _playerAnimator.FlipBody(true);
+        }
+    }
+
     public void JumpAction()
     {
         if (_jumpCount < _maxJumpCount && _rigidbody.constraints != RigidbodyConstraints2D.FreezePosition)
         {
+            _playerAudio.Play("Jump");
             _jumpCount++;
             _rigidbody.AddForce(new Vector2(0.0f, _jumpImpulse), ForceMode2D.Impulse);
+            Instantiate(_jumpSmokePrefab, transform.position, Quaternion.identity);
             _playerAnimator.JumpAnimation();
         }
     }
@@ -76,19 +91,19 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 	{
         if (!IsGrounded)
         {
+            _playerAudio.Play("Landed");
             _currentMoveSpeed = _groundMoveSpeed;
             IsGrounded = true;
             _jumpCount = 0;
+            Instantiate(_landSmokePrefab, transform.position, Quaternion.identity);
             _playerAnimator.GroundedAnimation();
-        }
-
+        }   
 	}
 
     public void OnAir()
     {
         if (IsGrounded)
         {
-            _currentMoveSpeed = _airMoveSpeed;
             IsGrounded = false;
             _playerAnimator.AirAnimation();
         }

@@ -22,7 +22,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": ""Movement"",
                     ""type"": ""PassThrough"",
                     ""id"": ""969e1017-39d4-48a3-ac77-6227730c742c"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
                 },
@@ -30,14 +30,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""name"": ""Jump"",
                     ""type"": ""Button"",
                     ""id"": ""0e1b31a8-930d-414a-bf99-a6681e34d712"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Crouch"",
-                    ""type"": ""Button"",
-                    ""id"": ""f0a59d0e-398f-455f-9182-625a3008247e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -172,6 +164,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""7c89cbe3-4a5f-4c15-880e-c413118fbf38"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""4816563c-0984-437f-b062-0bb2185c1daa"",
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
@@ -194,23 +197,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""1a78c2a7-3e4a-4a98-afd4-5b519e58daaa"",
-                    ""path"": ""<Keyboard>/downArrow"",
+                    ""id"": ""c65c6dcb-ea9c-4855-9353-557b1e882ec5"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
-                    ""action"": ""Crouch"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""6920c51f-ca56-4ee3-9007-eb3e80f72d2a"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
-                    ""action"": ""Crouch"",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -227,11 +219,33 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""26fe8ec6-aac3-4b96-b0d1-7289e6018b09"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Attack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""74c245f8-1ae5-4a7e-bbe3-335ab735ef30"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Mouse&Keyboard"",
+                    ""action"": ""Menu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""781dff29-9ad2-4197-8cc6-19a0655c65bc"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -255,6 +269,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isOR"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Xbox"",
+            ""bindingGroup"": ""Xbox"",
+            ""devices"": [
+                {
+                    ""devicePath"": ""<XInputController>"",
+                    ""isOptional"": false,
+                    ""isOR"": false
+                }
+            ]
         }
     ]
 }");
@@ -262,7 +287,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
         m_Controls_Movement = m_Controls.FindAction("Movement", throwIfNotFound: true);
         m_Controls_Jump = m_Controls.FindAction("Jump", throwIfNotFound: true);
-        m_Controls_Crouch = m_Controls.FindAction("Crouch", throwIfNotFound: true);
         m_Controls_Attack = m_Controls.FindAction("Attack", throwIfNotFound: true);
         m_Controls_Menu = m_Controls.FindAction("Menu", throwIfNotFound: true);
     }
@@ -316,7 +340,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IControlsActions m_ControlsActionsCallbackInterface;
     private readonly InputAction m_Controls_Movement;
     private readonly InputAction m_Controls_Jump;
-    private readonly InputAction m_Controls_Crouch;
     private readonly InputAction m_Controls_Attack;
     private readonly InputAction m_Controls_Menu;
     public struct ControlsActions
@@ -325,7 +348,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         public ControlsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Movement => m_Wrapper.m_Controls_Movement;
         public InputAction @Jump => m_Wrapper.m_Controls_Jump;
-        public InputAction @Crouch => m_Wrapper.m_Controls_Crouch;
         public InputAction @Attack => m_Wrapper.m_Controls_Attack;
         public InputAction @Menu => m_Wrapper.m_Controls_Menu;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
@@ -343,9 +365,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Jump.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnJump;
                 @Jump.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnJump;
                 @Jump.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnJump;
-                @Crouch.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnCrouch;
-                @Crouch.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnCrouch;
-                @Crouch.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnCrouch;
                 @Attack.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAttack;
                 @Attack.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAttack;
                 @Attack.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAttack;
@@ -362,9 +381,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Jump.started += instance.OnJump;
                 @Jump.performed += instance.OnJump;
                 @Jump.canceled += instance.OnJump;
-                @Crouch.started += instance.OnCrouch;
-                @Crouch.performed += instance.OnCrouch;
-                @Crouch.canceled += instance.OnCrouch;
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
@@ -384,11 +400,19 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
         }
     }
+    private int m_XboxSchemeIndex = -1;
+    public InputControlScheme XboxScheme
+    {
+        get
+        {
+            if (m_XboxSchemeIndex == -1) m_XboxSchemeIndex = asset.FindControlSchemeIndex("Xbox");
+            return asset.controlSchemes[m_XboxSchemeIndex];
+        }
+    }
     public interface IControlsActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
-        void OnCrouch(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnMenu(InputAction.CallbackContext context);
     }

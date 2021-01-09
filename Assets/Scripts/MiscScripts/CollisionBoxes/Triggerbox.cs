@@ -54,5 +54,5 @@ public class Triggerbox : MonoBehaviour
             Gizmos.DrawWireCube(Vector3.zero, gizmoPosition);
         }
     }
-}
 #endif
+}
