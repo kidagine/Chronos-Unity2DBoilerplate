@@ -37,7 +37,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": ""SelectDpadDown"",
+                    ""name"": ""Select+DpadDown"",
                     ""id"": ""0cccb8ca-3f07-4141-a014-1818e0d0fd37"",
                     ""path"": ""ButtonWithOneModifier"",
                     ""interactions"": """",
@@ -70,7 +70,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": ""QV"",
+                    ""name"": ""Control+D"",
                     ""id"": ""737d02ff-2daa-4bec-8e16-7982106d1601"",
                     ""path"": ""ButtonWithOneModifier"",
                     ""interactions"": """",

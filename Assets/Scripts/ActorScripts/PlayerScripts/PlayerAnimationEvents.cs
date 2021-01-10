@@ -24,7 +24,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void PlayerFootstepAnimationEvent()
     {
-        _playerAudio.Play("Footstep");
+        _playerAudio.PlaySoundsInSequence("Footsteps");
     }
 
     public void PlayerStopRunningSmokeEffectAnimationEvent()

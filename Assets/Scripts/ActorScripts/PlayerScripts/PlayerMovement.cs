@@ -16,7 +16,6 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 
     public bool IsStunned { get; set; }
     public bool IsGrounded { get; private set; }
-    public bool IsCrouched { get; private set; }
     public Vector2 MovementInput { private get; set; }
 
 
@@ -33,7 +32,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 
     private void Movement()
     {
-        if (!IsCrouched && !IsStunned)
+        if (!IsStunned)
         {
             _rigidbody.velocity = new Vector2(MovementInput.x * _currentMoveSpeed, _rigidbody.velocity.y);
             if (_rigidbody.velocity != Vector2.zero && MovementInput.x != 0.0f)
@@ -69,22 +68,6 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
             Instantiate(_jumpSmokePrefab, transform.position, Quaternion.identity);
             _playerAnimator.JumpAnimation();
         }
-    }
-
-    public void CrouchAction()
-    {
-        if (IsGrounded)
-        {
-            IsCrouched = true;
-            _rigidbody.velocity = Vector2.zero;
-            _playerAnimator.CrouchAnimation();
-        }
-    }
-
-    public void StandUpAction()
-    {
-        IsCrouched = false;
-        _playerAnimator.StandUpAnimation();
     }
 
 	public void OnGrounded()

@@ -22,32 +22,19 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		_playerUI.PlayerStatsUI.SetMaxHealth(_maxHealth);
 	}
 
-	#region Actions - Methods invoked by the input system  
 	public void AttackAction()
 	{
 		if (_playerMovement.IsGrounded)
 		{
-			if (_playerMovement.IsCrouched)
-			{
-				_playerAnimator.CrouchAttackAnimation();
-			}
-			else
-			{
-				_playerAnimator.AttackAnimation();
-			}
-		}
-		else
-		{
+			_playerMovement.SetMovementLock(true);
 			_playerAnimator.AttackAnimation();
 		}
 	}
-
 
 	public void MenuAction()
 	{
 		_playerUI.PlayerPauseMenuUI.TogglePauseMenu();
 	}
-	#endregion
 
 	public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)
 	{
@@ -68,12 +55,6 @@ public class Player : MonoBehaviour, IHurtboxResponder
 			}
 			StartCoroutine(FlashRedCoroutine());
 		}
-	}
-
-	public void FlipSide()
-	{
-		IsFlipped = !IsFlipped;
-		transform.localScale = new Vector2(transform.localScale.x * -1, transform.localScale.y); 
 	}
 
 	IEnumerator FlashRedCoroutine()

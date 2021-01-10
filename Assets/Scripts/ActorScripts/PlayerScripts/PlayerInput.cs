@@ -44,11 +44,13 @@ public class PlayerInput : MonoBehaviour
 
     void OnEnable()
     {
+        _playerMovement.SetMovementLock(false);
         _playerInput.Enable();
     }
 
     void OnDisable()
     {
+        _playerMovement.SetMovementLock(true);
         _playerInput.Disable(); 
     }
 }

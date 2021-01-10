@@ -76,6 +76,17 @@ public class EntityAudio : MonoBehaviour
 		return sound.source.isPlaying;
 	}
 
+	public void PlaySoundsInSequence(string name)
+	{
+		SoundGroup soundGroup = Array.Find(_soundGroups, sg => sg.name == name);
+		int index = soundGroup.lastPlayedSoundIndex;
+		Printer.Log(index);
+		soundGroup.lastPlayedSoundIndex = 3;
+		index = soundGroup.lastPlayedSoundIndex;
+		Printer.Log(index);
+
+	}
+
 	public void PlayRandomFromSoundGroup(string name)
 	{
 		SoundGroup soundGroup = Array.Find(_soundGroups, sg => sg.name == name);
