@@ -80,26 +80,19 @@ public class EntityAudio : MonoBehaviour
 	{
 		SoundGroup soundGroup = Array.Find(_soundGroups, sg => sg.name == name);
 		int index = soundGroup.lastPlayedSoundIndex;
-		Printer.Log(index);
-		soundGroup.lastPlayedSoundIndex = 3;
-		index = soundGroup.lastPlayedSoundIndex;
-		Printer.Log(index);
-
+		soundGroup.sounds[index].source.Play();
+		soundGroup.lastPlayedSoundIndex++;
+		if (soundGroup.lastPlayedSoundIndex >= soundGroup.sounds.Length)
+		{
+			soundGroup.lastPlayedSoundIndex = 0;
+		}
 	}
 
 	public void PlayRandomFromSoundGroup(string name)
 	{
 		SoundGroup soundGroup = Array.Find(_soundGroups, sg => sg.name == name);
 		Sound randomSound = soundGroup.sounds[UnityEngine.Random.Range(0, soundGroup.sounds.Length)];
-		if (randomSound != _previousRandomSound)
-		{
-			_previousRandomSound = randomSound;
-			randomSound.source.Play();
-		}
-		else
-		{
-			PlayRandomFromSoundGroup(name);
-		}
+		randomSound.source.Play();
 	}
 
 	public void FadeOut(string name)

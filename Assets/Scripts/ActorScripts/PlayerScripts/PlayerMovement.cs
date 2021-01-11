@@ -3,6 +3,7 @@
 [RequireComponent(typeof(Rigidbody2D))]
 public class PlayerMovement : MonoBehaviour, IPushboxResponder
 {
+    [SerializeField] private Player _player = default;
     [SerializeField] private PlayerAnimator _playerAnimator = default;
     [SerializeField] private Rigidbody2D _rigidbody = default;
     [SerializeField] private EntityAudio _playerAudio = default;
@@ -48,13 +49,16 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 
     private void HandleSpriteFlip()
     {
-        if (MovementInput.x > 0.0f)
+        if (_rigidbody.constraints != RigidbodyConstraints2D.FreezePosition)
         {
-            _playerAnimator.FlipBody(false);
-        }
-        else if (MovementInput.x < 0.0f)
-        {
-            _playerAnimator.FlipBody(true);
+            if (MovementInput.x > 0.0f)
+            {
+                _playerAnimator.FlipBody(false);
+            }
+            else if (MovementInput.x < 0.0f)
+            {
+                _playerAnimator.FlipBody(true);
+            }
         }
     }
 

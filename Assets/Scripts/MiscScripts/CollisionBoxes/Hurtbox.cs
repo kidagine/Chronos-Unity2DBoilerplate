@@ -42,7 +42,8 @@ public class Hurtbox : MonoBehaviour
                 _hitboxNonDamageableColor.a = 0.4f;
                 Gizmos.color = _hitboxNonDamageableColor;
             }
-            Gizmos.matrix = Matrix4x4.TRS(new Vector2(transform.position.x + _boxCollider.offset.x, transform.position.y + _boxCollider.offset.y), transform.rotation, transform.localScale);
+            Vector2 hurtboxPosition = new Vector2(transform.position.x + (_boxCollider.offset.x * transform.root.localScale.x), transform.position.y + (_boxCollider.offset.y * transform.root.localScale.y));
+            Gizmos.matrix = Matrix4x4.TRS(hurtboxPosition, transform.rotation, transform.localScale);
 
             Vector2 gizmoPosition = new Vector2(_boxCollider.size.x, _boxCollider.size.y);
             Gizmos.DrawCube(Vector3.zero, gizmoPosition);

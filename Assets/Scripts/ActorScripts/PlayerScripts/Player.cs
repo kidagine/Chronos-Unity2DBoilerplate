@@ -10,10 +10,9 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	[SerializeField] private Rigidbody2D _rigidbody = default;
 	[SerializeField] private SpriteRenderer _spriteRenderer = default;
 	[SerializeField] private int _maxHealth = 3;
-	private bool _recovered = true;
 	private int _health;
 
-	public bool IsFlipped { get; private set; }
+	public bool IsRecovered { get; private set; } = true;
 
 
 	void Awake()
@@ -26,6 +25,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	{
 		if (_playerMovement.IsGrounded)
 		{
+			_playerAudio.Play("Attack");
 			_playerMovement.SetMovementLock(true);
 			_playerAnimator.AttackAnimation();
 		}
@@ -38,9 +38,9 @@ public class Player : MonoBehaviour, IHurtboxResponder
 
 	public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)
 	{
-		if (_recovered)
+		if (IsRecovered)
 		{
-			_recovered = false;
+			IsRecovered = false;
 			_health--;
 			_playerMovement.IsStunned = true;
 			Knockback(knockbackDirection, knockbackForce);
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		_playerUI.PlayerStatsUI.SetHealth(_health);
 		yield return new WaitForSeconds(0.25f);
 		_playerMovement.IsStunned = false;
-		_recovered = true;
+		IsRecovered = true;
 		_spriteRenderer.color = Color.white;
 	}
 
