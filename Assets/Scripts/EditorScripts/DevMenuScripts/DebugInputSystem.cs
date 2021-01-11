@@ -1,4 +1,5 @@
-﻿using UnityEngine.InputSystem;
+﻿#if UNITY_EDITOR
+using UnityEngine.InputSystem;
 using UnityEngine;
 
 public class DebugInputSystem : MonoBehaviour
@@ -21,12 +22,12 @@ public class DebugInputSystem : MonoBehaviour
 
     private void OpenDebug(InputAction.CallbackContext context)
     {
-        _debugConsole.ToggleDebugMenu(true);
+        _debugConsole.SetDebugMenuAction(true);
     }
 
     private void Cancel(InputAction.CallbackContext context)
     {
-        _debugConsole.ToggleDebugMenu(false);
+        _debugConsole.SetDebugMenuAction(false);
     }
 
     void OnEnable()
@@ -39,3 +40,4 @@ public class DebugInputSystem : MonoBehaviour
         _debugInput.Disable();
     }
 }
+#endif

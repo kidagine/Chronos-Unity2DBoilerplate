@@ -7,7 +7,6 @@ public class PlayerPauseMenu : MonoBehaviour
 
 	public void TogglePauseMenu()
 	{
-		Printer.Log("menu");
 		_pauseMenu.SetActive(!_pauseMenu.activeSelf);
 	}
 }

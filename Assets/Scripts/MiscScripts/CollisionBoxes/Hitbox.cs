@@ -3,6 +3,7 @@
 public class Hitbox : MonoBehaviour
 {
     [SerializeField] private Vector2 _hitboxSize = default;
+    [SerializeField] private Vector2 _offset = default;
     private Color _hitboxColor = Color.red;
     private IHitboxResponder _hitboxResponder;
 
@@ -14,7 +15,8 @@ public class Hitbox : MonoBehaviour
 
     void Update()
     {
-        RaycastHit2D hit = Physics2D.BoxCast(transform.position, _hitboxSize, 0.0f, Vector2.zero, 0.0f, LayerProvider.GetLayerMask(LayerMasksEnum.Hurtbox));
+        Vector2 hitboxPosition = new Vector2(transform.position.x + (_offset.x * transform.root.localScale.x), transform.position.y + (_offset.y * transform.root.localScale.y));
+        RaycastHit2D hit = Physics2D.BoxCast(hitboxPosition, _hitboxSize, 0.0f, Vector2.zero, 0.0f, LayerProvider.GetLayerMask(LayerMasksEnum.Hurtbox));
         if (hit.collider != null)
         {
             if (_hitboxResponder != null && !hit.collider.transform.IsChildOf(transform.root))
@@ -31,8 +33,9 @@ public class Hitbox : MonoBehaviour
     private void OnDrawGizmos()
     {
         _hitboxColor.a = 0.6f;
+        Vector2 hitboxPosition = new Vector2(transform.position.x + (_offset.x * transform.root.localScale.x), transform.position.y + (_offset.y * transform.root.localScale.y));
         Gizmos.color = _hitboxColor;
-        Gizmos.matrix = Matrix4x4.TRS(transform.position, transform.rotation, transform.localScale);
+        Gizmos.matrix = Matrix4x4.TRS(hitboxPosition, transform.rotation, Vector2.one);
 
         Gizmos.DrawCube(Vector3.zero, new Vector3(_hitboxSize.x, _hitboxSize.y, 1.0f));
         Gizmos.DrawWireCube(Vector3.zero, new Vector3(_hitboxSize.x, _hitboxSize.y, 1.0f));

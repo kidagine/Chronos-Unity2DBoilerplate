@@ -1,18 +1,30 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GroundedBox : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+	[SerializeField] private GameObject _groundedBoxResponder = default;
+	private LayerMask _groundLayerMask;
+	private IPushboxResponder _pushboxResponder;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+	private void Start()
+	{
+		_pushboxResponder = _groundedBoxResponder.GetComponent<IPushboxResponder>();
+		_groundLayerMask = LayerProvider.GetLayerMask(LayerMasksEnum.Ground);
+	}
+
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.layer == 10)
+		{
+			_pushboxResponder.OnGrounded();
+		}
+	}
+
+	void OnCollisionExit2D(Collision2D collision)
+	{
+		if (collision.gameObject.layer == 10)
+		{
+			_pushboxResponder.OnAir();
+		}
+	}
 }

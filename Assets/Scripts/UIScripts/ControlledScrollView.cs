@@ -8,7 +8,6 @@ public class ControlledScrollView : MonoBehaviour
     [Range(0.01f, 10.0f)]
     [SerializeField] private float _scrollingSpeed = 1.0f;
     [Range(0.01f, 10.0f)]
-    [SerializeField] private float _timeUntilOnEndInvoke = 1.0f;
     [SerializeField] private UnityEvent _onEnd = default;
     private float _topBound;
     private float _bottomBound;

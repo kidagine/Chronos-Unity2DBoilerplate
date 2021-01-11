@@ -35,12 +35,14 @@ public class DebugConsole : MonoBehaviour
 		}
 	}
 
-	public void ToggleDebugMenu(bool state)
+	public void SetDebugMenuAction(bool state)
 	{
+		if (_playerInputSystem != null)
+		{
+			_playerInputSystem.enabled = !_playerInputSystem.isActiveAndEnabled;
+		}
 		if (state && !_isDebugConsoleOpen)
 		{
-			if (_playerInputSystem != null)
-				_playerInputSystem.enabled = false;
 			_isDebugConsoleOpen = true;
 			_debugMenu.SetActive(true);
 			_eventSystem.SetSelectedGameObject(_startingOption);
@@ -49,8 +51,6 @@ public class DebugConsole : MonoBehaviour
 		{
 			if (_debugMenu.activeSelf)
 			{
-				if (_playerInputSystem != null)
-					_playerInputSystem.enabled = true;
 				_isDebugConsoleOpen = false;
 				_debugMenu.SetActive(false);
 			}

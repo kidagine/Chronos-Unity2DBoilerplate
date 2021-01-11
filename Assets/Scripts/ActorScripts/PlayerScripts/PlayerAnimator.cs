@@ -1,9 +1,11 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(SpriteRenderer))]
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField] private Animator _animator = default;
+    [SerializeField] private SpriteRenderer _spriteRenderer = default;
 
 
     public void IdleAnimation()
@@ -11,16 +13,14 @@ public class PlayerAnimator : MonoBehaviour
         _animator.SetBool("IsMoving", false);
     }
 
-    public void WalkForwardAnimation()
+    public void RunningAnimation()
     {
         _animator.SetBool("IsMoving", true);
-        _animator.SetBool("IsMovingForward", true);
     }
 
-    public void WalkBackwardAnimation()
+    public void SetVerticalVelocity(float value)
     {
-        _animator.SetBool("IsMoving", true);
-        _animator.SetBool("IsMovingForward", false);
+        _animator.SetFloat("VelocityY", value);
     }
 
     public void CrouchAnimation()
@@ -66,5 +66,24 @@ public class PlayerAnimator : MonoBehaviour
     public void DeathAnimation()
     {
         _animator.SetTrigger("Dead");
+    }
+
+    public void FlipSprite(bool state)
+    {
+        _spriteRenderer.flipX = state;
+    }
+
+    public void FlipBody(bool state)
+    {
+        float flipValue = Mathf.Abs(transform.parent.localScale.x);
+        if (state)
+        {
+            flipValue *= -1;
+        }
+        else
+        {
+            flipValue *= 1;
+        }
+        transform.parent.localScale = new Vector3(flipValue, transform.parent.localScale.y, transform.parent.localScale.z);
     }
 }

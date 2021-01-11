@@ -3,6 +3,8 @@
 public class PlayerAnimationEvents : MonoBehaviour
 {
     [SerializeField] private PlayerMovement _playerMovement = default;
+    [SerializeField] private EntityAudio _playerAudio = default;
+    [SerializeField] private GameObject _smokeStopRunningPrefab = default;
 
 
     public void PlayerDiedAnimationEvent()
@@ -18,5 +20,15 @@ public class PlayerAnimationEvents : MonoBehaviour
     public void PlayerUnlockMovementAnimationEvent()
     {
         _playerMovement.SetMovementLock(false);
+    }
+
+    public void PlayerFootstepAnimationEvent()
+    {
+        _playerAudio.PlayRandomFromSoundGroup("Footsteps");
+    }
+
+    public void PlayerStopRunningSmokeEffectAnimationEvent()
+    {
+        Instantiate(_smokeStopRunningPrefab, transform.position, Quaternion.identity);
     }
 }

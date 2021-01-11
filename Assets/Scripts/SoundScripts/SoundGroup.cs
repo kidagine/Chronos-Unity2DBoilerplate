@@ -2,8 +2,9 @@
 using System;
 
 [Serializable]
-public struct SoundGroup
+public class SoundGroup
 {
 	public string name;
+	public int lastPlayedSoundIndex;
 	public Sound[] sounds;
 }
