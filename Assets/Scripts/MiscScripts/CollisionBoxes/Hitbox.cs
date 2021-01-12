@@ -4,29 +4,47 @@ public class Hitbox : MonoBehaviour
 {
     [SerializeField] private Vector2 _hitboxSize = default;
     [SerializeField] private Vector2 _offset = default;
+    [SerializeField] private GameObject _destroyPrefab = default;
+    [SerializeField] private bool _destroyOnImpact = default;
     private Color _hitboxColor = Color.red;
+    private LayerMask _groundLayerMask;
+    private LayerMask _hurtboxLayerMask;
     private IHitboxResponder _hitboxResponder;
+    private bool _hasHit;
 
 
     void OnEnable()
 	{
         _hitboxResponder = GetComponent<IHitboxResponder>();
+        _hurtboxLayerMask = LayerProvider.GetLayerMask(LayerMasksEnum.Hurtbox);
+        _groundLayerMask = LayerProvider.GetLayerMask(LayerMasksEnum.Ground);
     }
 
     void Update()
     {
         Vector2 hitboxPosition = new Vector2(transform.position.x + (_offset.x * transform.root.localScale.x), transform.position.y + (_offset.y * transform.root.localScale.y));
-        RaycastHit2D hit = Physics2D.BoxCast(hitboxPosition, _hitboxSize, 0.0f, Vector2.zero, 0.0f, LayerProvider.GetLayerMask(LayerMasksEnum.Hurtbox));
+        RaycastHit2D hit = Physics2D.BoxCast(hitboxPosition, _hitboxSize, 0.0f, Vector2.zero, 0.0f, _hurtboxLayerMask | _groundLayerMask);
         if (hit.collider != null)
         {
-            if (_hitboxResponder != null && !hit.collider.transform.IsChildOf(transform.root))
+            if (_hitboxResponder != null && !hit.collider.transform.IsChildOf(transform.root) && !_hasHit)
             {
+                _hasHit = true;
                 if (hit.collider.transform.TryGetComponent(out Hurtbox hurtbox))
                 {
                     _hitboxResponder.HitboxCollided(hit, hurtbox);
                 }
+                if (_destroyOnImpact)
+                {
+                    Instantiate(_destroyPrefab, transform.position, Quaternion.identity);
+                    Destroy(gameObject);
+                }
             }
         }
+    }
+
+	void OnDisable()
+	{
+        _hasHit = false;
     }
 
 #if UNITY_EDITOR
