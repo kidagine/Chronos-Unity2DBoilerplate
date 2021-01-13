@@ -1,26 +1,27 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class DebugConsole : MonoBehaviour
 {
 	[SerializeField] private EventSystem _eventSystem = default;
-	[SerializeField] private GameObject _debugMenu = default;
-	[SerializeField] private GameObject _startingOption = default;
+	[SerializeField] private GameObject _startingMenu = default;
+	[SerializeField] private Selectable _startingOption = default;
 	private PlayerInput _playerInputSystem;
 	private GameObject _currentMenu;
 	private GameObject _previousMenu;
-	private GameObject _previousActiveOption;
 	private bool _isDebugConsoleOpen;
 
 
 	void Start()
 	{
+		_currentMenu = _startingMenu;
 		GameObject player = GameManager.Instance.GetPlayer();
 		if (player != null)
 		{
 			_playerInputSystem = player.GetComponent<PlayerInput>();
-			if (_debugMenu.activeSelf)
+			if (_startingMenu.activeSelf)
 			{
 				_playerInputSystem.enabled = false;
 			}
@@ -40,15 +41,15 @@ public class DebugConsole : MonoBehaviour
 		if (state && !_isDebugConsoleOpen)
 		{
 			_isDebugConsoleOpen = true;
-			_debugMenu.SetActive(true);
-			_eventSystem.SetSelectedGameObject(_startingOption);
+			_startingMenu.SetActive(true);
+			_startingOption.Select();
 		}
 		else if (_isDebugConsoleOpen)
 		{
-			if (_debugMenu.activeSelf)
+			if (_startingMenu.activeSelf)
 			{
 				_isDebugConsoleOpen = false;
-				_debugMenu.SetActive(false);
+				_startingMenu.SetActive(false);
 			}
 			else
 			{
@@ -59,21 +60,20 @@ public class DebugConsole : MonoBehaviour
 
 	private void GoBackMenu()
 	{
-		_eventSystem.SetSelectedGameObject(null);
 		_currentMenu.SetActive(false);
 		_previousMenu.SetActive(true);
-		_eventSystem.SetSelectedGameObject(_previousActiveOption);
+		_currentMenu = _previousMenu;
+		_startingOption.Select();
 	}
 
-	public void OpenMenu(GameObject newMenu, GameObject currentMenu, GameObject currentActiveOption, GameObject previousActiveOption)
+	public void OpenMenu(GameObject newMenu)
 	{
-		currentMenu.SetActive(false);
+		_eventSystem.SetSelectedGameObject(null);
+		_startingMenu.SetActive(false);
 		newMenu.SetActive(true);
-		_eventSystem.SetSelectedGameObject(currentActiveOption);
 
+		_previousMenu = _currentMenu;
 		_currentMenu = newMenu;
-		_previousMenu = currentMenu;
-		_previousActiveOption = previousActiveOption;
 	}
 }
 #endif

@@ -6,6 +6,7 @@ public class PrinterMO : MonoBehaviour
 {
     [SerializeField] private GameObject _textPrefab = default;
     [SerializeField] private Transform _printScrollViewContent = default;
+    [SerializeField] private RectTransform _printerContainer = default;
     public static PrinterMO Instance { get; private set; }
 
 
@@ -41,6 +42,12 @@ public class PrinterMO : MonoBehaviour
         if (print.TextColor != default)
         {
             printText.color = print.TextColor;
+        }
+        if (print.FlipToRight)
+        {
+            _printerContainer.anchorMax = new Vector2(1.0f, 0.0f);
+            _printerContainer.anchorMin = new Vector2(1.0f, 0.0f);
+            _printerContainer.anchoredPosition = new Vector2(_printerContainer.anchoredPosition.x * -1.0f, _printerContainer.anchoredPosition.y);
         }
         MoveContentDown();
         Destroy(textPrefab, print.Duration);
