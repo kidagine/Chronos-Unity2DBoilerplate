@@ -74,7 +74,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d9c5f41937dce6a4aaea431fd404415b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: de8fe0b2db9539d4ead4bd93ee62a919, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -97,7 +97,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -118,8 +118,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51729ec44d22e5f4f8bb5accfea6be2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _hitboxSize: {x: 0.5, y: 0.5}
-  _offset: {x: 0, y: 0}
+  _hitboxSize: {x: 0.15, y: 0.4}
+  _offset: {x: 0, y: 0.115}
+  _destroyPrefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
+    type: 3}
+  _destroyOnImpact: 1
 --- !u!114 &1817817627978130303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,7 +130,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817817627978130301}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b191dbb109095114dac32d097e01c56a, type: 3}
   m_Name: 
@@ -148,5 +151,5 @@ MonoBehaviour:
   _damage: 1
   _knockbackDirection: {x: 0, y: 0}
   _knockbackForce: 0
-  _hitEffectPrefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
+  _hitEffectPrefab: {fileID: 984813611755386008, guid: 282138f0f4608a44080f6b0fd756001e,
     type: 3}

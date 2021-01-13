@@ -16,9 +16,9 @@ public class DebugConsole : MonoBehaviour
 
 	void Start()
 	{
-		if (GameManager.Instance)
+		GameObject player = GameManager.Instance.GetPlayer();
+		if (player != null)
 		{
-			GameObject player = GameManager.Instance.GetPlayer();
 			_playerInputSystem = player.GetComponent<PlayerInput>();
 			if (_debugMenu.activeSelf)
 			{
@@ -28,10 +28,6 @@ public class DebugConsole : MonoBehaviour
 			{
 				_playerInputSystem.enabled = true;
 			}
-		}
-		else
-		{
-			Printer.Log("No GameManager", duration: 20.0f);
 		}
 	}
 

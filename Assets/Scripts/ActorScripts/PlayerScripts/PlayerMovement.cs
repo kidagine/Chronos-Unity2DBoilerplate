@@ -15,7 +15,6 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     private float _currentMoveSpeed;
     private int _jumpCount;
 
-    public bool IsStunned { get; set; }
     public bool IsGrounded { get; private set; }
     public Vector2 MovementInput { private get; set; }
 
@@ -33,7 +32,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 
     private void Movement()
     {
-        if (!IsStunned)
+        if (_player.IsRecovered)
         {
             _rigidbody.velocity = new Vector2(MovementInput.x * _currentMoveSpeed, _rigidbody.velocity.y);
             if (_rigidbody.velocity != Vector2.zero && MovementInput.x != 0.0f)

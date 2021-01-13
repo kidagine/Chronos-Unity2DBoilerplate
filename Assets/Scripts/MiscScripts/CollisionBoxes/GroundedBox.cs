@@ -3,18 +3,24 @@
 public class GroundedBox : MonoBehaviour
 {
 	[SerializeField] private GameObject _groundedBoxResponder = default;
-	private LayerMask _groundLayerMask;
+	private int _groundLayerMaskIndex;
 	private IPushboxResponder _pushboxResponder;
 
 	private void Start()
 	{
-		_pushboxResponder = _groundedBoxResponder.GetComponent<IPushboxResponder>();
-		_groundLayerMask = LayerProvider.GetLayerMask(LayerMasksEnum.Ground);
+		if (_groundedBoxResponder != null)
+		{
+			if (_groundedBoxResponder.TryGetComponent(out IPushboxResponder pushboxResponder))
+			{
+				_pushboxResponder = pushboxResponder;
+				_groundLayerMaskIndex = LayerProvider.GetLayerMaskIndex(LayerMasksEnum.Ground);
+			}
+		}
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
-		if (collision.gameObject.layer == 10)
+		if (collision.gameObject.layer == _groundLayerMaskIndex)
 		{
 			_pushboxResponder.OnGrounded();
 		}
@@ -22,7 +28,7 @@ public class GroundedBox : MonoBehaviour
 
 	void OnCollisionExit2D(Collision2D collision)
 	{
-		if (collision.gameObject.layer == 10)
+		if (collision.gameObject.layer == _groundLayerMaskIndex)
 		{
 			_pushboxResponder.OnAir();
 		}

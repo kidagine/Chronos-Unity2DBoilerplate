@@ -42,7 +42,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		{
 			IsRecovered = false;
 			_health--;
-			_playerMovement.IsStunned = true;
+			_playerMovement.SetMovementLock(true);
 			Knockback(knockbackDirection, knockbackForce);
 			_playerAudio.Play("Hurt");
 			if (_health > 0)
@@ -62,7 +62,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		_spriteRenderer.color = Color.red;
 		_playerUI.PlayerStatsUI.SetHealth(_health);
 		yield return new WaitForSeconds(0.25f);
-		_playerMovement.IsStunned = false;
+		_playerMovement.SetMovementLock(false);
 		IsRecovered = true;
 		_spriteRenderer.color = Color.white;
 	}

@@ -7,6 +7,13 @@ public class GameManager : Singleton<GameManager>
 
 	public GameObject GetPlayer()
     {
-        return _player;
+        if (_player != null)
+        {
+            return _player;
+        }
+        else
+        {
+            return null;
+        }
     }
 }

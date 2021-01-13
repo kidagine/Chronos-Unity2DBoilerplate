@@ -15,4 +15,10 @@ public class LayerProvider : MonoBehaviour
         }
         return layerMask;
     }
+
+    public static int GetLayerMaskIndex(LayerMasksEnum layerMasksEnum)
+    {
+        int index = LayerMask.NameToLayer(layerMasksEnum.ToString());
+        return index;
+    }
 }

@@ -368,6 +368,15 @@ TextureImporter:
   - first:
       213: 1402849731879774138
     second: PrototypeHero_noSword_26
+  - first:
+      213: 1476778607725183193
+    second: PrototypeHero_noSword_27
+  - first:
+      213: -8030873829792138707
+    second: PrototypeHero_noSword_28
+  - first:
+      213: -6012252004678384493
+    second: PrototypeHero_noSword_29
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -1015,6 +1024,69 @@ TextureImporter:
       bones: []
       spriteID: ab722f5066ce77310800000000000000
       internalID: 1402849731879774138
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeHero_noSword_27
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 0
+        width: 100
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d00b55c1529e7410800000000000000
+      internalID: 1476778607725183193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeHero_noSword_28
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 0
+        width: 100
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2a324b1dca9c8090800000000000000
+      internalID: -8030873829792138707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: PrototypeHero_noSword_29
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 0
+        width: 100
+        height: 80
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 394c301f7a0309ca0800000000000000
+      internalID: -6012252004678384493
       vertices: []
       indices: 
       edges: []
