@@ -13,6 +13,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	private int _health;
 
 	public bool IsRecovered { get; private set; } = true;
+	public bool IsAttacking { get; set; }
 
 
 	void Awake()
@@ -23,8 +24,9 @@ public class Player : MonoBehaviour, IHurtboxResponder
 
 	public void AttackAction()
 	{
-		if (_playerMovement.IsGrounded)
+		if (_playerMovement.IsGrounded && !IsAttacking)
 		{
+			IsAttacking = true;
 			_playerAudio.Play("Attack");
 			_playerMovement.SetMovementLock(true);
 			_playerAnimator.AttackAnimation();

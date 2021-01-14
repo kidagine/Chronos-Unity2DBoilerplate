@@ -24,25 +24,28 @@ public class Hitbox : MonoBehaviour
     {
         Vector2 hitboxPosition = new Vector2(transform.position.x + (_offset.x * transform.root.localScale.x), transform.position.y + (_offset.y * transform.root.localScale.y));
         RaycastHit2D[] hit = Physics2D.BoxCastAll(hitboxPosition, _hitboxSize, 0.0f, Vector2.zero, 0.0f, _hurtboxLayerMask | _groundLayerMask);
-		for (int i = 0; i < hit.Length; i++)
-		{
-            if (hit[i].collider != null)
+        if (hit.Length > 0)
+        {
+            for (int i = 0; i < hit.Length; i++)
             {
-                if (_hitboxResponder != null && !hit[i].collider.transform.IsChildOf(transform.root) && !_hasHit)
+                if (hit[i].collider != null)
                 {
-                    if (hit[i].collider.transform.TryGetComponent(out Hurtbox hurtbox))
+                    if (_hitboxResponder != null && !hit[i].collider.transform.IsChildOf(transform.root) && !_hasHit)
                     {
-                        _hitboxResponder.HitboxCollided(hit[i], hurtbox);
-                    }
-                    if (_destroyOnImpact)
-                    {
-                        Instantiate(_destroyPrefab, transform.position, Quaternion.identity);
-                        Destroy(gameObject);
+                        if (hit[i].collider.transform.TryGetComponent(out Hurtbox hurtbox))
+                        {
+                            _hitboxResponder.HitboxCollided(hit[i], hurtbox);
+                        }
+                        if (_destroyOnImpact)
+                        {
+                            Instantiate(_destroyPrefab, transform.position, Quaternion.identity);
+                            Destroy(gameObject);
+                        }
                     }
                 }
             }
+            _hasHit = true;
         }
-        _hasHit = true;
     }
 
     void OnDisable()

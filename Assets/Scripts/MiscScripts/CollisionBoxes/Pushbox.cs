@@ -6,7 +6,6 @@ public class Pushbox : MonoBehaviour
 {
     [SerializeField] private BoxCollider2D _boxCollider = default;
     [SerializeField] private bool _showGizmo = true;
-    [SerializeField] private bool _isGroundCheck = default;
     private Color _pushboxColor = Color.blue;
 
 

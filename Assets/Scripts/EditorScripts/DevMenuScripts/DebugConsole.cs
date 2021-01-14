@@ -14,9 +14,14 @@ public class DebugConsole : MonoBehaviour
 	private bool _isDebugConsoleOpen;
 
 
-	void Start()
+	void OnEnable()
 	{
 		_currentMenu = _startingMenu;
+		GameManager.Instance.OnPlayerFound += OnLevelLoaded;
+	}
+
+	private void OnLevelLoaded()
+	{
 		GameObject player = GameManager.Instance.GetPlayer();
 		if (player != null)
 		{
@@ -32,17 +37,21 @@ public class DebugConsole : MonoBehaviour
 		}
 	}
 
+	void OnDisable()
+	{
+		GameManager.Instance.OnPlayerFound -= OnLevelLoaded;
+	}
+
 	public void SetDebugMenuAction(bool state)
 	{
-		if (_playerInputSystem != null)
-		{
-			_playerInputSystem.enabled = !_playerInputSystem.isActiveAndEnabled;
-		}
+		GameObject player = GameManager.Instance.GetPlayer();
+		_playerInputSystem = player.GetComponent<PlayerInput>();
 		if (state && !_isDebugConsoleOpen)
 		{
 			_isDebugConsoleOpen = true;
 			_startingMenu.SetActive(true);
 			_startingOption.Select();
+			_playerInputSystem.enabled = false;
 		}
 		else if (_isDebugConsoleOpen)
 		{
@@ -50,6 +59,7 @@ public class DebugConsole : MonoBehaviour
 			{
 				_isDebugConsoleOpen = false;
 				_startingMenu.SetActive(false);
+				_playerInputSystem.enabled = true;
 			}
 			else
 			{
@@ -60,6 +70,7 @@ public class DebugConsole : MonoBehaviour
 
 	private void GoBackMenu()
 	{
+		_eventSystem.SetSelectedGameObject(null);
 		_currentMenu.SetActive(false);
 		_previousMenu.SetActive(true);
 		_currentMenu = _previousMenu;

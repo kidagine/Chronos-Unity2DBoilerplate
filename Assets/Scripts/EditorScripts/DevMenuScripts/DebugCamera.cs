@@ -1,11 +1,9 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
-using UnityEngine.UI;
 
 public class DebugCamera : MonoBehaviour
 {
 	[SerializeField] private DebugCameraMenu _debugCameraMenu = default;
-	[SerializeField] private Toggle _debugToggleCamera = default;
 	private Vector2 _movementInput;
 	private float _cameraSpeed = 1.5f;
 

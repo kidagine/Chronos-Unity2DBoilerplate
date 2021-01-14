@@ -1,29 +1,41 @@
-﻿using System;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Singleton<T> : MonoBehaviour
+public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static readonly Dictionary<Type, object> _singletons = new Dictionary<Type, object>();
 
+	private static T _instance;
 
-    public static T Instance
-    {
-        get
-        {
-            return (T)_singletons[typeof(T)];
-        }
-    }
+	private static object _lock = new object();
 
-    void OnEnable()
-    {
-        if (_singletons.ContainsKey(GetType()))
-        {
-            Destroy(this);
-        }
-        else
-        {
-            _singletons.Add(GetType(), this);
-        }
-    }
+	public static T Instance
+	{
+		get
+		{
+
+			lock (_lock)
+			{
+				if (_instance == null)
+				{
+					_instance = (T)FindObjectOfType(typeof(T));
+
+					if (FindObjectsOfType(typeof(T)).Length > 1)
+					{
+						return _instance;
+					}
+
+					if (_instance == null)
+					{
+						GameObject singleton = new GameObject();
+						_instance = singleton.AddComponent<T>();
+						singleton.name = "(singleton) " + typeof(T).ToString();
+					}
+				}
+
+				return _instance;
+			}
+		}
+	}
+
 }
