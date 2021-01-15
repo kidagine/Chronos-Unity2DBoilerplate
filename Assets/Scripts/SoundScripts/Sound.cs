@@ -14,4 +14,5 @@ public class Sound
 	public string name;
 	public bool loop;
 	public bool playOnAwake;
+	public bool playOneInstanceAtATime;
 }

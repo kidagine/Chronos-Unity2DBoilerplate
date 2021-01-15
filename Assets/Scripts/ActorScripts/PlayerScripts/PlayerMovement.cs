@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     [SerializeField] private PlayerAnimator _playerAnimator = default;
     [SerializeField] private Rigidbody2D _rigidbody = default;
     [SerializeField] private EntityAudio _playerAudio = default;
+    [Header("Prefabs")]
     [SerializeField] private GameObject _jumpSmokePrefab = default;
     [SerializeField] private GameObject _landSmokePrefab = default; 
     [SerializeField] private float _groundMoveSpeed = 5.0f;

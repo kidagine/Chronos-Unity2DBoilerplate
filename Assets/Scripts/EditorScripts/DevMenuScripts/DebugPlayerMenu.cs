@@ -2,16 +2,11 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DebugPlayerMenu : MonoBehaviour
+public class DebugPlayerMenu : MonoBehaviour, ISubMenu
 {
 	[SerializeField] private Selectable _startingOption = default;
 	[SerializeField] private TextMeshProUGUI _invicibilityText = default;
 
-
-	private void OnEnable()
-	{
-		_startingOption.Select();
-	}
 
 	public void SetInvicibility(bool state)
 	{
@@ -23,5 +18,10 @@ public class DebugPlayerMenu : MonoBehaviour
 		{
 			_invicibilityText.text = "Off";
 		}
+	}
+
+	public void Activate()
+	{
+		_startingOption.Select();
 	}
 }

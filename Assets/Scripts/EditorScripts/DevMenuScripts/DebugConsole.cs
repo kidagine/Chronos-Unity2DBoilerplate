@@ -45,7 +45,10 @@ public class DebugConsole : MonoBehaviour
 	public void SetDebugMenuAction(bool state)
 	{
 		GameObject player = GameManager.Instance.GetPlayer();
-		_playerInputSystem = player.GetComponent<PlayerInput>();
+		if (player != null)
+		{
+			_playerInputSystem = player.GetComponent<PlayerInput>();
+		}
 		if (state && !_isDebugConsoleOpen)
 		{
 			_isDebugConsoleOpen = true;
@@ -82,9 +85,14 @@ public class DebugConsole : MonoBehaviour
 		_eventSystem.SetSelectedGameObject(null);
 		_startingMenu.SetActive(false);
 		newMenu.SetActive(true);
+		if (newMenu.TryGetComponent(out ISubMenu subMenu))
+		{
+			subMenu.Activate();
+		}
 
 		_previousMenu = _currentMenu;
 		_currentMenu = newMenu;
+		newMenu.SetActive(true);
 	}
 }
 #endif

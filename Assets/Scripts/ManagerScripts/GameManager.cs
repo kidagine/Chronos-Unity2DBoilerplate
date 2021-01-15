@@ -7,11 +7,7 @@ public class GameManager : Singleton<GameManager>
     [SerializeField] private GameObject _player;
     public event Action OnPlayerFound;
 
-    private void Awake()
-	{
-        //CheckInstance();
 
-    }
 	void OnEnable()
     {
         _player = GameObject.FindGameObjectWithTag("Player");

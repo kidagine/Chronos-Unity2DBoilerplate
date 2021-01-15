@@ -13,7 +13,7 @@ public class SaveManager : Singleton<SaveManager>
     {
         GameObject player = GameManager.Instance.GetPlayer();
         SaveData[] saveData = GetSaves();
-        if (saveData[1] != null)
+        if (saveData[1] != null && player != null)
         {
             player.transform.position = new Vector2(saveData[1]._playerPosition[0], saveData[1]._playerPosition[1]);
         }

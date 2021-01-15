@@ -1,16 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class DebugSpawnMenu : MonoBehaviour
+public class DebugSpawnMenu : MonoBehaviour, ISubMenu
 {
 	[SerializeField] private Selectable _startingOption = default;
 	private readonly float _distanceFromSpawn = 1.5f;
 
-
-	private void OnEnable()
-	{
-		_startingOption.Select();
-	}
 
 	public void Spawn(GameObject objectToSpawn)
 	{
@@ -25,5 +20,10 @@ public class DebugSpawnMenu : MonoBehaviour
 			Printer.Log("Player not found, spawning in center", duration: 2.0f, flipToRight: true);
 			Instantiate(objectToSpawn, Vector2.zero, Quaternion.identity);
 		}
+	}
+
+	public void Activate()
+	{
+		_startingOption.Select();
 	}
 }

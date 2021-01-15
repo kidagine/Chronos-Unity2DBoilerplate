@@ -76,6 +76,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitboxSize: {x: 0.45, y: 0.47}
   _offset: {x: 0, y: 0}
+  _destroyPrefab: {fileID: 0}
+  _destroyOnImpact: 0
 --- !u!1 &903759321
 GameObject:
   m_ObjectHideFlags: 0
@@ -502,7 +504,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _boxCollider: {fileID: 759910335515660249}
   _showGizmo: 1
-  _isGroundCheck: 1
 --- !u!1 &759910336003477959
 GameObject:
   m_ObjectHideFlags: 0
@@ -549,6 +550,7 @@ GameObject:
   - component: {fileID: 759910337160371082}
   - component: {fileID: 1539008221801327677}
   - component: {fileID: 759910337160371080}
+  - component: {fileID: 3633829989900122434}
   - component: {fileID: 759910337160371083}
   - component: {fileID: 333648338796558923}
   m_Layer: 0
@@ -625,6 +627,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0c907056b93d849b6e521d4109bb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
   _playerAnimator: {fileID: 312063163827800735}
   _rigidbody: {fileID: 759910337160371082}
   _playerAudio: {fileID: 333648338796558923}
@@ -635,6 +638,18 @@ MonoBehaviour:
   _groundMoveSpeed: 4
   _jumpImpulse: 6
   _maxJumpCount: 2
+--- !u!114 &3633829989900122434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759910337160371077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 65e44a24c3597fc45948a6cee5b0c3d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &759910337160371083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -671,6 +686,7 @@ MonoBehaviour:
     name: Hurt
     loop: 0
     playOnAwake: 0
+    playOneInstanceAtATime: 0
   - source: {fileID: 0}
     clip: {fileID: 8300000, guid: 5329b99920a6642409627b29d379aff7, type: 3}
     volume: 1
@@ -678,6 +694,7 @@ MonoBehaviour:
     name: Landed
     loop: 0
     playOnAwake: 0
+    playOneInstanceAtATime: 0
   - source: {fileID: 0}
     clip: {fileID: 8300000, guid: 5a18f2ef7db9f1943bedda13ff85ee89, type: 3}
     volume: 1
@@ -685,6 +702,7 @@ MonoBehaviour:
     name: Jump
     loop: 0
     playOnAwake: 0
+    playOneInstanceAtATime: 0
   _soundGroups:
   - name: Footsteps
     lastPlayedSoundIndex: 0
@@ -696,6 +714,7 @@ MonoBehaviour:
       name: Footstep01
       loop: 0
       playOnAwake: 0
+      playOneInstanceAtATime: 0
     - source: {fileID: 0}
       clip: {fileID: 8300000, guid: ee00faf8b8432ff40a6e008c84d5ae59, type: 3}
       volume: 1
@@ -703,6 +722,7 @@ MonoBehaviour:
       name: Footstep02
       loop: 0
       playOnAwake: 0
+      playOneInstanceAtATime: 0
     - source: {fileID: 0}
       clip: {fileID: 8300000, guid: 9b0833c02b71a294faba6438278d937a, type: 3}
       volume: 1
@@ -710,6 +730,7 @@ MonoBehaviour:
       name: Footstep03
       loop: 0
       playOnAwake: 0
+      playOneInstanceAtATime: 0
 --- !u!1 &5860423288351442036
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,6 +861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484e4dfc0e0e7eb4b80b06dc6a93ac8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _player: {fileID: 0}
   _playerMovement: {fileID: 759910337160371080}
   _playerAudio: {fileID: 333648338796558923}
   _smokeStopRunningPrefab: {fileID: 7310271610845027193, guid: 39afca3c109b26049a80bc07593eb271,

@@ -9,7 +9,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	[SerializeField] private EntityAudio _playerAudio = default;
 	[SerializeField] private Rigidbody2D _rigidbody = default;
 	[SerializeField] private SpriteRenderer _spriteRenderer = default;
-	[SerializeField] private int _maxHealth = 3;
+	private int _maxHealth = 3;
 	private int _health;
 
 	public bool IsRecovered { get; private set; } = true;

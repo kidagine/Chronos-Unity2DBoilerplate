@@ -1,15 +1,10 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class DebugStateMenu : MonoBehaviour
+public class DebugStateMenu : MonoBehaviour, ISubMenu
 {
 	[SerializeField] private Selectable _startingOption = default;
 
-
-	private void OnEnable()
-	{
-		_startingOption.Select();
-	}
 
 	public void Save()
 	{
@@ -19,5 +14,20 @@ public class DebugStateMenu : MonoBehaviour
 	public void Load()
 	{
 		SaveManager.Instance.Load();
+	}
+
+	public void NextCheckpoint()
+	{
+		CheckpointManager.Instance.GoToNextCheckpoint();
+	}
+
+	public void PreviousCheckpoint()
+	{
+		CheckpointManager.Instance.GoToPreviousCheckpoint();
+	}
+
+	public void Activate()
+	{
+		_startingOption.Select();
 	}
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class DebugCameraMenu : MonoBehaviour
+public class DebugCameraMenu : MonoBehaviour, ISubMenu
 {
 	[SerializeField] private Selectable _startingOption = default;
     [SerializeField] private TextMeshProUGUI _debugCameraText = default;
@@ -13,10 +13,6 @@ public class DebugCameraMenu : MonoBehaviour
     [SerializeField] private DebugCameraInput _debugCameraInput = default;
     [SerializeField] private DebugInputSystem _debugInputSystem = default;
 
-    private void OnEnable()
-	{
-		_startingOption.Select();
-	}
 
     public void ToggleDebugCamera(bool state)
     {
@@ -38,5 +34,10 @@ public class DebugCameraMenu : MonoBehaviour
             _debugCameraInput.enabled = false;
             _debugCameraText.text = "Off";
         }
+    }
+
+	public void Activate()
+	{
+        _startingOption.Select();
     }
 }

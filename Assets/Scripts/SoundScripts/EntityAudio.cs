@@ -61,7 +61,17 @@ public class EntityAudio : MonoBehaviour
 	public void Play(string name)
 	{
 		Sound sound = Array.Find(_sounds, s => s.name == name);
-		sound.source.Play();
+		if (sound.playOneInstanceAtATime)
+		{
+			if (!IsPlaying(sound.name))
+			{
+				sound.source.Play();
+			}
+		}
+		else
+		{
+			sound.source.Play();
+		}
 	}
 
 	public void Stop(string name)
