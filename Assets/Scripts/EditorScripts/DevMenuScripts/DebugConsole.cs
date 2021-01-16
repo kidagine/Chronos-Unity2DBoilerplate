@@ -17,29 +17,6 @@ public class DebugConsole : MonoBehaviour
 	void OnEnable()
 	{
 		_currentMenu = _startingMenu;
-		GameManager.Instance.OnPlayerFound += OnLevelLoaded;
-	}
-
-	private void OnLevelLoaded()
-	{
-		GameObject player = GameManager.Instance.GetPlayer();
-		if (player != null)
-		{
-			_playerInputSystem = player.GetComponent<PlayerInput>();
-			if (_startingMenu.activeSelf)
-			{
-				_playerInputSystem.enabled = false;
-			}
-			else
-			{
-				_playerInputSystem.enabled = true;
-			}
-		}
-	}
-
-	void OnDisable()
-	{
-		GameManager.Instance.OnPlayerFound -= OnLevelLoaded;
 	}
 
 	public void SetDebugMenuAction(bool state)

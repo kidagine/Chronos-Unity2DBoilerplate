@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Animator))]
@@ -7,7 +8,7 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
     [SerializeField] private Animator _animator = default;
     [SerializeField] private EntityAudio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
-
+    [SerializeField] private UnityEvent _onClickedAnimationEnd = default;
 
     public void OnSelect(BaseEventData eventData)
     {
@@ -37,5 +38,10 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 	{
         _entityAudio.Play("Pressed");
         _animator.SetTrigger("Clicked");
+    }
+
+    public void OnClickedAnimationEnd()
+    {
+        _onClickedAnimationEnd?.Invoke();
     }
 }

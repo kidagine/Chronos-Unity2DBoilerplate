@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 465634140}
   - component: {fileID: 465634139}
   - component: {fileID: 465634144}
-  - component: {fileID: 465634143}
   m_Layer: 5
   m_Name: SplashScreen_canvas
   m_TagString: Untagged
@@ -180,8 +179,6 @@ MonoBehaviour:
   _startWaitTime: 0
   _fadeInTime: 2
   _idleTime: 4
-  _fadeOutTime: 1
-  _endWaitTime: 2
 --- !u!114 &465634140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,29 +239,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &465634143
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 465634137}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3f151a615993c9409fce9dfe770b1ae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _audioMixerGroup: {fileID: 3976621417299948276, guid: 37e1cd9c9cb5cd04b84c8b8502c44908,
-    type: 2}
-  _sounds:
-  - source: {fileID: 0}
-    clip: {fileID: 8300000, guid: 44a29f9536256244e8d2cb30d898729c, type: 3}
-    volume: 1
-    pitch: 1
-    name: 
-    loop: 0
-    playOnAwake: 1
-  _soundGroups: []
 --- !u!114 &465634144
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -421,6 +395,36 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1009829199}
   m_CullTransparentMesh: 0
+--- !u!1 &1172365107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1897126361, guid: 3fd1577d516b2984a9e75b7d2d75ee32,
+    type: 3}
+  m_PrefabInstance: {fileID: 3697175853025254319}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1172365108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1172365107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f151a615993c9409fce9dfe770b1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixerGroup: {fileID: 3976621417299948276, guid: 37e1cd9c9cb5cd04b84c8b8502c44908,
+    type: 2}
+  _sounds:
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 44a29f9536256244e8d2cb30d898729c, type: 3}
+    volume: 1
+    pitch: 1
+    name: 
+    loop: 0
+    playOnAwake: 1
+    playOneInstanceAtATime: 0
+  _soundGroups: []
 --- !u!1001 &248217223264788835
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : Singleton<GameManager>
 {
     [SerializeField] private GameObject _player;
+
     public event Action OnPlayerFound;
 
 
@@ -16,7 +17,11 @@ public class GameManager : Singleton<GameManager>
 
     private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
     {
-        _player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            _player = player;
+        }
 		OnPlayerFound?.Invoke();
     }
 

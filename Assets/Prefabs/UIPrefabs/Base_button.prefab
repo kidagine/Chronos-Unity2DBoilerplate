@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6593915275801847138}
   - component: {fileID: 462050410442653550}
   - component: {fileID: 4085925288718106020}
+  - component: {fileID: 310014038307064599}
   - component: {fileID: 5898852937064752381}
   m_Layer: 5
   m_Name: Base_button
@@ -168,6 +169,22 @@ MonoBehaviour:
   _animator: {fileID: 462050410442653550}
   _entityAudio: {fileID: 5898852937064752381}
   _eventSystem: {fileID: 0}
+  _onClickedAnimationEnd:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &310014038307064599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593915275801847140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f0a0f8ad16746b84982ed0102756707c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _baseButton: {fileID: 4085925288718106020}
 --- !u!114 &5898852937064752381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,6 +207,7 @@ MonoBehaviour:
     name: Selected
     loop: 0
     playOnAwake: 0
+    playOneInstanceAtATime: 0
   - source: {fileID: 0}
     clip: {fileID: 8300000, guid: d4d45d63f07e19944851ee9e55dd58b6, type: 3}
     volume: 0.5
@@ -197,6 +215,7 @@ MonoBehaviour:
     name: Pressed
     loop: 0
     playOnAwake: 0
+    playOneInstanceAtATime: 0
   _soundGroups: []
 --- !u!1 &6593915276225425953
 GameObject:
