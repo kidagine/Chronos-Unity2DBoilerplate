@@ -9,9 +9,9 @@ public static class Printer
 	private static bool _isLoaded;
 
 
-	public static void Log(object message, bool printToScreen = true, bool printToLog = true, Color textColor = default, float duration = 2.0f)
+	public static void Log(object message, bool printToScreen = true, bool printToLog = true, Color textColor = default, float duration = 2.0f, bool flipToRight = false)
 	{
-		Print print = new Print(message, printToScreen, printToLog, textColor, duration);
+		Print print = new Print(message, printToScreen, printToLog, textColor, duration, flipToRight);
 		if (_isLoaded)
 		{
 			_printerMO.Log(print);

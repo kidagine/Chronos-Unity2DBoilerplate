@@ -2,6 +2,7 @@
 
 public class PlayerAnimationEvents : MonoBehaviour
 {
+    [SerializeField] private Player _player = default;
     [SerializeField] private PlayerMovement _playerMovement = default;
     [SerializeField] private EntityAudio _playerAudio = default;
     [SerializeField] private GameObject _smokeStopRunningPrefab = default;
@@ -19,6 +20,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void PlayerUnlockMovementAnimationEvent()
     {
+        _player.IsAttacking = false;
         _playerMovement.SetMovementLock(false);
     }
 

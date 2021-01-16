@@ -223,5 +223,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 8883138326464333794}
-  _container: {fileID: 7311653348923414747}
   _fixedSize: {x: 400, y: 100}

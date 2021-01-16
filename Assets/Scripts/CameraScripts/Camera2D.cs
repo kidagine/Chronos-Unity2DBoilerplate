@@ -4,7 +4,6 @@
 public class Camera2D : MonoBehaviour
 {
     [SerializeField] private Transform[] _targets = default;
-    [SerializeField] private BoxCollider2D _boxCollider = default;
     [SerializeField] private Vector2 _offset = default;
     [SerializeField] private bool _lockVerticalTracking = default;
     [SerializeField] private bool _lockHorizontalTracking = default;

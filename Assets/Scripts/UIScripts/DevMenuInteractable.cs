@@ -2,12 +2,8 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class DevMenuButton : MonoBehaviour, ISelectHandler, IDeselectHandler
+public class DevMenuInteractable : MonoBehaviour, ISelectHandler, IDeselectHandler
 {
-    [SerializeField] private DebugConsole _debugConsole = default;
-    [SerializeField] private GameObject _currentMenu = default;
-    [SerializeField] private GameObject _newMenu = default;
-    [SerializeField] private GameObject _activeOption = default;
     [SerializeField] private TextMeshProUGUI _optionText = default;
     [SerializeField] private GameObject _selectedImage = default;
 
@@ -22,10 +18,5 @@ public class DevMenuButton : MonoBehaviour, ISelectHandler, IDeselectHandler
     {
         _optionText.color = Color.white;
         _selectedImage.SetActive(false);
-    }
-
-    public void OnPress()
-    {
-        _debugConsole.OpenMenu(_newMenu, _currentMenu, _activeOption, transform.GetChild(0).gameObject);
     }
 }

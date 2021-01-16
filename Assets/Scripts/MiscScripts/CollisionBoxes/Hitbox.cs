@@ -23,26 +23,32 @@ public class Hitbox : MonoBehaviour
     void Update()
     {
         Vector2 hitboxPosition = new Vector2(transform.position.x + (_offset.x * transform.root.localScale.x), transform.position.y + (_offset.y * transform.root.localScale.y));
-        RaycastHit2D hit = Physics2D.BoxCast(hitboxPosition, _hitboxSize, 0.0f, Vector2.zero, 0.0f, _hurtboxLayerMask | _groundLayerMask);
-        if (hit.collider != null)
+        RaycastHit2D[] hit = Physics2D.BoxCastAll(hitboxPosition, _hitboxSize, 0.0f, Vector2.zero, 0.0f, _hurtboxLayerMask | _groundLayerMask);
+        if (hit.Length > 0)
         {
-            if (_hitboxResponder != null && !hit.collider.transform.IsChildOf(transform.root) && !_hasHit)
+            for (int i = 0; i < hit.Length; i++)
             {
-                _hasHit = true;
-                if (hit.collider.transform.TryGetComponent(out Hurtbox hurtbox))
+                if (hit[i].collider != null)
                 {
-                    _hitboxResponder.HitboxCollided(hit, hurtbox);
-                }
-                if (_destroyOnImpact)
-                {
-                    Instantiate(_destroyPrefab, transform.position, Quaternion.identity);
-                    Destroy(gameObject);
+                    if (_hitboxResponder != null && !hit[i].collider.transform.IsChildOf(transform.root) && !_hasHit)
+                    {
+                        if (hit[i].collider.transform.TryGetComponent(out Hurtbox hurtbox))
+                        {
+                            _hitboxResponder.HitboxCollided(hit[i], hurtbox);
+                        }
+                        if (_destroyOnImpact)
+                        {
+                            Instantiate(_destroyPrefab, transform.position, Quaternion.identity);
+                            Destroy(gameObject);
+                        }
+                    }
                 }
             }
+            _hasHit = true;
         }
     }
 
-	void OnDisable()
+    void OnDisable()
 	{
         _hasHit = false;
     }

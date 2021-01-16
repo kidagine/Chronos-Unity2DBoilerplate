@@ -11,10 +11,6 @@ public class SplashScreen : MonoBehaviour
     [SerializeField] private float _fadeInTime = 1.0f;
     [Range(0.0f, 10.0f)]
     [SerializeField] private float _idleTime = 4.0f;
-    [Range(0.0f, 10.0f)]
-    [SerializeField] private float _fadeOutTime = 1.0f;
-    [Range(0.0f, 10.0f)]
-    [SerializeField] private float _endWaitTime = 1.0f;
         
 
 	void Awake()
