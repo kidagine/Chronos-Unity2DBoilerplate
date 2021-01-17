@@ -7,7 +7,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BaseSliderNormal_ANM
+  m_Name: ButtonBaseNormal_ANM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -105,7 +105,7 @@ AnimatorController:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: SaveDataButton_CTR
+  m_Name: BaseSlider_CTR
   serializedVersion: 5
   m_AnimatorParameters:
   - m_Name: IsSelected
@@ -140,7 +140,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BaseSliderClicked_ANM
+  m_Name: BaseButtonClicked_ANM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -154,7 +154,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9272755a331d25544b490e5db1d278ee, type: 2}
+  m_Motion: {fileID: 7400000, guid: 90a28359fbe99b74eb9deee9f4e08123, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -195,7 +195,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: BaseSliderSelected_ANM
+  m_Name: BaseButtonSelected_ANM
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -210,7 +210,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1ceb06d184330f84b9ec2f911b635c83, type: 2}
+  m_Motion: {fileID: 7400000, guid: 35f892834ea08d14a98f73a041754ba7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
