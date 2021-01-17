@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 6593915275801847138}
   - component: {fileID: 462050410442653550}
   - component: {fileID: 4085925288718106020}
-  - component: {fileID: 310014038307064599}
   - component: {fileID: 5898852937064752381}
   m_Layer: 5
   m_Name: Base_button
@@ -65,7 +64,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -172,19 +171,6 @@ MonoBehaviour:
   _onClickedAnimationEnd:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &310014038307064599
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6593915275801847140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0a0f8ad16746b84982ed0102756707c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _baseButton: {fileID: 4085925288718106020}
 --- !u!114 &5898852937064752381
 MonoBehaviour:
   m_ObjectHideFlags: 0

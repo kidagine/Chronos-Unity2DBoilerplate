@@ -10,6 +10,7 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private UnityEvent _onClickedAnimationEnd = default;
 
+
     public void OnSelect(BaseEventData eventData)
     {
         _entityAudio.Play("Selected");
@@ -40,7 +41,7 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
         _animator.SetTrigger("Clicked");
     }
 
-    public void OnClickedAnimationEnd()
+    public void OnClickedEndAnimationEvent()
     {
         _onClickedAnimationEnd?.Invoke();
     }

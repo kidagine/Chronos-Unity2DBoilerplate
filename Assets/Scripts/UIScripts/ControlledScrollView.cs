@@ -7,7 +7,6 @@ public class ControlledScrollView : MonoBehaviour
     [SerializeField] private RectTransform _content = default;
     [Range(0.01f, 10.0f)]
     [SerializeField] private float _scrollingSpeed = 1.0f;
-    [Range(0.01f, 10.0f)]
     [SerializeField] private UnityEvent _onEnd = default;
     private float _topBound;
     private float _bottomBound;
@@ -37,8 +36,13 @@ public class ControlledScrollView : MonoBehaviour
             else
             {
                 _finishedScroll = true;
-                _onEnd.Invoke();
+                _onEnd?.Invoke();
             }
         }
     }
+
+	void OnDisable()
+	{
+        _content.anchoredPosition = Vector2.zero;
+	}
 }

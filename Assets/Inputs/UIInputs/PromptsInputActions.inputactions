@@ -1,5 +1,5 @@
 {
-    "name": "PromptInputActions",
+    "name": "PromptsInputActions",
     "maps": [
         {
             "name": "Controls",
@@ -9,6 +9,14 @@
                     "name": "Confirm",
                     "type": "Button",
                     "id": "728b58db-609b-4c05-bfcb-b736bb997bbd",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Back",
+                    "type": "Button",
+                    "id": "8c738c33-5e1b-4961-9228-df7796bda8a6",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -34,6 +42,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Confirm",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "9d046ba4-a1d1-48e9-9134-23ede2af087e",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard",
+                    "action": "Back",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
