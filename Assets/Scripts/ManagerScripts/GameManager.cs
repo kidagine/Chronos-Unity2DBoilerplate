@@ -12,7 +12,7 @@ public class GameManager : Singleton<GameManager>
 	void OnEnable()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        LevelManager.Instance.onLevelLoaded += OnLevelLoaded;
+        LevelManager.Instance.OnLevelLoaded += OnLevelLoaded;
     }
 
     private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
@@ -27,7 +27,7 @@ public class GameManager : Singleton<GameManager>
 
     void OnDisable()
     {
-        LevelManager.Instance.onLevelLoaded -= OnLevelLoaded;
+        LevelManager.Instance.OnLevelLoaded -= OnLevelLoaded;
     }
 
     public GameObject GetPlayer()
