@@ -8,7 +8,7 @@ public class LevelManager : Singleton<LevelManager>
     private readonly string _sceneAppendix = "_SCN";
     private Levels _cachedLevel;
 
-    public event UnityAction<Scene, LoadSceneMode> onLevelLoaded
+    public event UnityAction<Scene, LoadSceneMode> OnLevelLoaded
     {
         add { SceneManager.sceneLoaded += value; }
         remove { SceneManager.sceneLoaded -= value; }

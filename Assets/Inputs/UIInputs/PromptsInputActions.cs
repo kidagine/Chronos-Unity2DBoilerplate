@@ -25,6 +25,14 @@ public class @PromptsInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""8c738c33-5e1b-4961-9228-df7796bda8a6"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -49,6 +57,17 @@ public class @PromptsInputActions : IInputActionCollection, IDisposable
                     ""action"": ""Confirm"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d046ba4-a1d1-48e9-9134-23ede2af087e"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -70,6 +89,7 @@ public class @PromptsInputActions : IInputActionCollection, IDisposable
         // Controls
         m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
         m_Controls_Confirm = m_Controls.FindAction("Confirm", throwIfNotFound: true);
+        m_Controls_Back = m_Controls.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -120,11 +140,13 @@ public class @PromptsInputActions : IInputActionCollection, IDisposable
     private readonly InputActionMap m_Controls;
     private IControlsActions m_ControlsActionsCallbackInterface;
     private readonly InputAction m_Controls_Confirm;
+    private readonly InputAction m_Controls_Back;
     public struct ControlsActions
     {
         private @PromptsInputActions m_Wrapper;
         public ControlsActions(@PromptsInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Confirm => m_Wrapper.m_Controls_Confirm;
+        public InputAction @Back => m_Wrapper.m_Controls_Back;
         public InputActionMap Get() { return m_Wrapper.m_Controls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -137,6 +159,9 @@ public class @PromptsInputActions : IInputActionCollection, IDisposable
                 @Confirm.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnConfirm;
                 @Confirm.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnConfirm;
                 @Confirm.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnConfirm;
+                @Back.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnBack;
             }
             m_Wrapper.m_ControlsActionsCallbackInterface = instance;
             if (instance != null)
@@ -144,6 +169,9 @@ public class @PromptsInputActions : IInputActionCollection, IDisposable
                 @Confirm.started += instance.OnConfirm;
                 @Confirm.performed += instance.OnConfirm;
                 @Confirm.canceled += instance.OnConfirm;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
             }
         }
     }
@@ -160,5 +188,6 @@ public class @PromptsInputActions : IInputActionCollection, IDisposable
     public interface IControlsActions
     {
         void OnConfirm(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }

@@ -2,8 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
-[RequireComponent(typeof(Animator))]
-public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Animator _animator = default;
     [SerializeField] private EntityAudio _entityAudio = default;
@@ -17,28 +16,28 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
         _animator.SetBool("IsSelected", true);
     }
 
-	public void OnDeselect(BaseEventData eventData)
+    public void OnDeselect(BaseEventData eventData)
     {
         _animator.SetBool("IsSelected", false);
     }
 
-	public void OnPointerEnter(PointerEventData eventData)
-	{
+    public void OnPointerEnter(PointerEventData eventData)
+    {
         _eventSystem.SetSelectedGameObject(gameObject);
     }
 
-	public void OnPointerExit(PointerEventData eventData)
-	{
+    public void OnPointerExit(PointerEventData eventData)
+    {
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
             _eventSystem.SetSelectedGameObject(null);
         }
     }
 
-	public void OnPress()
-	{
+    public void OnValueChange()
+    {
         _entityAudio.Play("Pressed");
-        _animator.SetTrigger("Clicked");
+        //_animator.SetTrigger("Clicked");
     }
 
     public void OnClickedEndAnimationEvent()
