@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEngine.UI;
 
 public class DebugSpawnMenu : MonoBehaviour, ISubMenu
@@ -27,3 +28,4 @@ public class DebugSpawnMenu : MonoBehaviour, ISubMenu
 		_startingOption.Select();
 	}
 }
+#endif

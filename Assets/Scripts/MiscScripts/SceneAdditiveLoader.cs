@@ -4,19 +4,11 @@ using UnityEngine.SceneManagement;
 
 public class SceneAdditiveLoader : MonoBehaviour
 {
+    [SerializeField] private Levels _level = default;
+
+
     void Awake()
     {
-        StartCoroutine(LoadDebugScene());
-    }
-
-    IEnumerator LoadDebugScene()
-    {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(0, LoadSceneMode.Additive);
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-        Printer.SetLoaded();
+        LevelManager.Instance.AddAdditiveScene(_level);
     }
 }

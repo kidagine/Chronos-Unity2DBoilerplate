@@ -1,5 +1,5 @@
-﻿using UnityEngine;
-using UnityEngine.Events;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelManager : Singleton<LevelManager>
@@ -7,13 +7,7 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private SceneTransitions _sceneTransitions = default;
     private readonly string _sceneAppendix = "_SCN";
     private Levels _cachedLevel;
-
-    public event UnityAction<Scene, LoadSceneMode> OnLevelLoaded
-    {
-        add { SceneManager.sceneLoaded += value; }
-        remove { SceneManager.sceneLoaded -= value; }
-    }
-
+        
 
     public void GoToLevel(Levels levels)
     {
@@ -43,6 +37,21 @@ public class LevelManager : Singleton<LevelManager>
             SoundManager.Instance.SetMasterVolumeToCached();
             SceneManager.LoadScene(_cachedLevel.LevelsEnums + _sceneAppendix);
         }
+    }
+
+    public void AddAdditiveScene(Levels levels)
+    {
+        StartCoroutine(AddAdditiveSceneCoroutine(levels));
+    }
+
+    IEnumerator AddAdditiveSceneCoroutine(Levels levels)
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levels.LevelsEnums + _sceneAppendix, LoadSceneMode.Additive);
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        //Printer.SetLoaded();
     }
 
     public void RestartLevel()

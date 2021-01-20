@@ -4,15 +4,13 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : Singleton<GameManager>
 {
-    [SerializeField] private GameObject _player;
-
+    private GameObject _player;
     public event Action OnPlayerFound;
 
 
 	void OnEnable()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
-        LevelManager.Instance.OnLevelLoaded += OnLevelLoaded;
     }
 
     private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
@@ -27,7 +25,6 @@ public class GameManager : Singleton<GameManager>
 
     void OnDisable()
     {
-        LevelManager.Instance.OnLevelLoaded -= OnLevelLoaded;
     }
 
     public GameObject GetPlayer()

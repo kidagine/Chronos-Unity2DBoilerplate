@@ -21,7 +21,7 @@ public class VideoMenu : MonoBehaviour, ISubMenu
 		_startingOption.Select();
 	}
 
-    public void SetScreenMode(float value)
+    public void SetScreenMode(int value)
     {
         switch (value)
         {
@@ -37,30 +37,30 @@ public class VideoMenu : MonoBehaviour, ISubMenu
         }
     }
 
-    public void SetResolution(float value)
+    public void SetResolution(int value)
     {
         switch (value)
         {
             case 0:
-                Screen.SetResolution(800, 600, false);
+                Screen.SetResolution(800, 600, Screen.fullScreenMode);
                 break;
             case 1:
-                Screen.SetResolution(1024, 768, false);
+                Screen.SetResolution(1024, 768, Screen.fullScreenMode);
                 break;
             case 2:
-                Screen.SetResolution(1280, 720, false);
+                Screen.SetResolution(1280, 720, Screen.fullScreenMode);
                 break;
             case 3:
-                Screen.SetResolution(1360, 768, false);
+                Screen.SetResolution(1360, 768, Screen.fullScreenMode);
                 break;
             case 4:
-                Screen.SetResolution(1600, 900, false);
+                Screen.SetResolution(1600, 900, Screen.fullScreenMode);
                 break;
             case 5:
-                Screen.SetResolution(1920, 1080, false);
+                Screen.SetResolution(1920, 1080, Screen.fullScreenMode);
                 break;
             case 6:
-                Screen.SetResolution(2560, 1440, false);
+                Screen.SetResolution(2560, 1440, Screen.fullScreenMode);
                 break;
         }
     }
@@ -69,11 +69,13 @@ public class VideoMenu : MonoBehaviour, ISubMenu
 	{
 		if (isOn)
 		{
+            Debug.Log("on");
 			QualitySettings.vSyncCount = 1;
 		}
 		else
 		{
-			QualitySettings.vSyncCount = 0;
+            Debug.Log("off");
+            QualitySettings.vSyncCount = 0;
 		}
 	}
 }

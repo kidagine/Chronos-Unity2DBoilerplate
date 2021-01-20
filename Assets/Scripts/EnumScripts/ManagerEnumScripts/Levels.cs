@@ -2,7 +2,8 @@
 using UnityEngine;
 
 [Serializable]
-public enum LevelsEnums { SplashScreen, PressStart, MainMenu, Game, Credits };
+public enum LevelsEnums { SplashScreen, PressStart, MainMenu, Game, Credits, DebugAdditive };
+
 
 public class Levels : MonoBehaviour
 {
