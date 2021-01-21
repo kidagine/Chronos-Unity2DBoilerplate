@@ -35,7 +35,7 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
         }
     }
 
-	public void OnPress()
+	public virtual void OnPress()
 	{
         _entityAudio.Play("Pressed");
         _animator.SetTrigger("Clicked");
