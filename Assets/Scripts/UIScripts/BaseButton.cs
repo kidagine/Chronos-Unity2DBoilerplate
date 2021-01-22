@@ -5,8 +5,8 @@ using UnityEngine.EventSystems;
 [RequireComponent(typeof(Animator))]
 public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
-    [SerializeField] private Animator _animator = default;
-    [SerializeField] private EntityAudio _entityAudio = default;
+    [SerializeField] protected Animator _animator = default;
+    [SerializeField] protected EntityAudio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private UnityEvent _onClickedAnimationEnd = default;
 

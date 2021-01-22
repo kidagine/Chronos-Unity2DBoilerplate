@@ -8,7 +8,7 @@ public class DebugConsole : MonoBehaviour
 	[SerializeField] private EventSystem _eventSystem = default;
 	[SerializeField] private GameObject _startingMenu = default;
 	[SerializeField] private Selectable _startingOption = default;
-	private PlayerInput _playerInputSystem;
+	private PlayerController _playerInputSystem;
 	private GameObject _currentMenu;
 	private GameObject _previousMenu;
 	private bool _isDebugConsoleOpen;
@@ -24,7 +24,7 @@ public class DebugConsole : MonoBehaviour
 		GameObject player = GameManager.Instance.GetPlayer();
 		if (player != null)
 		{
-			_playerInputSystem = player.GetComponent<PlayerInput>();
+			_playerInputSystem = player.GetComponent<PlayerController>();
 		}
 		if (state && !_isDebugConsoleOpen)
 		{

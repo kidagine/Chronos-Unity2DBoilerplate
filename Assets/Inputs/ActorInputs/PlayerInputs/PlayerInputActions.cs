@@ -15,7 +15,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
-            ""name"": ""Controls"",
+            ""name"": ""Gameplay"",
             ""id"": ""0e5bb1ed-0fc4-461c-9b8d-c81593dfa663"",
             ""actions"": [
                 {
@@ -209,7 +209,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""26fe8ec6-aac3-4b96-b0d1-7289e6018b09"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonWest"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Xbox"",
@@ -272,12 +272,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     ]
 }");
-        // Controls
-        m_Controls = asset.FindActionMap("Controls", throwIfNotFound: true);
-        m_Controls_Movement = m_Controls.FindAction("Movement", throwIfNotFound: true);
-        m_Controls_Jump = m_Controls.FindAction("Jump", throwIfNotFound: true);
-        m_Controls_Attack = m_Controls.FindAction("Attack", throwIfNotFound: true);
-        m_Controls_Menu = m_Controls.FindAction("Menu", throwIfNotFound: true);
+        // Gameplay
+        m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
+        m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
+        m_Gameplay_Jump = m_Gameplay.FindAction("Jump", throwIfNotFound: true);
+        m_Gameplay_Attack = m_Gameplay.FindAction("Attack", throwIfNotFound: true);
+        m_Gameplay_Menu = m_Gameplay.FindAction("Menu", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -324,44 +324,44 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         asset.Disable();
     }
 
-    // Controls
-    private readonly InputActionMap m_Controls;
-    private IControlsActions m_ControlsActionsCallbackInterface;
-    private readonly InputAction m_Controls_Movement;
-    private readonly InputAction m_Controls_Jump;
-    private readonly InputAction m_Controls_Attack;
-    private readonly InputAction m_Controls_Menu;
-    public struct ControlsActions
+    // Gameplay
+    private readonly InputActionMap m_Gameplay;
+    private IGameplayActions m_GameplayActionsCallbackInterface;
+    private readonly InputAction m_Gameplay_Movement;
+    private readonly InputAction m_Gameplay_Jump;
+    private readonly InputAction m_Gameplay_Attack;
+    private readonly InputAction m_Gameplay_Menu;
+    public struct GameplayActions
     {
         private @PlayerInputActions m_Wrapper;
-        public ControlsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Movement => m_Wrapper.m_Controls_Movement;
-        public InputAction @Jump => m_Wrapper.m_Controls_Jump;
-        public InputAction @Attack => m_Wrapper.m_Controls_Attack;
-        public InputAction @Menu => m_Wrapper.m_Controls_Menu;
-        public InputActionMap Get() { return m_Wrapper.m_Controls; }
+        public GameplayActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Gameplay_Movement;
+        public InputAction @Jump => m_Wrapper.m_Gameplay_Jump;
+        public InputAction @Attack => m_Wrapper.m_Gameplay_Attack;
+        public InputAction @Menu => m_Wrapper.m_Gameplay_Menu;
+        public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ControlsActions set) { return set.Get(); }
-        public void SetCallbacks(IControlsActions instance)
+        public static implicit operator InputActionMap(GameplayActions set) { return set.Get(); }
+        public void SetCallbacks(IGameplayActions instance)
         {
-            if (m_Wrapper.m_ControlsActionsCallbackInterface != null)
+            if (m_Wrapper.m_GameplayActionsCallbackInterface != null)
             {
-                @Movement.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
-                @Movement.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
-                @Movement.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMovement;
-                @Jump.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnJump;
-                @Jump.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnJump;
-                @Jump.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnJump;
-                @Attack.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAttack;
-                @Attack.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAttack;
-                @Attack.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnAttack;
-                @Menu.started -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMenu;
-                @Menu.performed -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMenu;
-                @Menu.canceled -= m_Wrapper.m_ControlsActionsCallbackInterface.OnMenu;
+                @Movement.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMovement;
+                @Jump.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnJump;
+                @Attack.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Attack.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Attack.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAttack;
+                @Menu.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
+                @Menu.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
+                @Menu.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMenu;
             }
-            m_Wrapper.m_ControlsActionsCallbackInterface = instance;
+            m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Movement.started += instance.OnMovement;
@@ -379,7 +379,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             }
         }
     }
-    public ControlsActions @Controls => new ControlsActions(this);
+    public GameplayActions @Gameplay => new GameplayActions(this);
     private int m_MouseKeyboardSchemeIndex = -1;
     public InputControlScheme MouseKeyboardScheme
     {
@@ -398,7 +398,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             return asset.controlSchemes[m_XboxSchemeIndex];
         }
     }
-    public interface IControlsActions
+    public interface IGameplayActions
     {
         void OnMovement(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);

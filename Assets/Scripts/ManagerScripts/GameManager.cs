@@ -2,13 +2,32 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : Singleton<GameManager>
+public class GameManager : MonoBehaviour
 {
     private GameObject _player;
     public event Action OnPlayerFound;
 
+    public static GameManager Instance { get; private set; }
 
-	void OnEnable()
+
+    void Awake()
+	{
+        CheckInstance();
+    }
+
+    private void CheckInstance()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    void OnEnable()
     {
         _player = GameObject.FindGameObjectWithTag("Player");
     }

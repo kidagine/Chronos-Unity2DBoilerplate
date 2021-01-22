@@ -2,7 +2,7 @@
     "name": "PlayerInputActions",
     "maps": [
         {
-            "name": "Controls",
+            "name": "Gameplay",
             "id": "0e5bb1ed-0fc4-461c-9b8d-c81593dfa663",
             "actions": [
                 {
@@ -196,7 +196,7 @@
                 {
                     "name": "",
                     "id": "26fe8ec6-aac3-4b96-b0d1-7289e6018b09",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",
