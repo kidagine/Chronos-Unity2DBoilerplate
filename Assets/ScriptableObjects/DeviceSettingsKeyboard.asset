@@ -14,13 +14,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deviceDisplayName: Keyboard & Mouse
   deviceDisplayColor: {r: 0, g: 0, b: 0, a: 0}
-  deviceHasContextIcons: 0
-  buttonNorthIcon: {fileID: 0}
-  buttonSouthIcon: {fileID: 0}
-  buttonWestIcon: {fileID: 0}
-  buttonEastIcon: {fileID: 0}
-  triggerRightFrontIcon: {fileID: 0}
-  triggerRightBackIcon: {fileID: 0}
-  triggerLeftFrontIcon: {fileID: 0}
-  triggerLeftBackIcon: {fileID: 0}
-  customContextIcons: []
+  promptIcons:
+  - customInputContextString: Escape
+    customInputContextIcon: {fileID: -3427373342163817297, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Enter
+    customInputContextIcon: {fileID: -4950568931732653585, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: 2
+    customInputContextIcon: {fileID: 2918760742231048514, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: 3
+    customInputContextIcon: {fileID: -6777073554157028510, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}
+  - customInputContextString: 
+    customInputContextIcon: {fileID: 0}

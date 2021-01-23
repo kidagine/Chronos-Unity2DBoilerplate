@@ -4,52 +4,52 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: 8421731627895708876
-    second: XboxPrompts_SPR_0
+    second: Button South
   - first:
       213: 7257370514176131973
-    second: XboxPrompts_SPR_1
+    second: Button West
   - first:
       213: 6019008833895482098
-    second: XboxPrompts_SPR_2
+    second: Button East
   - first:
       213: 9109483287266272244
-    second: XboxPrompts_SPR_3
+    second: Button North
   - first:
       213: 8902581171029920882
-    second: XboxPrompts_SPR_4
+    second: Left Trigger
   - first:
       213: 3996677117772739504
-    second: XboxPrompts_SPR_5
+    second: Right Trigger
   - first:
       213: -9012255119607160025
-    second: XboxPrompts_SPR_6
+    second: Left Shoulder
   - first:
       213: 2174891457464689724
-    second: XboxPrompts_SPR_7
+    second: Right Shoulder
   - first:
       213: -7661838336437956901
-    second: XboxPrompts_SPR_8
+    second: Select
   - first:
       213: -5593861225720821720
-    second: XboxPrompts_SPR_9
+    second: Start
   - first:
       213: 7304773530685498108
-    second: XboxPrompts_SPR_10
+    second: D-PadUp
   - first:
       213: 2663526778361868818
-    second: XboxPrompts_SPR_11
+    second: D-PadDown
   - first:
       213: 2759920815827734224
-    second: XboxPrompts_SPR_12
+    second: D-PadRight
   - first:
       213: 5884644920813671386
-    second: XboxPrompts_SPR_13
+    second: D-PadLeft
   - first:
       213: 5790694167077807523
-    second: XboxPrompts_SPR_14
+    second: Left Stick
   - first:
       213: -1821964666661841729
-    second: XboxPrompts_SPR_15
+    second: Right Stick
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -93,7 +93,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 16
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -135,7 +135,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: XboxPrompts_SPR_0
+      name: Button South
       rect:
         serializedVersion: 2
         x: 2
@@ -143,7 +143,7 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -156,7 +156,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_1
+      name: Button West
       rect:
         serializedVersion: 2
         x: 16
@@ -164,7 +164,7 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -177,7 +177,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_2
+      name: Button East
       rect:
         serializedVersion: 2
         x: 30
@@ -185,7 +185,7 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -198,7 +198,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_3
+      name: Button North
       rect:
         serializedVersion: 2
         x: 44
@@ -206,7 +206,7 @@ TextureImporter:
         width: 12
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -219,7 +219,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_4
+      name: Left Trigger
       rect:
         serializedVersion: 2
         x: 2
@@ -227,7 +227,7 @@ TextureImporter:
         width: 19
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -240,7 +240,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_5
+      name: Right Trigger
       rect:
         serializedVersion: 2
         x: 23
@@ -248,7 +248,7 @@ TextureImporter:
         width: 19
         height: 11
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -261,7 +261,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_6
+      name: Left Shoulder
       rect:
         serializedVersion: 2
         x: 44
@@ -269,7 +269,7 @@ TextureImporter:
         width: 17
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -282,7 +282,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_7
+      name: Right Shoulder
       rect:
         serializedVersion: 2
         x: 63
@@ -290,7 +290,7 @@ TextureImporter:
         width: 17
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -303,7 +303,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_8
+      name: Select
       rect:
         serializedVersion: 2
         x: 2
@@ -311,7 +311,7 @@ TextureImporter:
         width: 30
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -324,7 +324,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_9
+      name: Start
       rect:
         serializedVersion: 2
         x: 34
@@ -332,7 +332,7 @@ TextureImporter:
         width: 26
         height: 9
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -345,7 +345,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_10
+      name: D-PadUp
       rect:
         serializedVersion: 2
         x: 2
@@ -353,7 +353,7 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -366,7 +366,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_11
+      name: D-PadDown
       rect:
         serializedVersion: 2
         x: 22
@@ -374,7 +374,7 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -387,7 +387,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_12
+      name: D-PadRight
       rect:
         serializedVersion: 2
         x: 42
@@ -395,7 +395,7 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -408,7 +408,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_13
+      name: D-PadLeft
       rect:
         serializedVersion: 2
         x: 62
@@ -416,7 +416,7 @@ TextureImporter:
         width: 18
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -429,7 +429,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_14
+      name: Left Stick
       rect:
         serializedVersion: 2
         x: 2
@@ -437,7 +437,7 @@ TextureImporter:
         width: 19
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -450,7 +450,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: XboxPrompts_SPR_15
+      name: Right Stick
       rect:
         serializedVersion: 2
         x: 23
@@ -458,7 +458,7 @@ TextureImporter:
         width: 19
         height: 19
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []

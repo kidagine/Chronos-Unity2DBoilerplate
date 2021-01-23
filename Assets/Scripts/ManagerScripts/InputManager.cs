@@ -36,4 +36,24 @@ public class InputManager : MonoBehaviour
             //playerVisualsBehaviour.UpdatePlayerVisuals();
         }
     }
+
+    public InputAction GetInputAction(string actionName)
+    {
+        return _playerInput.actions.FindAction(actionName);
+    }
+
+    public PlayerInput GetPlayerInput()
+    {
+        return _playerInput;
+    }
+
+    public void ActivatePlayerInput()
+    {
+        _playerInput.ActivateInput();
+    }
+
+    public void DisablePlayerInput()
+    {
+        _playerInput.DeactivateInput();
+    }
 }

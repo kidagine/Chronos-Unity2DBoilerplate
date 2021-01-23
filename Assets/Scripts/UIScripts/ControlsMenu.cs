@@ -34,6 +34,7 @@ public class ControlsMenu : MonoBehaviour, ISubMenu
 
 	public void RemapInput(RemapButton remapButton)
 	{
+		InputManager.Instance.DisablePlayerInput();
 		remapButton.SetLock(true);
 		string controlsPath;
 		if (remapButton.IsControllerRemap)
@@ -54,6 +55,7 @@ public class ControlsMenu : MonoBehaviour, ISubMenu
 	private void RemapComplete(RemapButton remapButton)
 	{
 		_rebindingOperation.Dispose();
+		InputManager.Instance.ActivatePlayerInput();
 		int bindingIndex = remapButton.InputActionReference.action.GetBindingIndexForControl(remapButton.InputActionReference.action.controls[0]);
 		string name = InputControlPath.ToHumanReadableString(remapButton.InputActionReference.action.bindings[bindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 		if (remapButton.IsControllerRemap)
