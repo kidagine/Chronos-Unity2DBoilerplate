@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Animator _animator = default;
     [SerializeField] private EntityAudio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
-    [SerializeField] private UnityEvent _onClickedAnimationEnd = default;
-
+    [SerializeField] private Slider _slider = default;
 
     public void OnSelect(BaseEventData eventData)
     {
@@ -36,12 +35,12 @@ public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnValueChange()
     {
-        _entityAudio.Play("Pressed");
+        ////_entityAudio.Play("Pressed");
         //_animator.SetTrigger("Clicked");
     }
 
-    public void OnClickedEndAnimationEvent()
+    public void SetValue(float value)
     {
-        _onClickedAnimationEnd?.Invoke();
+        _slider.value = value;
     }
 }

@@ -5,7 +5,12 @@ public class PressAnyButton : MonoBehaviour
     [SerializeField] private Levels _levels = default;
 
 
-    void Update()
+    void Start()
+	{
+        SoundManager.Instance.SetMusic("slip");	
+	}
+
+	void Update()
     {
         if (Input.anyKeyDown)
         {

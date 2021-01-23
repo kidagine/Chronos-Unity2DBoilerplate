@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿#if UNITY_EDITOR
+using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class DebugCameraInput : MonoBehaviour
@@ -52,3 +53,4 @@ public class DebugCameraInput : MonoBehaviour
         _debugCameraInputActions.Disable();
     }
 }
+#endif

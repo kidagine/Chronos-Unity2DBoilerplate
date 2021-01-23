@@ -4,6 +4,7 @@ using UnityEngine.Audio;
 public class SoundManager : Singleton<SoundManager>
 {
     [SerializeField] private AudioMixer _mainAudioMixer = default;
+    [SerializeField] private EntityAudio _mainAudio = default;
     private float _cachedMasterVolume;
     private float lerpRatio = 0.0f;
     private float startLerpValue;
@@ -27,8 +28,13 @@ public class SoundManager : Singleton<SoundManager>
                 isLerping = false;
                 SetMasterVolume(endLerpValue, false);
             }
-            SetMasterVolume(value, false    );
+            SetMasterVolume(value, false);
         }
+    }
+
+    public void SetMusic(string name)
+    {
+        _mainAudio.Play(name);
     }
 
 	public void FadeInMasterVolume()

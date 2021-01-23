@@ -12,8 +12,8 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
     [SerializeField] private TextMeshProUGUI _onText = default;
     [SerializeField] private Image _offImage = default;
     [SerializeField] private TextMeshProUGUI _offText = default;
-    [SerializeField] private UnityEventBool _onToggle = default;
     [SerializeField] private bool _isOn = true;
+    [SerializeField] private UnityEventBool _onToggle = default;
 
 
     public void OnSelect(BaseEventData eventData)

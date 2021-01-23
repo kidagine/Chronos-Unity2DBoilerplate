@@ -2,7 +2,7 @@
     "name": "PlayerInputActions",
     "maps": [
         {
-            "name": "Controls",
+            "name": "Gameplay",
             "id": "0e5bb1ed-0fc4-461c-9b8d-c81593dfa663",
             "actions": [
                 {
@@ -162,19 +162,8 @@
                 },
                 {
                     "name": "",
-                    "id": "4816563c-0984-437f-b062-0bb2185c1daa",
-                    "path": "<Keyboard>/upArrow",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "Mouse&Keyboard",
-                    "action": "Jump",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "e6c1c512-8c09-4196-bd5b-407665697fa7",
-                    "path": "<Keyboard>/w",
+                    "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Mouse&Keyboard",
@@ -207,7 +196,7 @@
                 {
                     "name": "",
                     "id": "26fe8ec6-aac3-4b96-b0d1-7289e6018b09",
-                    "path": "<Gamepad>/buttonEast",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
                     "groups": "Xbox",

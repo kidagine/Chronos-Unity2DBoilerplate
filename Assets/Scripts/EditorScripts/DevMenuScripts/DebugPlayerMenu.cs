@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿#if UNITY_EDITOR
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,3 +26,4 @@ public class DebugPlayerMenu : MonoBehaviour, ISubMenu
 		_startingOption.Select();
 	}
 }
+#endif

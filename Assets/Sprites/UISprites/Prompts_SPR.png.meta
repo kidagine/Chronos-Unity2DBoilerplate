@@ -11,6 +11,15 @@ TextureImporter:
   - first:
       213: -2261761463727767377
     second: Prompts_SPR_1
+  - first:
+      213: 2886683004052095937
+    second: Prompts_SPR_2
+  - first:
+      213: 1304090223330934276
+    second: Prompts_SPR_3
+  - first:
+      213: 6479087775586280712
+    second: Prompts_SPR_4
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -96,34 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Prompts_SPR_0
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 46
-        width: 100
-        height: 35
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8e3653f5804bded30800000000000000
-      internalID: 4462420753844102120
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Prompts_SPR_1
       rect:
         serializedVersion: 2
-        x: 161
-        y: 46
-        width: 35
-        height: 35
+        x: 483
+        y: 375
+        width: 105
+        height: 105
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -133,6 +121,90 @@ TextureImporter:
       bones: []
       spriteID: fa0c6db9eeb9c90e0800000000000000
       internalID: -2261761463727767377
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prompts_SPR_0
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 375
+        width: 300
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00b3ab61bf087ff0800000000000000
+      internalID: -38263342143131634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prompts_SPR_2
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 234
+        width: 186
+        height: 108
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c3ceabd5ee8f0820800000000000000
+      internalID: 2886683004052095937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prompts_SPR_3
+      rect:
+        serializedVersion: 2
+        x: 483
+        y: 237
+        width: 105
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40e33b4162f091210800000000000000
+      internalID: 1304090223330934276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Prompts_SPR_4
+      rect:
+        serializedVersion: 2
+        x: 39
+        y: 96
+        width: 423
+        height: 105
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 805656411085ae950800000000000000
+      internalID: 6479087775586280712
       vertices: []
       indices: 
       edges: []
