@@ -43,6 +43,7 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnClickedEndAnimationEvent()
     {
+        _animator.Rebind();
         _onClickedAnimationEnd?.Invoke();
     }
 }

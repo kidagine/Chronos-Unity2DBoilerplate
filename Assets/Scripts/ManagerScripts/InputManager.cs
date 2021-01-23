@@ -5,9 +5,10 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput = default;
+    [SerializeField] private PlayerInput _promptsInput = default;
     public static InputManager Instance { get; private set; }
     private string _currentControlScheme;
-    public event Action ControlsChanged;
+    public event Action<bool> ControlsChanged;
 
     void Awake()
     {
@@ -32,12 +33,23 @@ public class InputManager : MonoBehaviour
         if (_playerInput.currentControlScheme != _currentControlScheme)
         {
             _currentControlScheme = _playerInput.currentControlScheme;
-            ControlsChanged?.Invoke();
-            //playerVisualsBehaviour.UpdatePlayerVisuals();
+            if (_currentControlScheme.Equals("Keyboard&Mouse"))
+            {
+                ControlsChanged?.Invoke(false);
+            }
+            else
+            {
+                ControlsChanged?.Invoke(true);
+            }
         }
     }
 
-    public InputAction GetInputAction(string actionName)
+    public InputAction GetPromptInputAction(string actionName)
+    {
+        return _promptsInput.actions.FindAction(actionName);
+    }
+
+    public InputAction GetPlayerInputAction(string actionName)
     {
         return _playerInput.actions.FindAction(actionName);
     }
