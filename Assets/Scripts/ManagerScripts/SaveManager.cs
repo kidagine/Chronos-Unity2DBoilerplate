@@ -6,8 +6,7 @@ public class SaveManager : Singleton<SaveManager>
 {
 	void OnEnable()
     {
-
-
+        GameManager.Instance.OnPlayerFound += OnLevelLoaded;
     }
 
     private void OnLevelLoaded()

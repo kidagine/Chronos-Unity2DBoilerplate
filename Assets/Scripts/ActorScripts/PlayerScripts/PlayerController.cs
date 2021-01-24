@@ -34,6 +34,7 @@ public class PlayerController : MonoBehaviour
 
     private void Attack(InputAction.CallbackContext context)
     {
+        Debug.Log("test");
         _player.AttackAction();
     }
 

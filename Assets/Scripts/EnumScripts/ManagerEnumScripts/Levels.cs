@@ -2,12 +2,12 @@
 using UnityEngine;
 
 [Serializable]
-public enum LevelsEnums { SplashScreen, PressStart, MainMenu, Game, Credits, DebugAdditive };
+public enum LevelEnum { SplashScreen, PressStart, MainMenu, Game, Credits, DebugAdditive };
 
 
 public class Levels : MonoBehaviour
 {
-	[SerializeField] private LevelsEnums _levelsEnum = default;
+	[SerializeField] private LevelEnum _levelsEnum = default;
 
-	public LevelsEnums LevelsEnums { get { return _levelsEnum; } private set { } }
+	public LevelEnum LevelsEnums { get { return _levelsEnum; } private set { } }
 }
