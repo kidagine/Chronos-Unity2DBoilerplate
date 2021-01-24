@@ -13,7 +13,7 @@ public class GroundedBox : MonoBehaviour
 			if (_groundedBoxResponder.TryGetComponent(out IPushboxResponder pushboxResponder))
 			{
 				_pushboxResponder = pushboxResponder;
-				_groundLayerMaskIndex = LayerProvider.GetLayerMaskIndex(LayerMasksEnum.Ground);
+				_groundLayerMaskIndex = LayerProvider.GetLayerMaskIndex(LayerMaskEnum.Ground);
 			}
 		}
 	}

@@ -16,8 +16,8 @@ public class Hitbox : MonoBehaviour
     void OnEnable()
 	{
         _hitboxResponder = GetComponent<IHitboxResponder>();
-        _hurtboxLayerMask = LayerProvider.GetLayerMask(LayerMasksEnum.Hurtbox);
-        _groundLayerMask = LayerProvider.GetLayerMask(LayerMasksEnum.Ground);
+        _hurtboxLayerMask = LayerProvider.GetLayerMask(LayerMaskEnum.Hurtbox);
+        _groundLayerMask = LayerProvider.GetLayerMask(LayerMaskEnum.Ground);
     }
 
     void Update()

@@ -2,11 +2,11 @@
 using UnityEngine;
 
 [Serializable]
-public enum LayerMasksEnum { Ground, Hurtbox };
+public enum LayerMaskEnum { Ground, Hurtbox, Player };
 
 public class LayerMasks : MonoBehaviour
 {
-	[SerializeField] private LayerMasksEnum _layerMasksEnum = default;
+	[SerializeField] private LayerMaskEnum _layerMasksEnum = default;
 
-	public LayerMasksEnum LayerMasksEnum { get { return _layerMasksEnum; } private set { } }
+	public LayerMaskEnum LayerMasksEnum { get { return _layerMasksEnum; } private set { } }
 }
