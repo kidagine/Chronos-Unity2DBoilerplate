@@ -5,17 +5,9 @@ using UnityEngine.UI;
 public class ControlsMenu : MonoBehaviour, ISubMenu
 {
 	[SerializeField] private Selectable _startingOption = default;
-	[SerializeField] private Image _someSprite = default;
+	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
 	private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
-	private Sprite[] _keyboardMousePromptSprites;
-	private Sprite[] _playstationPromptSprites;
 
-
-	void Start()
-	{
-		_keyboardMousePromptSprites = Resources.LoadAll<Sprite>("Sprites/KeyboardMousePrompts_SPR");
-		_playstationPromptSprites = Resources.LoadAll<Sprite>("Sprites/PlaystationPrompts_SPR");
-	}
 
 	public void OpenMenu(GameObject menu)
 	{
@@ -56,29 +48,12 @@ public class ControlsMenu : MonoBehaviour, ISubMenu
 	{
 		_rebindingOperation.Dispose();
 		InputManager.Instance.ActivatePlayerInput();
-		int bindingIndex = remapButton.InputActionReference.action.GetBindingIndexForControl(remapButton.InputActionReference.action.controls[0]);
-		string name = InputControlPath.ToHumanReadableString(remapButton.InputActionReference.action.bindings[bindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
-		if (remapButton.IsControllerRemap)
-		{
-			remapButton.PromptImage.sprite = GetPromptSpriteWithName(name, _playstationPromptSprites);
-		}
-		else
-		{
-			remapButton.PromptImage.sprite = GetPromptSpriteWithName(name, _keyboardMousePromptSprites);
-		}
-		remapButton.SetLock(false);
-	}
 
-	private Sprite GetPromptSpriteWithName(string name, Sprite[] promptSprites)
-	{
-		Sprite promptSprite = null;
-		for (int i = 0; i < promptSprites.Length; i++)
-		{
-			if (promptSprites[i].name.Equals(name))
-			{
-				promptSprite = promptSprites[i];
-			}
-		}
-		return promptSprite;
+		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Space");
+		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
+		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
+		
+		remapButton.SetLock(false);
 	}
 }
