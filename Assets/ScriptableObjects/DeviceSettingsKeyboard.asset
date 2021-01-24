@@ -21,8 +21,8 @@ MonoBehaviour:
   - customInputContextString: Enter
     customInputContextIcon: {fileID: -4950568931732653585, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
-  - customInputContextString: 2
-    customInputContextIcon: {fileID: 2918760742231048514, guid: c026204bc7fb08d408029c1534099470,
+  - customInputContextString: E
+    customInputContextIcon: {fileID: -5445187280585305228, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
   - customInputContextString: 3
     customInputContextIcon: {fileID: -6777073554157028510, guid: c026204bc7fb08d408029c1534099470,

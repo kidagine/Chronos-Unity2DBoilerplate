@@ -5,6 +5,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Player _player = default;
     [SerializeField] private PlayerMovement _playerMovement = default;
+    [SerializeField] private PlayerInteract _playerInteract = default;
     private PlayerInputActions _playerInput;
 
 
@@ -19,6 +20,7 @@ public class PlayerController : MonoBehaviour
         _playerInput.Gameplay.Movement.performed += SetMove;
         _playerInput.Gameplay.Jump.performed += Jump;
 		_playerInput.Gameplay.Attack.performed += Attack;
+        _playerInput.Gameplay.Interact.performed += Interact;
         _playerInput.Gameplay.Menu.performed += Menu;
     }
 
@@ -35,6 +37,11 @@ public class PlayerController : MonoBehaviour
     private void Attack(InputAction.CallbackContext context)
     {
         _player.AttackAction();
+    }
+
+    private void Interact(InputAction.CallbackContext context)
+    {
+        _playerInteract.InteractAction();
     }
 
     private void Menu(InputAction.CallbackContext context)
