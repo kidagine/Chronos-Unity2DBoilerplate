@@ -6,7 +6,7 @@ public class LayerProvider : MonoBehaviour
     private static List<LayerMask> _layerMasks = new List<LayerMask>();
 
 
-    public static LayerMask GetLayerMask(LayerMasksEnum layerMaskEnum)
+    public static LayerMask GetLayerMask(LayerMaskEnum layerMaskEnum)
     {
         LayerMask layerMask = LayerMask.GetMask(layerMaskEnum.ToString());
         if (!_layerMasks.Contains(layerMask))
@@ -16,7 +16,7 @@ public class LayerProvider : MonoBehaviour
         return layerMask;
     }
 
-    public static int GetLayerMaskIndex(LayerMasksEnum layerMasksEnum)
+    public static int GetLayerMaskIndex(LayerMaskEnum layerMasksEnum)
     {
         int index = LayerMask.NameToLayer(layerMasksEnum.ToString());
         return index;
