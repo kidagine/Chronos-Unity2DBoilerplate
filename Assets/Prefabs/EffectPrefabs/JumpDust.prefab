@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3251987732016797346}
   - component: {fileID: 2752384779580666244}
   - component: {fileID: 8508222849577656572}
-  - component: {fileID: 6849397148745641182}
+  - component: {fileID: 1313593593507210297}
   m_Layer: 0
   m_Name: JumpDust
   m_TagString: Untagged
@@ -47,6 +47,7 @@ SpriteRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -58,6 +59,7 @@ SpriteRenderer:
   m_ProbeAnchor: {fileID: 0}
   m_LightProbeVolumeOverride: {fileID: 0}
   m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
@@ -100,7 +102,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6849397148745641182
+--- !u!114 &1313593593507210297
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,6 +111,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 8935918012585647707}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb07ed6160897e4468b19717ac684f34, type: 3}
+  m_Script: {fileID: 11500000, guid: 99573c1dd74415344969767ed9521020, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

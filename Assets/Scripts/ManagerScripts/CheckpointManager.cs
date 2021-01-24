@@ -10,6 +10,7 @@ public class CheckpointManager : Singleton<CheckpointManager>
 
 	void OnEnable()
 	{
+		GameManager.Instance.OnPlayerFound += OnLevelLoaded;
 	}
 
 	void OnDisable()

@@ -26,8 +26,10 @@ public class Player : MonoBehaviour, IHurtboxResponder
 
 	public void AttackAction()
 	{
+		Debug.Log("a");
 		if (_playerMovement.IsGrounded && !IsAttacking)
 		{
+			Debug.Log("b");
 			IsAttacking = true;
 			_playerAudio.Play("Attack");
 			_playerMovement.SetMovementLock(true);

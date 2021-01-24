@@ -44,7 +44,6 @@ public class HierarchyManager : EditorWindow
         {
 			foreach (GameObject defaultSceneObject in _defaultSceneObjects)
             {
-                Debug.Log(defaultSceneObject.name);
                 GameObject findDefaultSceneObject = GameObject.Find(defaultSceneObject.name);
                 if (findDefaultSceneObject == null)
                 {
