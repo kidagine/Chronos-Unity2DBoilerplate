@@ -1,0 +1,26 @@
+fileFormatVersion: 2
+guid: b1c4c232616965f4bb2849468a8ea9b3
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 94073015eacc34c1d8fc6786e43d60ca, type: 3}
+  baseLanguageID: en-US
+  stringIDs:
+  - Sally-Sign-0
+  - Sally-Sign-1
+  - line:5d7a7c
+  - line:0a7e39
+  - line:ffffff
+  - Sally-Sign.Movement-2
+  - Sally-Sign.Combat-3
+  - Sally-Sign.Exit-4
+  compilationStatus: 1
+  isSuccesfullyCompiled: 1
+  compilationErrorMessage: 
+  baseLanguage: {fileID: 7128917941130120860, guid: b1c4c232616965f4bb2849468a8ea9b3,
+    type: 3}
+  localizations: []

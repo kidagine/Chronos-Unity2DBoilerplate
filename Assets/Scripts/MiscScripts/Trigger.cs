@@ -12,6 +12,11 @@ public class Trigger : MonoBehaviour
 		_activatorTag = _triggerResponder.ReceiveActivatorTag();
 	}
 
+	public void ResetTrigger()
+	{
+		_triggerResponder.TriggerEnter();
+	}
+
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.transform.root.CompareTag(_activatorTag))

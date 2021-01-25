@@ -1,0 +1,32 @@
+title: Sign
+tags: 
+colorID: 8
+position: 523,31
+---
+Sign: This is the Cronos game demo.
+Sign: Choose a tutorial you want to read on.
+[[Movement tutorial|Sign.Movement]] #line:5d7a7c
+[[Combat tutorial|Sign.Combat]] #line:0a7e39
+[[Leave|Sign.Exit]] #line:ffffff
+===
+title: Sign.Movement
+tags: 
+colorID: 0
+position: 305,305
+---
+Sign: Use WASD/Arrow keys or Left stick/D-pad to move.
+===
+title: Sign.Combat
+tags: 
+colorID: 0
+position: 780,308
+---
+Sign: Use J or X to attack.
+===
+title: Sign.Exit
+tags: 
+colorID: 0
+position: 516,-241
+---
+Empty Text
+===
