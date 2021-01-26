@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
-using Yarn.Unity;
 
 public class Sign : MonoBehaviour, ITriggerResponder
 {
 	[SerializeField] private Tags _tags = default;
 	[SerializeField] private GameObject _promptCanvas = default;
-	[SerializeField] private DialogueRunner _dialogueRunner = default;
-	[SerializeField] private YarnProgram _yarn = default;
+	[SerializeField] private DialogueStarter dialogueStarter = default;
 
 	
 	public string ReceiveActivatorTag()
@@ -27,6 +25,6 @@ public class Sign : MonoBehaviour, ITriggerResponder
 	public void Trigger()
 	{
 		_promptCanvas.SetActive(false);
-		_dialogueRunner.StartDialogue("Sign");
+		dialogueStarter.StartDialogue();
 	}
 }

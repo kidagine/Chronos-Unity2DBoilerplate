@@ -105,6 +105,13 @@ public class EntityAudio : MonoBehaviour
 		randomSound.source.Play();
 	}
 
+	public void SetSound(string name, float volume, float pitch)
+	{
+		Sound sound = Array.Find(_sounds, s => s.name == name);
+		sound.volume = volume;
+		sound.pitch = pitch;
+	}
+
 	public void FadeOut(string name)
 	{
 		Sound sound = Array.Find(_sounds, s => s.name == name);

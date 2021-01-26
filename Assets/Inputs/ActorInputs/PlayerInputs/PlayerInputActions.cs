@@ -364,6 +364,17 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""51ecf9a3-d944-42c8-a94c-3b753bc0edc2"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse&Keyboard"",
+                    ""action"": ""NextDialogue"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""eb9b0b4a-5daf-46cf-b78d-fe02b28bdcdf"",
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
