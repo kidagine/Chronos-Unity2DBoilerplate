@@ -1,0 +1,42 @@
+[
+	{
+		"title": "Sign",
+		"tags": "",
+		"body": "Sign: This is the Cronos game demo.\nSign: Choose a tutorial you want to read on.\n[[Movement tutorial|Sign.Movement]] #line:5d7a7c\n[[Combat tutorial|Sign.Combat]] #line:0a7e39\n[[Leave|Sign.Exit]] #line:ffffff",
+		"position": {
+			"x": 523,
+			"y": 31
+		},
+		"colorID": 8
+	},
+	{
+		"title": "Sign.Movement",
+		"tags": "",
+		"body": "Sign: Use WASD/Arrow keys or Left stick/D-pad to move.",
+		"position": {
+			"x": 305,
+			"y": 305
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Sign.Combat",
+		"tags": "",
+		"body": "Sign: Use J or X to attack.",
+		"position": {
+			"x": 780,
+			"y": 308
+		},
+		"colorID": 0
+	},
+	{
+		"title": "Sign.Exit",
+		"tags": "",
+		"body": "",
+		"position": {
+			"x": 516,
+			"y": -241
+		},
+		"colorID": 0
+	}
+]

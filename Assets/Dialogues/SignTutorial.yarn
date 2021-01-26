@@ -1,0 +1,32 @@
+title: SignTutorial
+tags: 
+colorID: 8
+position: 523,31
+---
+Sign: Choose a tutorial you want to read on.
+[[Movement|SignTutorial.Movement]] #line:5d7a7c
+[[Combat|SignTutorial.Combat]] #line:0a7e39
+[[Leave|SignTutorial.Exit]] #line:ffffff
+===
+title: SignTutorial.Movement
+tags: 
+colorID: 0
+position: 305,305
+---
+Sign: Use WASD/Arrow keys or Left stick/D-pad to move.
+Sign: Use Spacebar or A to jump.
+===
+title: SignTutorial.Combat
+tags: 
+colorID: 0
+position: 780,308
+---
+Sign: Use J or X to attack.
+===
+title: SignTutorial.Exit
+tags: 
+colorID: 0
+position: 516,-241
+---
+<<stop>>
+===

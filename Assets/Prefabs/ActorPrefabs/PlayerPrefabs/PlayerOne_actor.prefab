@@ -29,7 +29,7 @@ Transform:
   m_Children:
   - {fileID: 488949832}
   m_Father: {fileID: 759910336003477960}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &488949831
 GameObject:
@@ -182,7 +182,7 @@ Transform:
   - {fileID: 903759322}
   - {fileID: 1900292140}
   m_Father: {fileID: 759910336003477960}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650165798
 GameObject:
@@ -214,7 +214,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 759910336003477960}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5843324321263754543
 BoxCollider2D:
@@ -430,7 +430,7 @@ Transform:
   m_Children:
   - {fileID: 759910335515660247}
   m_Father: {fileID: 759910336003477960}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &759910335515660246
 GameObject:
@@ -531,10 +531,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 1650165799}
   - {fileID: 2561267389250463604}
   - {fileID: 1120979993}
   - {fileID: 405672218}
-  - {fileID: 1650165799}
   m_Father: {fileID: 8693666481483974621}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -550,8 +550,8 @@ GameObject:
   - component: {fileID: 759910337160371082}
   - component: {fileID: 1539008221801327677}
   - component: {fileID: 759910337160371080}
+  - component: {fileID: 8976487528706884435}
   - component: {fileID: 3633829989900122434}
-  - component: {fileID: 759910337160371083}
   - component: {fileID: 333648338796558923}
   m_Layer: 0
   m_Name: PlayerOne_actor
@@ -614,6 +614,8 @@ MonoBehaviour:
   _playerAudio: {fileID: 333648338796558923}
   _rigidbody: {fileID: 759910337160371082}
   _spriteRenderer: {fileID: 5864836275282370029}
+  _hurtboxes: {fileID: 0}
+  _pushboxes: {fileID: 0}
   _maxHealth: 10
 --- !u!114 &759910337160371080
 MonoBehaviour:
@@ -638,6 +640,18 @@ MonoBehaviour:
   _groundMoveSpeed: 4
   _jumpImpulse: 6
   _maxJumpCount: 2
+--- !u!114 &8976487528706884435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759910337160371077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19d51e70056267a4aabb3e07bb36c3c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3633829989900122434
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -650,20 +664,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e44a24c3597fc45948a6cee5b0c3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &759910337160371083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759910337160371077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c73e1368963c06e4db852c1ddb459b19, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 1539008221801327677}
-  _playerMovement: {fileID: 759910337160371080}
+  _health: 10
+  _speed: 3
+  _jumpImpulse: 0
+  _jumpCount: 1
+  _player: {fileID: 0}
+  _playerMovement: {fileID: 0}
 --- !u!114 &333648338796558923
 MonoBehaviour:
   m_ObjectHideFlags: 0

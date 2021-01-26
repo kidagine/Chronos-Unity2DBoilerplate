@@ -12,11 +12,32 @@ public class Trigger : MonoBehaviour
 		_activatorTag = _triggerResponder.ReceiveActivatorTag();
 	}
 
+	public void ResetTrigger()
+	{
+		_triggerResponder.TriggerEnter();
+	}
+
 	void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.transform.root.CompareTag(_activatorTag))
 		{
-			_triggerResponder.Trigger();
+			_triggerResponder.TriggerEnter();
+			if (collision.transform.root.TryGetComponent(out IExecutorResponder executorResponder))
+			{
+				executorResponder.TriggerEnter(_triggerResponder);
+			}
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D collision)
+	{
+		if (collision.transform.root.CompareTag(_activatorTag))
+		{
+			_triggerResponder.TriggerExit();
+			if (collision.transform.root.TryGetComponent(out IExecutorResponder executorResponder))
+			{
+				executorResponder.TriggerExit();
+			}
 		}
 	}
 }
