@@ -16,7 +16,7 @@ public class RemapButton : BaseButton
 
 	public void SetLock(bool state)
 	{
-		_entityAudio.Play("Pressed");
+		_entityAudio.Sound("Pressed").Play();
 		if (state)
 		{
 			_animator.SetBool("IsClicked", true);

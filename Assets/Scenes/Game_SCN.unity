@@ -2121,6 +2121,34 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 2891545240997621112}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &488949832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488949831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f151a615993c9409fce9dfe770b1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixerGroup: {fileID: -3276983034543540519, guid: 37e1cd9c9cb5cd04b84c8b8502c44908,
+    type: 2}
+  _sounds: []
+  _sounds3D:
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 6cddc0e0c00b2be4fb1a1a38eab133d6, type: 3}
+    volume: 1
+    pitch: 1
+    name: Hit
+    loop: 0
+    playOnAwake: 0
+    playOneInstanceAtATime: 0
+    minDistance: 1
+    maxDistance: 15
+  _soundGroups: []
+  _soundGroups3D: []
 --- !u!114 &488949834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2138,6 +2166,7 @@ MonoBehaviour:
   _knockbackForce: 0.2
   _hitEffectPrefab: {fileID: 984813611755386008, guid: 282138f0f4608a44080f6b0fd756001e,
     type: 3}
+  _destroyOnImpact: 0
 --- !u!1 &641395158
 GameObject:
   m_ObjectHideFlags: 0
@@ -3283,8 +3312,8 @@ MonoBehaviour:
   _trigger: {fileID: 971739197}
   _textColor: {r: 1, g: 1, b: 1, a: 1}
   _textSpeed: 0.085
-  _volume: 1
-  _pitch: 1
+  _volume: 0.08
+  _pitch: 0.8
 --- !u!114 &971739196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3565,7 +3594,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1064946879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5330,9 +5359,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1501923391}
-        m_MethodName: Play
-        m_Mode: 5
+      - m_Target: {fileID: 1501923392}
+        m_MethodName: PlayDialogueTypingSound
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -5376,7 +5405,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  yarnScripts: []
+  yarnScripts:
+  - {fileID: 2480198943629176163, guid: f3d388857ec917047802b652c02a9c99, type: 3}
   textLanguage: 0
   variableStorage: {fileID: 1501923388}
   dialogueUI: {fileID: 1501923389}
@@ -5414,7 +5444,9 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     playOneInstanceAtATime: 0
+  _sounds3D: []
   _soundGroups: []
+  _soundGroups3D: []
 --- !u!114 &1501923392
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5517,8 +5549,8 @@ MonoBehaviour:
   _trigger: {fileID: 1517087942}
   _textColor: {r: 1, g: 1, b: 1, a: 1}
   _textSpeed: 0.085
-  _volume: 1
-  _pitch: 1
+  _volume: 0.08
+  _pitch: 0.8
 --- !u!114 &1517087941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8382,8 +8414,8 @@ MonoBehaviour:
   _trigger: {fileID: 2118223353}
   _textColor: {r: 1, g: 1, b: 1, a: 1}
   _textSpeed: 0.085
-  _volume: 1
-  _pitch: 1
+  _volume: 0.08
+  _pitch: 0.8
 --- !u!1001 &2891545240997621112
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8582,7 +8614,7 @@ PrefabInstance:
     - target: {fileID: 8725972032605764306, guid: 93d186fd751a69c4099ce7598eba2888,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8725972032605764306, guid: 93d186fd751a69c4099ce7598eba2888,
         type: 3}

@@ -13,7 +13,7 @@ public class TargetDummy : MonoBehaviour, IHurtboxResponder
 	{
 		if (_isRecovered)
 		{
-			_targetDummyAudio.Play("Hurt");
+			_targetDummyAudio.Sound("Hurt").Play();
 			Knockback(knockbackDirection, knockbackForce);
 			StartCoroutine(FlashRedCoroutine());
 		}

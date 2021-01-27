@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using UnityEngine;
 using UnityEngine.Audio;
 
@@ -7,14 +6,17 @@ public class EntityAudio : MonoBehaviour
 {
 	[SerializeField] private AudioMixerGroup _audioMixerGroup = default;
 	[SerializeField] private Sound[] _sounds = default;
+	[SerializeField] private Sound3D[] _sounds3D = default;
 	[SerializeField] private SoundGroup[] _soundGroups = default;
-	private Sound _previousRandomSound;
+	[SerializeField] private SoundGroup3D[] _soundGroups3D = default;
 
 
 	void Awake()
 	{
 		SetSounds();
+		SetSounds3D();
 		SetSoundGroups();
+		SetSoundGroups3D();
 	}
 
 	private void SetSounds()
@@ -32,6 +34,29 @@ public class EntityAudio : MonoBehaviour
 			if (sound.source.playOnAwake)
 			{
 				sound.source.Play();
+			}
+		}
+	}
+
+	private void SetSounds3D()
+	{
+		foreach (Sound3D sound3D in _sounds3D)
+		{
+			sound3D.source = gameObject.AddComponent<AudioSource>();
+			sound3D.source.clip = sound3D.clip;
+
+			sound3D.source.volume = sound3D.volume;
+			sound3D.source.pitch = sound3D.pitch;
+			sound3D.source.loop = sound3D.loop;
+			sound3D.source.playOnAwake = sound3D.playOnAwake;
+			sound3D.source.outputAudioMixerGroup = _audioMixerGroup;
+			sound3D.source.spatialBlend = 1.0f;
+			sound3D.source.rolloffMode = AudioRolloffMode.Linear;
+			sound3D.source.maxDistance = sound3D.maxDistance;
+			sound3D.source.minDistance = sound3D.minDistance;
+			if (sound3D.source.playOnAwake)
+			{
+				sound3D.source.Play();
 			}
 		}
 	}
@@ -58,81 +83,43 @@ public class EntityAudio : MonoBehaviour
 		}
 	}
 
-	public void Play(string name)
+	private void SetSoundGroups3D()
 	{
-		Sound sound = Array.Find(_sounds, s => s.name == name);
-		if (sound.playOneInstanceAtATime)
+		foreach (SoundGroup3D soundGroup3D in _soundGroups3D)
 		{
-			if (!IsPlaying(sound.name))
+			foreach (Sound3D sound3D in soundGroup3D.sounds)
 			{
-				sound.source.Play();
+				sound3D.source = gameObject.AddComponent<AudioSource>();
+				sound3D.source.clip = sound3D.clip;
+
+				sound3D.source.volume = sound3D.volume;
+				sound3D.source.pitch = sound3D.pitch;
+				sound3D.source.loop = sound3D.loop;
+				sound3D.source.playOnAwake = sound3D.playOnAwake;
+				sound3D.source.outputAudioMixerGroup = _audioMixerGroup;
+				if (sound3D.source.playOnAwake)
+				{
+					sound3D.source.Play();
+				}
 			}
 		}
-		else
-		{
-			sound.source.Play();
-		}
 	}
 
-	public void Stop(string name)
+	public Sound Sound(string name)
 	{
 		Sound sound = Array.Find(_sounds, s => s.name == name);
-		sound.source.Stop();
+		return sound;
 	}
 
-	public bool IsPlaying(string name)
+	public Sound3D Sound3D(string name)
 	{
-		Sound sound = Array.Find(_sounds, s => s.name == name);
-		return sound.source.isPlaying;
+		Sound3D sound3D = Array.Find(_sounds3D, s => s.name == name);
+		return sound3D;
 	}
 
-	public void PlaySoundsInSequence(string name)
+	public SoundGroup SoundGroup(string name)
 	{
-		SoundGroup soundGroup = Array.Find(_soundGroups, sg => sg.name == name);
-		int index = soundGroup.lastPlayedSoundIndex;
-		soundGroup.sounds[index].source.Play();
-		soundGroup.lastPlayedSoundIndex++;
-		if (soundGroup.lastPlayedSoundIndex >= soundGroup.sounds.Length)
-		{
-			soundGroup.lastPlayedSoundIndex = 0;
-		}
-	}
-
-	public void PlayRandomFromSoundGroup(string name)
-	{
-		SoundGroup soundGroup = Array.Find(_soundGroups, sg => sg.name == name);
-		Sound randomSound = soundGroup.sounds[UnityEngine.Random.Range(0, soundGroup.sounds.Length)];
-		randomSound.source.Play();
-	}
-
-	public void SetSound(string name, float volume, float pitch)
-	{
-		Sound sound = Array.Find(_sounds, s => s.name == name);
-		sound.volume = volume;
-		sound.pitch = pitch;
-	}
-
-	public void FadeOut(string name)
-	{
-		Sound sound = Array.Find(_sounds, s => s.name == name);
-		StartCoroutine(FadeOutCoroutine(sound));
-	}
-
-	IEnumerator FadeOutCoroutine(Sound sound)
-	{
-		sound.volume = 1;
-		sound.loop = false;
-
-		bool isVolumeLowered = false;
-		while (!isVolumeLowered)
-		{
-			sound.source.volume -= 0.04f;
-			if (sound.source.volume <= 0.0f)
-			{
-				isVolumeLowered = true;
-			}
-			yield return new WaitForSeconds(0.05f);
-		}
-		sound.source.Stop();
+		SoundGroup soundGroup = Array.Find(_soundGroups, s => s.name == name);
+		return soundGroup;
 	}
 }

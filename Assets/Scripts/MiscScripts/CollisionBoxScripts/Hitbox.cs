@@ -4,8 +4,6 @@ public class Hitbox : MonoBehaviour
 {
     [SerializeField] private Vector2 _hitboxSize = default;
     [SerializeField] private Vector2 _offset = default;
-    [SerializeField] private GameObject _destroyPrefab = default;
-    [SerializeField] private bool _destroyOnImpact = default;
     private Color _hitboxColor = Color.red;
     private LayerMask _groundLayerMask;
     private LayerMask _hurtboxLayerMask;
@@ -36,10 +34,9 @@ public class Hitbox : MonoBehaviour
                         {
                             _hitboxResponder.HitboxCollided(hit[i], hurtbox);
                         }
-                        if (_destroyOnImpact)
+                        else
                         {
-                            Instantiate(_destroyPrefab, transform.position, Quaternion.identity);
-                            Destroy(gameObject);
+                            _hitboxResponder.HitboxCollided(hit[i]);
                         }
                     }
                 }

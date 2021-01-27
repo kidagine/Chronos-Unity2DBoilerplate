@@ -29,7 +29,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		if (_playerMovement.IsGrounded && !IsAttacking)
 		{
 			IsAttacking = true;
-			_playerAudio.Play("Attack");
+			_playerAudio.Sound("Attack").Play();
 			_playerMovement.SetMovementLock(true);
 			_playerAnimator.AttackAnimation();
 		}
@@ -48,7 +48,6 @@ public class Player : MonoBehaviour, IHurtboxResponder
 			_health--;
 			_playerMovement.SetMovementLock(true);
 			Knockback(knockbackDirection, knockbackForce);
-			_playerAudio.Play("Hurt");
 			if (_health > 0)
 			{
 				_playerAnimator.HurtAnimation();

@@ -26,7 +26,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void PlayerFootstepAnimationEvent()
     {
-        _playerAudio.PlayRandomFromSoundGroup("Footsteps");
+        _playerAudio.SoundGroup("Footsteps").PlayInRandom();
     }
 
     public void PlayerStopRunningSmokeEffectAnimationEvent()

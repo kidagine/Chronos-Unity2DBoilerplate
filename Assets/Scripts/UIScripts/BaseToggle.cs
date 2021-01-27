@@ -18,7 +18,7 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnSelect(BaseEventData eventData)
     {
-        _entityAudio.Play("Selected");
+        _entityAudio.Sound("Selected").Play();
         _animator.SetBool("IsSelected", true);
     }
 
@@ -65,7 +65,7 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     private void SetToggle(bool isOn)
     {
-        _entityAudio.Play("Pressed");
+        _entityAudio.Sound("Pressed").Play();
         if (isOn)
         {
             _onImage.color = Color.white;
