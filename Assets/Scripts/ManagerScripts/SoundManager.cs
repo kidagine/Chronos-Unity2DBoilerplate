@@ -34,7 +34,7 @@ public class SoundManager : Singleton<SoundManager>
 
     public void SetMusic(string name)
     {
-        _mainAudio.Play(name);
+        _mainAudio.Sound(name).Play();
     }
 
 	public void FadeInMasterVolume()

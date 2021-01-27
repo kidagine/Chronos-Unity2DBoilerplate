@@ -13,7 +13,7 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnSelect(BaseEventData eventData)
     {
-        _entityAudio.Play("Selected");
+        _entityAudio.Sound("Selected").Play();
         _animator.SetBool("IsSelected", true);
     }
 
@@ -37,7 +37,7 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
 	public virtual void OnPress()
 	{
-        _entityAudio.Play("Pressed");
+        _entityAudio.Sound("Pressed").Play();
         _animator.SetTrigger("Clicked");
     }
 

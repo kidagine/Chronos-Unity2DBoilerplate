@@ -18,11 +18,6 @@ public class DialogueStarter : MonoBehaviour
     [SerializeField] private float _pitch = 1.0f;
 
 
-    void Start()
-	{
-
-    }
-
 	public void StartDialogue()
     {
         _dialogueSystem.SetDialogueAudio(_volume, _pitch);

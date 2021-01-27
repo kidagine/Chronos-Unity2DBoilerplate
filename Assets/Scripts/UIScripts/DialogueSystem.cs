@@ -20,9 +20,16 @@ public class DialogueSystem : MonoBehaviour
         _audio = GetComponent<EntityAudio>();
     }
 
+    public void PlayDialogueTypingSound()
+    {
+        _audio.Sound("Typing").Play();
+    }
+
     public void SetDialogueAudio(float volume, float pitch)
     {
-        _audio.SetSound("Typing", volume, pitch);
+        Sound typingSound = _audio.Sound("Typing");
+        typingSound.source.volume = volume;
+        typingSound.source.pitch = pitch;
     }
 
     public void SetDialogueText(Color textColor, float textSpeed)

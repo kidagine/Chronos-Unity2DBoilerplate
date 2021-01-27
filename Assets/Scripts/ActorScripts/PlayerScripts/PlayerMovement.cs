@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     {
         if (_jumpCount < _maxJumpCount && _rigidbody.constraints != RigidbodyConstraints2D.FreezePosition)
         {
-            _playerAudio.Play("Jump");
+            _playerAudio.Sound("Jump").Play();
             _jumpCount++;
             _rigidbody.AddForce(new Vector2(0.0f, _jumpImpulse), ForceMode2D.Impulse);
             Instantiate(_jumpSmokePrefab, transform.position, Quaternion.identity);
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 	{
         if (!IsGrounded)
         {
-            _playerAudio.Play("Landed");
+            _playerAudio.Sound("Landed").Play();
             _currentMoveSpeed = _groundMoveSpeed;
             IsGrounded = true;
             _jumpCount = 0;

@@ -58,7 +58,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     {
         if (_rightArrowBackgroundImage.raycastTarget)
         {
-            _entityAudio.Play("Pressed");
+            _entityAudio.Sound("Pressed").Play();
             for (int i = 0; i < _values.childCount; i++)
             {
                 if (_values.GetChild(i).gameObject.activeSelf)
@@ -87,7 +87,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     {
         if (_leftArrowBackgroundImage.raycastTarget)
         {
-            _entityAudio.Play("Pressed");
+            _entityAudio.Sound("Pressed").Play();
             for (int i = 0; i < _values.childCount; i++)
             {
                 if (_values.GetChild(i).gameObject.activeSelf)
@@ -119,7 +119,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
 
     public void OnSelect(BaseEventData eventData)
     {
-        _entityAudio.Play("Selected");
+        _entityAudio.Sound("Selected").Play();
         _animator.SetBool("IsSelected", true);
     }
 

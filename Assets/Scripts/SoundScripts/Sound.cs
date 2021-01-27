@@ -15,4 +15,40 @@ public class Sound
 	public bool loop;
 	public bool playOnAwake;
 	public bool playOneInstanceAtATime;
+
+	public event Action OnSoundEnd;
+
+
+	public void Play()
+	{
+		source.Play();
+	}
+
+	public void Stop()
+	{
+		source.Stop();
+	}
+
+	public bool IsPlaying()
+	{
+		return source.isPlaying;
+	}
+
+	public async void FadeOut()
+	{
+		volume = 1;
+		loop = false;
+
+		bool isVolumeLowered = false;
+		while (!isVolumeLowered)
+		{
+			source.volume -= 0.04f;
+			if (source.volume <= 0.0f)
+			{
+				isVolumeLowered = true;
+			}
+			await UpdateTimer.WaitFor(0.05f);
+		}
+		source.Stop();
+	}
 }

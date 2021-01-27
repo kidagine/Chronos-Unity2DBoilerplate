@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1817817627978130302}
   - component: {fileID: 1817817627978130303}
   - component: {fileID: 1817817627978130275}
+  - component: {fileID: -4606782070759474026}
   m_Layer: 8
   m_Name: Arrow_hitbox
   m_TagString: Untagged
@@ -120,9 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitboxSize: {x: 0.15, y: 0.4}
   _offset: {x: 0, y: 0.115}
-  _destroyPrefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
-    type: 3}
-  _destroyOnImpact: 1
 --- !u!114 &1817817627978130303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -151,5 +149,38 @@ MonoBehaviour:
   _damage: 1
   _knockbackDirection: {x: 0, y: 0}
   _knockbackForce: 0
-  _hitEffectPrefab: {fileID: 984813611755386008, guid: 282138f0f4608a44080f6b0fd756001e,
+  _hitEffectPrefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
     type: 3}
+  _destroyOnImpact: 1
+--- !u!114 &-4606782070759474026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817817627978130301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f151a615993c9409fce9dfe770b1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixerGroup: {fileID: -3276983034543540519, guid: 37e1cd9c9cb5cd04b84c8b8502c44908,
+    type: 2}
+  _sounds: []
+  _sounds3D:
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 6cddc0e0c00b2be4fb1a1a38eab133d6, type: 3}
+    volume: 1
+    pitch: 1
+    name: Hit
+    loop: 0
+    playOnAwake: 0
+    playOneInstanceAtATime: 0
+    minDistance: 1
+    maxDistance: 15
+  _soundGroups: []
+  _soundGroups3D:
+  - name: 
+    lastPlayedSoundIndex: 0
+    sounds: []
+    sounds3D: []
