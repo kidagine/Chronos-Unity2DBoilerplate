@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1817817627978130273}
   - component: {fileID: 1817817627978130272}
   - component: {fileID: 1817817627978130302}
-  - component: {fileID: 1817817627978130303}
   - component: {fileID: 1817817627978130275}
+  - component: {fileID: -1003173197279580599}
   - component: {fileID: -4606782070759474026}
   m_Layer: 8
   m_Name: Arrow_hitbox
@@ -121,19 +121,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitboxSize: {x: 0.15, y: 0.4}
   _offset: {x: 0, y: 0.115}
---- !u!114 &1817817627978130303
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1817817627978130301}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b191dbb109095114dac32d097e01c56a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _destroyTime: 1.5
 --- !u!114 &1817817627978130275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -149,9 +136,21 @@ MonoBehaviour:
   _damage: 1
   _knockbackDirection: {x: 0, y: 0}
   _knockbackForce: 0
-  _hitEffectPrefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
-    type: 3}
+  _hitPrefabName: LandSmoke
   _destroyOnImpact: 1
+--- !u!114 &-1003173197279580599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817817627978130301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7a963b138eb5b43b6b434dbd8a798e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _timeUntilDeactivate: 1.5
 --- !u!114 &-4606782070759474026
 MonoBehaviour:
   m_ObjectHideFlags: 0

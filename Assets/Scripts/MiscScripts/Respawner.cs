@@ -2,22 +2,18 @@
 
 public class Respawner : MonoBehaviour
 {
-    [SerializeField] private GameObject _respawnObject = default;
-    [SerializeField] private float _timeBetweenRespawn = 2.0f;
+    [SerializeField] private string _arrowPrefabName = default;
+    [SerializeField] private float _timeUntilRespawn = 2.0f;
+    private float _currentTimeUntilRespawn;
 
 
-
-    void Start()
+    void Update()
     {
-        RespawnObjectOverTime();
-    }
-
-    private async void RespawnObjectOverTime()
-    {
-        while (_respawnObject != null)
+        _currentTimeUntilRespawn -= Time.deltaTime;
+        if (_currentTimeUntilRespawn <= 0.0f)
         {
-            await UpdateTimer.WaitFor(_timeBetweenRespawn);
-            Instantiate(_respawnObject, transform.position, Quaternion.identity);
+            _currentTimeUntilRespawn = _timeUntilRespawn;
+            ObjectPoolingManager.Instance.Spawn("Arrow", transform.position, Quaternion.identity);
         }
     }
 }

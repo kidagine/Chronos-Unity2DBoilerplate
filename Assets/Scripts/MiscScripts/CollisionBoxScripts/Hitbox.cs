@@ -11,7 +11,7 @@ public class Hitbox : MonoBehaviour
     private bool _hasHit;
 
 
-    void OnEnable()
+    void Start()
 	{
         _hitboxResponder = GetComponent<IHitboxResponder>();
         _hurtboxLayerMask = LayerProvider.GetLayerMask(LayerMaskEnum.Hurtbox);
@@ -41,11 +41,19 @@ public class Hitbox : MonoBehaviour
                     }
                 }
             }
-            _hasHit = true;
+            if (!_hasHit)
+            {
+                _hasHit = true;
+            }
         }
     }
 
-    void OnDisable()
+    void OnEnable()
+	{
+        _hasHit = false;
+	}
+
+	void OnDisable()
 	{
         _hasHit = false;
     }
