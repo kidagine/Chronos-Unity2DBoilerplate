@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697175854664139341}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1665533697
 MonoBehaviour:
@@ -136,7 +136,9 @@ MonoBehaviour:
     loop: 1
     playOnAwake: 0
     playOneInstanceAtATime: 0
+  _sounds3D: []
   _soundGroups: []
+  _soundGroups3D: []
 --- !u!1 &2042396595
 GameObject:
   m_ObjectHideFlags: 0
@@ -223,6 +225,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6cf339eb3eb1f47862c0c0c139bd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1536094339120631849
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8109592810931674948}
+  - component: {fileID: 8000637028284820077}
+  m_Layer: 0
+  m_Name: ObjectPooling_manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8109592810931674948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536094339120631849}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3697175854664139341}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8000637028284820077
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1536094339120631849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d41e7c6ffb111a43adac20fa0ad1ca8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectPools: []
 --- !u!1 &3697175854173125371
 GameObject:
   m_ObjectHideFlags: 0
@@ -299,8 +345,9 @@ Transform:
   - {fileID: 1897126362}
   - {fileID: 5375550171461450136}
   - {fileID: 2042396596}
-  - {fileID: 8122019807793771105}
   - {fileID: 1665533696}
+  - {fileID: 8122019807793771105}
+  - {fileID: 8109592810931674948}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -346,7 +393,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3697175854664139341}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4404345118255137736
 MonoBehaviour:

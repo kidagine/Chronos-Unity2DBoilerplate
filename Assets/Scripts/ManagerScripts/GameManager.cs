@@ -2,30 +2,11 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class GameManager : Singleton<GameManager>
 {
     private GameObject _player;
     public event Action OnPlayerFound;
 
-    public static GameManager Instance { get; private set; }
-
-
-    void Awake()
-	{
-        CheckInstance();
-    }
-
-    private void CheckInstance()
-    {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            Instance = this;
-        }
-    }
 
     void OnEnable()
     {
