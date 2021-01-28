@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4555610423623949676}
   - component: {fileID: 568636000171437010}
   m_Layer: 0
-  m_Name: LandingDust
+  m_Name: LandSmoke_spriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
