@@ -6,6 +6,8 @@ public class Damager : MonoBehaviour, IHitboxResponder
 	[SerializeField] private Vector2 _knockbackDirection = default;
 	[SerializeField] private float _knockbackForce = default;
 	[SerializeField] private string _hitPrefabName = default;
+	[SerializeField] private LayerMask _damageLayers = default;
+	[SerializeField] private LayerMask _impactLayers = default;
 	[SerializeField] private bool _destroyOnImpact = default;
 	private EntityAudio _damagerAudio;
 	private SpriteRenderer _spriteRenderer;
@@ -20,23 +22,28 @@ public class Damager : MonoBehaviour, IHitboxResponder
 		_rigidbody = GetComponent<Rigidbody2D>();
 	}
 
-	public void HitboxCollided(RaycastHit2D hit, Hurtbox hurtbox)
+	public void HitboxCollided(RaycastHit2D hit, Hurtbox hurtbox = null)
 	{
-		Vector2 hitEffectDirection = hit.transform.root.position - transform.root.position;
-		if (hitEffectDirection.x > 0.0f)
+		if (hurtbox != null)
 		{
-			hurtbox.TakeDamage(_damage, _knockbackDirection, _knockbackForce);
+			if ((((1 << hit.collider.transform.root.gameObject.layer) & _damageLayers) != 0) || (((1 << hit.collider.gameObject.layer) & _damageLayers) != 0))
+			{
+				Vector2 hitEffectDirection = hit.transform.root.position - transform.root.position;
+				if (hitEffectDirection.x > 0.0f)
+				{
+					hurtbox.TakeDamage(_damage, _knockbackDirection, _knockbackForce);
+				}
+				else
+				{
+					hurtbox.TakeDamage(_damage, new Vector2(_knockbackDirection.x * -1.0f, _knockbackDirection.y), _knockbackForce);
+				}
+			}
 		}
-		else
+		if ((((1 << hit.collider.transform.root.gameObject.layer) & _impactLayers) != 0) || (((1 << hit.collider.gameObject.layer) & _impactLayers) != 0))
 		{
-			hurtbox.TakeDamage(_damage, new Vector2(_knockbackDirection.x * -1.0f, _knockbackDirection.y), _knockbackForce);
+			_hitbox._hasHit = true;
+			Hit(hit);
 		}
-		Hit(hit);
-	}
-
-	public void HitboxCollided(RaycastHit2D hit)
-	{
-		Hit(hit);
 	}
 
 	private void Hit(RaycastHit2D hit)

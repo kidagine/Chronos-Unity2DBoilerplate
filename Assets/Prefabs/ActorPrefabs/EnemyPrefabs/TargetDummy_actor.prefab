@@ -295,7 +295,7 @@ GameObject:
   - component: {fileID: 8725972032605764308}
   - component: {fileID: 8725972032605764305}
   - component: {fileID: 8725972032605764304}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: TargetDummy_actor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -309,7 +309,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8725972032605764309}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.5, y: -0.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -424,8 +424,10 @@ MonoBehaviour:
     name: Hurt
     loop: 0
     playOnAwake: 0
-    playOneInstanceAtATime: 0
+    playOneInstanceAtATime: 1
+  _sounds3D: []
   _soundGroups: []
+  _soundGroups3D: []
 --- !u!1 &8725972032957262923
 GameObject:
   m_ObjectHideFlags: 0

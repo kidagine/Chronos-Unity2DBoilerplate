@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 7744982962353073628}
   - component: {fileID: 7919172119446906565}
   - component: {fileID: 8081101023738014277}
-  - component: {fileID: 678790200267161155}
+  - component: {fileID: 4592718935556279876}
   m_Layer: 0
-  m_Name: Effect 3 - Sprite Sheet_0
+  m_Name: HitSlash_spriteRenderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &678790200267161155
+--- !u!114 &4592718935556279876
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -112,6 +112,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 984813611755386008}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 99573c1dd74415344969767ed9521020, type: 3}
+  m_Script: {fileID: 11500000, guid: 290a885a00afc0745929bc68d51d3c93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

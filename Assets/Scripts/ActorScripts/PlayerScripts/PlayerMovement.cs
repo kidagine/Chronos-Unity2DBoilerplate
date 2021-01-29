@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     }
 
     public void SetMovementLock(bool state)
-    {
+    {    
         if (state)
         {
             _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;

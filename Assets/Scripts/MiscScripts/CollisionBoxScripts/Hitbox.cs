@@ -8,7 +8,7 @@ public class Hitbox : MonoBehaviour
     private LayerMask _groundLayerMask;
     private LayerMask _hurtboxLayerMask;
     private IHitboxResponder _hitboxResponder;
-    private bool _hasHit;
+    [HideInInspector] public bool _hasHit;
 
 
     void Start()
@@ -40,10 +40,6 @@ public class Hitbox : MonoBehaviour
                         }
                     }
                 }
-            }
-            if (!_hasHit)
-            {
-                _hasHit = true;
             }
         }
     }

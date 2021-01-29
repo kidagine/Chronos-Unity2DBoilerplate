@@ -41,6 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 488949832}
   - component: {fileID: 488949833}
+  - component: {fileID: 7346595938116870934}
+  - component: {fileID: 488949834}
   m_Layer: 8
   m_Name: Main_hitbox
   m_TagString: Untagged
@@ -76,7 +78,57 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitboxSize: {x: 0.45, y: 0.47}
   _offset: {x: 0, y: 0}
-  _destroyPrefab: {fileID: 0}
+--- !u!114 &7346595938116870934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488949831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f151a615993c9409fce9dfe770b1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixerGroup: {fileID: -3276983034543540519, guid: 37e1cd9c9cb5cd04b84c8b8502c44908,
+    type: 2}
+  _sounds: []
+  _sounds3D:
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 6cddc0e0c00b2be4fb1a1a38eab133d6, type: 3}
+    volume: 1
+    pitch: 1
+    name: Hit
+    loop: 0
+    playOnAwake: 0
+    playOneInstanceAtATime: 0
+    minDistance: 1
+    maxDistance: 15
+  _soundGroups: []
+  _soundGroups3D: []
+--- !u!114 &488949834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 488949831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b14ee0bb2b0ae44b9528def5b6b8577, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damage: 1
+  _knockbackDirection: {x: 5, y: 5}
+  _knockbackForce: 0.2
+  _hitPrefabName: HitSlash
+  _damageLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  _impactLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  _impactOnDamageableOnly: 0
   _destroyOnImpact: 0
 --- !u!1 &903759321
 GameObject:
@@ -89,7 +141,7 @@ GameObject:
   - component: {fileID: 903759322}
   - component: {fileID: 903759324}
   - component: {fileID: 903759323}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Body_hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -160,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120979993}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Hurtboxes_group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -182,7 +234,7 @@ Transform:
   - {fileID: 903759322}
   - {fileID: 1900292140}
   m_Father: {fileID: 759910336003477960}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1650165798
 GameObject:
@@ -214,7 +266,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 759910336003477960}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5843324321263754543
 BoxCollider2D:
@@ -266,7 +318,7 @@ GameObject:
   - component: {fileID: 1825894613}
   - component: {fileID: 1825894615}
   - component: {fileID: 1825894614}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Head_hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -339,7 +391,7 @@ GameObject:
   - component: {fileID: 1900292140}
   - component: {fileID: 1900292142}
   - component: {fileID: 1900292141}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Legs_hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -430,7 +482,7 @@ Transform:
   m_Children:
   - {fileID: 759910335515660247}
   m_Father: {fileID: 759910336003477960}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &759910335515660246
 GameObject:
@@ -531,9 +583,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1650165799}
   - {fileID: 2561267389250463604}
   - {fileID: 1120979993}
+  - {fileID: 1650165799}
   - {fileID: 405672218}
   m_Father: {fileID: 8693666481483974621}
   m_RootOrder: 0
@@ -553,9 +605,10 @@ GameObject:
   - component: {fileID: 8976487528706884435}
   - component: {fileID: 3633829989900122434}
   - component: {fileID: 333648338796558923}
+  - component: {fileID: 1570340768}
   m_Layer: 0
-  m_Name: PlayerOne_actor
-  m_TagString: Untagged
+  m_Name: Player_actor
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -614,9 +667,9 @@ MonoBehaviour:
   _playerAudio: {fileID: 333648338796558923}
   _rigidbody: {fileID: 759910337160371082}
   _spriteRenderer: {fileID: 5864836275282370029}
-  _hurtboxes: {fileID: 0}
-  _pushboxes: {fileID: 0}
-  _maxHealth: 10
+  _hurtboxes: {fileID: 1120979992}
+  _pushboxes: {fileID: 547810544309903528}
+  _maxHealth: 3
 --- !u!114 &759910337160371080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -629,17 +682,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f0c907056b93d849b6e521d4109bb9a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 1539008221801327677}
   _playerAnimator: {fileID: 312063163827800735}
   _rigidbody: {fileID: 759910337160371082}
   _playerAudio: {fileID: 333648338796558923}
-  _jumpSmokePrefab: {fileID: 8935918012585647707, guid: 4a4123fbc8b39d441868897a71d2b2b1,
-    type: 3}
-  _landSmokePrefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
-    type: 3}
   _groundMoveSpeed: 4
   _jumpImpulse: 6
-  _maxJumpCount: 2
+  _maxJumpCount: 1
 --- !u!114 &8976487528706884435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -668,8 +717,8 @@ MonoBehaviour:
   _speed: 3
   _jumpImpulse: 0
   _jumpCount: 1
-  _player: {fileID: 0}
-  _playerMovement: {fileID: 0}
+  _player: {fileID: 1539008221801327677}
+  _playerMovement: {fileID: 759910337160371080}
 --- !u!114 &333648338796558923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -709,6 +758,15 @@ MonoBehaviour:
     loop: 0
     playOnAwake: 0
     playOneInstanceAtATime: 0
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 8250c6ee35034d34da6132b42b83bd95, type: 3}
+    volume: 0.5
+    pitch: 1
+    name: Attack
+    loop: 0
+    playOnAwake: 0
+    playOneInstanceAtATime: 0
+  _sounds3D: []
   _soundGroups:
   - name: Footsteps
     lastPlayedSoundIndex: 0
@@ -737,6 +795,23 @@ MonoBehaviour:
       loop: 0
       playOnAwake: 0
       playOneInstanceAtATime: 0
+  _soundGroups3D: []
+--- !u!114 &1570340768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759910337160371077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a225dcca586e4ba43a5c62f08448d14d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _player: {fileID: 1539008221801327677}
+  _playerMovement: {fileID: 759910337160371080}
+  _playerInteract: {fileID: 8976487528706884435}
+  _playerDialogue: {fileID: 0}
 --- !u!1 &5860423288351442036
 GameObject:
   m_ObjectHideFlags: 0
@@ -750,7 +825,7 @@ GameObject:
   - component: {fileID: 700344641451654525}
   - component: {fileID: 312063163827800735}
   - component: {fileID: 532135324}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Player_emulated
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -867,8 +942,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484e4dfc0e0e7eb4b80b06dc6a93ac8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 1539008221801327677}
   _playerMovement: {fileID: 759910337160371080}
   _playerAudio: {fileID: 333648338796558923}
-  _smokeStopRunningPrefab: {fileID: 7310271610845027193, guid: 39afca3c109b26049a80bc07593eb271,
-    type: 3}

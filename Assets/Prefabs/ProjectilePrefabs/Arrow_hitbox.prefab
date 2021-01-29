@@ -121,6 +121,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitboxSize: {x: 0.15, y: 0.4}
   _offset: {x: 0, y: 0.115}
+  _hasHit: 0
 --- !u!114 &1817817627978130275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,6 +138,12 @@ MonoBehaviour:
   _knockbackDirection: {x: 0, y: 0}
   _knockbackForce: 0
   _hitPrefabName: LandSmoke
+  _damageLayers:
+    serializedVersion: 2
+    m_Bits: 4096
+  _impactLayers:
+    serializedVersion: 2
+    m_Bits: 5120
   _destroyOnImpact: 1
 --- !u!114 &-1003173197279580599
 MonoBehaviour:

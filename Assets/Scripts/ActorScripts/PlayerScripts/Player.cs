@@ -65,7 +65,6 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		_spriteRenderer.color = Color.red;
 		_playerUI.PlayerStatsUI.SetHealth(_health);
 		yield return new WaitForSeconds(0.25f);
-		_playerMovement.SetMovementLock(false);
 		IsRecovered = true;
 		_spriteRenderer.color = Color.white;
 	}
