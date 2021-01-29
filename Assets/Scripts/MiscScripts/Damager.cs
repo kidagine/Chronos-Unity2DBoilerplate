@@ -26,7 +26,7 @@ public class Damager : MonoBehaviour, IHitboxResponder
 	{
 		if (hurtbox != null)
 		{
-			if (((1 << hit.collider.transform.root.gameObject.layer) & _damageLayers) != 0)
+			if ((((1 << hit.collider.transform.root.gameObject.layer) & _damageLayers) != 0) || (((1 << hit.collider.gameObject.layer) & _damageLayers) != 0))
 			{
 				Vector2 hitEffectDirection = hit.transform.root.position - transform.root.position;
 				if (hitEffectDirection.x > 0.0f)
@@ -39,9 +39,9 @@ public class Damager : MonoBehaviour, IHitboxResponder
 				}
 			}
 		}
-		Debug.Log(hit.collider.transform.root.gameObject.layer);
-		if (((1 << hit.collider.transform.root.gameObject.layer) & _impactLayers) != 0)
+		if ((((1 << hit.collider.transform.root.gameObject.layer) & _impactLayers) != 0) || (((1 << hit.collider.gameObject.layer) & _impactLayers) != 0))
 		{
+			_hitbox._hasHit = true;
 			Hit(hit);
 		}
 	}
