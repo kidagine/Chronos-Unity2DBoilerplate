@@ -20,7 +20,7 @@ public class FileRenamer : EditorWindow
     private readonly string _palettesPath = "Assets/Tilemaps/Palettes/";
     private readonly string _ruleTilesPath = "Assets/Tilemaps/RuleTiles/";
     private readonly string _tilesetsPath = "Assets/Tilemaps/Tilesets/";
-
+    private readonly string _dialoguesPath = "Assets/Dialogues/";
 
     private readonly string _scenesAppendix = "_SCN";
     private readonly string _spritesAppendix = "_SPR";
@@ -33,6 +33,7 @@ public class FileRenamer : EditorWindow
     private readonly string _palettesAppendix = "_PLT";
     private readonly string _ruleTilesAppendix = "_RTL";
     private readonly string _tilesetsAppendix = "_TLS";
+    private readonly string _dialoguesAppendix = "_DLG";
 
     private bool _shouldRenameScenes;
     private bool _shouldRenameSprites;
@@ -45,6 +46,7 @@ public class FileRenamer : EditorWindow
     private bool _shouldRenamePalettes;
     private bool _shouldRenameRuleTiles;
     private bool _shouldRenameTilesets;
+    private bool _shouldRenameDialogues;
 
     private readonly List<string> _consoleErrorsList = new List<string>();
 
@@ -86,6 +88,7 @@ public class FileRenamer : EditorWindow
         _shouldRenamePalettes = GUILayout.Toggle(_shouldRenamePalettes, "Rename Palettes", GUILayout.Height(40f));
         _shouldRenameRuleTiles = GUILayout.Toggle(_shouldRenameRuleTiles, "Rename Rule Tiles", GUILayout.Height(40f));
         _shouldRenameTilesets = GUILayout.Toggle(_shouldRenameTilesets, "Rename Tilesets", GUILayout.Height(40f));
+        _shouldRenameDialogues = GUILayout.Toggle(_shouldRenameDialogues, "Rename Dialogues", GUILayout.Height(40f));
         EditorGUILayout.Space();
         EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
         EditorGUILayout.Space();
@@ -110,6 +113,7 @@ public class FileRenamer : EditorWindow
         _shouldRenamePalettes = true;
         _shouldRenameRuleTiles = true;
         _shouldRenameTilesets = true;
+        _shouldRenameDialogues = true;
     }
 
     private void ResetAll()
@@ -125,6 +129,7 @@ public class FileRenamer : EditorWindow
         _shouldRenamePalettes = false;
         _shouldRenameRuleTiles = false;
         _shouldRenameTilesets = false;
+        _shouldRenameDialogues = false;
     }
 
     private void RenameAllFiles()
@@ -154,6 +159,8 @@ public class FileRenamer : EditorWindow
             RenameFolderFiles(_ruleTilesPath, _ruleTilesAppendix);
         if (_shouldRenameTilesets)
             RenameFolderFiles(_tilesetsPath, _tilesetsAppendix);
+        if (_shouldRenameDialogues)
+            RenameFolderFiles(_dialoguesPath, _dialoguesAppendix);
         _hasStartedRenaming = true;
     }
 
