@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -7,7 +8,9 @@ public class LevelManager : Singleton<LevelManager>
     [SerializeField] private SceneTransitions _sceneTransitions = default;
     private readonly string _sceneAppendix = "_SCN";
     private Levels _cachedLevel;
-        
+
+    public event Action OnAdditiveSceneLoaded;
+
 
     public void GoToLevel(Levels levels)
     {
@@ -51,7 +54,7 @@ public class LevelManager : Singleton<LevelManager>
         {
             yield return null;
         }
-        //Printer.SetLoaded();
+        OnAdditiveSceneLoaded?.Invoke();
     }
 
     public void RestartLevel()
