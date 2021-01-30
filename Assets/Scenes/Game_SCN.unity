@@ -3855,7 +3855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1254986746
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5318,7 +5318,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yarnScripts:
   - {fileID: 2480198943629176163, guid: f3d388857ec917047802b652c02a9c99, type: 3}
-  textLanguage: 0
+  textLanguage: es
   variableStorage: {fileID: 1501923388}
   dialogueUI: {fileID: 1501923389}
   startNode: 
@@ -8377,7 +8377,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueSystem: {fileID: 1501923392}
-  _yarnScript: {fileID: 2480198943629176163, guid: f3d388857ec917047802b652c02a9c99,
+  _yarnScript: {fileID: 2480198943629176163, guid: 2a1c1253d2b76c544a021a11e2ba652b,
     type: 3}
   _startNode: SignIntroduction
   _trigger: {fileID: 2118223353}

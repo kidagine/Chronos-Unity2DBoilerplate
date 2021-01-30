@@ -74,6 +74,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
                     else
                     {
                         _rightArrowBackgroundImage.raycastTarget = false;
+                        _leftArrowBackgroundImage.raycastTarget = true;
                     }
                     CheckSelectorArrows();
                     _onSelect?.Invoke(_currentSelectedIndex);
@@ -103,6 +104,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
                     else
                     {
                         _leftArrowBackgroundImage.raycastTarget = false;
+                        _rightArrowBackgroundImage.raycastTarget = true;
                     }
                     CheckSelectorArrows();
                     _onSelect?.Invoke(_currentSelectedIndex);

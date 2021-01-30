@@ -1,0 +1,8 @@
+id,text,file,node,lineNumber
+line:5d727c,Sign:Elige un tutorial en el que quieras leer.,SignTutorial_DLG,SignTutorial,6
+line:5d7a7c,Movimiento,SignTutorial_DLG,SignTutorial,7
+line:0a7e39,Combate,SignTutorial_DLG,SignTutorial,8
+line:ffff39,Salir,SignTutorial_DLG,SignTutorial,9
+line:1fff39,Sign: Utilizar WASD / teclas de flecha o joystick izquierdo / D-pad para moverse.,SignTutorial_DLG,SignTutorial.Movement,16
+line:2fff39,Sign: Utilizar barra espaciadora o A para saltar.,SignTutorial_DLG,SignTutorial.Movement,17
+line:3fff39,Sign: Utilizar J o X para atacar.,SignTutorial_DLG,SignTutorial.Combat,24

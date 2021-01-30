@@ -18,6 +18,7 @@ public class DialogueSystem : MonoBehaviour
         _dialogueRunner = GetComponent<DialogueRunner>();
         _dialogueUI = GetComponent<DialogueUI>();
         _audio = GetComponent<EntityAudio>();
+        _dialogueRunner.textLanguage = PlayerPrefs.GetString("language", "");
     }
 
     public void PlayDialogueTypingSound()
