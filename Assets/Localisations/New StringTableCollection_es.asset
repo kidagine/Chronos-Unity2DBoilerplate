@@ -1,0 +1,114 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9620f8c34305754d8cc9a7e49e852d9, type: 3}
+  m_Name: New StringTableCollection_es
+  m_EditorClassIdentifier: 
+  m_LocaleId:
+    m_Code: es
+  m_SharedData: {fileID: 11400000, guid: d63483a0ffa9ecc4cb83891dad127cd9, type: 2}
+  m_Metadata:
+    m_Items: []
+  m_TableData:
+  - m_Id: 20438347776
+    m_Localized: Comienzo
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3868582244352
+    m_Localized: Opciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19935408975872
+    m_Localized: Creditos
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20047346561024
+    m_Localized: "\rSalida"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21024921382912
+    m_Localized: "\rSeleccione guardar datos para cargar"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21637939884032
+    m_Localized: Opciones
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21689525628928
+    m_Localized: Jugabilidad
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21791887618048
+    m_Localized: Controlar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22147329716224
+    m_Localized: Video
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22169534361600
+    m_Localized: Audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27162349957120
+    m_Localized: "\rEst\xE1s seguro que quieres\r\nsalir del juego?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27324560470016
+    m_Localized: "Confirmar\r"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27383259754496
+    m_Localized: Cancelar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28260427132928
+    m_Localized: Musica Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28396607795200
+    m_Localized: VFX Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28418690805760
+    m_Localized: UI Volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29987469553664
+    m_Localized: Modo Pantalla
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30134458937344
+    m_Localized: Resolucion
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30843531194368
+    m_Localized: Teclado
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30902226284544
+    m_Localized: Controladora
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31247023239168
+    m_Localized: Idioma
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31691288113152
+    m_Localized: Ingles
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31753623859200
+    m_Localized: Espanol
+    m_Metadata:
+      m_Items: []
+  references:
+    version: 1
