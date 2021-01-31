@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.Localization.Settings;
 using Yarn.Unity;
 
 [RequireComponent(typeof(DialogueRunner))]
@@ -18,7 +19,6 @@ public class DialogueSystem : MonoBehaviour
         _dialogueRunner = GetComponent<DialogueRunner>();
         _dialogueUI = GetComponent<DialogueUI>();
         _audio = GetComponent<EntityAudio>();
-        _dialogueRunner.textLanguage = PlayerPrefs.GetString("language", "");
     }
 
     public void PlayDialogueTypingSound()
@@ -41,6 +41,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void SetupDialogue(YarnProgram yarnScript, string startNode, Trigger trigger)
     {
+        //_dialogueRunner.textLanguage = LocalizationSettings.SelectedLocale.Identifier.Code;
         _dialogueUI.onDialogueEnd.RemoveAllListeners();
         _dialogueUI.onDialogueEnd.AddListener(trigger.ResetTrigger);
         _dialogueRunner.startNode = startNode;

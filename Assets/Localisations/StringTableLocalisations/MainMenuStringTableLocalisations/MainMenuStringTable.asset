@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
-  m_Name: New StringTableCollection
+  m_Name: MainMenuStringTable
   m_EditorClassIdentifier: 
   m_SharedTableData: {fileID: 11400000, guid: d63483a0ffa9ecc4cb83891dad127cd9, type: 2}
   m_Tables:
