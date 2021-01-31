@@ -1706,7 +1706,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 11
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1715,7 +1715,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 6
+      m_TileSpriteIndex: 15
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1859,7 +1859,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 6
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1877,7 +1877,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 12
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1956,7 +1956,7 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 1
-    m_Data: {fileID: 9048098576551171047, guid: d3263ff8e15cf014886f2b98baa51256,
+    m_Data: {fileID: -1544894614388092976, guid: d3263ff8e15cf014886f2b98baa51256,
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -6403107747435768202, guid: d3263ff8e15cf014886f2b98baa51256,
@@ -1971,10 +1971,10 @@ Tilemap:
     m_Data: {fileID: -2113894134886356154, guid: d3263ff8e15cf014886f2b98baa51256,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1707878253529702307, guid: d3263ff8e15cf014886f2b98baa51256,
+    m_Data: {fileID: -7635356268976036439, guid: d3263ff8e15cf014886f2b98baa51256,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -7635356268976036439, guid: d3263ff8e15cf014886f2b98baa51256,
+    m_Data: {fileID: -1707878253529702307, guid: d3263ff8e15cf014886f2b98baa51256,
       type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 5550582127777731385, guid: d3263ff8e15cf014886f2b98baa51256,
@@ -1983,7 +1983,7 @@ Tilemap:
     m_Data: {fileID: -2936791710745090628, guid: d3263ff8e15cf014886f2b98baa51256,
       type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -1544894614388092976, guid: d3263ff8e15cf014886f2b98baa51256,
+    m_Data: {fileID: 9048098576551171047, guid: d3263ff8e15cf014886f2b98baa51256,
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 8666830670597921376, guid: d3263ff8e15cf014886f2b98baa51256,
@@ -2054,32 +2054,56 @@ CompositeCollider2D:
   m_ColliderPaths:
   - m_Collider: {fileID: 436779274}
     m_ColliderPaths:
-    - - X: 130000000
+    - - X: 99999900
+        Y: 41
+      - X: 99999900
+        Y: -9999900
+      - X: -29999900
+        Y: -9999900
+      - X: -29999900
+        Y: 41
+      - X: -29999959
+        Y: 100
+      - X: -60000041
+        Y: 100
+      - X: -60000100
+        Y: 41
+      - X: -60000100
+        Y: -30000041
+      - X: -60000041
+        Y: -30000100
+      - X: -49999959
+        Y: -30000100
+      - X: -49999900
+        Y: -30000041
+      - X: -49999900
         Y: -30000000
-      - X: 130000000
-        Y: 0
-      - X: 100000000
-        Y: 0
-      - X: 100000000
-        Y: -10000000
-      - X: -30000000
-        Y: -10000000
-      - X: -30000000
-        Y: 0
-      - X: -60000000
-        Y: 0
-      - X: -60000000
+      - X: 119999900
         Y: -30000000
+      - X: 119999900
+        Y: -30000041
+      - X: 119999959
+        Y: -30000100
+      - X: 130000041
+        Y: -30000100
+      - X: 130000100
+        Y: -30000041
+      - X: 130000100
+        Y: 41
+      - X: 130000041
+        Y: 100
+      - X: 99999959
+        Y: 100
   m_CompositePaths:
     m_Paths:
-    - - {x: 12.99997, y: -3}
-      - {x: 12.99997, y: 0}
-      - {x: 10, y: -0.000029300001}
-      - {x: 9.99997, y: -1}
-      - {x: -3, y: -0.9999706}
-      - {x: -3.0000293, y: 0}
-      - {x: -6, y: -0.000029300001}
-      - {x: -5.999971, y: -3}
+    - - {x: 12.999981, y: -3.000004}
+      - {x: 12.999974, y: 0.00001}
+      - {x: 9.99999, y: -0.0000252}
+      - {x: 9.999961, y: -0.99999}
+      - {x: -2.99999, y: -0.9999606}
+      - {x: -3.0000253, y: 0.00001}
+      - {x: -6.00001, y: -0.0000252}
+      - {x: -5.999981, y: -3.000004}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
 --- !u!50 &436779278
@@ -3506,7 +3530,7 @@ GameObject:
   m_Icon: {fileID: -1412012063857583412, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1064946879
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5318,7 +5342,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yarnScripts:
   - {fileID: 2480198943629176163, guid: f3d388857ec917047802b652c02a9c99, type: 3}
-  textLanguage: 0
+  textLanguage: es
   variableStorage: {fileID: 1501923388}
   dialogueUI: {fileID: 1501923389}
   startNode: 
@@ -8377,7 +8401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _dialogueSystem: {fileID: 1501923392}
-  _yarnScript: {fileID: 2480198943629176163, guid: f3d388857ec917047802b652c02a9c99,
+  _yarnScript: {fileID: 2480198943629176163, guid: 2a1c1253d2b76c544a021a11e2ba652b,
     type: 3}
   _startNode: SignIntroduction
   _trigger: {fileID: 2118223353}

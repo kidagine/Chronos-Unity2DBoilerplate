@@ -23,4 +23,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/AdditiveScenes/DebugAdditive_SCN.unity
     guid: 1b6cac54f56877249bc9323e66985f83
-  m_configObjects: {}
+  m_configObjects:
+    com.unity.addressableassets: {fileID: 11400000, guid: bda33b124b82a634f850f61187fb33b5,
+      type: 2}
+    com.unity.localization.settings: {fileID: 11400000, guid: 16019dd95cfa5ab47b6d6485a0bb8611,
+      type: 2}

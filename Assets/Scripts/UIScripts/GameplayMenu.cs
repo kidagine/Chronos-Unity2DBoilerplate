@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
+using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
 public class GameplayMenu : MonoBehaviour, ISubMenu
@@ -25,5 +27,10 @@ public class GameplayMenu : MonoBehaviour, ISubMenu
     public void ShowFPS(bool state)
     {
         _gameStatistics.ShowFPS(state);
+    }
+
+    public void SetLanguage(int index)
+    {
+        LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
     }
 }

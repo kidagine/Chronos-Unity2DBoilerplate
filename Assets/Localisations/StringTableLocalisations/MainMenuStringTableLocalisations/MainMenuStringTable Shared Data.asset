@@ -1,0 +1,120 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b11a58205ec3474ca216360e9fa74a8, type: 3}
+  m_Name: MainMenuStringTable Shared Data
+  m_EditorClassIdentifier: 
+  m_TableCollectionName: MainMenu
+  m_TableCollectionNameGuidString: d63483a0ffa9ecc4cb83891dad127cd9
+  m_Entries:
+  - m_Id: 20438347776
+    m_Key: start
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3868582244352
+    m_Key: options
+    m_Metadata:
+      m_Items: []
+  - m_Id: 19935408975872
+    m_Key: credits
+    m_Metadata:
+      m_Items: []
+  - m_Id: 20047346561024
+    m_Key: exit
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21024921382912
+    m_Key: select-save-data
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21637939884032
+    m_Key: option
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21689525628928
+    m_Key: gameplay
+    m_Metadata:
+      m_Items: []
+  - m_Id: 21791887618048
+    m_Key: controls
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22147329716224
+    m_Key: video
+    m_Metadata:
+      m_Items: []
+  - m_Id: 22169534361600
+    m_Key: audio
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27162349957120
+    m_Key: exit-game
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27324560470016
+    m_Key: confirm
+    m_Metadata:
+      m_Items: []
+  - m_Id: 27383259754496
+    m_Key: cancel
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28260427132928
+    m_Key: music-volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28396607795200
+    m_Key: vfx-volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 28418690805760
+    m_Key: ui-volume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29987469553664
+    m_Key: screen-mode
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30134458937344
+    m_Key: resolution
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30843531194368
+    m_Key: keyboard
+    m_Metadata:
+      m_Items: []
+  - m_Id: 30902226284544
+    m_Key: controller
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31247023239168
+    m_Key: language
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31691288113152
+    m_Key: english
+    m_Metadata:
+      m_Items: []
+  - m_Id: 31753623859200
+    m_Key: spanish
+    m_Metadata:
+      m_Items: []
+  m_Metadata:
+    m_Items: []
+  m_KeyGenerator:
+    id: 0
+  references:
+    version: 1
+    00000000:
+      type: {class: DistributedUIDGenerator, ns: UnityEngine.Localization.Tables,
+        asm: Unity.Localization}
+      data:
+        m_CustomEpoch: 1612003616420
