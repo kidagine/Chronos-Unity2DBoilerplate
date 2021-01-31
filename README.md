@@ -13,8 +13,18 @@
 #### Unity Version
 Current: 2019.4.18f1
 
+#### Packages
+- 2D Tilemap Extras: 1.5.1-preview
+- Yarn Spinner: 1.2.6
+- Input System: 1.0.1
+- Localization: 0.10.0-preview
+- TextMeshPro: 2.1.3
+
 #### Hardware
-[Missing]
+Input system tested with the following input devices:
+- Keyboard & Mouse
+- Xbox One Controller
+- Playstation 4 Dualshock Controller
 
 #### Software
 Tested on Windows 10.
