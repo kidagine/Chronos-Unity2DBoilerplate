@@ -11,7 +11,7 @@
 
 ## Tech Info
 #### Unity Version
-Current: 2019.4.18f1
+Current: [2019.4.18f1](https://unity.com/releases/2019-lts)
 
 #### Packages
 - 2D Tilemap Extras: 1.5.1-preview
