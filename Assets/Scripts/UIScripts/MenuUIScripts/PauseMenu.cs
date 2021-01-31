@@ -1,7 +1,17 @@
-﻿public class PauseMenu : BaseMenu
+﻿using System.Collections;
+
+public class PauseMenu : BaseMenu
 {
-	public void TogglePauseMenu()
+	public void TogglePauseMenu(bool state)
 	{
-		gameObject.SetActive(!gameObject.activeSelf);
+		gameObject.SetActive(true);
+		//if (state)
+		//{
+		//	OpenMenu(gameObject);
+		//}
+		//else
+		//{
+		//	OpenMenu(gameObject);
+		//}	
 	}
 }

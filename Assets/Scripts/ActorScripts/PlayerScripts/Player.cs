@@ -37,7 +37,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 
 	public void MenuAction()
 	{
-		_playerUI.PlayerPauseMenuUI.TogglePauseMenu();
+		_playerUI.PlayerPauseMenuUI.TogglePauseMenu(true);
 	}
 
 	public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)

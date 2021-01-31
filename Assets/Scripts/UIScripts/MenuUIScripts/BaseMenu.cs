@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class BaseMenu : MonoBehaviour, ISubMenu
@@ -8,7 +9,13 @@ public class BaseMenu : MonoBehaviour, ISubMenu
 
 	void OnEnable()
 	{
-		Activate();
+		StartCoroutine(ActivateCoroutine());
+	}
+
+	IEnumerator ActivateCoroutine()
+	{
+		yield return null;
+		_startingOption.Select();
 	}
 
 	public void OpenMenu(GameObject menu)
