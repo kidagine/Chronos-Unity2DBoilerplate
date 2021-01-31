@@ -1,2 +1,4 @@
 # Chronos
-![Main image](https://i.imgur.com/o2zcel9.png)
+<p align="center">
+  <img  src="https://i.imgur.com/821QDLu.png">
+</p>
