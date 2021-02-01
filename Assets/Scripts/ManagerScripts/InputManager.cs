@@ -7,9 +7,12 @@ public class InputManager : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput = default;
     public static InputManager Instance { get; private set; }
     private string _currentControlScheme;
-    public event Action<bool> ControlsChanged;
+    public event Action ControlsChanged;
 
-    void Awake()
+	public ControlSchemeEnum ActiveControlScheme { get; private set; }
+
+
+	void Awake()
     {
         CheckInstance();
         OnControlChanged();
@@ -32,13 +35,15 @@ public class InputManager : MonoBehaviour
         if (_playerInput.currentControlScheme != _currentControlScheme)
         {
             _currentControlScheme = _playerInput.currentControlScheme;
-            if (_currentControlScheme.Equals("Keyboard&Mouse"))
+            if (_currentControlScheme.Equals(ControlSchemeEnum.KeyboardMouse.ToString()))
             {
-                ControlsChanged?.Invoke(false);
+                ActiveControlScheme = ControlSchemeEnum.KeyboardMouse;
+                ControlsChanged?.Invoke();
             }
-            else
+            else if (_currentControlScheme.Equals(ControlSchemeEnum.Xbox.ToString()))
             {
-                ControlsChanged?.Invoke(true);
+                ActiveControlScheme = ControlSchemeEnum.Xbox;
+                ControlsChanged?.Invoke();
             }
         }
     }

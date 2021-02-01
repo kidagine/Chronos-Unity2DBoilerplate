@@ -6,7 +6,12 @@ public class MainMenu : MonoBehaviour, ISubMenu
     [SerializeField] private Selectable _startingOption = default;
 
 
-    public void OpenMenu(GameObject menu)
+	void Awake()
+	{
+        GameManager.Instance.SetGamePauseState(true);
+	}
+
+	public void OpenMenu(GameObject menu)
     {
         gameObject.SetActive(false);
         if (menu.TryGetComponent(out ISubMenu subMenu))

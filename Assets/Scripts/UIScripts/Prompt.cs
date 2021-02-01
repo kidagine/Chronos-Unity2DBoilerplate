@@ -15,7 +15,7 @@ public class Prompt : MonoBehaviour
         UpdatePromptImage();
     }
 
-    private void UpdatePromptImage(bool isControllerActive = default)
+    private void UpdatePromptImage()
     {
         InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction(_actionName);
         int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
