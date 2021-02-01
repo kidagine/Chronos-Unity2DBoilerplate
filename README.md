@@ -21,7 +21,7 @@ This started as boilerplate that I will be using for my own personal Unity game 
 - Support for multiple input devices
 - Custom collision system - [Example](https://i.imgur.com/Ok6wPA2.png)
 - Intro splash screen and Outro credits screen
-- Base steam achievements setup
+- Base steam integration - [Example](https://i.imgur.com/cxt6TCN.png)
 - Dev menu - [Example](https://i.imgur.com/jLaPrz0.png)
 - Helper scripts and editor classes
 
