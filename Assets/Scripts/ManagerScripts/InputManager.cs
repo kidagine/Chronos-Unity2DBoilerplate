@@ -46,6 +46,11 @@ public class InputManager : MonoBehaviour
 
     public InputAction GetPromptInputAction(string actionName)
     {
+        InputAction inputAction = _promptsInput.actions.FindAction(actionName);
+        if (inputAction == null)
+        {
+            Debug.LogError($"Could not find InputAction with name: {actionName} on PlayerInput: {_promptsInput.name}");
+        }
         return _promptsInput.actions.FindAction(actionName);
     }
 
@@ -57,6 +62,11 @@ public class InputManager : MonoBehaviour
     public PlayerInput GetPlayerInput()
     {
         return _playerInput;
+    }
+
+    public PlayerInput GetPromptInput()
+    {
+        return _promptsInput;
     }
 
     public void ActivatePlayerInput()

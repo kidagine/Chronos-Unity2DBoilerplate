@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class PromptsInput : MonoBehaviour
 {
-    [SerializeField] private PromptsInputActions _promptsInputActions = default;
+    [SerializeField] private PlayerInputActions _promptsInputActions = default;
     [SerializeField] private UnityEvent _confirmUnityEvent = default;
     [SerializeField] private UnityEvent _backUnityEvent = default;
     [SerializeField] private Image[] _promptImages = default;
@@ -18,9 +18,9 @@ public class PromptsInput : MonoBehaviour
 
 	private void PromptInputSetup()
     {
-        _promptsInputActions = new PromptsInputActions();
-        _promptsInputActions.Controls.Confirm.performed += Confirm;
-        _promptsInputActions.Controls.Back.performed += Back;
+        _promptsInputActions = new PlayerInputActions();
+        _promptsInputActions.Prompts.Confirm.performed += Confirm;
+        _promptsInputActions.Prompts.Back.performed += Back;
     }
 
     private void Confirm(InputAction.CallbackContext context)

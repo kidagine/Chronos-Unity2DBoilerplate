@@ -17,7 +17,7 @@ public class Prompt : MonoBehaviour
 
     private void UpdatePromptImage(bool isControllerActive = default)
     {
-        InputAction focusedInputAction = InputManager.Instance.GetPromptInputAction(_actionName);
+        InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction(_actionName);
         int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
         string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
         _image.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);

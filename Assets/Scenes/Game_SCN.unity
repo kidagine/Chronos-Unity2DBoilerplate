@@ -5835,7 +5835,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yarnScripts:
   - {fileID: 2480198943629176163, guid: f3d388857ec917047802b652c02a9c99, type: 3}
-  textLanguage: es
+  textLanguage: en
   variableStorage: {fileID: 1501923388}
   dialogueUI: {fileID: 1501923389}
   startNode: 
@@ -6908,6 +6908,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _startingOption: {fileID: 1576505787}
+  _playerController: {fileID: 1570340768}
+  _eventSystem: {fileID: 1046929973}
 --- !u!1001 &1611697842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7087,22 +7089,37 @@ PrefabInstance:
     - target: {fileID: 3730049657325172353, guid: 43076a76745fa334b917d138f62f54f0,
         type: 3}
       propertyPath: _backUnityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3730049657325172353, guid: 43076a76745fa334b917d138f62f54f0,
+        type: 3}
+      propertyPath: _backUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3730049657325172353, guid: 43076a76745fa334b917d138f62f54f0,
         type: 3}
       propertyPath: _backUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
+      objectReference: {fileID: 1590371325}
+    - target: {fileID: 3730049657325172353, guid: 43076a76745fa334b917d138f62f54f0,
+        type: 3}
+      propertyPath: _backUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ClosePauseMenu
       objectReference: {fileID: 0}
     - target: {fileID: 3730049657325172353, guid: 43076a76745fa334b917d138f62f54f0,
         type: 3}
       propertyPath: _backUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3730049657325172353, guid: 43076a76745fa334b917d138f62f54f0,
+        type: 3}
+      propertyPath: _backUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3730049657325172359, guid: 43076a76745fa334b917d138f62f54f0,
         type: 3}
       propertyPath: m_Name
-      value: OptionsPrompts_group
+      value: PauseMenuPrompts_group
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43076a76745fa334b917d138f62f54f0, type: 3}
@@ -9063,7 +9080,22 @@ PrefabInstance:
     - target: {fileID: 8725972031751345334, guid: 93d186fd751a69c4099ce7598eba2888,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725972031889626890, guid: 93d186fd751a69c4099ce7598eba2888,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725972031889626890, guid: 93d186fd751a69c4099ce7598eba2888,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.19
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725972032216106512, guid: 93d186fd751a69c4099ce7598eba2888,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 8725972032605764306, guid: 93d186fd751a69c4099ce7598eba2888,
         type: 3}
@@ -9124,6 +9156,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: TargetDummy_actor
+      objectReference: {fileID: 0}
+    - target: {fileID: 8725972032957262920, guid: 93d186fd751a69c4099ce7598eba2888,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93d186fd751a69c4099ce7598eba2888, type: 3}

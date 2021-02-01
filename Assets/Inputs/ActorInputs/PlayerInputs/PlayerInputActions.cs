@@ -385,6 +385,74 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Prompts"",
+            ""id"": ""dedd91e4-02fc-446b-8f57-bb855d08e97c"",
+            ""actions"": [
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""b974387a-378a-440d-b24d-8822f3c3bf9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""f45ade66-e129-44a5-b058-27823799e189"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c60bba43-f532-4b52-8e0a-d361d77444b3"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse&Keyboard"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b28abc7-020d-4e3a-9224-420f61a75723"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""757314ea-0f75-498b-9463-cb82740d092d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Mouse&Keyboard"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b01e28e4-1e19-4d2c-957e-6a50fbd32b27"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -427,6 +495,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_NextDialogue = m_Dialogue.FindAction("NextDialogue", throwIfNotFound: true);
+        // Prompts
+        m_Prompts = asset.FindActionMap("Prompts", throwIfNotFound: true);
+        m_Prompts_Confirm = m_Prompts.FindAction("Confirm", throwIfNotFound: true);
+        m_Prompts_Back = m_Prompts.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -570,6 +642,47 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public DialogueActions @Dialogue => new DialogueActions(this);
+
+    // Prompts
+    private readonly InputActionMap m_Prompts;
+    private IPromptsActions m_PromptsActionsCallbackInterface;
+    private readonly InputAction m_Prompts_Confirm;
+    private readonly InputAction m_Prompts_Back;
+    public struct PromptsActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public PromptsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Confirm => m_Wrapper.m_Prompts_Confirm;
+        public InputAction @Back => m_Wrapper.m_Prompts_Back;
+        public InputActionMap Get() { return m_Wrapper.m_Prompts; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PromptsActions set) { return set.Get(); }
+        public void SetCallbacks(IPromptsActions instance)
+        {
+            if (m_Wrapper.m_PromptsActionsCallbackInterface != null)
+            {
+                @Confirm.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
+                @Back.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+            }
+            m_Wrapper.m_PromptsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
+            }
+        }
+    }
+    public PromptsActions @Prompts => new PromptsActions(this);
     private int m_MouseKeyboardSchemeIndex = -1;
     public InputControlScheme MouseKeyboardScheme
     {
@@ -599,5 +712,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     public interface IDialogueActions
     {
         void OnNextDialogue(InputAction.CallbackContext context);
+    }
+    public interface IPromptsActions
+    {
+        void OnConfirm(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
 }
