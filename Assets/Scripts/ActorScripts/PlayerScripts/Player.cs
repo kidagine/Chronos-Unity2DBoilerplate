@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Steamworks;
+using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IHurtboxResponder
@@ -22,6 +23,21 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	{
 		_health = _maxHealth;
 		_playerUI.PlayerStatsUI.SetMaxHealth(_maxHealth);
+	}
+
+	void Update()
+	{
+		Debug.Log("a");
+		if (Input.GetKeyDown(KeyCode.Space))
+		{
+			Debug.Log(SteamFriends.GetPersonaName() + "here");
+			if (SteamManager.Initialized)
+			{
+				Debug.Log(SteamFriends.GetPersonaName() + " my name");
+				SteamUserStats.SetAchievement("ACH_WIN_ONE_GAME");
+				SteamUserStats.StoreStats();
+			}
+		}
 	}
 
 	public void AttackAction()

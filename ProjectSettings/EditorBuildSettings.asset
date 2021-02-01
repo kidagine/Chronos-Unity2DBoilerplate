@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Game_SCN.unity
+    guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
     path: Assets/Scenes/SplashScreen_SCN.unity
     guid: 68b48b6a9928c4a46b6b5b8cb1217744
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu_SCN.unity
     guid: c710308aa1e8b0942bf09f003db9ae8a
-  - enabled: 1
-    path: Assets/Scenes/Game_SCN.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Scenes/Credits_SCN.unity
     guid: 75f184a1ed92dac46804b29b2a5303cf
