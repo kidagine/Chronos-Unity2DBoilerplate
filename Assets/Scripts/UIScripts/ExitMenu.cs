@@ -21,11 +21,6 @@ public class ExitMenu : MonoBehaviour, ISubMenu
 		Application.Quit();
 	}
 
-	public void ExitToMainMenu()
-	{
-		LevelManager.Instance.GoToLevel(_levels);
-	}
-
 	public void OpenMenu(GameObject menu)
 	{
 		gameObject.SetActive(false);

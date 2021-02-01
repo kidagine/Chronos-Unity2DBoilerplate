@@ -45,3 +45,15 @@ MonoBehaviour:
   - customInputContextString: Select
     customInputContextIcon: {fileID: -7661838336437956901, guid: f27dc7118d2c0d247a444a9a6449ae19,
       type: 3}
+  - customInputContextString: D-Pad/Up
+    customInputContextIcon: {fileID: 7304773530685498108, guid: f27dc7118d2c0d247a444a9a6449ae19,
+      type: 3}
+  - customInputContextString: D-Pad/Down
+    customInputContextIcon: {fileID: 2663526778361868818, guid: f27dc7118d2c0d247a444a9a6449ae19,
+      type: 3}
+  - customInputContextString: D-Pad/Left
+    customInputContextIcon: {fileID: 5884644920813671386, guid: f27dc7118d2c0d247a444a9a6449ae19,
+      type: 3}
+  - customInputContextString: D-Pad/Right
+    customInputContextIcon: {fileID: 2759920815827734224, guid: f27dc7118d2c0d247a444a9a6449ae19,
+      type: 3}

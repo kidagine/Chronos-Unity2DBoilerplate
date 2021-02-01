@@ -373,7 +373,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8122019807793771105}
   - component: {fileID: 4404345118255137736}
-  - component: {fileID: 613385534419135855}
   m_Layer: 0
   m_Name: Input_manager
   m_TagString: Untagged
@@ -407,58 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e26f14de65c9447abe9612363fffd4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerInput: {fileID: 613385534419135855}
-  _promptsInput: {fileID: 613385534419135855}
---- !u!114 &613385534419135855
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3761322267567330786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: 5f9f9c12d8240be4893ad4a4829934e4,
-    type: 3}
-  m_NotificationBehavior: 2
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4404345118255137736}
-        m_MethodName: OnControlChanged
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  m_ActionEvents:
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 728b58db-609b-4c05-bfcb-b736bb997bbd
-    m_ActionName: Controls/Confirm[/Keyboard/enter]
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: 8c738c33-5e1b-4961-9228-df7796bda8a6
-    m_ActionName: Controls/Back[/Keyboard/escape]
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: 
-  m_DefaultActionMap: Controls
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  _playerInput: {fileID: 0}
 --- !u!1 &5964198381730617532
 GameObject:
   m_ObjectHideFlags: 0
