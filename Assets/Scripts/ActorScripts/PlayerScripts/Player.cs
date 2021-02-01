@@ -25,21 +25,6 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		_playerUI.PlayerStatsUI.SetMaxHealth(_maxHealth);
 	}
 
-	void Update()
-	{
-		Debug.Log("a");
-		if (Input.GetKeyDown(KeyCode.Space))
-		{
-			Debug.Log(SteamFriends.GetPersonaName() + "here");
-			if (SteamManager.Initialized)
-			{
-				Debug.Log(SteamFriends.GetPersonaName() + " my name");
-				SteamUserStats.SetAchievement("ACH_WIN_ONE_GAME");
-				SteamUserStats.StoreStats();
-			}
-		}
-	}
-
 	public void AttackAction()
 	{
 		if (_playerMovement.IsGrounded && !IsAttacking)

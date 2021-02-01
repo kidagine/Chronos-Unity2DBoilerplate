@@ -1119,12 +1119,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09da3d24f64347f49839180e55e124a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!4 &315154852 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3697175854664139341, guid: 3fd1577d516b2984a9e75b7d2d75ee32,
-    type: 3}
-  m_PrefabInstance: {fileID: 1523010638}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &342869791
 GameObject:
   m_ObjectHideFlags: 0
@@ -2624,38 +2618,13 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781402614}
   m_CullTransparentMesh: 0
---- !u!1 &876881645
+--- !u!1 &876881645 stripped
 GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 1254324254341103312, guid: 3fd1577d516b2984a9e75b7d2d75ee32,
+    type: 3}
+  m_PrefabInstance: {fileID: 1523010638}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 876881646}
-  - component: {fileID: 876881647}
-  m_Layer: 0
-  m_Name: Steam_manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &876881646
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 876881645}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 315154852}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &876881647
+--- !u!114 &876881648
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2664,7 +2633,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 876881645}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
+  m_Script: {fileID: 11500000, guid: 424bc86a384d2444cb73656afcf7f914, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &879246413
@@ -6236,6 +6205,11 @@ PrefabInstance:
       propertyPath: _player
       value: 
       objectReference: {fileID: 1570340767}
+    - target: {fileID: 1254324254341103312, guid: 3fd1577d516b2984a9e75b7d2d75ee32,
+        type: 3}
+      propertyPath: m_Name
+      value: Achievement_manager
+      objectReference: {fileID: 0}
     - target: {fileID: 1536094339120631849, guid: 3fd1577d516b2984a9e75b7d2d75ee32,
         type: 3}
       propertyPath: m_IsActive
