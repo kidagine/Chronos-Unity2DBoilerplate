@@ -8,15 +8,15 @@ public class CheckpointManager : Singleton<CheckpointManager>
 	private int _currentCheckpointIndex;
 
 
-	void OnEnable()
-	{
-		GameManager.Instance.OnPlayerFound += OnLevelLoaded;
-	}
+	//void OnEnable()
+	//{
+	//	GameManager.Instance.OnPlayerFound += OnLevelLoaded;
+	//}
 
-	void OnDisable()
-	{
-		GameManager.Instance.OnPlayerFound -= OnLevelLoaded;
-	}
+	//void OnDisable()
+	//{
+	//	GameManager.Instance.OnPlayerFound -= OnLevelLoaded;
+	//}
 
 	private void OnLevelLoaded()
 	{

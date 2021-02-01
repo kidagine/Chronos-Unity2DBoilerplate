@@ -3,38 +3,58 @@
 public class CursorHandler : MonoBehaviour
 {
     [SerializeField] private bool _permanentlyHide = default;
-    
-    
+    [SerializeField] private bool _hideOnStart = true;
+
+
     void Start()
     {
-        if (_permanentlyHide)
+        if (_hideOnStart)
         {
             Cursor.visible = false;
         }
         else
         {
             Cursor.visible = true;
+        }
+        if (!_permanentlyHide)
+        {
             InputManager.Instance.ControlsChanged += SetCursorVisibility;
+            GameManager.Instance.OnGamePauseStateChange += SetCursorVisibility;
         }
     }
 
-    private void SetCursorVisibility(bool isControllerActive)
+    public void SetCursorVisibility()
     {
-        if (isControllerActive)
+        if (!_permanentlyHide)
         {
-            Cursor.visible = false;
+            if (GameManager.Instance.GamePauseState)
+            {
+                if (InputManager.Instance.ActiveControlScheme == ControlSchemeEnum.KeyboardMouse)
+                {
+                    Cursor.visible = true;
+                }
+                else
+                {
+                    Cursor.visible = false;
+                }
+            }
+            else
+            {
+                Cursor.visible = false;
+            }
         }
         else
         {
-            Cursor.visible = true;
+            Cursor.visible = false;
         }
     }
 
-	void OnDisable()
+    void OnDisable()
     {
         if (!_permanentlyHide)
         {
             InputManager.Instance.ControlsChanged -= SetCursorVisibility;
+            GameManager.Instance.OnGamePauseStateChange -= SetCursorVisibility;
         }
     }
 }

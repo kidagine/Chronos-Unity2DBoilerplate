@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
-	void OnEnable()
-    {
-        GameManager.Instance.OnPlayerFound += OnLevelLoaded;
-    }
+	//void OnEnable()
+ //   {
+ //       GameManager.Instance.OnPlayerFound += OnLevelLoaded;
+ //   }
 
     private void OnLevelLoaded()
     {
