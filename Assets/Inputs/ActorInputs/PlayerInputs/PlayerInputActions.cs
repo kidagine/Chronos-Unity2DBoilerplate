@@ -15,6 +15,74 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     ""name"": ""PlayerInputActions"",
     ""maps"": [
         {
+            ""name"": ""Prompts"",
+            ""id"": ""dedd91e4-02fc-446b-8f57-bb855d08e97c"",
+            ""actions"": [
+                {
+                    ""name"": ""Confirm"",
+                    ""type"": ""Button"",
+                    ""id"": ""b974387a-378a-440d-b24d-8822f3c3bf9a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""f45ade66-e129-44a5-b058-27823799e189"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c60bba43-f532-4b52-8e0a-d361d77444b3"",
+                    ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b28abc7-020d-4e3a-9224-420f61a75723"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Confirm"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""757314ea-0f75-498b-9463-cb82740d092d"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""b01e28e4-1e19-4d2c-957e-6a50fbd32b27"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
             ""name"": ""Gameplay"",
             ""id"": ""0e5bb1ed-0fc4-461c-9b8d-c81593dfa663"",
             ""actions"": [
@@ -77,7 +145,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/upArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -88,7 +156,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/downArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -99,7 +167,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/leftArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -110,7 +178,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/rightArrow"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -132,7 +200,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -143,7 +211,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/s"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -154,7 +222,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/a"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -165,7 +233,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/d"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Movement"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
@@ -253,7 +321,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -275,7 +343,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Menu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -297,7 +365,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/j"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Attack"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -319,7 +387,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -330,7 +398,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Gamepad>/buttonNorth"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Xbox"",
+                    ""groups"": ""Xbox;Keyboard&Mouse"",
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -357,7 +425,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""NextDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -368,7 +436,7 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""path"": ""<Keyboard>/enter"",
                     ""interactions"": """",
                     ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
+                    ""groups"": ""Keyboard&Mouse"",
                     ""action"": ""NextDialogue"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
@@ -385,80 +453,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
-        },
-        {
-            ""name"": ""Prompts"",
-            ""id"": ""dedd91e4-02fc-446b-8f57-bb855d08e97c"",
-            ""actions"": [
-                {
-                    ""name"": ""Confirm"",
-                    ""type"": ""Button"",
-                    ""id"": ""b974387a-378a-440d-b24d-8822f3c3bf9a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Back"",
-                    ""type"": ""Button"",
-                    ""id"": ""f45ade66-e129-44a5-b058-27823799e189"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""c60bba43-f532-4b52-8e0a-d361d77444b3"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
-                    ""action"": ""Confirm"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""1b28abc7-020d-4e3a-9224-420f61a75723"",
-                    ""path"": ""<Gamepad>/buttonSouth"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""Confirm"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""757314ea-0f75-498b-9463-cb82740d092d"",
-                    ""path"": ""<Keyboard>/escape"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Mouse&Keyboard"",
-                    ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b01e28e4-1e19-4d2c-957e-6a50fbd32b27"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Xbox"",
-                    ""action"": ""Back"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
         }
     ],
     ""controlSchemes"": [
         {
-            ""name"": ""Mouse&Keyboard"",
-            ""bindingGroup"": ""Mouse&Keyboard"",
+            ""name"": ""Keyboard&Mouse"",
+            ""bindingGroup"": ""Keyboard&Mouse"",
             ""devices"": [
                 {
                     ""devicePath"": ""<Keyboard>"",
@@ -485,6 +485,10 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     ]
 }");
+        // Prompts
+        m_Prompts = asset.FindActionMap("Prompts", throwIfNotFound: true);
+        m_Prompts_Confirm = m_Prompts.FindAction("Confirm", throwIfNotFound: true);
+        m_Prompts_Back = m_Prompts.FindAction("Back", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
@@ -495,10 +499,6 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         // Dialogue
         m_Dialogue = asset.FindActionMap("Dialogue", throwIfNotFound: true);
         m_Dialogue_NextDialogue = m_Dialogue.FindAction("NextDialogue", throwIfNotFound: true);
-        // Prompts
-        m_Prompts = asset.FindActionMap("Prompts", throwIfNotFound: true);
-        m_Prompts_Confirm = m_Prompts.FindAction("Confirm", throwIfNotFound: true);
-        m_Prompts_Back = m_Prompts.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -544,6 +544,47 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         asset.Disable();
     }
+
+    // Prompts
+    private readonly InputActionMap m_Prompts;
+    private IPromptsActions m_PromptsActionsCallbackInterface;
+    private readonly InputAction m_Prompts_Confirm;
+    private readonly InputAction m_Prompts_Back;
+    public struct PromptsActions
+    {
+        private @PlayerInputActions m_Wrapper;
+        public PromptsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Confirm => m_Wrapper.m_Prompts_Confirm;
+        public InputAction @Back => m_Wrapper.m_Prompts_Back;
+        public InputActionMap Get() { return m_Wrapper.m_Prompts; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PromptsActions set) { return set.Get(); }
+        public void SetCallbacks(IPromptsActions instance)
+        {
+            if (m_Wrapper.m_PromptsActionsCallbackInterface != null)
+            {
+                @Confirm.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
+                @Confirm.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
+                @Confirm.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
+                @Back.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+            }
+            m_Wrapper.m_PromptsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Confirm.started += instance.OnConfirm;
+                @Confirm.performed += instance.OnConfirm;
+                @Confirm.canceled += instance.OnConfirm;
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
+            }
+        }
+    }
+    public PromptsActions @Prompts => new PromptsActions(this);
 
     // Gameplay
     private readonly InputActionMap m_Gameplay;
@@ -642,54 +683,13 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         }
     }
     public DialogueActions @Dialogue => new DialogueActions(this);
-
-    // Prompts
-    private readonly InputActionMap m_Prompts;
-    private IPromptsActions m_PromptsActionsCallbackInterface;
-    private readonly InputAction m_Prompts_Confirm;
-    private readonly InputAction m_Prompts_Back;
-    public struct PromptsActions
-    {
-        private @PlayerInputActions m_Wrapper;
-        public PromptsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Confirm => m_Wrapper.m_Prompts_Confirm;
-        public InputAction @Back => m_Wrapper.m_Prompts_Back;
-        public InputActionMap Get() { return m_Wrapper.m_Prompts; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PromptsActions set) { return set.Get(); }
-        public void SetCallbacks(IPromptsActions instance)
-        {
-            if (m_Wrapper.m_PromptsActionsCallbackInterface != null)
-            {
-                @Confirm.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
-                @Confirm.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
-                @Confirm.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnConfirm;
-                @Back.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
-                @Back.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
-                @Back.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
-            }
-            m_Wrapper.m_PromptsActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Confirm.started += instance.OnConfirm;
-                @Confirm.performed += instance.OnConfirm;
-                @Confirm.canceled += instance.OnConfirm;
-                @Back.started += instance.OnBack;
-                @Back.performed += instance.OnBack;
-                @Back.canceled += instance.OnBack;
-            }
-        }
-    }
-    public PromptsActions @Prompts => new PromptsActions(this);
-    private int m_MouseKeyboardSchemeIndex = -1;
-    public InputControlScheme MouseKeyboardScheme
+    private int m_KeyboardMouseSchemeIndex = -1;
+    public InputControlScheme KeyboardMouseScheme
     {
         get
         {
-            if (m_MouseKeyboardSchemeIndex == -1) m_MouseKeyboardSchemeIndex = asset.FindControlSchemeIndex("Mouse&Keyboard");
-            return asset.controlSchemes[m_MouseKeyboardSchemeIndex];
+            if (m_KeyboardMouseSchemeIndex == -1) m_KeyboardMouseSchemeIndex = asset.FindControlSchemeIndex("Keyboard&Mouse");
+            return asset.controlSchemes[m_KeyboardMouseSchemeIndex];
         }
     }
     private int m_XboxSchemeIndex = -1;
@@ -700,6 +700,11 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
             if (m_XboxSchemeIndex == -1) m_XboxSchemeIndex = asset.FindControlSchemeIndex("Xbox");
             return asset.controlSchemes[m_XboxSchemeIndex];
         }
+    }
+    public interface IPromptsActions
+    {
+        void OnConfirm(InputAction.CallbackContext context);
+        void OnBack(InputAction.CallbackContext context);
     }
     public interface IGameplayActions
     {
@@ -712,10 +717,5 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     public interface IDialogueActions
     {
         void OnNextDialogue(InputAction.CallbackContext context);
-    }
-    public interface IPromptsActions
-    {
-        void OnConfirm(InputAction.CallbackContext context);
-        void OnBack(InputAction.CallbackContext context);
     }
 }

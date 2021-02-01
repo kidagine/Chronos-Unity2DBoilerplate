@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class InputManager : MonoBehaviour
 {
     [SerializeField] private PlayerInput _playerInput = default;
-    [SerializeField] private PlayerInput _promptsInput = default;
     public static InputManager Instance { get; private set; }
     private string _currentControlScheme;
     public event Action<bool> ControlsChanged;
@@ -46,12 +45,12 @@ public class InputManager : MonoBehaviour
 
     public InputAction GetPromptInputAction(string actionName)
     {
-        InputAction inputAction = _promptsInput.actions.FindAction(actionName);
+        InputAction inputAction = _playerInput.actions.FindAction(actionName);
         if (inputAction == null)
         {
-            Debug.LogError($"Could not find InputAction with name: {actionName} on PlayerInput: {_promptsInput.name}");
+            Debug.LogError($"Could not find InputAction with name: {actionName} on PlayerInput: {_playerInput.name}");
         }
-        return _promptsInput.actions.FindAction(actionName);
+        return _playerInput.actions.FindAction(actionName);
     }
 
     public InputAction GetPlayerInputAction(string actionName)
@@ -66,7 +65,7 @@ public class InputManager : MonoBehaviour
 
     public PlayerInput GetPromptInput()
     {
-        return _promptsInput;
+        return _playerInput;
     }
 
     public void ActivatePlayerInput()
