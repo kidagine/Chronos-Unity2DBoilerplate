@@ -51,7 +51,7 @@ public class GameManager : MonoBehaviour
     public void SetGamePauseState(bool state)
     {
         GamePauseState = state;
-        OnGamePauseStateChange.Invoke();
+        OnGamePauseStateChange?.Invoke();
     }
 
     public GameObject GetPlayer()
