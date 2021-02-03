@@ -53,6 +53,58 @@ public class PrinterMO : MonoBehaviour
         Destroy(textPrefab, print.Duration);
     }
 
+    public void LogWarning(Print print)
+    {
+        GameObject textPrefab = Instantiate(_textPrefab, _printScrollViewContent);
+        TextMeshProUGUI printText = textPrefab.GetComponentInChildren<TextMeshProUGUI>();
+        if (print.PrintToScreen)
+        {
+            printText.text = print.Message.ToString();
+        }
+        if (print.PrintToLog)
+        {
+            Debug.LogWarning(print.Message);
+        }
+        if (print.TextColor != default)
+        {
+            printText.color = Color.yellow;
+        }
+        if (print.FlipToRight)
+        {
+            _printerContainer.anchorMax = new Vector2(1.0f, 0.0f);
+            _printerContainer.anchorMin = new Vector2(1.0f, 0.0f);
+            _printerContainer.anchoredPosition = new Vector2(_printerContainer.anchoredPosition.x * -1.0f, _printerContainer.anchoredPosition.y);
+        }
+        MoveContentDown();
+        Destroy(textPrefab, print.Duration);
+    }
+
+    public void LogError(Print print)
+    {
+        GameObject textPrefab = Instantiate(_textPrefab, _printScrollViewContent);
+        TextMeshProUGUI printText = textPrefab.GetComponentInChildren<TextMeshProUGUI>();
+        if (print.PrintToScreen)
+        {
+            printText.text = print.Message.ToString();
+        }
+        if (print.PrintToLog)
+        {
+            Debug.LogError(print.Message);
+        }
+        if (print.TextColor != default)
+        {
+            printText.color = Color.red;
+        }
+        if (print.FlipToRight)
+        {
+            _printerContainer.anchorMax = new Vector2(1.0f, 0.0f);
+            _printerContainer.anchorMin = new Vector2(1.0f, 0.0f);
+            _printerContainer.anchoredPosition = new Vector2(_printerContainer.anchoredPosition.x * -1.0f, _printerContainer.anchoredPosition.y);
+        }
+        MoveContentDown();
+        Destroy(textPrefab, print.Duration);
+    }
+
     private void MoveContentDown()
     {
         if (_printScrollViewContent.childCount > 0)

@@ -16,8 +16,6 @@ public class Sound
 	public bool playOnAwake;
 	public bool playOneInstanceAtATime;
 
-	public event Action OnSoundEnd;
-
 
 	public void Play()
 	{

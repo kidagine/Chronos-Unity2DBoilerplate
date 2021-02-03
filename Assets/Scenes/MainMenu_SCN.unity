@@ -11921,7 +11921,7 @@ PrefabInstance:
     - target: {fileID: 3730049657325172359, guid: 43076a76745fa334b917d138f62f54f0,
         type: 3}
       propertyPath: m_Name
-      value: SelecSaveDataPrompts_group
+      value: SelectSaveDataPrompts_group
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43076a76745fa334b917d138f62f54f0, type: 3}

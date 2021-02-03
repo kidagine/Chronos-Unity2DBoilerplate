@@ -23,9 +23,6 @@ public class DeviceConfigurator : ScriptableObject
 
     public DisconnectedSettings disconnectedDeviceSettings;
 
-    private Color fallbackDisplayColor = Color.white;
-
-
     public string GetDeviceName(UnityEngine.InputSystem.PlayerInput playerInput)
     {
 

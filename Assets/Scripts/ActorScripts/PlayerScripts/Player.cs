@@ -1,5 +1,4 @@
-﻿using Steamworks;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Player : MonoBehaviour, IHurtboxResponder
@@ -12,8 +11,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	[SerializeField] private SpriteRenderer _spriteRenderer = default;
 	[SerializeField] private GameObject _hurtboxes = default;
 	[SerializeField] private GameObject _pushboxes = default;
-	[SerializeField] private int _maxHealth = 3;
-	private int _health;
+	[SerializeField] private PlayerStats _playerStats = default;
 
 	public bool IsRecovered { get; private set; } = true;
 	public bool IsAttacking { get; set; }
@@ -21,8 +19,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 
 	void Awake()
 	{
-		_health = _maxHealth;
-		_playerUI.PlayerStatsUI.SetMaxHealth(_maxHealth);
+		_playerUI.PlayerStatsUI.SetMaxHealth(_playerStats.health);
 	}
 
 	public void AttackAction()
@@ -46,10 +43,10 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		if (IsRecovered)
 		{
 			IsRecovered = false;
-			_health--;
 			_playerMovement.SetMovementLock(true);
+			_playerStats.currentHealth--;
 			Knockback(knockbackDirection, knockbackForce);
-			if (_health > 0)
+			if (_playerStats.currentHealth > 0)
 			{
 				_playerAnimator.HurtAnimation();
 			}
@@ -64,7 +61,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	IEnumerator FlashRedCoroutine()
 	{
 		_spriteRenderer.color = Color.red;
-		_playerUI.PlayerStatsUI.SetHealth(_health);
+		_playerUI.PlayerStatsUI.SetHealth(_playerStats.currentHealth);
 		yield return new WaitForSeconds(0.25f);
 		IsRecovered = true;
 		_spriteRenderer.color = Color.white;

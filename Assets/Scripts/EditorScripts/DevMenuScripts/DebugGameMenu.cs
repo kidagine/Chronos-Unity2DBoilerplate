@@ -1,11 +1,9 @@
 ﻿#if UNITY_EDITOR
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class DebugGameMenu : MonoBehaviour, ISubMenu
+public class DebugGameMenu : BaseMenu
 {
-	[SerializeField] private Selectable _startingOption = default;
 	[SerializeField] private TextMeshProUGUI _timeScaleText = default;
 
 
@@ -15,9 +13,14 @@ public class DebugGameMenu : MonoBehaviour, ISubMenu
 		Time.timeScale = timeScale;
 	}
 
-	public void Activate()
+	public void NextCheckpoint()
 	{
-		_startingOption.Select();
+		CheckpointManager.Instance.GoToNextCheckpoint();
+	}
+
+	public void PreviousCheckpoint()
+	{
+		CheckpointManager.Instance.GoToPreviousCheckpoint();
 	}
 }
 #endif

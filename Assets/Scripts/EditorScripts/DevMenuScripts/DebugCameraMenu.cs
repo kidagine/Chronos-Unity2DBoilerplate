@@ -2,11 +2,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class DebugCameraMenu : MonoBehaviour, ISubMenu
+public class DebugCameraMenu : BaseMenu
 {
-	[SerializeField] private Selectable _startingOption = default;
     [SerializeField] private TextMeshProUGUI _debugCameraText = default;
     [SerializeField] private Camera _debugCamera = default;
     [SerializeField] private EventSystem _eventSystem = default;
@@ -35,11 +33,6 @@ public class DebugCameraMenu : MonoBehaviour, ISubMenu
             _debugCameraInput.enabled = false;
             _debugCameraText.text = "Off";
         }
-    }
-
-	public void Activate()
-	{
-        _startingOption.Select();
     }
 }
 #endif

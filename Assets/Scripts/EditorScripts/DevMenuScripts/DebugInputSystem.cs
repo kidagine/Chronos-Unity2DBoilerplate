@@ -16,18 +16,12 @@ public class DebugInputSystem : MonoBehaviour
     private void DebugInputSetup()
     {
         _debugInput = new DebugInputActions();
-        _debugInput.DebugControls.OpenDebug.performed += OpenDebug;
-        _debugInput.DebugControls.Cancel.performed += Cancel;
+        _debugInput.DebugControls.ToggleDebugMenu.performed += OpenDebug;
     }
 
     private void OpenDebug(InputAction.CallbackContext context)
     {
         _debugConsole.SetDebugMenuAction(true);
-    }
-
-    private void Cancel(InputAction.CallbackContext context)
-    {
-        _debugConsole.SetDebugMenuAction(false);
     }
 
     void OnEnable()

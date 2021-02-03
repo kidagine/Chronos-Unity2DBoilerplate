@@ -19,4 +19,10 @@ public class DevMenuInteractable : MonoBehaviour, ISelectHandler, IDeselectHandl
         _optionText.color = Color.white;
         _selectedImage.SetActive(false);
     }
+
+    void OnDisable()
+	{
+        _optionText.color = Color.white;
+        _selectedImage.SetActive(false);
+    }
 }
