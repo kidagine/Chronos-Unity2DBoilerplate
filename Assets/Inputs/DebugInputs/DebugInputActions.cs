@@ -19,17 +19,9 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
             ""id"": ""81cae4ab-a618-4a10-a1ea-f2025f855f68"",
             ""actions"": [
                 {
-                    ""name"": ""OpenDebug"",
+                    ""name"": ""ToggleDebugMenu"",
                     ""type"": ""Button"",
                     ""id"": ""e7a3b25f-f3a4-4f2e-95e6-912f3e96977a"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""Cancel"",
-                    ""type"": ""Button"",
-                    ""id"": ""6554bd0e-2765-4911-93af-124ef9931770"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -43,7 +35,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OpenDebug"",
+                    ""action"": ""ToggleDebugMenu"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -54,7 +46,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""OpenDebug"",
+                    ""action"": ""ToggleDebugMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -65,7 +57,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""OpenDebug"",
+                    ""action"": ""ToggleDebugMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -76,7 +68,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""OpenDebug"",
+                    ""action"": ""ToggleDebugMenu"",
                     ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
@@ -87,7 +79,7 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""OpenDebug"",
+                    ""action"": ""ToggleDebugMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
@@ -98,31 +90,91 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""OpenDebug"",
+                    ""action"": ""ToggleDebugMenu"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Prompts"",
+            ""id"": ""8c93e0ba-ea4d-4075-962d-46fdfde88be9"",
+            ""actions"": [
+                {
+                    ""name"": ""Back"",
+                    ""type"": ""Button"",
+                    ""id"": ""41163ac6-5fe2-454e-a276-df43b386734d"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""Select+DpadDown"",
+                    ""id"": ""0531e913-7d4a-425f-801b-2753ca1143df"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""modifier"",
+                    ""id"": ""c77262bc-288e-4f48-aa7f-597f5a04a750"",
+                    ""path"": ""<Gamepad>/rightStickPress"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""006e16ba-faa8-4eec-8b7f-ac63f0b868a1"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""name"": ""button"",
+                    ""id"": ""22f413f5-867b-4542-8bec-11894c42db38"",
+                    ""path"": ""<Gamepad>/leftStickPress"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Cancel"",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""Control+D"",
+                    ""id"": ""db80bcfe-7061-4e95-893f-5a700c684e13"",
+                    ""path"": ""ButtonWithOneModifier"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Back"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": """",
-                    ""id"": ""9043f49a-01d5-40e4-a874-8d10a888d819"",
-                    ""path"": ""<Keyboard>/escape"",
+                    ""name"": ""modifier"",
+                    ""id"": ""f84897a8-5d70-4b6b-8efc-b3462645e389"",
+                    ""path"": ""<Keyboard>/ctrl"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""KeyboardMouse"",
-                    ""action"": ""Cancel"",
+                    ""action"": ""Back"",
                     ""isComposite"": false,
-                    ""isPartOfComposite"": false
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""button"",
+                    ""id"": ""b07eef32-b014-4c0a-9689-7cc973900fab"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -159,8 +211,10 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
 }");
         // DebugControls
         m_DebugControls = asset.FindActionMap("DebugControls", throwIfNotFound: true);
-        m_DebugControls_OpenDebug = m_DebugControls.FindAction("OpenDebug", throwIfNotFound: true);
-        m_DebugControls_Cancel = m_DebugControls.FindAction("Cancel", throwIfNotFound: true);
+        m_DebugControls_ToggleDebugMenu = m_DebugControls.FindAction("ToggleDebugMenu", throwIfNotFound: true);
+        // Prompts
+        m_Prompts = asset.FindActionMap("Prompts", throwIfNotFound: true);
+        m_Prompts_Back = m_Prompts.FindAction("Back", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -210,14 +264,12 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
     // DebugControls
     private readonly InputActionMap m_DebugControls;
     private IDebugControlsActions m_DebugControlsActionsCallbackInterface;
-    private readonly InputAction m_DebugControls_OpenDebug;
-    private readonly InputAction m_DebugControls_Cancel;
+    private readonly InputAction m_DebugControls_ToggleDebugMenu;
     public struct DebugControlsActions
     {
         private @DebugInputActions m_Wrapper;
         public DebugControlsActions(@DebugInputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @OpenDebug => m_Wrapper.m_DebugControls_OpenDebug;
-        public InputAction @Cancel => m_Wrapper.m_DebugControls_Cancel;
+        public InputAction @ToggleDebugMenu => m_Wrapper.m_DebugControls_ToggleDebugMenu;
         public InputActionMap Get() { return m_Wrapper.m_DebugControls; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -227,26 +279,53 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
         {
             if (m_Wrapper.m_DebugControlsActionsCallbackInterface != null)
             {
-                @OpenDebug.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnOpenDebug;
-                @OpenDebug.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnOpenDebug;
-                @OpenDebug.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnOpenDebug;
-                @Cancel.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnCancel;
-                @Cancel.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnCancel;
-                @Cancel.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnCancel;
+                @ToggleDebugMenu.started -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnToggleDebugMenu;
+                @ToggleDebugMenu.performed -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnToggleDebugMenu;
+                @ToggleDebugMenu.canceled -= m_Wrapper.m_DebugControlsActionsCallbackInterface.OnToggleDebugMenu;
             }
             m_Wrapper.m_DebugControlsActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @OpenDebug.started += instance.OnOpenDebug;
-                @OpenDebug.performed += instance.OnOpenDebug;
-                @OpenDebug.canceled += instance.OnOpenDebug;
-                @Cancel.started += instance.OnCancel;
-                @Cancel.performed += instance.OnCancel;
-                @Cancel.canceled += instance.OnCancel;
+                @ToggleDebugMenu.started += instance.OnToggleDebugMenu;
+                @ToggleDebugMenu.performed += instance.OnToggleDebugMenu;
+                @ToggleDebugMenu.canceled += instance.OnToggleDebugMenu;
             }
         }
     }
     public DebugControlsActions @DebugControls => new DebugControlsActions(this);
+
+    // Prompts
+    private readonly InputActionMap m_Prompts;
+    private IPromptsActions m_PromptsActionsCallbackInterface;
+    private readonly InputAction m_Prompts_Back;
+    public struct PromptsActions
+    {
+        private @DebugInputActions m_Wrapper;
+        public PromptsActions(@DebugInputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Back => m_Wrapper.m_Prompts_Back;
+        public InputActionMap Get() { return m_Wrapper.m_Prompts; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(PromptsActions set) { return set.Get(); }
+        public void SetCallbacks(IPromptsActions instance)
+        {
+            if (m_Wrapper.m_PromptsActionsCallbackInterface != null)
+            {
+                @Back.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+                @Back.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+                @Back.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+            }
+            m_Wrapper.m_PromptsActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Back.started += instance.OnBack;
+                @Back.performed += instance.OnBack;
+                @Back.canceled += instance.OnBack;
+            }
+        }
+    }
+    public PromptsActions @Prompts => new PromptsActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -267,7 +346,10 @@ public class @DebugInputActions : IInputActionCollection, IDisposable
     }
     public interface IDebugControlsActions
     {
-        void OnOpenDebug(InputAction.CallbackContext context);
-        void OnCancel(InputAction.CallbackContext context);
+        void OnToggleDebugMenu(InputAction.CallbackContext context);
+    }
+    public interface IPromptsActions
+    {
+        void OnBack(InputAction.CallbackContext context);
     }
 }

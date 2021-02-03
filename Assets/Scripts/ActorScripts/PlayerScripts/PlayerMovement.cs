@@ -7,11 +7,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     [SerializeField] private PlayerAnimator _playerAnimator = default;
     [SerializeField] private Rigidbody2D _rigidbody = default;
     [SerializeField] private EntityAudio _playerAudio = default;
-    [SerializeField] private float _groundMoveSpeed = 5.0f;
-    [SerializeField] private float _jumpImpulse = 5.0f;
-    [SerializeField] private int _maxJumpCount = 1;
-    private float _currentMoveSpeed;
-    private int _jumpCount;
+    [SerializeField] private PlayerStats _playerStats = default;
 
     public bool IsGrounded { get; private set; }
     public Vector2 MovementInput { private get; set; }
@@ -32,7 +28,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     {
         if (_player.IsRecovered)
         {
-            _rigidbody.velocity = new Vector2(MovementInput.x * _currentMoveSpeed, _rigidbody.velocity.y);
+            _rigidbody.velocity = new Vector2(MovementInput.x * _playerStats.currentSpeed, _rigidbody.velocity.y);
             if (_rigidbody.velocity != Vector2.zero && MovementInput.x != 0.0f)
             {
                 _playerAnimator.RunningAnimation();
@@ -61,11 +57,11 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 
     public void JumpAction()
     {
-        if (_jumpCount < _maxJumpCount && _rigidbody.constraints != RigidbodyConstraints2D.FreezePosition)
+        if (_playerStats.currentJumpCount < _playerStats.jumpCount && _rigidbody.constraints != RigidbodyConstraints2D.FreezePosition)
         {
             _playerAudio.Sound("Jump").Play();
-            _jumpCount++;
-            _rigidbody.AddForce(new Vector2(0.0f, _jumpImpulse), ForceMode2D.Impulse);
+            _playerStats.currentJumpCount++;
+            _rigidbody.AddForce(new Vector2(0.0f, _playerStats.jumpImpulse), ForceMode2D.Impulse);
             ObjectPoolingManager.Instance.Spawn("JumpSmoke", transform.position, Quaternion.identity);
             _playerAnimator.JumpAnimation();
         }
@@ -76,9 +72,8 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
         if (!IsGrounded)
         {
             _playerAudio.Sound("Landed").Play();
-            _currentMoveSpeed = _groundMoveSpeed;
             IsGrounded = true;
-            _jumpCount = 0;
+            _playerStats.currentJumpCount = 0;
             ObjectPoolingManager.Instance.Spawn("LandSmoke", transform.position, Quaternion.identity);
             _playerAnimator.GroundedAnimation();
         }   

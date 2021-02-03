@@ -1,10 +1,8 @@
 ﻿#if UNITY_EDITOR
 using UnityEngine;
-using UnityEngine.UI;
 
-public class DebugSpawnMenu : MonoBehaviour, ISubMenu
+public class DebugSpawnMenu : BaseMenu
 {
-	[SerializeField] private Selectable _startingOption = default;
 	private readonly float _distanceFromSpawn = 1.5f;
 
 
@@ -21,11 +19,6 @@ public class DebugSpawnMenu : MonoBehaviour, ISubMenu
 			Printer.Log("Player not found, spawning in center", duration: 2.0f, flipToRight: true);
 			Instantiate(objectToSpawn, Vector2.zero, Quaternion.identity);
 		}
-	}
-
-	public void Activate()
-	{
-		_startingOption.Select();
 	}
 }
 #endif

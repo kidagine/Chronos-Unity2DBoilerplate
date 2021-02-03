@@ -15,7 +15,7 @@ public class BaseMenu : MonoBehaviour, ISubMenu
 	IEnumerator ActivateCoroutine()
 	{
 		yield return null;
-		_startingOption.Select();
+		_startingOption.Select();	
 	}
 
 	public void OpenMenu(GameObject menu)

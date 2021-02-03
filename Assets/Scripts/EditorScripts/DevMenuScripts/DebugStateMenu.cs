@@ -1,12 +1,7 @@
 ﻿#if UNITY_EDITOR
-using UnityEngine;
-using UnityEngine.UI;
 
-public class DebugStateMenu : MonoBehaviour, ISubMenu
+public class DebugStateMenu : BaseMenu
 {
-	[SerializeField] private Selectable _startingOption = default;
-
-
 	public void Save()
 	{
 		SaveManager.Instance.Save();
@@ -15,21 +10,6 @@ public class DebugStateMenu : MonoBehaviour, ISubMenu
 	public void Load()
 	{
 		SaveManager.Instance.Load();
-	}
-
-	public void NextCheckpoint()
-	{
-		CheckpointManager.Instance.GoToNextCheckpoint();
-	}
-
-	public void PreviousCheckpoint()
-	{
-		CheckpointManager.Instance.GoToPreviousCheckpoint();
-	}
-
-	public void Activate()
-	{
-		_startingOption.Select();
 	}
 }
 #endif
