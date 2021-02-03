@@ -3,10 +3,11 @@
 public class GroundedBox : MonoBehaviour
 {
 	[SerializeField] private GameObject _groundedBoxResponder = default;
-	private int _groundLayerMaskIndex;
 	private IPushboxResponder _pushboxResponder;
+	private int _groundLayerMaskIndex;
 
-	private void Start()
+
+	void Start()
 	{
 		if (_groundedBoxResponder != null)
 		{
