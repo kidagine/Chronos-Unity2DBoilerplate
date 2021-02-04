@@ -28,21 +28,24 @@ public class ControlsMenu : MonoBehaviour, ISubMenu
 	{
 		InputManager.Instance.DisablePlayerInput();
 		remapButton.SetLock(true);
-		Debug.Log(remapButton.InputActionReference.action.name);
-		_rebindingOperation = remapButton.InputActionReference.action.PerformInteractiveRebinding()
+		InputAction focusedInputAction =remapButton.InputActionReference.action;
+		_rebindingOperation = focusedInputAction.PerformInteractiveRebinding()
 			.WithControlsHavingToMatchPath("<Keyboard>")
 			.WithCancelingThrough("<Keyboard>/escape")
-			.OnMatchWaitForAnother(0.1f).OnComplete(operation => RemapComplete(remapButton))
-			.OnCancel(operation => RemapCancelled(remapButton))
-			.Start();
+			.OnMatchWaitForAnother(0.1f)
+			.OnComplete(operation => RemapComplete(remapButton))
+			.OnCancel(operation => RemapCancelled(remapButton));
+
+		_rebindingOperation.Start();
 	}
 
 	private void RemapComplete(RemapButton remapButton)
 	{
 		_rebindingOperation.Dispose();
+		InputAction focusedInputAction22 = InputManager.Instance.GetPlayerInputAction("Jump");
+		Debug.Log(focusedInputAction22);
 		InputManager.Instance.ActivatePlayerInput();
 		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
-		Debug.Log(focusedInputAction);
 		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
 		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 		

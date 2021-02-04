@@ -11,7 +11,7 @@ public class PauseMenu : BaseMenu
 	public void OpenPauseMenu()
 	{
 		gameObject.SetActive(true);
-		_playerController.enabled = false;
+		_playerController.DeactivateInput();
 		GameManager.Instance.SetGamePauseState(true);
 	}
 
@@ -19,7 +19,7 @@ public class PauseMenu : BaseMenu
 	{
 		gameObject.SetActive(false);
 		_eventSystem.SetSelectedGameObject(null);
-		_playerController.enabled = true;
+		_playerController.ActivateInput();
 		GameManager.Instance.SetGamePauseState(false);
 	}
 }
