@@ -3,6 +3,10 @@ tags:
 colorID: 8
 position: 523,31
 ---
+<< if $hasRead == false >> 
+Sign: This is the first time you read this sign. #line:4d802o
+<<set $hasRead to true>>
+<<endif>> 
 Sign: Choose a tutorial you want to read on. #line:5d727c
 [[Movement|SignTutorial.Movement]] #line:5d7a7c
 [[Combat|SignTutorial.Combat]] #line:0a7e39
@@ -15,13 +19,15 @@ position: 305,305
 ---
 Sign: Use WASD/Arrow keys or Left stick/D-pad to move. #line:1fff39
 Sign: Use Spacebar or A to jump. #line:2fff39
+[[SignTutorial]]
 ===
 title: SignTutorial.Combat
 tags: 
 colorID: 0
-position: 780,308
+position: 767,310
 ---
 Sign: Use J or X to attack. #line:3fff39
+[[SignTutorial]]
 ===
 title: SignTutorial.Exit
 tags: 
