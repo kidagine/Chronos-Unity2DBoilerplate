@@ -8,11 +8,15 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerMovement _playerMovement = default;
     [SerializeField] private PlayerInteract _playerInteract = default;
     [SerializeField] private DialogueUI _playerDialogue = default;
-    private PlayerInputActions _playerInputActions;
+    private PlayerInput _playerInput;
+    private readonly string _gameplayActionMap = "Gameplay";
+    private readonly string _dialogueActionMap = "Dialogue";
+    private static PlayerInputActions _playerInputActions;
 
 
     void Awake()
     {
+        _playerInput = GetComponent<PlayerInput>();
         PlayerInputSetup();
     }
 
@@ -24,66 +28,69 @@ public class PlayerController : MonoBehaviour
     private void PlayerInputSetup()
     {
         _playerInputActions = new PlayerInputActions();
-        _playerInputActions.Gameplay.Movement.performed += SetMove;
-        _playerInputActions.Gameplay.Jump.performed += Jump;
-		_playerInputActions.Gameplay.Attack.performed += Attack;
-        _playerInputActions.Gameplay.Interact.performed += Interact;
-        _playerInputActions.Gameplay.Menu.performed += Menu;
-        _playerInputActions.Dialogue.NextDialogue.performed += NextDialogue;
     }
 
-    private void SetMove(InputAction.CallbackContext context)
+    public static PlayerInputActions Tezo()
     {
-        _playerMovement.MovementInput = context.ReadValue<Vector2>();
+        return _playerInputActions;
     }
 
-    private void Jump(InputAction.CallbackContext context)
+    public void SetMove(InputAction.CallbackContext context)
     {
-        _playerMovement.JumpAction();
+        if (context.performed)
+            _playerMovement.MovementInput = context.ReadValue<Vector2>();
     }
 
-    private void Attack(InputAction.CallbackContext context)
+    public void Jump(InputAction.CallbackContext context)
     {
-        _player.AttackAction();
+        if (context.performed)
+            _playerMovement.JumpAction();
     }
 
-    private void Interact(InputAction.CallbackContext context)
+    public void Attack(InputAction.CallbackContext context)
     {
-        _playerInteract.InteractAction();
+        if (context.performed)
+            _player.AttackAction();
     }
 
-    private void Menu(InputAction.CallbackContext context)
+    public void Interact(InputAction.CallbackContext context)
     {
-        _player.MenuAction();
+        if (context.performed)
+            _playerInteract.InteractAction();
+    }
+
+    public void Menu(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+            _player.MenuAction();
     }
 
     public void NextDialogue(InputAction.CallbackContext context)
     {
-        _playerDialogue.MarkLineComplete();
+        if (context.performed)
+            _playerDialogue.MarkLineComplete();
     }
 
     public void SwitchToDialogueActionMap()
     {
-        _playerInputActions.Dialogue.Enable();
-        _playerInputActions.Gameplay.Disable();
+        _playerInput.SwitchCurrentActionMap(_dialogueActionMap);
         _playerMovement.MovementInput = Vector2.zero;
     }
 
     public void SwitchToGameplayActionMap()
     {
-        _playerInputActions.Gameplay.Enable();
-        _playerInputActions.Dialogue.Disable();
+        _playerInput.SwitchCurrentActionMap(_gameplayActionMap);
         _playerMovement.MovementInput = Vector2.zero;
     }
 
-    void OnEnable()
+    public void ActivateInput()
     {
-        _playerInputActions.Enable();
+        _playerInput.ActivateInput();
     }
 
-    void OnDisable()
+    public void DeactivateInput() 
     {
-        _playerInputActions.Disable();
+        _playerInput.DeactivateInput();
         _playerMovement.MovementInput = Vector2.zero;
     }
 }

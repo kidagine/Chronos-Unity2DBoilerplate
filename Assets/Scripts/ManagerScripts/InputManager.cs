@@ -7,6 +7,7 @@ public class InputManager : MonoBehaviour
     [SerializeField] private PlayerInput _playerInput = default;
     public static InputManager Instance { get; private set; }
     private string _currentControlScheme;
+
     public event Action ControlsChanged;
 
 	public ControlSchemeEnum ActiveControlScheme { get; private set; }
@@ -48,27 +49,12 @@ public class InputManager : MonoBehaviour
         }
     }
 
-    public InputAction GetPromptInputAction(string actionName)
-    {
-        InputAction inputAction = _playerInput.actions.FindAction(actionName);
-        if (inputAction == null)
-        {
-            Debug.LogError($"Could not find InputAction with name: {actionName} on PlayerInput: {_playerInput.name}");
-        }
-        return _playerInput.actions.FindAction(actionName);
-    }
-
     public InputAction GetPlayerInputAction(string actionName)
     {
         return _playerInput.actions.FindAction(actionName);
     }
 
     public PlayerInput GetPlayerInput()
-    {
-        return _playerInput;
-    }
-
-    public PlayerInput GetPromptInput()
     {
         return _playerInput;
     }

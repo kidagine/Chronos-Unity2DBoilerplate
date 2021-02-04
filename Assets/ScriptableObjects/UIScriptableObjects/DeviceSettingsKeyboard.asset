@@ -30,33 +30,78 @@ MonoBehaviour:
   - customInputContextString: G
     customInputContextIcon: {fileID: 1420395703542767577, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
+  - customInputContextString: K
+    customInputContextIcon: {fileID: 8087968210327759056, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: A
+    customInputContextIcon: {fileID: -7502892234355531577, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: B
+    customInputContextIcon: {fileID: 2171340792942457682, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: C
+    customInputContextIcon: {fileID: -2855175417017633443, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: D
+    customInputContextIcon: {fileID: -2000531772910470382, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: F
+    customInputContextIcon: {fileID: -7125733795914562392, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: H
+    customInputContextIcon: {fileID: 6882803646463905805, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: L
+    customInputContextIcon: {fileID: 887603570628732155, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Q
+    customInputContextIcon: {fileID: -5744001084450905212, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: W
+    customInputContextIcon: {fileID: -6882223326705368066, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: R
+    customInputContextIcon: {fileID: -509814621177710837, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: T
+    customInputContextIcon: {fileID: -8463956533390792331, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Y
+    customInputContextIcon: {fileID: -7115289535141015602, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: U
+    customInputContextIcon: {fileID: 8120379859571352435, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: I
+    customInputContextIcon: {fileID: 9083318780382450502, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: O
+    customInputContextIcon: {fileID: -8492608493654956107, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: P
+    customInputContextIcon: {fileID: 8336311105117399028, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Z
+    customInputContextIcon: {fileID: 2506328885414562915, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: X
+    customInputContextIcon: {fileID: 116526470736520442, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: C
+    customInputContextIcon: {fileID: -2855175417017633443, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: V
+    customInputContextIcon: {fileID: -260708016606152035, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: B
+    customInputContextIcon: {fileID: 2171340792942457682, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: N
+    customInputContextIcon: {fileID: -8238836679664383588, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: M
+    customInputContextIcon: {fileID: -6046878233918012069, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Tab
+    customInputContextIcon: {fileID: -3468524477417711073, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
