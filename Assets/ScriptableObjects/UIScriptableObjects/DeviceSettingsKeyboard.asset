@@ -30,8 +30,9 @@ MonoBehaviour:
   - customInputContextString: G
     customInputContextIcon: {fileID: 1420395703542767577, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
-  - customInputContextString: 
-    customInputContextIcon: {fileID: 0}
+  - customInputContextString: K
+    customInputContextIcon: {fileID: 8087968210327759056, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
   - customInputContextString: 
     customInputContextIcon: {fileID: 0}
   - customInputContextString: 

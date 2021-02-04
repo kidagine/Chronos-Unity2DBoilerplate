@@ -28,32 +28,31 @@ public class ControlsMenu : MonoBehaviour, ISubMenu
 	{
 		InputManager.Instance.DisablePlayerInput();
 		remapButton.SetLock(true);
-		string controlsPath;
-		if (remapButton.IsControllerRemap)
-		{
-			controlsPath = "<Gamepad>";
-		}
-		else
-		{
-			controlsPath = "<Keyboard>";
-		}
-		_rebindingOperation = remapButton.InputActionReference.action.PerformInteractiveRebinding().WithControlsHavingToMatchPath(controlsPath)
-			.WithControlsExcluding("<Keyboard>/escape")
-			.WithControlsExcluding("<Gamepad>/Start")
-			.OnMatchWaitForAnother(0.1f).OnComplete(
-			operation => RemapComplete(remapButton)).Start();
+		Debug.Log(remapButton.InputActionReference.action.name);
+		_rebindingOperation = remapButton.InputActionReference.action.PerformInteractiveRebinding()
+			.WithControlsHavingToMatchPath("<Keyboard>")
+			.WithCancelingThrough("<Keyboard>/escape")
+			.OnMatchWaitForAnother(0.1f).OnComplete(operation => RemapComplete(remapButton))
+			.OnCancel(operation => RemapCancelled(remapButton))
+			.Start();
 	}
 
 	private void RemapComplete(RemapButton remapButton)
 	{
 		_rebindingOperation.Dispose();
 		InputManager.Instance.ActivatePlayerInput();
-
-		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Space");
+		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
+		Debug.Log(focusedInputAction);
 		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
 		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
-		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 		
+		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
+		remapButton.SetLock(false);
+	}
+
+	private void RemapCancelled(RemapButton remapButton)
+	{
+		_rebindingOperation.Dispose();
 		remapButton.SetLock(false);
 	}
 }

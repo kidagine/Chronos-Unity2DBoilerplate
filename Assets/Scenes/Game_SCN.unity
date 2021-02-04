@@ -3651,6 +3651,12 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 214943263704735669, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _deviceConfigurator
+      value: 
+      objectReference: {fileID: 11400000, guid: 86db5f8588dd9f5468809bdd76a7318e,
+        type: 2}
     - target: {fileID: 214943263914603879, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -3746,6 +3752,12 @@ PrefabInstance:
       propertyPath: _eventSystem
       value: 
       objectReference: {fileID: 1046929973}
+    - target: {fileID: 7055302937273855726, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _inputActionReference
+      value: 
+      objectReference: {fileID: 3973972561024756574, guid: 03ab7e2b83593844ebfaa1a168597dac,
+        type: 3}
     - target: {fileID: 7055302937455457693, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: _eventSystem
