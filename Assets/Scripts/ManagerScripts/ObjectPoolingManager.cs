@@ -1,11 +1,18 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectPoolingManager : Singleton<ObjectPoolingManager>
+public class ObjectPoolingManager : MonoBehaviour
 {
 	[SerializeField] private List<ObjectPool> _objectPools;
 	[SerializeField] private Dictionary<string, Queue<GameObject>> _objectPoolDictionary = new Dictionary<string, Queue<GameObject>>();
 
+	public static ObjectPoolingManager Instance { get; private set; }
+
+
+	void Awake()
+	{
+		CheckInstance();
+	}
 
 	void Start()
 	{
@@ -19,6 +26,18 @@ public class ObjectPoolingManager : Singleton<ObjectPoolingManager>
 				objectPoolQueue.Enqueue(poolObject);
 			}
 			_objectPoolDictionary.Add(objectPool.name, objectPoolQueue);
+		}
+	}
+
+	private void CheckInstance()
+	{
+		if (Instance != null && Instance != this)
+		{
+			Destroy(gameObject);
+		}
+		else
+		{
+			Instance = this;
 		}
 	}
 

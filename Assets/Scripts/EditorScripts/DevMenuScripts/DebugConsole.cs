@@ -11,27 +11,27 @@ public class DebugConsole : MonoBehaviour
 	public void SetDebugMenuAction(bool state)
 	{
 		GameObject player = GameManager.Instance.GetPlayer();
-		PlayerController playerInputSystem = null;
+		PlayerController playerController = null;
 		if (player != null)
 		{
-			playerInputSystem = player.GetComponent<PlayerController>();
+			playerController = player.GetComponent<PlayerController>();
 		}
 
 		if (state && !_devMenu.activeSelf)
 		{
 			_devMenu.SetActive(true);
-			if (playerInputSystem != null)
+			if (playerController != null)
 			{
-				playerInputSystem.enabled = false;
+				playerController.DeactivateInput();
 			}
 		}
 		else if (_devMenu.activeSelf)
 		{
 			_devMenu.SetActive(false);
 			_eventSystem.SetSelectedGameObject(null);
-			if (playerInputSystem != null)
+			if (playerController != null)
 			{
-				playerInputSystem.enabled = true;
+				playerController.ActivateInput();
 			}
 		}
 	}

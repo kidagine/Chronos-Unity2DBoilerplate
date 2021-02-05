@@ -14,8 +14,12 @@ public class InputManager : MonoBehaviour
 
 
 	void Awake()
-    {
+	{
         CheckInstance();
+    }
+
+    void Start()
+    {
         OnControlChanged();
     }
 
