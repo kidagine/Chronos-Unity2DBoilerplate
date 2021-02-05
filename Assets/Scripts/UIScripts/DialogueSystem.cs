@@ -12,6 +12,7 @@ public class DialogueSystem : MonoBehaviour
     private DialogueRunner _dialogueRunner = default;
     private DialogueUI _dialogueUI = default;
     private EntityAudio _audio = default;
+    private PlayerController _playerController = default;
 
 
     void Awake()
@@ -21,7 +22,12 @@ public class DialogueSystem : MonoBehaviour
         _audio = GetComponent<EntityAudio>();
     }
 
-    public void PlayDialogueTypingSound()
+	void Start()
+	{
+        _playerController = GameManager.Instance.GetPlayer().GetComponent<PlayerController>(); ;
+	}
+
+	public void PlayDialogueTypingSound()
     {
         _audio.Sound("Typing").Play();
     }
@@ -54,5 +60,15 @@ public class DialogueSystem : MonoBehaviour
     public void StartDialogue()
     {
         _dialogueRunner.StartDialogue();
+    }
+
+    public void SwitchPlayerToDialogue()
+    {
+        _playerController.SwitchToDialogueActionMap();
+    }
+
+    public void SwitchPlayerToGameplay()
+    {
+        _playerController.SwitchToGameplayActionMap();
     }
 }

@@ -8,19 +8,8 @@ public class CheckpointManager : Singleton<CheckpointManager>
 	private int _currentCheckpointIndex;
 
 
-	//void OnEnable()
-	//{
-	//	GameManager.Instance.OnPlayerFound += OnLevelLoaded;
-	//}
-
-	//void OnDisable()
-	//{
-	//	GameManager.Instance.OnPlayerFound -= OnLevelLoaded;
-	//}
-
-	private void OnLevelLoaded()
+	void Start()
 	{
-		_checkpoints.Clear();
 		_player = GameManager.Instance.GetPlayer().transform;
 	}
 
