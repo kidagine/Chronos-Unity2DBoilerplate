@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
-	//void OnEnable()
- //   {
- //       GameManager.Instance.OnPlayerFound += OnLevelLoaded;
- //   }
+	void Start()
+	{
+        OnLevelLoaded();
+    }
 
-    private void OnLevelLoaded()
+	private void OnLevelLoaded()
     {
         GameObject player = GameManager.Instance.GetPlayer();
         SaveData[] saveData = GetSaves();

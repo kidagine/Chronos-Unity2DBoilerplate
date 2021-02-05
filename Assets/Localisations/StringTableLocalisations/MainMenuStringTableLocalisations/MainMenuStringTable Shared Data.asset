@@ -107,6 +107,14 @@ MonoBehaviour:
     m_Key: spanish
     m_Metadata:
       m_Items: []
+  - m_Id: 2174691267080192
+    m_Key: resume
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2176614649065472
+    m_Key: paused
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

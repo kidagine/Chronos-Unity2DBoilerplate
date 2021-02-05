@@ -110,5 +110,13 @@ MonoBehaviour:
     m_Localized: Espanol
     m_Metadata:
       m_Items: []
+  - m_Id: 2174691267080192
+    m_Localized: Continuar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2176614649065472
+    m_Localized: Pausada
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

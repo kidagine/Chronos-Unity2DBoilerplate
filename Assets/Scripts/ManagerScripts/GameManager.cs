@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         CheckInstance();
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     private void CheckInstance()
@@ -27,25 +28,6 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
-    }
-
-    void OnEnable()
-    {
-        _player = GameObject.FindGameObjectWithTag("Player");
-    }
-
-    private void OnLevelLoaded(Scene scene, LoadSceneMode mode)
-    {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            _player = player;
-        }
-		OnPlayerFound?.Invoke();
-    }
-
-    void OnDisable()
-    {
     }
 
     public void SetGamePauseState(bool state)
