@@ -117,3 +117,6 @@ MonoBehaviour:
   - customInputContextString: Left Alt
     customInputContextIcon: {fileID: -3508450380386001781, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
+  - customInputContextString: Space
+    customInputContextIcon: {fileID: 5732951268329557013, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}

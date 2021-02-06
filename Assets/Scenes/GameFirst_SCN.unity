@@ -3882,7 +3882,7 @@ PrefabInstance:
     - target: {fileID: 3546705261808113696, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: _mainSpecialUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3546705261808113696, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
@@ -3901,8 +3901,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3546705261808113696, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
+      propertyPath: _mainSpecialUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 521503347}
+    - target: {fileID: 3546705261808113696, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
       propertyPath: _mainSpecialUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
+      value: RemapButton, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 3546705261835134217, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}

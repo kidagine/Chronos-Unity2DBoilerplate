@@ -39,12 +39,8 @@ public class KeyboardConfigMenu : BaseMenu
 	private void RemapComplete(RemapButton remapButton)
 	{
 		_rebindingOperation.Dispose();
-		InputAction focusedInputAction = remapButton.InputActionReference.action;
-		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
-		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
-		RemapExists(remapButton);
-		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 		remapButton.SetLock(false);
+		UpdateRemapButton(remapButton);
 	}
 
 	private void RemapCancelled(RemapButton remapButton)
@@ -53,11 +49,20 @@ public class KeyboardConfigMenu : BaseMenu
 		remapButton.SetLock(false);
 	}
 
-	public void ResetRemap()
+	public void ResetRemap(RemapButton remapButton)
 	{
-		//InputAction focusedInputAction = remapButton.InputActionReference.action;
-		//InputActionRebindingExtensions.RemoveAllBindingOverrides(focusedInputAction);
-		//UpdateBindingDisplayUI();
+		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
+		InputActionRebindingExtensions.RemoveAllBindingOverrides(focusedInputAction);
+		UpdateRemapButton(remapButton);
+	}
+
+	private void UpdateRemapButton(RemapButton remapButton)
+	{
+		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
+		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
+		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+		Debug.Log(currentBindingInput);
+		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 	}
 
 	private bool RemapExists(RemapButton remapButton)
