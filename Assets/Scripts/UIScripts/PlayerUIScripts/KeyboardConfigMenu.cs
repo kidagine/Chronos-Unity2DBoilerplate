@@ -5,7 +5,13 @@ public class KeyboardConfigMenu : BaseMenu
 {
 	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
 	private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
+	private EntityAudio _audio;
 
+
+	void Awake()
+	{
+		_audio = GetComponent<EntityAudio>();
+	}
 
 	public void RemapInput(RemapButton remapButton)
 	{
@@ -49,8 +55,9 @@ public class KeyboardConfigMenu : BaseMenu
 		remapButton.SetLock(false);
 	}
 
-	public void ResetRemap(RemapButton remapButton)
+	public void ResetRemapSettings(RemapButton remapButton)
 	{
+		_audio.Sound("Reset").Play();
 		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
 		InputActionRebindingExtensions.RemoveAllBindingOverrides(focusedInputAction);
 		UpdateRemapButton(remapButton);
@@ -61,7 +68,6 @@ public class KeyboardConfigMenu : BaseMenu
 		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
 		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
 		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
-		Debug.Log(currentBindingInput);
 		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 	}
 

@@ -5,7 +5,13 @@ public class ControllerConfigMenu : BaseMenu
 {
 	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
 	private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
+	private EntityAudio _audio;
 
+
+	void Awake()
+	{
+		_audio = GetComponent<EntityAudio>();
+	}
 
 	public void RemapInput(RemapButton remapButton)
 	{
@@ -38,6 +44,14 @@ public class ControllerConfigMenu : BaseMenu
 	{
 		_rebindingOperation.Dispose();
 		remapButton.SetLock(false);
+	}
+
+	public void ResetRemapSettings(RemapButton remapButton)
+	{
+		_audio.Sound("Reset").Play();
+		//InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
+		//InputActionRebindingExtensions.RemoveAllBindingOverrides(focusedInputAction);
+		//UpdateRemapButton(remapButton);
 	}
 
 	private bool RemapExists(RemapButton remapButton)
