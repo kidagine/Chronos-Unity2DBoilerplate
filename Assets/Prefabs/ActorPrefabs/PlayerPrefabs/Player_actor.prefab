@@ -78,6 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _hitboxSize: {x: 0.45, y: 0.47}
   _offset: {x: 0, y: 0}
+  _hasHit: 0
 --- !u!114 &7346595938116870934
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,11 +125,10 @@ MonoBehaviour:
   _hitPrefabName: HitSlash
   _damageLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8192
   _impactLayers:
     serializedVersion: 2
-    m_Bits: 0
-  _impactOnDamageableOnly: 0
+    m_Bits: 8192
   _destroyOnImpact: 0
 --- !u!1 &903759321
 GameObject:
@@ -141,7 +141,7 @@ GameObject:
   - component: {fileID: 903759322}
   - component: {fileID: 903759324}
   - component: {fileID: 903759323}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Body_hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -212,7 +212,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1120979993}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Hurtboxes_group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -262,7 +262,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1650165798}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 759910336003477960}
@@ -281,7 +281,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.01682043, y: -0.20424807}
+  m_Offset: {x: -0.01682043, y: 0.13}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -292,7 +292,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.54344535, y: 0.06286168}
+  m_Size: {x: 0.54344535, y: 0.2}
   m_EdgeRadius: 0
 --- !u!114 &1650165801
 MonoBehaviour:
@@ -318,7 +318,7 @@ GameObject:
   - component: {fileID: 1825894613}
   - component: {fileID: 1825894615}
   - component: {fileID: 1825894614}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Head_hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -391,7 +391,7 @@ GameObject:
   - component: {fileID: 1900292140}
   - component: {fileID: 1900292142}
   - component: {fileID: 1900292141}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Legs_hurtbox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -540,7 +540,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 1.3}
+  m_Size: {x: 0.64, y: 1.38}
   m_EdgeRadius: 0
 --- !u!114 &759910335515660248
 MonoBehaviour:
@@ -606,7 +606,8 @@ GameObject:
   - component: {fileID: 3633829989900122434}
   - component: {fileID: 333648338796558923}
   - component: {fileID: 1570340768}
-  m_Layer: 0
+  - component: {fileID: 1570340775}
+  m_Layer: 12
   m_Name: Player_actor
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -669,7 +670,7 @@ MonoBehaviour:
   _spriteRenderer: {fileID: 5864836275282370029}
   _hurtboxes: {fileID: 1120979992}
   _pushboxes: {fileID: 547810544309903528}
-  _maxHealth: 3
+  _playerStats: {fileID: 3633829989900122434}
 --- !u!114 &759910337160371080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -686,9 +687,7 @@ MonoBehaviour:
   _playerAnimator: {fileID: 312063163827800735}
   _rigidbody: {fileID: 759910337160371082}
   _playerAudio: {fileID: 333648338796558923}
-  _groundMoveSpeed: 4
-  _jumpImpulse: 6
-  _maxJumpCount: 1
+  _playerStats: {fileID: 3633829989900122434}
 --- !u!114 &8976487528706884435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -713,12 +712,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65e44a24c3597fc45948a6cee5b0c3d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _health: 10
-  _speed: 3
-  _jumpImpulse: 0
-  _jumpCount: 1
-  _player: {fileID: 1539008221801327677}
-  _playerMovement: {fileID: 759910337160371080}
+  health: 10
+  speed: 4
+  jumpImpulse: 5
+  jumpCount: 1
+  currentHealth: 0
+  currentSpeed: 0
+  currentJumpCount: 0
 --- !u!114 &333648338796558923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,6 +812,157 @@ MonoBehaviour:
   _playerMovement: {fileID: 759910337160371080}
   _playerInteract: {fileID: 8976487528706884435}
   _playerDialogue: {fileID: 0}
+--- !u!114 &1570340775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759910337160371077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 03ab7e2b83593844ebfaa1a168597dac,
+    type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1570340768}
+        m_MethodName: DeviceLost
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OnControlChanged
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b974387a-378a-440d-b24d-8822f3c3bf9a
+    m_ActionName: Prompts/Confirm[/Keyboard/enter,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f45ade66-e129-44a5-b058-27823799e189
+    m_ActionName: Prompts/Back[/Keyboard/escape,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1570340768}
+        m_MethodName: SetMove
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 969e1017-39d4-48a3-ac77-6227730c742c
+    m_ActionName: Gameplay/Movement[/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/XInputControllerWindows/leftStick,/XInputControllerWindows/dpad/up,/XInputControllerWindows/dpad/down,/XInputControllerWindows/dpad/left,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1570340768}
+        m_MethodName: Jump
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0e1b31a8-930d-414a-bf99-a6681e34d712
+    m_ActionName: Gameplay/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1570340768}
+        m_MethodName: Attack
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 9b9e65a4-1cb4-4ec1-b678-45ed341db766
+    m_ActionName: Gameplay/Attack[/Keyboard/j,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1570340768}
+        m_MethodName: Interact
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 0ae5733d-d97c-4cfc-bdfa-6b18a1daa632
+    m_ActionName: Gameplay/Interact[/Keyboard/e,/XInputControllerWindows/dpad/up]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1570340768}
+        m_MethodName: Menu
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 1987c80a-35e0-4b44-840c-015f9156707f
+    m_ActionName: Gameplay/Menu[/Keyboard/escape,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1570340768}
+        m_MethodName: NextDialogue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 98a8577a-4936-4db9-b9a9-6be03ca12899
+    m_ActionName: Dialogue/NextDialogue[/Keyboard/e,/Keyboard/enter,/XInputControllerWindows/buttonNorth]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Gameplay
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &5860423288351442036
 GameObject:
   m_ObjectHideFlags: 0

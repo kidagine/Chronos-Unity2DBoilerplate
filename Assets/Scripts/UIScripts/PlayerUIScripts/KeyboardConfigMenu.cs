@@ -1,28 +1,11 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-public class ControlsMenu : MonoBehaviour, ISubMenu
+public class KeyboardConfigMenu : BaseMenu
 {
-	[SerializeField] private Selectable _startingOption = default;
 	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
 	private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
 
-
-	public void OpenMenu(GameObject menu)
-	{
-		gameObject.SetActive(false);
-		if (menu.TryGetComponent(out ISubMenu subMenu))
-		{
-			subMenu.Activate();
-		}
-	}
-
-	public void Activate()
-	{
-		gameObject.SetActive(true);
-		_startingOption.Select();
-	}
 
 	public void RemapInput(RemapButton remapButton)
 	{
@@ -56,7 +39,7 @@ public class ControlsMenu : MonoBehaviour, ISubMenu
 	private void RemapComplete(RemapButton remapButton)
 	{
 		_rebindingOperation.Dispose();
-		InputAction focusedInputAction = remapButton.InputActionReference.action;  
+		InputAction focusedInputAction = remapButton.InputActionReference.action;
 		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
 		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 		RemapExists(remapButton);
@@ -68,6 +51,13 @@ public class ControlsMenu : MonoBehaviour, ISubMenu
 	{
 		_rebindingOperation.Dispose();
 		remapButton.SetLock(false);
+	}
+
+	public void ResetRemap()
+	{
+		//InputAction focusedInputAction = remapButton.InputActionReference.action;
+		//InputActionRebindingExtensions.RemoveAllBindingOverrides(focusedInputAction);
+		//UpdateBindingDisplayUI();
 	}
 
 	private bool RemapExists(RemapButton remapButton)

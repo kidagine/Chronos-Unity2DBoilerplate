@@ -105,3 +105,15 @@ MonoBehaviour:
   - customInputContextString: Tab
     customInputContextIcon: {fileID: -3468524477417711073, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
+  - customInputContextString: Caps Lock
+    customInputContextIcon: {fileID: 3930692470351214879, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Shift
+    customInputContextIcon: {fileID: 5524913400098005915, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Left Control
+    customInputContextIcon: {fileID: -4766398455581630209, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Left Alt
+    customInputContextIcon: {fileID: -3508450380386001781, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
