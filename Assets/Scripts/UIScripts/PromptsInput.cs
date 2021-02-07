@@ -8,6 +8,8 @@ public class PromptsInput : MonoBehaviour
     [SerializeField] private PlayerInputActions _promptsInputActions = default;
     [SerializeField] private UnityEvent _confirmUnityEvent = default;
     [SerializeField] private UnityEvent _backUnityEvent = default;
+    [SerializeField] private UnityEvent _mainSpecialUnityEvent = default;
+    [SerializeField] private UnityEvent _secondarySpecialUnityEvent = default;
     [SerializeField] private Image[] _promptImages = default;
 
 
@@ -21,6 +23,8 @@ public class PromptsInput : MonoBehaviour
         _promptsInputActions = new PlayerInputActions();
         _promptsInputActions.Prompts.Confirm.performed += Confirm;
         _promptsInputActions.Prompts.Back.performed += Back;
+        _promptsInputActions.Prompts.MainSpecial.performed += MainSpecial;
+        _promptsInputActions.Prompts.SecondarySpecial.performed += SecondarySpecial;
     }
 
     private void Confirm(InputAction.CallbackContext context)
@@ -33,7 +37,17 @@ public class PromptsInput : MonoBehaviour
         _backUnityEvent?.Invoke();
     }
 
-	void OnEnable()
+    private void MainSpecial(InputAction.CallbackContext context)
+    {
+        _mainSpecialUnityEvent?.Invoke();
+    }
+
+    private void SecondarySpecial(InputAction.CallbackContext context)
+    {
+        _secondarySpecialUnityEvent?.Invoke();
+    }
+
+    void OnEnable()
     {
         _promptsInputActions.Enable();
     }

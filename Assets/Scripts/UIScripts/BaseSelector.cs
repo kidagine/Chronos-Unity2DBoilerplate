@@ -15,6 +15,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     [SerializeField] private Image _rightArrowBackgroundImage = default;
     [SerializeField] private Image _rightArrowImage = default;
     [SerializeField] private UnityEventInt _onSelect = default;
+    [SerializeField] private int _defaultValue = default;
     private int _currentSelectedIndex;
 
 
@@ -114,7 +115,17 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
         }
     }
 
-	public void ReSelectSelectable()
+    public void ResetValue()
+    {
+        _values.GetChild(_currentSelectedIndex).gameObject.SetActive(false);
+        _values.GetChild(_defaultValue).gameObject.SetActive(true);
+        _leftArrowBackgroundImage.raycastTarget = false;
+        _rightArrowBackgroundImage.raycastTarget = true;
+        CheckSelectorArrows();
+        _onSelect?.Invoke(_defaultValue);
+    }
+
+    public void ReSelectSelectable()
 	{
         _eventSystem.SetSelectedGameObject(gameObject);
     }

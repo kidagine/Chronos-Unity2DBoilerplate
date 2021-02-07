@@ -120,5 +120,9 @@ MonoBehaviour:
     m_Localized: Paussed
     m_Metadata:
       m_Items: []
+  - m_Id: 2645593532428288
+    m_Localized: Reset
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

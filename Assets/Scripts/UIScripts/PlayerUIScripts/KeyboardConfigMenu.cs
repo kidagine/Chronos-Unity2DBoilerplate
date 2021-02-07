@@ -1,27 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
-public class ControlsMenu : MonoBehaviour, ISubMenu
+public class KeyboardConfigMenu : BaseMenu
 {
-	[SerializeField] private Selectable _startingOption = default;
 	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
 	private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
+	private EntityAudio _audio;
 
 
-	public void OpenMenu(GameObject menu)
+	void Awake()
 	{
-		gameObject.SetActive(false);
-		if (menu.TryGetComponent(out ISubMenu subMenu))
-		{
-			subMenu.Activate();
-		}
-	}
-
-	public void Activate()
-	{
-		gameObject.SetActive(true);
-		_startingOption.Select();
+		_audio = GetComponent<EntityAudio>();
 	}
 
 	public void RemapInput(RemapButton remapButton)
@@ -56,18 +45,30 @@ public class ControlsMenu : MonoBehaviour, ISubMenu
 	private void RemapComplete(RemapButton remapButton)
 	{
 		_rebindingOperation.Dispose();
-		InputAction focusedInputAction = remapButton.InputActionReference.action;  
-		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
-		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
-		RemapExists(remapButton);
-		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 		remapButton.SetLock(false);
+		UpdateRemapButton(remapButton);
 	}
 
 	private void RemapCancelled(RemapButton remapButton)
 	{
 		_rebindingOperation.Dispose();
 		remapButton.SetLock(false);
+	}
+
+	public void ResetRemapSettings(RemapButton remapButton)
+	{
+		_audio.Sound("Reset").Play();
+		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
+		InputActionRebindingExtensions.RemoveAllBindingOverrides(focusedInputAction);
+		UpdateRemapButton(remapButton);
+	}
+
+	private void UpdateRemapButton(RemapButton remapButton)
+	{
+		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
+		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
+		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 	}
 
 	private bool RemapExists(RemapButton remapButton)

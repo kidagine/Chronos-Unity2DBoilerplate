@@ -4,9 +4,18 @@ using UnityEngine.UI;
 public class VideoMenu : MonoBehaviour, ISubMenu
 {
 	[SerializeField] private Selectable _startingOption = default;
+    [SerializeField] private BaseSelector _screenModeSelector = default;
+    [SerializeField] private BaseSelector _resolutionSelector = default;
+    [SerializeField] private BaseToggle _vSyncToggle = default;
+    private EntityAudio _audio;
 
 
-	public void OpenMenu(GameObject menu)
+    void Awake()
+    {
+        _audio = GetComponent<EntityAudio>();
+    }
+
+    public void OpenMenu(GameObject menu)
 	{
 		gameObject.SetActive(false);
 		if (menu.TryGetComponent(out ISubMenu subMenu))
@@ -69,13 +78,19 @@ public class VideoMenu : MonoBehaviour, ISubMenu
 	{
 		if (isOn)
 		{
-            Debug.Log("on");
 			QualitySettings.vSyncCount = 1;
 		}
 		else
 		{
-            Debug.Log("off");
             QualitySettings.vSyncCount = 0;
 		}
 	}
+
+    public void ResetVideoSettings()
+    {
+        _audio.Sound("Reset").Play();
+        _screenModeSelector.ResetValue();
+        _resolutionSelector.ResetValue();
+        _vSyncToggle.ToggleOff();
+    }
 }

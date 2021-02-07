@@ -26,5 +26,9 @@ MonoBehaviour:
     m_Localized: Confirm
     m_Metadata:
       m_Items: []
+  - m_Id: 2613070496559104
+    m_Localized: Reset
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

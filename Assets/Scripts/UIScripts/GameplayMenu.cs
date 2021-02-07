@@ -1,13 +1,19 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Localization.Settings;
 using UnityEngine.UI;
 
+[RequireComponent(typeof(EntityAudio))]
 public class GameplayMenu : MonoBehaviour, ISubMenu
 {
     [SerializeField] private Selectable _startingOption = default;
-    [SerializeField] private GameStatistics _gameStatistics = default;
+    [SerializeField] private BaseSelector _languageSelector = default;
+    private EntityAudio _audio;
 
+
+    void Awake()
+    {
+        _audio = GetComponent<EntityAudio>();
+    }
 
     public void OpenMenu(GameObject menu)
     {
@@ -24,13 +30,14 @@ public class GameplayMenu : MonoBehaviour, ISubMenu
         _startingOption.Select();
     }
 
-    public void ShowFPS(bool state)
-    {
-        _gameStatistics.ShowFPS(state);
-    }
-
     public void SetLanguage(int index)
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+    }
+
+    public void ResetGameSettings()
+    {
+        _audio.Sound("Reset").Play();
+        _languageSelector.ResetValue();
     }
 }

@@ -9,9 +9,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private PlayerInteract _playerInteract = default;
     [SerializeField] private DialogueUI _playerDialogue = default;
     private PlayerInput _playerInput;
+    private PlayerInputActions _playerInputActions;
     private readonly string _gameplayActionMap = "Gameplay";
     private readonly string _dialogueActionMap = "Dialogue";
-    private static PlayerInputActions _playerInputActions;
 
 
     void Awake()
@@ -28,11 +28,6 @@ public class PlayerController : MonoBehaviour
     private void PlayerInputSetup()
     {
         _playerInputActions = new PlayerInputActions();
-    }
-
-    public static PlayerInputActions Tezo()
-    {
-        return _playerInputActions;
     }
 
     public void SetMove(InputAction.CallbackContext context)
@@ -81,6 +76,11 @@ public class PlayerController : MonoBehaviour
     {
         _playerInput.SwitchCurrentActionMap(_gameplayActionMap);
         _playerMovement.MovementInput = Vector2.zero;
+    }
+
+    public void DeviceLost(PlayerInput playerInput)
+    {
+        _player.MenuAction();
     }
 
     public void ActivateInput()

@@ -20,7 +20,13 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 39258190016512
-    m_Key: confirm
+    m_Key: 'confirm
+
+'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2613070496559104
+    m_Key: reset
     m_Metadata:
       m_Items: []
   m_Metadata:

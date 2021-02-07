@@ -33,6 +33,22 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""MainSpecial"",
+                    ""type"": ""Button"",
+                    ""id"": ""af2cfbdc-c013-4197-8d89-40eaa93771e8"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""SecondarySpecial"",
+                    ""type"": ""Button"",
+                    ""id"": ""5562489b-ede7-4983-8c2a-a95d0da6d5a0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -77,6 +93,50 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Xbox"",
                     ""action"": ""Back"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fcb077f7-197d-4434-82d7-e38529c36729"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""MainSpecial"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0e444bc3-99ca-46af-b5a7-c3e3ad55bdd3"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""MainSpecial"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""82c19683-959d-42f9-8b25-00d97d7741ff"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""KeyboardMouse"",
+                    ""action"": ""SecondarySpecial"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5bb839dc-9f96-4aba-b6fc-2778eb688374"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Xbox"",
+                    ""action"": ""SecondarySpecial"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -478,6 +538,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
         m_Prompts = asset.FindActionMap("Prompts", throwIfNotFound: true);
         m_Prompts_Confirm = m_Prompts.FindAction("Confirm", throwIfNotFound: true);
         m_Prompts_Back = m_Prompts.FindAction("Back", throwIfNotFound: true);
+        m_Prompts_MainSpecial = m_Prompts.FindAction("MainSpecial", throwIfNotFound: true);
+        m_Prompts_SecondarySpecial = m_Prompts.FindAction("SecondarySpecial", throwIfNotFound: true);
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
         m_Gameplay_Movement = m_Gameplay.FindAction("Movement", throwIfNotFound: true);
@@ -539,12 +601,16 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     private IPromptsActions m_PromptsActionsCallbackInterface;
     private readonly InputAction m_Prompts_Confirm;
     private readonly InputAction m_Prompts_Back;
+    private readonly InputAction m_Prompts_MainSpecial;
+    private readonly InputAction m_Prompts_SecondarySpecial;
     public struct PromptsActions
     {
         private @PlayerInputActions m_Wrapper;
         public PromptsActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Confirm => m_Wrapper.m_Prompts_Confirm;
         public InputAction @Back => m_Wrapper.m_Prompts_Back;
+        public InputAction @MainSpecial => m_Wrapper.m_Prompts_MainSpecial;
+        public InputAction @SecondarySpecial => m_Wrapper.m_Prompts_SecondarySpecial;
         public InputActionMap Get() { return m_Wrapper.m_Prompts; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -560,6 +626,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Back.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
                 @Back.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
                 @Back.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnBack;
+                @MainSpecial.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnMainSpecial;
+                @MainSpecial.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnMainSpecial;
+                @MainSpecial.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnMainSpecial;
+                @SecondarySpecial.started -= m_Wrapper.m_PromptsActionsCallbackInterface.OnSecondarySpecial;
+                @SecondarySpecial.performed -= m_Wrapper.m_PromptsActionsCallbackInterface.OnSecondarySpecial;
+                @SecondarySpecial.canceled -= m_Wrapper.m_PromptsActionsCallbackInterface.OnSecondarySpecial;
             }
             m_Wrapper.m_PromptsActionsCallbackInterface = instance;
             if (instance != null)
@@ -570,6 +642,12 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
                 @Back.started += instance.OnBack;
                 @Back.performed += instance.OnBack;
                 @Back.canceled += instance.OnBack;
+                @MainSpecial.started += instance.OnMainSpecial;
+                @MainSpecial.performed += instance.OnMainSpecial;
+                @MainSpecial.canceled += instance.OnMainSpecial;
+                @SecondarySpecial.started += instance.OnSecondarySpecial;
+                @SecondarySpecial.performed += instance.OnSecondarySpecial;
+                @SecondarySpecial.canceled += instance.OnSecondarySpecial;
             }
         }
     }
@@ -694,6 +772,8 @@ public class @PlayerInputActions : IInputActionCollection, IDisposable
     {
         void OnConfirm(InputAction.CallbackContext context);
         void OnBack(InputAction.CallbackContext context);
+        void OnMainSpecial(InputAction.CallbackContext context);
+        void OnSecondarySpecial(InputAction.CallbackContext context);
     }
     public interface IGameplayActions
     {
