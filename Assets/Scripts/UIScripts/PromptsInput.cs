@@ -32,7 +32,17 @@ public class PromptsInput : MonoBehaviour
         _confirmUnityEvent?.Invoke();
     }
 
-    private void Back(InputAction.CallbackContext context)
+    public void Confirm()
+    {
+        _confirmUnityEvent?.Invoke();
+    }
+
+	private void Back(InputAction.CallbackContext context)
+	{
+		_backUnityEvent?.Invoke();
+	}
+
+    public void Back()
     {
         _backUnityEvent?.Invoke();
     }
@@ -42,7 +52,17 @@ public class PromptsInput : MonoBehaviour
         _mainSpecialUnityEvent?.Invoke();
     }
 
+    public void MainSpecial()
+    {
+        _mainSpecialUnityEvent?.Invoke();
+    }
+
     private void SecondarySpecial(InputAction.CallbackContext context)
+    {
+        _secondarySpecialUnityEvent?.Invoke();
+    }
+
+    public void SecondarySpecial()
     {
         _secondarySpecialUnityEvent?.Invoke();
     }
