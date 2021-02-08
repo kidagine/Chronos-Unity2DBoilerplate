@@ -4,51 +4,45 @@ using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
+    private readonly string saveDataPath = "/saveData";
+
+
 	void Start()
-	{
-        OnLevelLoaded();
-    }
-
-	private void OnLevelLoaded()
     {
-        GameObject player = GameManager.Instance.GetPlayer();
-        SaveData[] saveData = GetSaves();
-        if (saveData[1] != null && player != null)
+
+        if (!Directory.Exists(Application.persistentDataPath + saveDataPath))
         {
-            player.transform.position = new Vector2(saveData[1]._playerPosition[0], saveData[1]._playerPosition[1]);
+            Directory.CreateDirectory(Application.persistentDataPath + saveDataPath);
         }
-    }
-
-    void OnDisable()
-    {
-        GameManager.Instance.OnPlayerFound -= OnLevelLoaded;
     }
 
     public void Save()
     {
         SaveData saveData = CreateSaveData();
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
-        string saveDataPath = Application.persistentDataPath + "/saveData" + saveData._saveSlotIndex;
-        FileStream fileStream = new FileStream(saveDataPath, FileMode.Create);
-
-        binaryFormatter.Serialize(fileStream, saveData);
-        fileStream.Close();
-    }
-
-    private SaveData CreateSaveData()
-    {
-        Vector2 playerPosition = GameManager.Instance.GetPlayer().transform.position;
-        int saveSlotIndex = 1;
-        int sceneIndex = LevelManager.Instance.GetCurrentSceneIndex();
-        SaveData saveData = new SaveData(playerPosition, saveSlotIndex, sceneIndex);
-        return saveData;
+        string json = JsonUtility.ToJson(saveData);
+        File.WriteAllText(Application.persistentDataPath + saveDataPath + "_0.save", json);
+        Debug.Log("Saved game");
     }
 
     public void Load()
     {
-        SaveData[] saveData = GetSaves();
-        GlobalSettings.PlayerPosition = new Vector2(saveData[1]._playerPosition[0], saveData[1]._playerPosition[1]);
-        LevelManager.Instance.GoToLevel(saveData[1]._sceneIndex);
+        string saveDataJson = File.ReadAllText(Application.persistentDataPath + saveDataPath + "_0.save");
+        SaveData saveData = JsonUtility.FromJson<SaveData>(saveDataJson);
+        GameManager.Instance.GetPlayer().transform.position = saveData.playerPosition;
+        SceneDataCarrier.SetInt("PlayerCurrentHealth", 1);
+        LevelManager.Instance.GoToLevel(0);
+        Debug.Log("Load game");
+    }
+
+    private SaveData CreateSaveData()
+    {
+        SaveData saveData = new SaveData
+        {
+            playerPosition = GameManager.Instance.GetPlayer().transform.position,
+            saveSlotIndex = 0,
+            sceneIndex = LevelManager.Instance.GetCurrentSceneIndex()
+        };
+        return saveData;
     }
 
     private SaveData[] GetSaves()
@@ -60,7 +54,7 @@ public class SaveManager : Singleton<SaveManager>
             if (File.Exists(saveDataPath))
             {
                 BinaryFormatter binaryFormatter = new BinaryFormatter();
-                FileStream fileStream = new FileStream(saveDataPath, FileMode.Open);
+                FileStream fileStream = new FileStream(Application.persistentDataPath + saveDataPath, FileMode.Open);
 
                 SaveData loadedSaveData = binaryFormatter.Deserialize(fileStream) as SaveData;
                 fileStream.Close();

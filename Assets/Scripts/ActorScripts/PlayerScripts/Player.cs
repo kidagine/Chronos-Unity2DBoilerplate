@@ -20,6 +20,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	void Awake()
 	{
 		_playerUI.PlayerStatsUI.SetMaxHealth(_playerStats.health);
+		_playerUI.PlayerStatsUI.SetHealth(_playerStats.currentHealth);
 	}
 
 	public void AttackAction()

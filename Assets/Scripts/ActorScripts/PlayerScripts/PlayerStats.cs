@@ -19,6 +19,7 @@ public class PlayerStats : MonoBehaviour, ISceneDataSerializer
 
 	public void LoadSceneData()
 	{
+		Debug.Log(SceneDataCarrier.GetInt("PlayerCurrentHealth", 0));
 		transform.position = new Vector2(SceneDataCarrier.GetFloat("PlayerPositionX", transform.position.x), SceneDataCarrier.GetFloat("PlayerPositionY", transform.position.y));
 		health = SceneDataCarrier.GetInt("PlayerHealth", health);
 		speed = SceneDataCarrier.GetFloat("PlayerSpeed", speed);
