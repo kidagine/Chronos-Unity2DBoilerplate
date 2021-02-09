@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -65,5 +66,12 @@ public class LevelManager : Singleton<LevelManager>
     public int GetCurrentSceneIndex()
     {
         return SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public string GetCurrentSceneName()
+    {
+        string levelName = Regex.Replace(SceneManager.GetActiveScene().name, "([a-z])([A-Z])", "$1 $2");
+        int index = levelName.IndexOf("_");
+        return levelName.Substring(0, index);
     }
 }

@@ -1,70 +1,98 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Text;
 using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
-    private readonly string saveDataPath = "/saveData";
+    private readonly string saveDataFolder = "/saveData";
+    private readonly int key = 02035;
 
+    public bool IsLoading { get; private set; }
 
+    
 	void Start()
     {
-
-        if (!Directory.Exists(Application.persistentDataPath + saveDataPath))
+        string savePath = Application.persistentDataPath + saveDataFolder;
+        if (!Directory.Exists(savePath))
         {
-            Directory.CreateDirectory(Application.persistentDataPath + saveDataPath);
+            Directory.CreateDirectory(savePath);
         }
     }
 
-    public void Save()
+    public void Save(int saveSlot)
     {
-        SaveData saveData = CreateSaveData();
+        SaveData saveData = CreateSaveData(saveSlot);
         string json = JsonUtility.ToJson(saveData);
-        File.WriteAllText(Application.persistentDataPath + saveDataPath + "_0.save", json);
-        Debug.Log("Saved game");
+        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        File.WriteAllText(savePath, EncryptDecrypt(json, key));
     }
 
-    public void Load()
+    public void Load(int saveSlot)
     {
-        string saveDataJson = File.ReadAllText(Application.persistentDataPath + saveDataPath + "_0.save");
-        SaveData saveData = JsonUtility.FromJson<SaveData>(saveDataJson);
-        GameManager.Instance.GetPlayer().transform.position = saveData.playerPosition;
-        SceneDataCarrier.SetInt("PlayerCurrentHealth", 1);
-        LevelManager.Instance.GoToLevel(0);
-        Debug.Log("Load game");
+        IsLoading = true;
+        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        if (File.Exists(savePath))
+        {
+            string saveDataJson = File.ReadAllText(savePath);
+            string decryptedSaveDataJson = EncryptDecrypt(saveDataJson, key);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(decryptedSaveDataJson);
+            SceneDataCarrier.SetFloat("PlayerPositionX", saveData.playerPosition.x);
+            SceneDataCarrier.SetFloat("PlayerPositionY", saveData.playerPosition.y);
+            SceneDataCarrier.SetInt("PlayerCurrentHealth", saveData.playerCurrentHealth);
+            LevelManager.Instance.GoToLevel(saveData.levelIndex);
+        }
+        else
+        {
+            LevelManager.Instance.GoToLevel(0);
+        }
     }
 
-    private SaveData CreateSaveData()
+    private SaveData CreateSaveData(int saveSlot)
     {
+        GameObject player = GameManager.Instance.GetPlayer();
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
         SaveData saveData = new SaveData
         {
-            playerPosition = GameManager.Instance.GetPlayer().transform.position,
-            saveSlotIndex = 0,
-            sceneIndex = LevelManager.Instance.GetCurrentSceneIndex()
+            saveSlotName = LevelManager.Instance.GetCurrentSceneName(),
+            saveSlotDate = DateTime.Now.ToString("HH:mm"),
+            playerPosition = player.transform.position,
+            playerCurrentHealth = playerStats.currentHealth,
+            saveSlotIndex = saveSlot,
+            levelIndex = LevelManager.Instance.GetCurrentSceneIndex()
         };
         return saveData;
     }
 
-    private SaveData[] GetSaves()
+    private string EncryptDecrypt(string data, int key)
     {
-        SaveData[] saveData = new SaveData[3];
-        for (int i = 0; i < saveData.Length; i++)
-        {
-            string saveDataPath = Application.persistentDataPath + "/saveData" + i;
-            if (File.Exists(saveDataPath))
-            {
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                FileStream fileStream = new FileStream(Application.persistentDataPath + saveDataPath, FileMode.Open);
+        StringBuilder input = new StringBuilder(data);
+        StringBuilder output = new StringBuilder(data.Length);
 
-                SaveData loadedSaveData = binaryFormatter.Deserialize(fileStream) as SaveData;
-                fileStream.Close();
-                saveData[i] = loadedSaveData;
-            }
-            else
-            {
-                saveData[i] = null;
-            }
+        char character;
+		for (int i = 0; i < data.Length; i++)
+		{
+            character = input[i];
+            character = (char)(character ^ key);
+            output.Append(character);
+		}
+        return output.ToString();
+    }
+
+    public SaveData GetSave(int saveSlot)
+    {
+        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        if (File.Exists(savePath))
+        {
+            string saveDataJson = File.ReadAllText(savePath);
+            string decryptedSaveDataJson = EncryptDecrypt(saveDataJson, key);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(decryptedSaveDataJson);
+            return saveData;
         }
-        return saveData;
+        else
+        {
+            return null;
+        }
     }
 }

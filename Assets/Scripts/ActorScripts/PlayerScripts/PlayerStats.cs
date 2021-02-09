@@ -19,7 +19,6 @@ public class PlayerStats : MonoBehaviour, ISceneDataSerializer
 
 	public void LoadSceneData()
 	{
-		Debug.Log(SceneDataCarrier.GetInt("PlayerCurrentHealth", 0));
 		transform.position = new Vector2(SceneDataCarrier.GetFloat("PlayerPositionX", transform.position.x), SceneDataCarrier.GetFloat("PlayerPositionY", transform.position.y));
 		health = SceneDataCarrier.GetInt("PlayerHealth", health);
 		speed = SceneDataCarrier.GetFloat("PlayerSpeed", speed);
@@ -29,20 +28,23 @@ public class PlayerStats : MonoBehaviour, ISceneDataSerializer
 		currentJumpCount = SceneDataCarrier.GetInt("PlayerCurrentJumpCount", jumpCount);
 	}
 
-	void OnDestroy()
+	void OnDisable()
 	{
 		SaveSceneData();
 	}
 
 	public void SaveSceneData()
 	{
-		SceneDataCarrier.SetInt("PlayerHealth", health);
-		SceneDataCarrier.SetFloat("PlayerSpeed", speed);
-		SceneDataCarrier.SetInt("PlayerJumpCount", jumpCount);
-		SceneDataCarrier.SetInt("PlayerCurrentHealth", currentHealth);
-		SceneDataCarrier.SetFloat("PlayerCurrentSpeed", currentSpeed);
-		SceneDataCarrier.SetInt("PlayerCurrentJumpCount", currentJumpCount);
-		SceneDataCarrier.SetFloat("PlayerPositionX", transform.position.x);
-		SceneDataCarrier.SetFloat("PlayerPositionY", transform.position.y);
+		if (!SaveManager.Instance.IsLoading)
+		{
+			SceneDataCarrier.SetInt("PlayerHealth", health);
+			SceneDataCarrier.SetFloat("PlayerSpeed", speed);
+			SceneDataCarrier.SetInt("PlayerJumpCount", jumpCount);
+			SceneDataCarrier.SetInt("PlayerCurrentHealth", currentHealth);
+			SceneDataCarrier.SetFloat("PlayerCurrentSpeed", currentSpeed);
+			SceneDataCarrier.SetInt("PlayerCurrentJumpCount", currentJumpCount);
+			SceneDataCarrier.SetFloat("PlayerPositionX", transform.position.x);
+			SceneDataCarrier.SetFloat("PlayerPositionY", transform.position.y);
+		}
 	}
 }

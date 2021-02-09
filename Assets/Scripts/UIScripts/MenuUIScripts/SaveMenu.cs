@@ -1,23 +1,33 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-public class SaveMenu : MonoBehaviour, ISubMenu
+public class SaveMenu : BaseMenu
 {
-    [SerializeField] private Selectable _startingOption = default;
+	[SerializeField] private SaveSlot[] _saveSlots = default;
 
 
-    public void OpenMenu(GameObject menu)
-    {
-        gameObject.SetActive(false);
-        if (menu.TryGetComponent(out ISubMenu subMenu))
-        {
-            subMenu.Activate();
-        }
-    }
+	void OnEnable()
+	{
+		SetSaveSlotsInformation();	
+	}
 
-    public void Activate()
-    {
-        gameObject.SetActive(true);
-        _startingOption.Select();
-    }
+	private void SetSaveSlotsInformation()
+	{
+		for (int i = 0; i < _saveSlots.Length; i++)
+		{
+			SaveData saveData = SaveManager.Instance.GetSave(i + 1);
+			if (saveData != null)
+			{
+				_saveSlots[i].SetSaveSlotInformation(saveData.saveSlotName, saveData.saveSlotDate);
+			}
+			else
+			{
+				_saveSlots[i].SetSaveSlotToNew();
+			}
+		}
+	}
+
+	public void LoadSave(int saveSlot)
+	{
+		SaveManager.Instance.Load(saveSlot);
+	}
 }
