@@ -66,6 +66,7 @@ public class SaveManager : Singleton<SaveManager>
         {
             saveSlotName = LevelManager.Instance.GetCurrentSceneName(),
             saveSlotDate = DateTime.Now.ToString("HH:mm"),
+            saveSlotImagePath = Camera.main.GetComponent<CameraScreenshot>().TakeScreenshot(),
             playerPosition = player.transform.position,
             playerCurrentHealth = playerStats.currentHealth,
             saveSlotIndex = saveSlot,

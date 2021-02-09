@@ -6,6 +6,7 @@ public class SaveData
 {
     public string saveSlotName;
     public string saveSlotDate;
+    public string saveSlotImagePath;
     public int saveSlotTimePlayed;
     public Vector2 playerPosition;
     public int playerCurrentHealth;

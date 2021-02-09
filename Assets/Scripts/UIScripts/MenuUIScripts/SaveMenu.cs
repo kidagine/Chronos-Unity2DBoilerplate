@@ -17,7 +17,7 @@ public class SaveMenu : BaseMenu
 			SaveData saveData = SaveManager.Instance.GetSave(i + 1);
 			if (saveData != null)
 			{
-				_saveSlots[i].SetSaveSlotInformation(saveData.saveSlotName, saveData.saveSlotDate);
+				_saveSlots[i].SetSaveSlotInformation(saveData.saveSlotName, saveData.saveSlotDate, saveData.saveSlotImagePath);
 			}
 			else
 			{
