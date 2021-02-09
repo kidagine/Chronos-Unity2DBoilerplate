@@ -17,17 +17,14 @@ public class DebugStateMenu : BaseMenu
 
 	public void Save()
 	{
+		Printer.Log("Saved File");
 		SaveManager.Instance.Save(_saveSlot);
 	}
 
 	public void Load()
 	{
+		Printer.Log("Loaded File");
 		SaveManager.Instance.Load(_saveSlot);
-	}
-
-	public void Delete()
-	{
-		SaveManager.Instance.Delete(_saveSlot);
 	}
 }
 #endif

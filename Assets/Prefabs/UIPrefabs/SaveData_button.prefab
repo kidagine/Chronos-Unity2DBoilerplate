@@ -471,7 +471,7 @@ GameObject:
   - component: {fileID: 8908458516683965135}
   - component: {fileID: 1353828438230702998}
   - component: {fileID: 4833818928865328999}
-  - component: {fileID: 1469497900}
+  - component: {fileID: 9066982556249961172}
   m_Layer: 5
   m_Name: SaveData_button
   m_TagString: Untagged
@@ -688,7 +688,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _levelsEnum: 3
---- !u!114 &1469497900
+--- !u!114 &9066982556249961172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -702,8 +702,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _saveSlotName: {fileID: 1771999007458168132}
   _saveSlotDate: {fileID: 350539063}
-  _saveSlotInformation: {fileID: 0}
-  _saveSlotNewSaveText: {fileID: 0}
+  _saveSlotInformation: {fileID: 494793061}
+  _saveSlotNewSaveText: {fileID: 4544694142306025588}
+  _saveSlotIndex: 1
 --- !u!1 &1771999007458168138
 GameObject:
   m_ObjectHideFlags: 0

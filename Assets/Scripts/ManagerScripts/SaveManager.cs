@@ -1,6 +1,5 @@
 ﻿using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using UnityEngine;
 
@@ -9,7 +8,8 @@ public class SaveManager : Singleton<SaveManager>
     private readonly string saveDataFolder = "/saveData";
     private readonly int key = 02035;
 
-    public bool IsLoading { get; private set; }
+	public int SelectedSaveSlot { get; set; }
+	public bool IsLoading { get; private set; }
 
     
 	void Start()
@@ -51,7 +51,11 @@ public class SaveManager : Singleton<SaveManager>
 
     public void Delete(int saveSlot)
     {
-
+        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+        }
     }
 
     private SaveData CreateSaveData(int saveSlot)

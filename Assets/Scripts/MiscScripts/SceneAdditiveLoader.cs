@@ -8,8 +8,12 @@ public class SceneAdditiveLoader : MonoBehaviour
     void Awake()
     {
         LevelManager.Instance.AddAdditiveScene(_level);
+    }
+
+	void Start()
+	{
         #if UNITY_EDITOR
-        LevelManager.Instance.OnAdditiveSceneLoaded += Printer.SetLoaded;
+        Printer.SetLoaded();
         #endif
     }
 }
