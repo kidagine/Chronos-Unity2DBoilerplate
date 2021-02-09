@@ -24,5 +24,10 @@ public class DebugStateMenu : BaseMenu
 	{
 		SaveManager.Instance.Load(_saveSlot);
 	}
+
+	public void Delete()
+	{
+		SaveManager.Instance.Delete(_saveSlot);
+	}
 }
 #endif

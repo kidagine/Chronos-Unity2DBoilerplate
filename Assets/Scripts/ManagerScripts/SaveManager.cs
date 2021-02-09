@@ -49,6 +49,11 @@ public class SaveManager : Singleton<SaveManager>
         }
     }
 
+    public void Delete(int saveSlot)
+    {
+
+    }
+
     private SaveData CreateSaveData(int saveSlot)
     {
         GameObject player = GameManager.Instance.GetPlayer();

@@ -30,4 +30,9 @@ public class SaveMenu : BaseMenu
 	{
 		SaveManager.Instance.Load(saveSlot);
 	}
+
+	public void DeleteSave(int saveSlot)
+	{
+		SaveManager.Instance.Delete(saveSlot);
+	}
 }
