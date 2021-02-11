@@ -4,16 +4,12 @@ using UnityEngine;
 [Serializable]
 public class SaveData
 {
-    public float[] _playerPosition = new float[2];
-    public int _saveSlotIndex;
-    public int _sceneIndex;
-
-
-    public SaveData(Vector2 playerPosition, int saveSlotIndex, int sceneIndex)
-    {
-        _playerPosition[0] = playerPosition.x;
-        _playerPosition[1] = playerPosition.y;
-        _saveSlotIndex = saveSlotIndex;
-        _sceneIndex = sceneIndex;
-    }
+    public string saveSlotName;
+    public string saveSlotDate;
+    public string saveSlotImagePath;
+    public int saveSlotTimePlayed;
+    public Vector2 playerPosition;
+    public int playerCurrentHealth;
+    public int saveSlotIndex;
+    public int levelIndex;
 }

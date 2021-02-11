@@ -29,6 +29,10 @@ MonoBehaviour:
     m_Key: reset
     m_Metadata:
       m_Items: []
+  - m_Id: 3639275341508608
+    m_Key: delete
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

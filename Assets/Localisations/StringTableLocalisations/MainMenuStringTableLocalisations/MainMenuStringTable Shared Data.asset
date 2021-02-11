@@ -32,7 +32,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21024921382912
-    m_Key: select-save-data
+    m_Key: select-save
     m_Metadata:
       m_Items: []
   - m_Id: 21637939884032
@@ -117,6 +117,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2645593532428288
     m_Key: reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3785011232272384
+    m_Key: delete-save
     m_Metadata:
       m_Items: []
   m_Metadata:

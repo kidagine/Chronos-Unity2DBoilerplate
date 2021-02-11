@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21024921382912
-    m_Localized: "\rSeleccione guardar datos para cargar"
+    m_Localized: "\rSeleccione guardar"
     m_Metadata:
       m_Items: []
   - m_Id: 21637939884032
@@ -120,6 +120,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2645593532428288
     m_Localized: Reiniciar
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3785011232272384
+    m_Localized: "\rEst\xE1s seguro que quieres\r\neliminar esto guardar?"
     m_Metadata:
       m_Items: []
   references:

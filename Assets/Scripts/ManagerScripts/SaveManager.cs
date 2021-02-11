@@ -1,76 +1,110 @@
-﻿using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
+﻿using System;
+using System.IO;
+using System.Text;
 using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
+    private CameraScreenshot _cameraScreenshot;
+    private readonly string saveDataFolder = "/saveData";
+    private readonly int key = 02035;
+
+	public int SelectedSaveSlot { get; set; }
+	public bool IsLoading { get; private set; }
+
+    
 	void Start()
-	{
-        OnLevelLoaded();
+    {
+        string savePath = Application.persistentDataPath + saveDataFolder;
+        _cameraScreenshot = Camera.main.GetComponent<CameraScreenshot>();
+        if (!Directory.Exists(savePath))
+        {
+            Directory.CreateDirectory(savePath);
+        }
     }
 
-	private void OnLevelLoaded()
+    public void Save(int saveSlot)
+    {
+        SaveData saveData = CreateSaveData(saveSlot);
+        string json = JsonUtility.ToJson(saveData);
+        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        File.WriteAllText(savePath, EncryptDecrypt(json, key));
+    }
+
+    public void Load(int saveSlot)
+    {
+        IsLoading = true;
+        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        if (File.Exists(savePath))
+        {
+            string saveDataJson = File.ReadAllText(savePath);
+            string decryptedSaveDataJson = EncryptDecrypt(saveDataJson, key);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(decryptedSaveDataJson);
+            SceneDataCarrier.SetFloat("PlayerPositionX", saveData.playerPosition.x);
+            SceneDataCarrier.SetFloat("PlayerPositionY", saveData.playerPosition.y);
+            SceneDataCarrier.SetInt("PlayerCurrentHealth", saveData.playerCurrentHealth);
+            LevelManager.Instance.GoToLevel(saveData.levelIndex);
+        }
+        else
+        {
+            LevelManager.Instance.GoToLevel(0);
+        }
+    }
+
+    public void Delete(int saveSlot)
+    {
+        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        if (File.Exists(savePath))
+        {
+            File.Delete(savePath);
+        }
+    }
+
+    private SaveData CreateSaveData(int saveSlot)
     {
         GameObject player = GameManager.Instance.GetPlayer();
-        SaveData[] saveData = GetSaves();
-        if (saveData[1] != null && player != null)
+        PlayerStats playerStats = player.GetComponent<PlayerStats>();
+        SaveData saveData = new SaveData
         {
-            player.transform.position = new Vector2(saveData[1]._playerPosition[0], saveData[1]._playerPosition[1]);
-        }
-    }
-
-    void OnDisable()
-    {
-        GameManager.Instance.OnPlayerFound -= OnLevelLoaded;
-    }
-
-    public void Save()
-    {
-        SaveData saveData = CreateSaveData();
-        BinaryFormatter binaryFormatter = new BinaryFormatter();
-        string saveDataPath = Application.persistentDataPath + "/saveData" + saveData._saveSlotIndex;
-        FileStream fileStream = new FileStream(saveDataPath, FileMode.Create);
-
-        binaryFormatter.Serialize(fileStream, saveData);
-        fileStream.Close();
-    }
-
-    private SaveData CreateSaveData()
-    {
-        Vector2 playerPosition = GameManager.Instance.GetPlayer().transform.position;
-        int saveSlotIndex = 1;
-        int sceneIndex = LevelManager.Instance.GetCurrentSceneIndex();
-        SaveData saveData = new SaveData(playerPosition, saveSlotIndex, sceneIndex);
+            saveSlotName = LevelManager.Instance.GetCurrentSceneName(),
+            saveSlotDate = DateTime.Now.ToString("HH:mm"),
+            saveSlotImagePath = _cameraScreenshot.TakeScreenshot(),
+            playerPosition = player.transform.position,
+            playerCurrentHealth = playerStats.currentHealth,
+            saveSlotIndex = saveSlot,
+            levelIndex = LevelManager.Instance.GetCurrentSceneIndex()
+        };
         return saveData;
     }
 
-    public void Load()
+    private string EncryptDecrypt(string data, int key)
     {
-        SaveData[] saveData = GetSaves();
-        GlobalSettings.PlayerPosition = new Vector2(saveData[1]._playerPosition[0], saveData[1]._playerPosition[1]);
-        LevelManager.Instance.GoToLevel(saveData[1]._sceneIndex);
+        StringBuilder input = new StringBuilder(data);
+        StringBuilder output = new StringBuilder(data.Length);
+
+        char character;
+		for (int i = 0; i < data.Length; i++)
+		{
+            character = input[i];
+            character = (char)(character ^ key);
+            output.Append(character);
+		}
+        return output.ToString();
     }
 
-    private SaveData[] GetSaves()
+    public SaveData GetSave(int saveSlot)
     {
-        SaveData[] saveData = new SaveData[3];
-        for (int i = 0; i < saveData.Length; i++)
+        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        if (File.Exists(savePath))
         {
-            string saveDataPath = Application.persistentDataPath + "/saveData" + i;
-            if (File.Exists(saveDataPath))
-            {
-                BinaryFormatter binaryFormatter = new BinaryFormatter();
-                FileStream fileStream = new FileStream(saveDataPath, FileMode.Open);
-
-                SaveData loadedSaveData = binaryFormatter.Deserialize(fileStream) as SaveData;
-                fileStream.Close();
-                saveData[i] = loadedSaveData;
-            }
-            else
-            {
-                saveData[i] = null;
-            }
+            string saveDataJson = File.ReadAllText(savePath);
+            string decryptedSaveDataJson = EncryptDecrypt(saveDataJson, key);
+            SaveData saveData = JsonUtility.FromJson<SaveData>(decryptedSaveDataJson);
+            return saveData;
         }
-        return saveData;
+        else
+        {
+            return null;
+        }
     }
 }

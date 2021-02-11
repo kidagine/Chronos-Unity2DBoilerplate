@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 21024921382912
-    m_Localized: Select save data to load
+    m_Localized: Select save
     m_Metadata:
       m_Items: []
   - m_Id: 21637939884032
@@ -122,6 +122,12 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 2645593532428288
     m_Localized: Reset
+    m_Metadata:
+      m_Items: []
+  - m_Id: 3785011232272384
+    m_Localized: 'Are you sure you want to
+
+      delete this save?'
     m_Metadata:
       m_Items: []
   references:
