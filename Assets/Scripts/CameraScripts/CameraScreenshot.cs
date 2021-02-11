@@ -7,8 +7,8 @@ public class CameraScreenshot : MonoBehaviour
     [SerializeField] private Camera _camera = default;
     [SerializeField] private GameObject _ui = default;
     private readonly string _screenshotsFolder = "/Screenshots";
-    private readonly int _resolutionWidth = 700;
-    private readonly int _resolutionHeight = 350;
+    private readonly int _resolutionWidth = 1920;
+    private readonly int _resolutionHeight = 1080;
 
 
     public string TakeScreenshot()

@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class SaveManager : Singleton<SaveManager>
 {
+    private CameraScreenshot _cameraScreenshot;
     private readonly string saveDataFolder = "/saveData";
     private readonly int key = 02035;
 
@@ -15,6 +16,7 @@ public class SaveManager : Singleton<SaveManager>
 	void Start()
     {
         string savePath = Application.persistentDataPath + saveDataFolder;
+        _cameraScreenshot = Camera.main.GetComponent<CameraScreenshot>();
         if (!Directory.Exists(savePath))
         {
             Directory.CreateDirectory(savePath);
@@ -66,7 +68,7 @@ public class SaveManager : Singleton<SaveManager>
         {
             saveSlotName = LevelManager.Instance.GetCurrentSceneName(),
             saveSlotDate = DateTime.Now.ToString("HH:mm"),
-            saveSlotImagePath = Camera.main.GetComponent<CameraScreenshot>().TakeScreenshot(),
+            saveSlotImagePath = _cameraScreenshot.TakeScreenshot(),
             playerPosition = player.transform.position,
             playerCurrentHealth = playerStats.currentHealth,
             saveSlotIndex = saveSlot,
