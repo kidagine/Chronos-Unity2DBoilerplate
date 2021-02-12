@@ -8,7 +8,9 @@ public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
     [SerializeField] private EntityAudio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Slider _slider = default;
-    [SerializeField] private int defaultValue = default;
+    [SerializeField] private float defaultValue = default;
+
+    public float DefaultValue { get { return defaultValue; } private set { } }
 
 
     public void OnSelect(BaseEventData eventData)
@@ -42,12 +44,17 @@ public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnValueChange()
     {
-        _entityAudio.Sound("Pressed").Play();
+        //_entityAudio.Sound("Pressed").Play();
         //_animator.SetTrigger("Clicked");
     }
 
     public void SetValue(float value)
     {
         _slider.value = value;
+    }
+
+    public float GetValue()
+    {
+        return _slider.value;
     }
 }

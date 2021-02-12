@@ -18,8 +18,10 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     [SerializeField] private int _defaultValue = default;
     private int _currentSelectedIndex;
 
+    public int DefaultValue { get { return _defaultValue; } private set { } }
 
-	void OnEnable()
+
+    void OnEnable()
 	{
         CheckSelectorArrows();
     }
@@ -170,4 +172,17 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
         }
     }
 
+    public int GetValue()
+    {
+        return _currentSelectedIndex;
+    }
+
+
+    public void SetValue(int value)
+    {
+        _values.GetChild(_currentSelectedIndex).gameObject.SetActive(false);
+        _values.GetChild(value).gameObject.SetActive(true);
+        CheckSelectorArrows();
+        _onSelect?.Invoke(value);
+    }
 }

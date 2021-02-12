@@ -6,7 +6,6 @@ using UnityEngine;
 public class SaveManager : Singleton<SaveManager>
 {
     private CameraScreenshot _cameraScreenshot;
-    private readonly string saveDataFolder = "/saveData";
     private readonly int key = 02035;
 
 	public int SelectedSaveSlot { get; set; }
@@ -15,7 +14,7 @@ public class SaveManager : Singleton<SaveManager>
     
 	void Start()
     {
-        string savePath = Application.persistentDataPath + saveDataFolder;
+        string savePath = Application.persistentDataPath;
         _cameraScreenshot = Camera.main.GetComponent<CameraScreenshot>();
         if (!Directory.Exists(savePath))
         {
@@ -27,14 +26,14 @@ public class SaveManager : Singleton<SaveManager>
     {
         SaveData saveData = CreateSaveData(saveSlot);
         string json = JsonUtility.ToJson(saveData);
-        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        string savePath = Application.persistentDataPath + saveSlot + ".save";
         File.WriteAllText(savePath, EncryptDecrypt(json, key));
     }
 
     public void Load(int saveSlot)
     {
         IsLoading = true;
-        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        string savePath = Application.persistentDataPath + saveSlot + ".save";
         if (File.Exists(savePath))
         {
             string saveDataJson = File.ReadAllText(savePath);
@@ -53,7 +52,7 @@ public class SaveManager : Singleton<SaveManager>
 
     public void Delete(int saveSlot)
     {
-        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        string savePath = Application.persistentDataPath + saveSlot + ".save";
         if (File.Exists(savePath))
         {
             File.Delete(savePath);
@@ -94,7 +93,7 @@ public class SaveManager : Singleton<SaveManager>
 
     public SaveData GetSave(int saveSlot)
     {
-        string savePath = Application.persistentDataPath + saveDataFolder + saveSlot + ".save";
+        string savePath = Application.persistentDataPath + saveSlot + ".save";
         if (File.Exists(savePath))
         {
             string saveDataJson = File.ReadAllText(savePath);

@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.Localization.Settings;
-using UnityEngine.UI;
 
 [RequireComponent(typeof(EntityAudio))]
-public class GameplayMenu : MonoBehaviour, ISubMenu
+public class GameplayMenu : BaseMenu
 {
-    [SerializeField] private Selectable _startingOption = default;
     [SerializeField] private BaseSelector _languageSelector = default;
     private EntityAudio _audio;
 
@@ -15,24 +13,20 @@ public class GameplayMenu : MonoBehaviour, ISubMenu
         _audio = GetComponent<EntityAudio>();
     }
 
-    public void OpenMenu(GameObject menu)
-    {
-        gameObject.SetActive(false);
-        if (menu.TryGetComponent(out ISubMenu subMenu))
-        {
-            subMenu.Activate();
-        }
-    }
-
-    public void Activate()
-    {
-        gameObject.SetActive(true);
-        _startingOption.Select();
-    }
-
     public void SetLanguage(int index)
     {
         LocalizationSettings.SelectedLocale = LocalizationSettings.AvailableLocales.Locales[index];
+    }
+
+    public void InitializePreferences()
+    {
+        _languageSelector.SetValue(PlayerPrefs.GetInt("language", _languageSelector.DefaultValue));
+    }
+
+    public void ConfirmGameSettings()
+    {
+        _audio.Sound("Reset").Play();
+        PlayerPrefs.SetInt("language", _languageSelector.GetValue());
     }
 
     public void ResetGameSettings()

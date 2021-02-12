@@ -1,9 +1,8 @@
-﻿using UnityEngine;
-using UnityEngine.UI;
+﻿using System;
+using UnityEngine;
 
-public class VideoMenu : MonoBehaviour, ISubMenu
+public class VideoMenu : BaseMenu
 {
-	[SerializeField] private Selectable _startingOption = default;
     [SerializeField] private BaseSelector _screenModeSelector = default;
     [SerializeField] private BaseSelector _resolutionSelector = default;
     [SerializeField] private BaseToggle _vSyncToggle = default;
@@ -14,21 +13,6 @@ public class VideoMenu : MonoBehaviour, ISubMenu
     {
         _audio = GetComponent<EntityAudio>();
     }
-
-    public void OpenMenu(GameObject menu)
-	{
-		gameObject.SetActive(false);
-		if (menu.TryGetComponent(out ISubMenu subMenu))
-		{
-			subMenu.Activate();
-		}
-	}
-
-	public void Activate()
-	{
-		gameObject.SetActive(true);
-		_startingOption.Select();
-	}
 
     public void SetScreenMode(int value)
     {
@@ -85,6 +69,21 @@ public class VideoMenu : MonoBehaviour, ISubMenu
             QualitySettings.vSyncCount = 0;
 		}
 	}
+
+    public void InitializePreferences()
+    {
+		_screenModeSelector.SetValue(PlayerPrefs.GetInt("screenMode", _screenModeSelector.DefaultValue));
+		_resolutionSelector.SetValue(PlayerPrefs.GetInt("resolution", _resolutionSelector.DefaultValue));
+		_vSyncToggle.SetValue(Convert.ToBoolean(PlayerPrefs.GetInt("vSync", Convert.ToInt32(_vSyncToggle.DefaultValue))));
+    }
+
+    public void ConfirmVideoSettings()
+    {
+        _audio.Sound("Reset").Play();
+		PlayerPrefs.SetInt("screenMode", _screenModeSelector.GetValue());
+		PlayerPrefs.SetInt("resolution", _resolutionSelector.GetValue());
+		PlayerPrefs.SetInt("vSync", Convert.ToInt32(_vSyncToggle.GetValue()));
+    }
 
     public void ResetVideoSettings()
     {
