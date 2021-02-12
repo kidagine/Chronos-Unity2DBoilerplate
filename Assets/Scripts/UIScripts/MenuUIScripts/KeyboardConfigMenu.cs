@@ -46,6 +46,7 @@ public class KeyboardConfigMenu : BaseMenu
 	{
 		_rebindingOperation.Dispose();
 		remapButton.SetLock(false);
+		SaveKeyboardPreferences();
 		UpdateRemapButton(remapButton);
 	}
 
@@ -69,6 +70,20 @@ public class KeyboardConfigMenu : BaseMenu
 		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
 		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
+	}
+
+	public void SaveKeyboardPreferences()
+	{
+		PlayerInput player = InputManager.Instance.GetPlayerInput();
+		string rebinds = player.actions.SaveBindingOverridesAsJson();
+		PlayerPrefs.SetString("keyboardRebinds", rebinds);
+	}
+
+	public void InitializePreferences()
+	{
+		PlayerInput player = InputManager.Instance.GetPlayerInput();
+		string rebinds = PlayerPrefs.GetString("keyboardRebinds");
+		player.actions.LoadBindingOverridesFromJson(rebinds);
 	}
 
 	private bool RemapExists(RemapButton remapButton)
