@@ -17,6 +17,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     [SerializeField] private UnityEventInt _onSelect = default;
     [SerializeField] private int _defaultValue = default;
     private int _currentSelectedIndex;
+    private bool _isInitialSet = true;
 
     public int DefaultValue { get { return _defaultValue; } private set { } }
 
@@ -180,7 +181,15 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
 
     public void SetValue(int value)
     {
-        _values.GetChild(_currentSelectedIndex).gameObject.SetActive(false);
+        if (_isInitialSet)
+        {
+            _values.GetChild(_defaultValue).gameObject.SetActive(false);
+            _isInitialSet = false;
+        }
+        else
+        {
+            _values.GetChild(_currentSelectedIndex).gameObject.SetActive(false);
+        }
         _values.GetChild(value).gameObject.SetActive(true);
         CheckSelectorArrows();
         _onSelect?.Invoke(value);
