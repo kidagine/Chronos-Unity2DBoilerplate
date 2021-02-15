@@ -6,7 +6,7 @@ public class KeyboardConfigMenu : BaseMenu
 	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
 	private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
 	private EntityAudio _audio;
-
+	[SerializeField] private RemapButton[] _remapButtons = default;
 
 	void Awake()
 	{
@@ -56,19 +56,11 @@ public class KeyboardConfigMenu : BaseMenu
 		remapButton.SetLock(false);
 	}
 
-	public void ResetRemapSettings(RemapButton remapButton)
-	{
-		_audio.Sound("Reset").Play();
-		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
-		InputActionRebindingExtensions.RemoveAllBindingOverrides(focusedInputAction);
-		UpdateRemapButton(remapButton);
-	}
-
 	private void UpdateRemapButton(RemapButton remapButton)
 	{
-		InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
-		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
-		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+		InputAction inputAction = remapButton.InputActionReference.action;
+		int controlBindingIndex = inputAction.GetBindingIndexForControl(inputAction.controls[0]);
+		string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 	}
 
@@ -79,11 +71,27 @@ public class KeyboardConfigMenu : BaseMenu
 		PlayerPrefs.SetString("keyboardRebinds", rebinds);
 	}
 
+	public void ResetRemapSettings(RemapButton remapButton)
+	{
+		_audio.Sound("Reset").Play();
+		InputAction inputAction = remapButton.InputActionReference.action;
+		InputActionRebindingExtensions.RemoveAllBindingOverrides(inputAction);
+		UpdateRemapButton(remapButton);
+	}
+
 	public void InitializePreferences()
 	{
 		PlayerInput player = InputManager.Instance.GetPlayerInput();
 		string rebinds = PlayerPrefs.GetString("keyboardRebinds");
 		player.actions.LoadBindingOverridesFromJson(rebinds);
+
+		foreach (RemapButton remapButton in _remapButtons)
+		{
+			InputAction inputAction = remapButton.InputActionReference.action;
+			int controlBindingIndex = inputAction.GetBindingIndexForControl(inputAction.controls[0]);
+			string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+			remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
+		}
 	}
 
 	private bool RemapExists(RemapButton remapButton)

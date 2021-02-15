@@ -120,3 +120,24 @@ MonoBehaviour:
   - customInputContextString: Space
     customInputContextIcon: {fileID: 5732951268329557013, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
+  - customInputContextString: S
+    customInputContextIcon: {fileID: 3593930250665314962, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Up Arrow
+    customInputContextIcon: {fileID: -1631367382516784511, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Down Arrow
+    customInputContextIcon: {fileID: 727115179605130713, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Left Arrow
+    customInputContextIcon: {fileID: 8354798851995012908, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Right Arrow
+    customInputContextIcon: {fileID: 7239270965916966003, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Right Shift
+    customInputContextIcon: {fileID: 5524913400098005915, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Right Control
+    customInputContextIcon: {fileID: -4766398455581630209, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
