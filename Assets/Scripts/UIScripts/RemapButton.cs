@@ -7,9 +7,14 @@ public class RemapButton : BaseButton
 	[SerializeField] private Button _button = default;
 	[SerializeField] private Image _promptImage = default;
 	[SerializeField] private InputActionReference _inputActionReference = default;
+	[SerializeField] private bool _isComposite = default;
+	[ConditionalHide("_isComposite", true)]
+	[SerializeField] private int _compositeIndex = default;
 
 	public Image PromptImage { get { return _promptImage; } set { } }
 	public InputActionReference InputActionReference { get { return _inputActionReference; } set { } }
+	public int CompositeIndex { get { return _compositeIndex; } set { } }
+	public bool IsComposite { get { return _isComposite; } set { } }
 
 
 	public void SetLock(bool state)
