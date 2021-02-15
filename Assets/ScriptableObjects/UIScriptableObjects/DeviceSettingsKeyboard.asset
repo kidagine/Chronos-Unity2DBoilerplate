@@ -108,7 +108,7 @@ MonoBehaviour:
   - customInputContextString: Caps Lock
     customInputContextIcon: {fileID: 3930692470351214879, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
-  - customInputContextString: Shift
+  - customInputContextString: Left Shift
     customInputContextIcon: {fileID: 5524913400098005915, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
   - customInputContextString: Left Control
@@ -140,4 +140,7 @@ MonoBehaviour:
       type: 3}
   - customInputContextString: Right Control
     customInputContextIcon: {fileID: -4766398455581630209, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}
+  - customInputContextString: Right Shift
+    customInputContextIcon: {fileID: 5524913400098005915, guid: c026204bc7fb08d408029c1534099470,
       type: 3}

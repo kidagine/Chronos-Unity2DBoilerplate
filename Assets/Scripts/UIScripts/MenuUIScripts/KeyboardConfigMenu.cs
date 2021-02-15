@@ -87,7 +87,7 @@ public class KeyboardConfigMenu : BaseMenu
 		foreach (RemapButton remapButton in _remapButtons)
 		{
 			InputAction inputAction = remapButton.InputActionReference.action;
-			string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[remapButton.CompositeIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+			string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[remapButton.CompositeIndex	].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 			remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 		}
 	}
