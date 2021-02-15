@@ -17,8 +17,8 @@ public class KeyboardConfigMenu : BaseMenu
 	{
 		InputManager.Instance.DisablePlayerInput();
 		remapButton.SetLock(true);
-		InputAction focusedInputAction = remapButton.InputActionReference.action;
-		_rebindingOperation = focusedInputAction.PerformInteractiveRebinding()
+		InputAction inputAction = remapButton.InputActionReference.action;
+		_rebindingOperation = inputAction.PerformInteractiveRebinding(remapButton.CompositeIndex)
 			.WithControlsHavingToMatchPath("<Keyboard>")
 			.WithControlsExcluding("<Keyboard>/f1")
 			.WithControlsExcluding("<Keyboard>/f2")
@@ -59,8 +59,7 @@ public class KeyboardConfigMenu : BaseMenu
 	private void UpdateRemapButton(RemapButton remapButton)
 	{
 		InputAction inputAction = remapButton.InputActionReference.action;
-		int controlBindingIndex = inputAction.GetBindingIndexForControl(inputAction.controls[0]);
-		string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+		string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[remapButton.CompositeIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 	}
 
@@ -88,8 +87,7 @@ public class KeyboardConfigMenu : BaseMenu
 		foreach (RemapButton remapButton in _remapButtons)
 		{
 			InputAction inputAction = remapButton.InputActionReference.action;
-			int controlBindingIndex = inputAction.GetBindingIndexForControl(inputAction.controls[0]);
-			string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+			string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[remapButton.CompositeIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 			remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 		}
 	}
