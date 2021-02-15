@@ -35,6 +35,7 @@ public class ControllerConfigMenu : BaseMenu
 		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
 		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
 		RemapExists(remapButton);
+		SaveControllerPreferences();
 		Debug.Log(remapButton.InputActionReference.action.GetBindingDisplayString());
 		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 		remapButton.SetLock(false);
@@ -44,6 +45,20 @@ public class ControllerConfigMenu : BaseMenu
 	{
 		_rebindingOperation.Dispose();
 		remapButton.SetLock(false);
+	}
+
+	public void SaveControllerPreferences()
+	{
+		PlayerInput player = InputManager.Instance.GetPlayerInput();
+		string rebinds = player.actions.SaveBindingOverridesAsJson();
+		PlayerPrefs.SetString("controllerRebinds", rebinds);
+	}
+
+	public void InitializePreferences()
+	{
+		PlayerInput player = InputManager.Instance.GetPlayerInput();
+		string rebinds = PlayerPrefs.GetString("controllerRebinds");
+		player.actions.LoadBindingOverridesFromJson(rebinds);
 	}
 
 	public void ResetRemapSettings(RemapButton remapButton)

@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
-public class AudioMenu : MonoBehaviour, ISubMenu
+public class AudioMenu : BaseMenu
 {
-	[SerializeField] private Selectable _startingOption = default;
 	[SerializeField] private BaseSlider _musicSlider = default;
 	[SerializeField] private BaseSlider _vfxSlider = default;
 	[SerializeField] private BaseSlider _uiSlider = default;
@@ -15,19 +13,19 @@ public class AudioMenu : MonoBehaviour, ISubMenu
 		_audio = GetComponent<EntityAudio>();
 	}
 
-	public void OpenMenu(GameObject menu)
+	public void InitializePreferences()
 	{
-		gameObject.SetActive(false);
-		if (menu.TryGetComponent(out ISubMenu subMenu))
-		{
-			subMenu.Activate();
-		}
+		_musicSlider.SetValue(PlayerPrefs.GetFloat("musicVolume", _musicSlider.DefaultValue));
+		_vfxSlider.SetValue(PlayerPrefs.GetFloat("vfxVolume", _musicSlider.DefaultValue));
+		_uiSlider.SetValue(PlayerPrefs.GetFloat("uiVolume", _musicSlider.DefaultValue));
 	}
 
-	public void Activate()
+	public void ConfirmAudioSettings()
 	{
-		gameObject.SetActive(true);
-		_startingOption.Select();
+		_audio.Sound("Reset").Play();
+		PlayerPrefs.SetFloat("musicVolume", _musicSlider.GetValue());
+		PlayerPrefs.SetFloat("vfxVolume", _vfxSlider.GetValue());
+		PlayerPrefs.SetFloat("uiVolume", _uiSlider.GetValue());
 	}
 
 	public void ResetAudioSettings()

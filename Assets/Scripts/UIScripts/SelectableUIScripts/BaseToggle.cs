@@ -15,6 +15,8 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
     [SerializeField] private UnityEventBool _onToggle = default;
     [SerializeField] private bool _isOn = true;
 
+    public bool DefaultValue { get { return _isOn; } private set { } }
+
 
     public void OnSelect(BaseEventData eventData)
     {
@@ -57,6 +59,12 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
         }
     }
 
+    public void SetValue(bool value)
+    {
+        _isOn = value;
+        SetToggle(_isOn);
+    }
+
     public void Toggle()
     {
         _isOn = !_isOn;
@@ -79,7 +87,7 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     private void SetToggle(bool isOn)
     {
-        _entityAudio.Sound("Pressed").Play();
+        //_entityAudio.Sound("Pressed").Play();
         if (isOn)
         {
             _onImage.color = Color.white;
@@ -95,5 +103,10 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
             _onText.color = Color.white;
         }
         _onToggle?.Invoke(_isOn);
+    }
+
+    public bool GetValue()
+    {
+        return _isOn;
     }
 }
