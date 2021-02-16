@@ -12,10 +12,6 @@ public class CursorHandler : MonoBehaviour
         {
             Cursor.visible = false;
         }
-        else
-        {
-            Cursor.visible = true;
-        }
         if (!_permanentlyHide)
         {
             InputManager.Instance.ControlsChanged += SetCursorVisibility;
