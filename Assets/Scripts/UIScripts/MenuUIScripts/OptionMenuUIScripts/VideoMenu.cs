@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-public class VideoMenu : BaseMenu
+[RequireComponent(typeof(Audio))]
+public class VideoMenu : BaseMenu, IOptionMenu
 {
     [SerializeField] private BaseSelector _screenModeSelector = default;
     [SerializeField] private BaseSelector _resolutionSelector = default;
@@ -77,7 +78,7 @@ public class VideoMenu : BaseMenu
 		_vSyncToggle.SetValue(Convert.ToBoolean(PlayerPrefs.GetInt("vSync", Convert.ToInt32(_vSyncToggle.DefaultValue))));
     }
 
-    public void ConfirmVideoSettings()
+    public void ConfirmSettings()
     {
         _audio.Sound("Reset").Play();
 		PlayerPrefs.SetInt("screenMode", _screenModeSelector.GetValue());
@@ -85,7 +86,7 @@ public class VideoMenu : BaseMenu
 		PlayerPrefs.SetInt("vSync", Convert.ToInt32(_vSyncToggle.GetValue()));
     }
 
-    public void ResetVideoSettings()
+    public void ResetSettings()
     {
         _audio.Sound("Reset").Play();
         _screenModeSelector.ResetValue();

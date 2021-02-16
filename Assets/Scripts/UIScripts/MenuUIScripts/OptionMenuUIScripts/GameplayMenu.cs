@@ -2,7 +2,7 @@
 using UnityEngine.Localization.Settings;
 
 [RequireComponent(typeof(Audio))]
-public class GameplayMenu : BaseMenu
+public class GameplayMenu : BaseMenu, IOptionMenu
 {
     [SerializeField] private BaseSelector _languageSelector = default;
     private Audio _audio;
@@ -23,13 +23,13 @@ public class GameplayMenu : BaseMenu
         _languageSelector.SetValue(PlayerPrefs.GetInt("language", _languageSelector.DefaultValue));
     }
 
-    public void ConfirmGameSettings()
+    public void ConfirmSettings()
     {
         _audio.Sound("Reset").Play();
         PlayerPrefs.SetInt("language", _languageSelector.GetValue());
     }
 
-    public void ResetGameSettings()
+    public void ResetSettings()
     {
         _audio.Sound("Reset").Play();
         _languageSelector.ResetValue();

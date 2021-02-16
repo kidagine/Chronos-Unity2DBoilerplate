@@ -38,10 +38,7 @@ public class LevelManager : Singleton<LevelManager>
 
     public void GoToLevel(int levelIndex)
     {
-        if (!_sceneTransitions)
-        {
-            SceneManager.LoadScene(levelIndex);
-        }
+        SceneManager.LoadScene(levelIndex);
     }
 
 

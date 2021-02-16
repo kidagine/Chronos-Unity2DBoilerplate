@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Level))]
 public class SceneAdditiveLoader : MonoBehaviour
 {
-    [SerializeField] private Level _level = default;
+    private Level _level;
 
 
     void Awake()
     {
+        _level = GetComponent<Level>();
         LevelManager.Instance.AddAdditiveLevel(_level);
     }
 

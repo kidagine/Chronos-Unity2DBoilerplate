@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class AudioMenu : BaseMenu
+[RequireComponent(typeof(Audio))]
+public class AudioMenu : BaseMenu, IOptionMenu
 {
 	[SerializeField] private BaseSlider _musicSlider = default;
 	[SerializeField] private BaseSlider _vfxSlider = default;
@@ -20,7 +21,7 @@ public class AudioMenu : BaseMenu
 		_uiSlider.SetValue(PlayerPrefs.GetFloat("uiVolume", _musicSlider.DefaultValue));
 	}
 
-	public void ConfirmAudioSettings()
+	public void ConfirmSettings()
 	{
 		_audio.Sound("Reset").Play();
 		PlayerPrefs.SetFloat("musicVolume", _musicSlider.GetValue());
@@ -28,7 +29,7 @@ public class AudioMenu : BaseMenu
 		PlayerPrefs.SetFloat("uiVolume", _uiSlider.GetValue());
 	}
 
-	public void ResetAudioSettings()
+	public void ResetSettings()
 	{
 		_audio.Sound("Reset").Play();
 		_musicSlider.ResetValue();
