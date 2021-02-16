@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     [SerializeField] private Player _player = default;
     [SerializeField] private PlayerAnimator _playerAnimator = default;
     [SerializeField] private Rigidbody2D _rigidbody = default;
-    [SerializeField] private EntityAudio _playerAudio = default;
+    [SerializeField] private Audio _playerAudio = default;
     [SerializeField] private PlayerStats _playerStats = default;
 
     public bool IsGrounded { get; private set; }

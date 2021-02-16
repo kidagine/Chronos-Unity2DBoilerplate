@@ -5,9 +5,9 @@ using UnityEngine;
 public enum LevelEnum { SplashScreen, PressStart, MainMenu, FirstLevel, SecondLevel, Credits, DebugAdditive };
 
 
-public class Levels : MonoBehaviour
+public class Level : MonoBehaviour
 {
 	[SerializeField] private LevelEnum _levelsEnum = default;
 
-	public LevelEnum LevelsEnums { get { return _levelsEnum; } private set { } }
+	public LevelEnum LevelsEnum { get { return _levelsEnum; } private set { } }
 }

@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using UnityEngine.Localization.Settings;
 
-[RequireComponent(typeof(EntityAudio))]
+[RequireComponent(typeof(Audio))]
 public class GameplayMenu : BaseMenu
 {
     [SerializeField] private BaseSelector _languageSelector = default;
-    private EntityAudio _audio;
+    private Audio _audio;
 
 
     void Awake()
     {
-        _audio = GetComponent<EntityAudio>();
+        _audio = GetComponent<Audio>();
     }
 
     public void SetLanguage(int index)

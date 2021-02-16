@@ -5,13 +5,13 @@ using Yarn.Unity;
 
 [RequireComponent(typeof(DialogueRunner))]
 [RequireComponent(typeof(DialogueUI))]
-[RequireComponent(typeof(EntityAudio))]
+[RequireComponent(typeof(Audio))]
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI _dialogueText = default;
     private DialogueRunner _dialogueRunner = default;
     private DialogueUI _dialogueUI = default;
-    private EntityAudio _audio = default;
+    private Audio _audio = default;
     private PlayerController _playerController = default;
 
 
@@ -19,7 +19,7 @@ public class DialogueSystem : MonoBehaviour
     {
         _dialogueRunner = GetComponent<DialogueRunner>();
         _dialogueUI = GetComponent<DialogueUI>();
-        _audio = GetComponent<EntityAudio>();
+        _audio = GetComponent<Audio>();
     }
 
 	void Start()

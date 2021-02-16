@@ -6,12 +6,12 @@ public class VideoMenu : BaseMenu
     [SerializeField] private BaseSelector _screenModeSelector = default;
     [SerializeField] private BaseSelector _resolutionSelector = default;
     [SerializeField] private BaseToggle _vSyncToggle = default;
-    private EntityAudio _audio;
+    private Audio _audio;
 
 
     void Awake()
     {
-        _audio = GetComponent<EntityAudio>();
+        _audio = GetComponent<Audio>();
     }
 
     public void SetScreenMode(int value)

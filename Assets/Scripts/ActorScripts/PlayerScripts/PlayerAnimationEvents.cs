@@ -4,7 +4,7 @@ public class PlayerAnimationEvents : MonoBehaviour
 {
     [SerializeField] private Player _player = default;
     [SerializeField] private PlayerMovement _playerMovement = default;
-    [SerializeField] private EntityAudio _playerAudio = default;
+    [SerializeField] private Audio _playerAudio = default;
 
 
     public void PlayerDiedAnimationEvent()

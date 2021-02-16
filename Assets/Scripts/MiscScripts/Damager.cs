@@ -9,14 +9,14 @@ public class Damager : MonoBehaviour, IHitboxResponder
 	[SerializeField] private LayerMask _damageLayers = default;
 	[SerializeField] private LayerMask _impactLayers = default;
 	[SerializeField] private bool _destroyOnImpact = default;
-	private EntityAudio _damagerAudio;
+	private Audio _damagerAudio;
 	private SpriteRenderer _spriteRenderer;
 	private Hitbox _hitbox;
 	private Rigidbody2D _rigidbody;
 
 	void Awake()
 	{
-		_damagerAudio = GetComponent<EntityAudio>();
+		_damagerAudio = GetComponent<Audio>();
 		_spriteRenderer = GetComponent<SpriteRenderer>();
 		_hitbox = GetComponent<Hitbox>();
 		_rigidbody = GetComponent<Rigidbody2D>();

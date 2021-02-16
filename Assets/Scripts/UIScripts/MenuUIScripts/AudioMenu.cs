@@ -5,12 +5,12 @@ public class AudioMenu : BaseMenu
 	[SerializeField] private BaseSlider _musicSlider = default;
 	[SerializeField] private BaseSlider _vfxSlider = default;
 	[SerializeField] private BaseSlider _uiSlider = default;
-	private EntityAudio _audio;
+	private Audio _audio;
 
 
 	void Awake()
 	{
-		_audio = GetComponent<EntityAudio>();
+		_audio = GetComponent<Audio>();
 	}
 
 	public void InitializePreferences()

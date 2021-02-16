@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebc1e4f0c546989419fb7e756d82f20e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _mainAudioMixer: {fileID: 24100000, guid: 37e1cd9c9cb5cd04b84c8b8502c44908, type: 2}
-  _mainAudio: {fileID: 6960637657457408768}
+  _audioMixer: {fileID: 24100000, guid: 37e1cd9c9cb5cd04b84c8b8502c44908, type: 2}
+  _audio: {fileID: 6960637657457408768}
 --- !u!114 &6960637657457408768
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -163,7 +163,7 @@ GameObject:
   - component: {fileID: 3697175854664139341}
   - component: {fileID: 1629915094}
   m_Layer: 0
-  m_Name: Managers_group
+  m_Name: DontDestroyOnLoad_group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

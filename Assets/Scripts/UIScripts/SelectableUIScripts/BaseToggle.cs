@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Animator _animator = default;
-    [SerializeField] private EntityAudio _entityAudio = default;
+    [SerializeField] private Audio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Image _onImage = default;
     [SerializeField] private TextMeshProUGUI _onText = default;

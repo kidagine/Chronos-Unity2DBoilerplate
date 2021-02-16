@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Audio;
 
-public class EntityAudio : MonoBehaviour
+public class Audio : MonoBehaviour
 {
 	[SerializeField] private AudioMixerGroup _audioMixerGroup = default;
 	[SerializeField] private Sound[] _sounds = default;

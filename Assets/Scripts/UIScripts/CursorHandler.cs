@@ -45,7 +45,7 @@ public class CursorHandler : MonoBehaviour
         }
     }
 
-    void OnDisable()
+    void OnDestroy()
     {
         if (!_permanentlyHide)
         {

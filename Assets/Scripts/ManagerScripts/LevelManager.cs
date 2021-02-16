@@ -8,21 +8,31 @@ public class LevelManager : Singleton<LevelManager>
 {
     [SerializeField] private SceneTransitions _sceneTransitions = default;
     private readonly string _sceneAppendix = "_SCN";
-    private Levels _cachedLevel;
+    private Level _cachedLevel;
 
     public event Action OnAdditiveSceneLoaded;
 
 
-    public void GoToLevel(Levels levels)
+    public void GoToLevel(Level levels)
     {
         if (!_sceneTransitions)
         {
-            SceneManager.LoadScene(levels.LevelsEnums + _sceneAppendix);
+            SceneManager.LoadScene(levels.LevelsEnum + _sceneAppendix);
         }
         else
         {
             _cachedLevel = levels;
             _sceneTransitions.FadeIn();
+            _sceneTransitions.OnFadeIn += GoToCachedLevel;
+        }
+    }
+
+    public void GoToCachedLevel()
+    {
+        if (_cachedLevel != null)
+        {
+            SoundManager.Instance.SetMasterVolumeToCached();
+            SceneManager.LoadScene(_cachedLevel.LevelsEnum + _sceneAppendix);
         }
     }
 
@@ -34,23 +44,15 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
-    public void GoToCachedLevel()
-    {
-        if (_cachedLevel != null)
-        {
-            SoundManager.Instance.SetMasterVolumeToCached();
-            SceneManager.LoadScene(_cachedLevel.LevelsEnums + _sceneAppendix);
-        }
-    }
 
-    public void AddAdditiveScene(Levels levels)
+    public void AddAdditiveLevel(Level levels)
     {
         StartCoroutine(AddAdditiveSceneCoroutine(levels));
     }
 
-    IEnumerator AddAdditiveSceneCoroutine(Levels levels)
+    IEnumerator AddAdditiveSceneCoroutine(Level levels)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levels.LevelsEnums + _sceneAppendix, LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levels.LevelsEnum + _sceneAppendix, LoadSceneMode.Additive);
         while (!asyncLoad.isDone)
         {
             yield return null;
@@ -63,15 +65,23 @@ public class LevelManager : Singleton<LevelManager>
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    public int GetCurrentSceneIndex()
+    public int GetCurrentLevelIndex()
     {
         return SceneManager.GetActiveScene().buildIndex;
     }
 
-    public string GetCurrentSceneName()
+    public string GetCurrentLevelName()
     {
         string levelName = Regex.Replace(SceneManager.GetActiveScene().name, "([a-z])([A-Z])", "$1 $2");
         int index = levelName.IndexOf("_");
         return levelName.Substring(0, index);
+    }
+
+	void OnDestroy()
+	{
+        if (_sceneTransitions)
+        {
+            _sceneTransitions.OnFadeIn -= GoToCachedLevel;
+        }
     }
 }

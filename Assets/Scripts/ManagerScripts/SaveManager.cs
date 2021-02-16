@@ -65,13 +65,13 @@ public class SaveManager : Singleton<SaveManager>
         PlayerStats playerStats = player.GetComponent<PlayerStats>();
         SaveData saveData = new SaveData
         {
-            saveSlotName = LevelManager.Instance.GetCurrentSceneName(),
+            saveSlotName = LevelManager.Instance.GetCurrentLevelName(),
             saveSlotDate = DateTime.Now.ToString("HH:mm"),
             saveSlotImagePath = _cameraScreenshot.TakeScreenshot(),
             playerPosition = player.transform.position,
             playerCurrentHealth = playerStats.currentHealth,
             saveSlotIndex = saveSlot,
-            levelIndex = LevelManager.Instance.GetCurrentSceneIndex()
+            levelIndex = LevelManager.Instance.GetCurrentLevelIndex()
         };
         return saveData;
     }

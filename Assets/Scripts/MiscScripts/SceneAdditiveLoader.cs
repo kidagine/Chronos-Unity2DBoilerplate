@@ -2,12 +2,12 @@
 
 public class SceneAdditiveLoader : MonoBehaviour
 {
-    [SerializeField] private Levels _level = default;
+    [SerializeField] private Level _level = default;
 
 
     void Awake()
     {
-        LevelManager.Instance.AddAdditiveScene(_level);
+        LevelManager.Instance.AddAdditiveLevel(_level);
     }
 
 	void Start()

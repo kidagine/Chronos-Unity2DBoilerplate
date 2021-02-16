@@ -2,19 +2,21 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(InputManager))]
 public class InputManager : MonoBehaviour
 {
-    [SerializeField] private PlayerInput _playerInput = default;
-    public static InputManager Instance { get; private set; }
+    private PlayerInput _playerInput;
     private string _currentControlScheme;
 
     public event Action ControlsChanged;
 
-	public ControlSchemeEnum ActiveControlScheme { get; private set; }
+    public static InputManager Instance { get; private set; }
+    public ControlSchemeEnum ActiveControlScheme { get; private set; }
 
 
 	void Awake()
 	{
+        _playerInput = GetComponent<PlayerInput>();
         CheckInstance();
     }
 

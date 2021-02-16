@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] private Animator _animator = default;
-    [SerializeField] private EntityAudio _entityAudio = default;
+    [SerializeField] private Audio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Transform _values = default;
     [SerializeField] private Button _leftArrowButton = default;

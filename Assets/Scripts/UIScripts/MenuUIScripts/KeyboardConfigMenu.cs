@@ -5,12 +5,12 @@ public class KeyboardConfigMenu : BaseMenu
 {
 	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
 	private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
-	private EntityAudio _audio;
+	private Audio _audio;
 	[SerializeField] private RemapButton[] _remapButtons = default;
 
 	void Awake()
 	{
-		_audio = GetComponent<EntityAudio>();
+		_audio = GetComponent<Audio>();
 	}
 
 	public void RemapInput(RemapButton remapButton)
