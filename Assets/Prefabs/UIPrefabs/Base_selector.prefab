@@ -808,8 +808,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7073d1452c1bb044f8862cf611e212fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 9104932602675157998}
-  _entityAudio: {fileID: 9104932602675158000}
   _eventSystem: {fileID: 0}
   _values: {fileID: 20067328397260836}
   _leftArrowButton: {fileID: 9104932602477008477}
@@ -821,6 +819,7 @@ MonoBehaviour:
   _onSelect:
     m_PersistentCalls:
       m_Calls: []
+  _defaultValue: 0
 --- !u!114 &9104932602675158000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -939,7 +938,7 @@ GameObject:
   - component: {fileID: 2906126483781233423}
   - component: {fileID: 6662109346699151748}
   m_Layer: 5
-  m_Name: Slider_text
+  m_Name: Selectable_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

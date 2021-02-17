@@ -123,6 +123,10 @@ MonoBehaviour:
     m_Key: delete-save
     m_Metadata:
       m_Items: []
+  - m_Id: 6605375276609536
+    m_Key: pressAnyButton
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

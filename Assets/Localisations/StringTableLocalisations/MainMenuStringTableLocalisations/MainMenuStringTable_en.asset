@@ -130,5 +130,9 @@ MonoBehaviour:
       delete this save?'
     m_Metadata:
       m_Items: []
+  - m_Id: 6605375276609536
+    m_Localized: Press Any Button
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

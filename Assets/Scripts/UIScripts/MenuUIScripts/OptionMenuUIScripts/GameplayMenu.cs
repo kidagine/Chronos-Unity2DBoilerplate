@@ -11,6 +11,7 @@ public class GameplayMenu : BaseMenu, IOptionMenu
     void Awake()
     {
         _audio = GetComponent<Audio>();
+        InitializePreferences();
     }
 
     public void SetLanguage(int index)
@@ -20,19 +21,19 @@ public class GameplayMenu : BaseMenu, IOptionMenu
 
     public void InitializePreferences()
     {
-        _languageSelector.SetValue(PlayerPrefs.GetInt("language", _languageSelector.DefaultValue));
+        _languageSelector.SetValue(PreferenceInitializer.Instance.LanguageIndex);
     }
 
     public void ConfirmSettings()
     {
-        _audio.Sound("Reset").Play();
-        PlayerPrefs.SetInt("language", _languageSelector.GetValue());
+        _audio.Sound("Confirm").Play();
+        PreferenceInitializer.Instance.SetLanguage(_languageSelector.GetValue());
     }
 
     public void ResetSettings()
     {
         _audio.Sound("Reset").Play();
-        _languageSelector.ResetValue();
+        _languageSelector.SetValue(PreferenceInitializer.Instance.DefaultLanguageIndex);
     }
 
     void OnDisable()

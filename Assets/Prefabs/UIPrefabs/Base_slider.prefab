@@ -124,10 +124,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20aee01fbf2413e4594ca5dd44d5a009, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 319181425}
-  _entityAudio: {fileID: 319181423}
   _eventSystem: {fileID: 0}
   _slider: {fileID: 0}
+  defaultValue: 0
 --- !u!114 &319181423
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,7 +174,7 @@ GameObject:
   - component: {fileID: 6201339406892638864}
   - component: {fileID: 5067367510960633335}
   m_Layer: 5
-  m_Name: Slider_text
+  m_Name: Selectable_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

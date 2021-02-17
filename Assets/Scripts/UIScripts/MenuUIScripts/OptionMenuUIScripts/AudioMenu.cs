@@ -12,6 +12,7 @@ public class AudioMenu : BaseMenu, IOptionMenu
 	void Awake()
 	{
 		_audio = GetComponent<Audio>();
+		InitializePreferences();
 	}
 
 	public void SetMusicVolume(float value)
@@ -34,25 +35,26 @@ public class AudioMenu : BaseMenu, IOptionMenu
 
 	public void InitializePreferences()
 	{
-		_musicSlider.SetValue(PlayerPrefs.GetFloat("musicVolume", _musicSlider.DefaultValue));
-		_vfxSlider.SetValue(PlayerPrefs.GetFloat("vfxVolume", _musicSlider.DefaultValue));
-		_uiSlider.SetValue(PlayerPrefs.GetFloat("uiVolume", _musicSlider.DefaultValue));
+		_musicSlider.SetValue(PreferenceInitializer.Instance.MusicVolume);
+		_vfxSlider.SetValue(PreferenceInitializer.Instance.VFXVolume);
+		_uiSlider.SetValue(PreferenceInitializer.Instance.UIVolume);
 	}
 
 	public void ConfirmSettings()
 	{
 		_audio.Sound("Confirm").Play();
-		PlayerPrefs.SetFloat("musicVolume", _musicSlider.GetValue());
-		PlayerPrefs.SetFloat("vfxVolume", _vfxSlider.GetValue());
-		PlayerPrefs.SetFloat("uiVolume", _uiSlider.GetValue());
+		PreferenceInitializer.Instance.SetMusicVolume(_musicSlider.GetValue());
+		PreferenceInitializer.Instance.SetVFXVolume(_vfxSlider.GetValue());
+		PreferenceInitializer.Instance.SetUIVolume(_uiSlider.GetValue());
 	}
 
 	public void ResetSettings()
 	{
 		_audio.Sound("Reset").Play();
-		_musicSlider.ResetValue();
-		_vfxSlider.ResetValue();
-		_uiSlider.ResetValue();
+		Debug.Log(PreferenceInitializer.Instance.DefaultMusicVolume);
+		_musicSlider.SetValue(PreferenceInitializer.Instance.DefaultMusicVolume);
+		_vfxSlider.SetValue(PreferenceInitializer.Instance.DefaultVFXVolume);
+		_uiSlider.SetValue(PreferenceInitializer.Instance.DefaultUIVolume);
 	}
 
 	void OnDisable()

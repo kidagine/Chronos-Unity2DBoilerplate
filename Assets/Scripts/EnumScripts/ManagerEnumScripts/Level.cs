@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public enum LevelEnum { SplashScreen, PressStart, MainMenu, FirstLevel, SecondLevel, Credits, DebugAdditive };
+public enum LevelEnum { SplashScreen, PressStart, MainMenu, FirstLevel, SecondLevel, Credits, InitializerAdditive, DebugAdditive };
 
 
 public class Level : MonoBehaviour

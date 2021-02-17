@@ -126,5 +126,9 @@ MonoBehaviour:
     m_Localized: "\rEst\xE1s seguro que quieres\r\neliminar esto guardar?"
     m_Metadata:
       m_Items: []
+  - m_Id: 6605375276609536
+    m_Localized: Presione Cualquier Boton
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

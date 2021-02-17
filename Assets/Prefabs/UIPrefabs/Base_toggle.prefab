@@ -123,14 +123,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 382d4b0d7c856f54b9db45ec6b61d99c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 9087275409297683336}
-  _entityAudio: {fileID: 9087275409297683350}
   _eventSystem: {fileID: 0}
   _onImage: {fileID: 9087275409233690564}
   _onText: {fileID: 9087275408961617988}
   _offImage: {fileID: 9087275410296629851}
   _offText: {fileID: 9087275409912964189}
-  _isOn: 1
   _onToggle:
     m_PersistentCalls:
       m_Calls:
@@ -145,6 +142,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  _isOn: 1
 --- !u!114 &9087275409297683350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +218,7 @@ GameObject:
   - component: {fileID: 2887908535312925545}
   - component: {fileID: 1701613309372932160}
   m_Layer: 5
-  m_Name: Slider_text
+  m_Name: Selectable_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

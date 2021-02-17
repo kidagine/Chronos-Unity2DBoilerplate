@@ -13,6 +13,7 @@ public class VideoMenu : BaseMenu, IOptionMenu
     void Awake()
     {
         _audio = GetComponent<Audio>();
+        InitializePreferences();
     }
 
     public void SetScreenMode(int value)
@@ -59,6 +60,30 @@ public class VideoMenu : BaseMenu, IOptionMenu
         }
     }
 
+
+    public int GetResolutionIndex(int value)
+    {
+        switch (value)
+        {
+            case 800:
+                return 0;
+            case 1024:
+                return 1;
+            case 1280:
+                return 2;
+            case 1360:
+                return 3;
+            case 1600:
+                return 4;
+            case 1920:
+                return 4;
+            case 2560:
+                return 5;
+            default:
+                return 0;
+        }
+    }
+
     public void SetVSync(bool isOn)
 	{
 		if (isOn)
@@ -73,25 +98,25 @@ public class VideoMenu : BaseMenu, IOptionMenu
 
     public void InitializePreferences()
     {
-		_screenModeSelector.SetValue(PlayerPrefs.GetInt("screenMode", _screenModeSelector.DefaultValue));
-		_resolutionSelector.SetValue(PlayerPrefs.GetInt("resolution", _resolutionSelector.DefaultValue));
-		_vSyncToggle.SetValue(Convert.ToBoolean(PlayerPrefs.GetInt("vSync", Convert.ToInt32(_vSyncToggle.DefaultValue))));
+        _screenModeSelector.SetValue(PreferenceInitializer.Instance.ScreenMode);
+        _resolutionSelector.SetValue(GetResolutionIndex((int)PreferenceInitializer.Instance.Resolution.x));
+        _vSyncToggle.SetValue(PreferenceInitializer.Instance.VSync);
     }
 
     public void ConfirmSettings()
     {
-        _audio.Sound("Reset").Play();
-		PlayerPrefs.SetInt("screenMode", _screenModeSelector.GetValue());
-		PlayerPrefs.SetInt("resolution", _resolutionSelector.GetValue());
-		PlayerPrefs.SetInt("vSync", Convert.ToInt32(_vSyncToggle.GetValue()));
+        _audio.Sound("Confirm").Play();
+        PreferenceInitializer.Instance.SetScreenMode(_screenModeSelector.GetValue());
+        PreferenceInitializer.Instance.SetResolution(_resolutionSelector.GetValue());
+        PreferenceInitializer.Instance.SetVSync(_vSyncToggle.GetValue());
     }
 
     public void ResetSettings()
     {
         _audio.Sound("Reset").Play();
-        _screenModeSelector.ResetValue();
-        _resolutionSelector.ResetValue();
-        _vSyncToggle.ToggleOff();
+        _screenModeSelector.SetValue(PreferenceInitializer.Instance.DefaultScreenMode);
+        _resolutionSelector.SetValue(GetResolutionIndex((int)PreferenceInitializer.Instance.DefaultResolution.x));
+        _vSyncToggle.SetValue(PreferenceInitializer.Instance.DefaultVSync);
     }
 
     void OnDisable()
