@@ -52,8 +52,10 @@ public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnValueChange()
     {
-        //_entityAudio.Sound("Pressed").Play();
-        //_animator.SetTrigger("Clicked");
+        if (_audio != null)
+        {
+            _audio.Sound("Pressed").Play();
+        }
     }
 
     public void SetValue(float value)

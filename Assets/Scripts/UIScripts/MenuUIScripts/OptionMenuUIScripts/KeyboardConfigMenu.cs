@@ -22,14 +22,17 @@ public class KeyboardConfigMenu : BaseMenu
 		_controlsMenu.RemapInput(remapButton, _controlMatch, _controlCancel);
 	}
 
-	public void ResetRemapSettings(RemapButton remapButton)
+	public void ResetRemapSettings()
 	{
 		_audio.Sound("Reset").Play();
-		InputAction inputAction = remapButton.InputActionReference.action;
-		InputActionRebindingExtensions.RemoveAllBindingOverrides(inputAction);
+		foreach (RemapButton remapButton in _remapButtons)
+		{
+			InputAction inputAction = remapButton.InputActionReference.action;
+			InputActionRebindingExtensions.RemoveAllBindingOverrides(inputAction);
+		}
+		_controlsMenu.SaveKeyboardPreferences();
 		UpdateAllRemapButtons();
 	}
-
 
 	public void InitializePreferences()
 	{

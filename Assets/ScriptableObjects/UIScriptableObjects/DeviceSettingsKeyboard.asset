@@ -144,3 +144,6 @@ MonoBehaviour:
   - customInputContextString: Right Shift
     customInputContextIcon: {fileID: 5524913400098005915, guid: c026204bc7fb08d408029c1534099470,
       type: 3}
+  - customInputContextString: J
+    customInputContextIcon: {fileID: 5290646679599079733, guid: c026204bc7fb08d408029c1534099470,
+      type: 3}

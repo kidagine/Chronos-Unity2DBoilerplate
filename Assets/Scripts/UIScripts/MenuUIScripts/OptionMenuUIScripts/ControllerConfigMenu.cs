@@ -1,10 +1,14 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
 
+[RequireComponent(typeof(Audio))]
 public class ControllerConfigMenu : BaseMenu
 {
 	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
-	private InputActionRebindingExtensions.RebindingOperation _rebindingOperation;
+	[SerializeField] private ControlsMenu _controlsMenu = default;
+	[SerializeField] private RemapButton[] _remapButtons = default;
+	private readonly string _controlMatch = "<Gamepad>";
+	private readonly string _controlCancel = "<Keyboard>/escape";
 	private Audio _audio;
 
 
@@ -15,43 +19,18 @@ public class ControllerConfigMenu : BaseMenu
 
 	public void RemapInput(RemapButton remapButton)
 	{
-		InputManager.Instance.DisablePlayerInput();
-		remapButton.SetLock(true);
-		InputAction focusedInputAction = remapButton.InputActionReference.action;
-		_rebindingOperation = focusedInputAction.PerformInteractiveRebinding()
-			.WithControlsHavingToMatchPath("<Gamepad>")
-			.WithCancelingThrough("<Keyboard>/escape")
-			.OnMatchWaitForAnother(0.1f)
-			.OnComplete(operation => RemapComplete(remapButton))
-			.OnCancel(operation => RemapCancelled(remapButton));
-
-		_rebindingOperation.Start();
+		_controlsMenu.RemapInput(remapButton, _controlMatch, _controlCancel);
 	}
 
-	private void RemapComplete(RemapButton remapButton)
+	public void ResetRemapSettings()
 	{
-		_rebindingOperation.Dispose();
-		InputAction focusedInputAction = remapButton.InputActionReference.action;
-		int controlBindingIndex = focusedInputAction.GetBindingIndexForControl(focusedInputAction.controls[0]);
-		string currentBindingInput = InputControlPath.ToHumanReadableString(focusedInputAction.bindings[controlBindingIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
-		RemapExists(remapButton);
-		SaveControllerPreferences();
-		Debug.Log(remapButton.InputActionReference.action.GetBindingDisplayString());
-		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
-		remapButton.SetLock(false);
-	}
-
-	private void RemapCancelled(RemapButton remapButton)
-	{
-		_rebindingOperation.Dispose();
-		remapButton.SetLock(false);
-	}
-
-	public void SaveControllerPreferences()
-	{
-		PlayerInput player = InputManager.Instance.GetPlayerInput();
-		string rebinds = player.actions.SaveBindingOverridesAsJson();
-		PlayerPrefs.SetString("controllerRebinds", rebinds);
+		_audio.Sound("Reset").Play();
+		foreach (RemapButton remapButton in _remapButtons)
+		{
+			InputAction inputAction = remapButton.InputActionReference.action;
+			InputActionRebindingExtensions.RemoveAllBindingOverrides(inputAction);
+		}
+		UpdateAllRemapButtons();
 	}
 
 	public void InitializePreferences()
@@ -59,19 +38,16 @@ public class ControllerConfigMenu : BaseMenu
 		PlayerInput player = InputManager.Instance.GetPlayerInput();
 		string rebinds = PlayerPrefs.GetString("controllerRebinds");
 		player.actions.LoadBindingOverridesFromJson(rebinds);
+		UpdateAllRemapButtons();
 	}
 
-	public void ResetRemapSettings(RemapButton remapButton)
+	public void UpdateAllRemapButtons()
 	{
-		_audio.Sound("Reset").Play();
-		//InputAction focusedInputAction = InputManager.Instance.GetPlayerInputAction("Jump");
-		//InputActionRebindingExtensions.RemoveAllBindingOverrides(focusedInputAction);
-		//UpdateRemapButton(remapButton);
-	}
-
-	private bool RemapExists(RemapButton remapButton)
-	{
-		Debug.Log(remapButton.InputActionReference.action.GetBindingDisplayString());
-		return true;
+		foreach (RemapButton remapButton in _remapButtons)
+		{
+			InputAction inputAction = remapButton.InputActionReference.action;
+			string currentBindingInput = InputControlPath.ToHumanReadableString(inputAction.bindings[remapButton.CompositeIndex].effectivePath, InputControlPath.HumanReadableStringOptions.OmitDevice);
+			remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
+		}
 	}
 }

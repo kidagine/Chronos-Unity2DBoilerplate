@@ -93,4 +93,9 @@ public class VideoMenu : BaseMenu, IOptionMenu
         _resolutionSelector.ResetValue();
         _vSyncToggle.ToggleOff();
     }
+
+    void OnDisable()
+    {
+        InitializePreferences();
+    }
 }

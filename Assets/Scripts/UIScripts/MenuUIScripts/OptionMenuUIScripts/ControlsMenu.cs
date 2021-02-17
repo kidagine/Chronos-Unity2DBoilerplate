@@ -38,7 +38,7 @@ public class ControlsMenu : BaseMenu
 		remapButton.PromptImage.sprite = _deviceConfigurator.GetDeviceBindingIcon(InputManager.Instance.GetPlayerInput(), currentBindingInput);
 	}
 
-	private void SaveKeyboardPreferences()
+	public void SaveKeyboardPreferences()
 	{
 		PlayerInput player = InputManager.Instance.GetPlayerInput();
 		string rebinds = player.actions.SaveBindingOverridesAsJson();

@@ -34,4 +34,9 @@ public class GameplayMenu : BaseMenu, IOptionMenu
         _audio.Sound("Reset").Play();
         _languageSelector.ResetValue();
     }
+
+    void OnDisable()
+    {
+        InitializePreferences();
+    }
 }

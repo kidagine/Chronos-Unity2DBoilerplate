@@ -14,6 +14,24 @@ public class AudioMenu : BaseMenu, IOptionMenu
 		_audio = GetComponent<Audio>();
 	}
 
+	public void SetMusicVolume(float value)
+	{
+		_musicSlider.OnValueChange();
+		SoundManager.Instance.SetMusicVolume(value);
+	}
+
+	public void SetVFXVolume(float value)
+	{
+		_vfxSlider.OnValueChange();
+		SoundManager.Instance.SetVFXVolume(value);
+	}
+
+	public void SetUIVolume(float value)
+	{
+		_uiSlider.OnValueChange();
+		SoundManager.Instance.SetUIVolume(value);
+	}
+
 	public void InitializePreferences()
 	{
 		_musicSlider.SetValue(PlayerPrefs.GetFloat("musicVolume", _musicSlider.DefaultValue));
@@ -23,7 +41,7 @@ public class AudioMenu : BaseMenu, IOptionMenu
 
 	public void ConfirmSettings()
 	{
-		_audio.Sound("Reset").Play();
+		_audio.Sound("Confirm").Play();
 		PlayerPrefs.SetFloat("musicVolume", _musicSlider.GetValue());
 		PlayerPrefs.SetFloat("vfxVolume", _vfxSlider.GetValue());
 		PlayerPrefs.SetFloat("uiVolume", _uiSlider.GetValue());
@@ -35,5 +53,10 @@ public class AudioMenu : BaseMenu, IOptionMenu
 		_musicSlider.ResetValue();
 		_vfxSlider.ResetValue();
 		_uiSlider.ResetValue();
+	}
+
+	void OnDisable()
+	{
+		InitializePreferences();
 	}
 }
