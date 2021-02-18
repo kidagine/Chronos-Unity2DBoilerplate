@@ -124,7 +124,11 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 6605375276609536
-    m_Key: pressAnyButton
+    m_Key: press-any-button
+    m_Metadata:
+      m_Items: []
+  - m_Id: 6654107334504448
+    m_Key: exiting-game
     m_Metadata:
       m_Items: []
   m_Metadata:

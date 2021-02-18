@@ -130,5 +130,11 @@ MonoBehaviour:
     m_Localized: Presione Cualquier Boton
     m_Metadata:
       m_Items: []
+  - m_Id: 6654107334504448
+    m_Localized: 'Saliendo del juego
+
+'
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

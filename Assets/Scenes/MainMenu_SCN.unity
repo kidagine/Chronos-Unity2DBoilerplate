@@ -2114,6 +2114,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6cf339eb3eb1f47862c0c0c139bd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &541443561 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6121575618976973373, guid: fadf7e81e976581468db22827c81c6f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 214943263917777824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &572707183 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 214943262354574532, guid: fadf7e81e976581468db22827c81c6f7,
@@ -12190,6 +12202,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1765031346}
   m_CullTransparentMesh: 0
+--- !u!114 &1795953611 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6121575619167484025, guid: fadf7e81e976581468db22827c81c6f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 214943263917777824}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1830557519
 GameObject:
   m_ObjectHideFlags: 0
@@ -12408,6 +12432,7 @@ GameObject:
   - component: {fileID: 1887162258}
   - component: {fileID: 1887162260}
   - component: {fileID: 1887162259}
+  - component: {fileID: 1887162261}
   m_Layer: 5
   m_Name: ExitingGame_text
   m_TagString: Untagged
@@ -12531,6 +12556,40 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1887162257}
   m_CullTransparentMesh: 0
+--- !u!114 &1887162261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1887162257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56eb0353ae6e5124bb35b17aff880f16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StringReference:
+    m_TableReference:
+      m_TableCollectionName: GUID:d63483a0ffa9ecc4cb83891dad127cd9
+    m_TableEntryReference:
+      m_KeyId: 6654107334504448
+      m_Key: 
+    m_FallbackState: 0
+  m_FormatArguments: []
+  m_UpdateString:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1887162259}
+        m_MethodName: set_text
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1892014027 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 416955350, guid: 9cfdeadb78128d948a31984128929e56,
@@ -15335,11 +15394,21 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 4511887374091525071, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 1795953611}
+    - target: {fileID: 4511887374091525071, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 541443561}
     - target: {fileID: 4627868685053498097, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: _controlsMenu
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 96824961}
     - target: {fileID: 4627868685053498097, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: _remapButtons.Array.size
@@ -15721,6 +15790,41 @@ PrefabInstance:
       propertyPath: _eventSystem
       value: 
       objectReference: {fileID: 707212035}
+    - target: {fileID: 7055302937455457693, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055302937455457693, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055302937455457693, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 927082723}
+    - target: {fileID: 7055302937455457693, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055302937455457693, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemapInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055302937455457693, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 214943263917777827}
+    - target: {fileID: 7055302937455457693, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: RemapButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7055302938795807180, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: _eventSystem
@@ -15737,6 +15841,41 @@ PrefabInstance:
       propertyPath: _eventSystem
       value: 
       objectReference: {fileID: 707212035}
+    - target: {fileID: 7055302938965927258, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055302938965927258, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055302938965927258, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 927082723}
+    - target: {fileID: 7055302938965927258, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055302938965927258, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: RemapInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055302938965927258, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 214943263917777826}
+    - target: {fileID: 7055302938965927258, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _onClickedAnimationEnd.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: RemapButton, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 7516417837889885038, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: m_RootOrder
@@ -16445,7 +16584,7 @@ PrefabInstance:
     - target: {fileID: 8427258305810575863, guid: 7319338ecc5e00e4f9dcf3ed3bde1fe6,
         type: 3}
       propertyPath: m_StringReference.m_TableEntryReference.m_KeyId
-      value: 29987469553664
+      value: 20438347776
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7319338ecc5e00e4f9dcf3ed3bde1fe6, type: 3}

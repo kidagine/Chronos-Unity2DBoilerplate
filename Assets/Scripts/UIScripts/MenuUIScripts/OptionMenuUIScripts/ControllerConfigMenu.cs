@@ -15,6 +15,7 @@ public class ControllerConfigMenu : BaseMenu
 	void Awake()
 	{
 		_audio = GetComponent<Audio>();
+		InitializePreferences();
 	}
 
 	public void RemapInput(RemapButton remapButton)

@@ -41,7 +41,7 @@ public class PreferenceInitializer : Singleton<PreferenceInitializer>
         LanguageIndex = PlayerPrefs.GetInt("language", DefaultLanguageIndex);
 
         ScreenMode = PlayerPrefs.GetInt("screenMode", DefaultScreenMode);
-        Resolution = new Vector2(PlayerPrefs.GetFloat("resolutionX", Screen.currentResolution.width), PlayerPrefs.GetFloat("resolutionY", Screen.currentResolution.height));
+        Resolution = new Vector2(PlayerPrefs.GetFloat("resolutionX", 500), PlayerPrefs.GetFloat("resolutionY", 500));
         VSync = Convert.ToBoolean(PlayerPrefs.GetInt("vSync", Convert.ToInt32(DefaultVSync)));
 
         MusicVolume = PlayerPrefs.GetFloat("musicVolume", DefaultMusicVolume);
@@ -63,9 +63,9 @@ public class PreferenceInitializer : Singleton<PreferenceInitializer>
 
     public void SetLanguage(int value)
     {
-        //PlayerPrefs.SetInt("language", value);
-        //LanguageIndex = value;
-    }
+		PlayerPrefs.SetInt("language", value);
+		LanguageIndex = value;
+	}
 
     public void SetScreenMode(int value)
     {
@@ -73,11 +73,11 @@ public class PreferenceInitializer : Singleton<PreferenceInitializer>
         ScreenMode = value;
     }
 
-    public void SetResolution(float value)
+    public void SetResolution(Vector2 value)
     {
-        PlayerPrefs.SetFloat("resolutionX", value);
-        PlayerPrefs.SetFloat("resolutionY", value);
-        //Resolution = value;
+        PlayerPrefs.SetFloat("resolutionX", value.x);
+        PlayerPrefs.SetFloat("resolutionY", value.y);
+        Resolution = value;
     }
 
     public void SetVSync(bool value)

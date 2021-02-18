@@ -34,29 +34,30 @@ public class VideoMenu : BaseMenu, IOptionMenu
 
     public void SetResolution(int value)
     {
+        Vector2 resolution = GetResolutionVector(value);
+        Screen.SetResolution((int)resolution.x, (int)resolution.y, Screen.fullScreenMode);
+    }
+
+    public Vector2 GetResolutionVector(int value)
+    {
         switch (value)
         {
             case 0:
-                Screen.SetResolution(800, 600, Screen.fullScreenMode);
-                break;
+                return new Vector2(800, 600);
             case 1:
-                Screen.SetResolution(1024, 768, Screen.fullScreenMode);
-                break;
+                return new Vector2(1024, 768);
             case 2:
-                Screen.SetResolution(1280, 720, Screen.fullScreenMode);
-                break;
+                return new Vector2(1280, 720);
             case 3:
-                Screen.SetResolution(1360, 768, Screen.fullScreenMode);
-                break;
+                return new Vector2(1360, 76);
             case 4:
-                Screen.SetResolution(1600, 900, Screen.fullScreenMode);
-                break;
+                return new Vector2(1600, 900);
             case 5:
-                Screen.SetResolution(1920, 1080, Screen.fullScreenMode);
-                break;
+                return new Vector2(1920, 1080);
             case 6:
-                Screen.SetResolution(2560, 1440, Screen.fullScreenMode);
-                break;
+                return new Vector2(2560, 1440);
+            default:
+                return new Vector2(800, 600);
         }
     }
 
@@ -107,7 +108,7 @@ public class VideoMenu : BaseMenu, IOptionMenu
     {
         _audio.Sound("Confirm").Play();
         PreferenceInitializer.Instance.SetScreenMode(_screenModeSelector.GetValue());
-        PreferenceInitializer.Instance.SetResolution(_resolutionSelector.GetValue());
+        PreferenceInitializer.Instance.SetResolution(GetResolutionVector(_resolutionSelector.GetValue()));
         PreferenceInitializer.Instance.SetVSync(_vSyncToggle.GetValue());
     }
 

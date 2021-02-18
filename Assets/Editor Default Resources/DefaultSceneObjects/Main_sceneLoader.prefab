@@ -44,7 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cf2da80a8bbf33418b06fc640971227, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levels:
+  _levels: []
+  _debugLevels:
   - {fileID: 234354614047497780}
 --- !u!114 &234354614047497780
 MonoBehaviour:

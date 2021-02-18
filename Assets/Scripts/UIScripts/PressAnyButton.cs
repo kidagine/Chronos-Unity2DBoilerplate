@@ -4,7 +4,7 @@
 public class PressAnyButton : MonoBehaviour
 {
     private Level _level;
-
+    private bool _keyHold;
 
 	void Awake()
 	{
@@ -18,7 +18,12 @@ public class PressAnyButton : MonoBehaviour
 
 	void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKey)
+        {
+            _keyHold = true;
+        }
+
+        if (!Input.anyKey && _keyHold)
         {
             LevelManager.Instance.GoToLevel(_level);
         }
