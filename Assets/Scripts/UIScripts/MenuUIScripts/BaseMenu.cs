@@ -2,14 +2,17 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class BaseMenu : MonoBehaviour, ISubMenu
+public class BaseMenu : MonoBehaviour	
 {
 	[SerializeField] private Selectable _startingOption = default;
 
 
 	void OnEnable()
 	{
-		StartCoroutine(ActivateCoroutine());
+		if (_startingOption)
+		{
+			StartCoroutine(ActivateCoroutine());
+		}
 	}
 
 	IEnumerator ActivateCoroutine()
@@ -18,18 +21,14 @@ public class BaseMenu : MonoBehaviour, ISubMenu
 		_startingOption.Select();	
 	}
 
-	public void OpenMenu(GameObject menu)
+	public void OpenMenuHideCurrent(BaseMenu menu)
 	{
 		gameObject.SetActive(false);
-		if (menu.TryGetComponent(out ISubMenu subMenu))
-		{
-			subMenu.Activate();
-		}
+		menu.gameObject.SetActive(true);
 	}
 
-	public void Activate()
+	public void OpenMenu(BaseMenu menu)
 	{
-		gameObject.SetActive(true);
-		_startingOption.Select();
+		menu.gameObject.SetActive(true);
 	}
 }

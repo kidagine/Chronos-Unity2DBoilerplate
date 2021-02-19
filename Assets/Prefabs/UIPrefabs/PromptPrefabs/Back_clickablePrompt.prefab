@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6441759382777515845}
   - component: {fileID: 4981135134299387546}
   - component: {fileID: 495623951692344485}
-  - component: {fileID: 8056356904460698542}
   - component: {fileID: 1351041020331647824}
+  - component: {fileID: 8056356904460698542}
   - component: {fileID: 8472568562035799314}
   m_Layer: 5
   m_Name: Back_clickablePrompt
@@ -115,7 +115,7 @@ MonoBehaviour:
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
   m_Interactable: 1
-  m_TargetGraphic: {fileID: 0}
+  m_TargetGraphic: {fileID: 8472568562035799314}
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
@@ -130,6 +130,23 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1351041020331647824
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2633708319648785928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e5730377402a264ba320af9a45da123, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _actionName: Back
+  _deviceConfigurator: {fileID: 11400000, guid: 86db5f8588dd9f5468809bdd76a7318e,
+    type: 2}
+  _image: {fileID: 2926942219298734123}
+  _text: {fileID: 4620784241339748753}
 --- !u!114 &8056356904460698542
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,24 +181,6 @@ MonoBehaviour:
   _sounds3D: []
   _soundGroups: []
   _soundGroups3D: []
---- !u!114 &1351041020331647824
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2633708319648785928}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9e5730377402a264ba320af9a45da123, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _actionName: Back
-  _deviceConfigurator: {fileID: 11400000, guid: 86db5f8588dd9f5468809bdd76a7318e,
-    type: 2}
-  _image: {fileID: 2926942219298734123}
-  _text: {fileID: 4620784241339748753}
-  _entityAudio: {fileID: 8056356904460698542}
 --- !u!114 &8472568562035799314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -287,7 +286,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
+    rgba: 855638015
   m_fontColor: {r: 0.49019608, g: 0.49019608, b: 0.49019608, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3

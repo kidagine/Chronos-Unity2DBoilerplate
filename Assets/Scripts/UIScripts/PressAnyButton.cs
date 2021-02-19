@@ -1,20 +1,31 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Level))]
 public class PressAnyButton : MonoBehaviour
 {
-    [SerializeField] private Levels _levels = default;
+    private Level _level;
+    private bool _keyHold;
 
+	void Awake()
+	{
+		_level = GetComponent<Level>();	
+	}
 
-    void Start()
+	void Start()
 	{
         SoundManager.Instance.SetMusic("slip");	
 	}
 
 	void Update()
     {
-        if (Input.anyKeyDown)
+        if (Input.anyKey)
         {
-            LevelManager.Instance.GoToLevel(_levels);
+            _keyHold = true;
+        }
+
+        if (!Input.anyKey && _keyHold)
+        {
+            LevelManager.Instance.GoToLevel(_level);
         }
     }
 }

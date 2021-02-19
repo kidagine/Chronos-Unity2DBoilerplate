@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class TargetDummy : MonoBehaviour, IHurtboxResponder
 {
-	[SerializeField] private EntityAudio _targetDummyAudio = default;
+	[SerializeField] private Audio _targetDummyAudio = default;
 	[SerializeField] private SpriteRenderer _spriteRenderer = default;
 	[SerializeField] private Rigidbody2D _rigidbody = default;
 	private bool _isRecovered = true;

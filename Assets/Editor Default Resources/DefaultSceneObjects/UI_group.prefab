@@ -43,8 +43,8 @@ GameObject:
   - component: {fileID: 3124760899117338178}
   - component: {fileID: 4918277173029819465}
   - component: {fileID: 2147126444703671429}
-  - component: {fileID: 7871300994323121150}
   - component: {fileID: 1909229545619546401}
+  - component: {fileID: 7871300994323121150}
   m_Layer: 5
   m_Name: SceneTransitions_canvas
   m_TagString: Untagged
@@ -132,6 +132,20 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &1909229545619546401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4901512192815186050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc64f17080b33d54a97dc435d478fdb0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _fadeOutStart: 1
+  _fadeOutSound: 1
 --- !u!95 &7871300994323121150
 Animator:
   serializedVersion: 3
@@ -151,21 +165,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &1909229545619546401
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4901512192815186050}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc64f17080b33d54a97dc435d478fdb0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 7871300994323121150}
-  _fadeOutStart: 1
-  _fadeOutSound: 1
 --- !u!1 &8337161393220202854
 GameObject:
   m_ObjectHideFlags: 0

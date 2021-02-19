@@ -2,7 +2,7 @@
 
 public class Door : MonoBehaviour, ITriggerResponder
 {
-	[SerializeField] private Levels _levels = default;
+	[SerializeField] private Level _levels = default;
 	[SerializeField] private Tags _tags = default;
 	[SerializeField] private GameObject _promptCanvas = default;
 

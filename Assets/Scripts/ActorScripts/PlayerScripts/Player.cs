@@ -6,7 +6,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 	[SerializeField] private PlayerAnimator _playerAnimator = default;
 	[SerializeField] private PlayerMovement _playerMovement = default;
 	[SerializeField] private PlayerUI _playerUI = default;
-	[SerializeField] private EntityAudio _playerAudio = default;
+	[SerializeField] private Audio _playerAudio = default;
 	[SerializeField] private Rigidbody2D _rigidbody = default;
 	[SerializeField] private SpriteRenderer _spriteRenderer = default;
 	[SerializeField] private GameObject _hurtboxes = default;

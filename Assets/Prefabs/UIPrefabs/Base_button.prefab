@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 6593915275801847136}
   - component: {fileID: 6593915275801847137}
   - component: {fileID: 6593915275801847138}
-  - component: {fileID: 462050410442653550}
   - component: {fileID: 4085925288718106020}
+  - component: {fileID: 462050410442653550}
   - component: {fileID: 5898852937064752381}
   m_Layer: 5
   m_Name: Base_button
@@ -134,6 +134,33 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &4085925288718106020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593915275801847140}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 699789751d039914aa9f35063522b43c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _eventSystem: {fileID: 0}
+  _onClickedAnimationEnd:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OpenMenu
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!95 &462050410442653550
 Animator:
   serializedVersion: 3
@@ -153,35 +180,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &4085925288718106020
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6593915275801847140}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 699789751d039914aa9f35063522b43c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _animator: {fileID: 462050410442653550}
-  _entityAudio: {fileID: 5898852937064752381}
-  _eventSystem: {fileID: 0}
-  _onClickedAnimationEnd:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: OpenMenu
-        m_Mode: 2
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &5898852937064752381
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,7 +227,7 @@ GameObject:
   - component: {fileID: 6593915276225425967}
   - component: {fileID: 8427258305810575863}
   m_Layer: 5
-  m_Name: Button_text
+  m_Name: Selectable_text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,7 +279,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Controls
+  m_text: start
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 17db50d561d268846b184edda8d5e7a7, type: 2}
   m_sharedMaterial: {fileID: 5478749285274194410, guid: 17db50d561d268846b184edda8d5e7a7,
@@ -365,9 +363,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_StringReference:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: GUID:d63483a0ffa9ecc4cb83891dad127cd9
     m_TableEntryReference:
-      m_KeyId: 0
+      m_KeyId: 20438347776
       m_Key: 
     m_FallbackState: 0
   m_FormatArguments: []
@@ -443,7 +441,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.1764706}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.19607843}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:

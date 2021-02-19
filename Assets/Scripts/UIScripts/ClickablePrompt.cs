@@ -1,28 +1,36 @@
 ﻿using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(Audio))]
 public class ClickablePrompt : Prompt, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
 {
 	[SerializeField] private TextMeshProUGUI _text = default;
-	[SerializeField] private EntityAudio _entityAudio = default;
+	private Audio _audio;
 
+
+	void Awake()
+	{
+		_audio = GetComponent<Audio>();
+	}
 
 	public void OnPointerClick(PointerEventData eventData)
 	{
-		_entityAudio.Sound("Pressed").Play();
-		_text.color = Color.grey;
+		_audio.Sound("Pressed").Play();
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-		_entityAudio.Sound("Selected").Play();
+		_audio.Sound("Selected").Play();
 		_text.color = Color.white;
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
+	{
+		_text.color = Color.grey;
+	}
+
+	void OnDisable()
 	{
 		_text.color = Color.grey;
 	}

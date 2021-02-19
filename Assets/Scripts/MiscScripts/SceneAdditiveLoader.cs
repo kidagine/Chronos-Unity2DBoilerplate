@@ -1,19 +1,30 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Level))]
 public class SceneAdditiveLoader : MonoBehaviour
 {
-    [SerializeField] private Levels _level = default;
+    [SerializeField] private Level[] _levels = default;
+    [SerializeField] private Level[] _debugLevels = default;
 
 
     void Awake()
     {
-        LevelManager.Instance.AddAdditiveScene(_level);
+		foreach (Level level in _levels)
+		{
+            LevelManager.Instance.AddAdditiveLevel(level);
+        }
+#if UNITY_EDITOR
+        foreach (Level level in _debugLevels)
+        {
+            LevelManager.Instance.AddAdditiveLevel(level);
+        }
+#endif
     }
 
-	void Start()
+#if UNITY_EDITOR
+    void Start()
 	{
-        #if UNITY_EDITOR
         Printer.SetLoaded();
-        #endif
     }
+#endif
 }

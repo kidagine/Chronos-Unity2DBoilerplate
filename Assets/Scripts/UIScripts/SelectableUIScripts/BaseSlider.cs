@@ -2,20 +2,28 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Audio))]
+public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
-    [SerializeField] private Animator _animator = default;
-    [SerializeField] private EntityAudio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Slider _slider = default;
     [SerializeField] private float defaultValue = default;
+    private Animator _animator;
+    private Audio _audio;
 
     public float DefaultValue { get { return defaultValue; } private set { } }
 
 
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _audio = GetComponent<Audio>();
+    }
+
     public void OnSelect(BaseEventData eventData)
     {
-        _entityAudio.Sound("Selected").Play();
+        _audio.Sound("Selected").Play();
         _animator.SetBool("IsSelected", true);
     }
 
@@ -26,14 +34,9 @@ public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _eventSystem.SetSelectedGameObject(gameObject);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
-            _eventSystem.SetSelectedGameObject(null);
+            _eventSystem.SetSelectedGameObject(gameObject);
         }
     }
 
@@ -44,8 +47,10 @@ public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnValueChange()
     {
-        //_entityAudio.Sound("Pressed").Play();
-        //_animator.SetTrigger("Clicked");
+        if (_audio != null)
+        {
+            _audio.Sound("Pressed").Play();
+        }
     }
 
     public void SetValue(float value)

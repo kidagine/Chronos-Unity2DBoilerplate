@@ -1,14 +1,23 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
 public class SceneTransitions : MonoBehaviour
 {
-    [SerializeField] private Animator _animator = default;
     [SerializeField] private bool _fadeOutStart = true;
     [SerializeField] private bool _fadeOutSound = true;
+    private Animator _animator = default;
+
+    public event Action OnFadeIn;
+    public event Action OnFadeOut;
 
 
-    void Start()
+	void Awake()
+	{
+        _animator = GetComponent<Animator>();
+	}
+
+	void Start()
     {
         if (_fadeOutStart)
         {
@@ -28,10 +37,11 @@ public class SceneTransitions : MonoBehaviour
 
     public void FadeInEndAnimationEvent()
     {
-        LevelManager.Instance.GoToCachedLevel();
+        OnFadeIn?.Invoke();
     }
 
     public void FadeOutEndAnimationEvent()
     {
+        OnFadeOut?.Invoke();
     }
 }

@@ -1,0 +1,199 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1897126361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1897126362}
+  - component: {fileID: 1897126363}
+  - component: {fileID: 6960637657457408768}
+  m_Layer: 0
+  m_Name: Sound_manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1897126362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897126361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3697175854664139341}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1897126363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897126361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebc1e4f0c546989419fb7e756d82f20e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixer: {fileID: 24100000, guid: 37e1cd9c9cb5cd04b84c8b8502c44908, type: 2}
+  _audio: {fileID: 6960637657457408768}
+--- !u!114 &6960637657457408768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1897126361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3f151a615993c9409fce9dfe770b1ae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _audioMixerGroup: {fileID: 3976621417299948276, guid: 37e1cd9c9cb5cd04b84c8b8502c44908,
+    type: 2}
+  _sounds:
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 44a29f9536256244e8d2cb30d898729c, type: 3}
+    volume: 1
+    pitch: 1
+    name: LogoSplash
+    loop: 1
+    playOnAwake: 0
+    playOneInstanceAtATime: 0
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 9cd087b831d3d2f4bb4e3bf0c331ad51, type: 3}
+    volume: 1
+    pitch: 1
+    name: slip
+    loop: 1
+    playOnAwake: 0
+    playOneInstanceAtATime: 0
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: 31a096cc6bc9cd048b24754ca8164d8c, type: 3}
+    volume: 1
+    pitch: 1
+    name: NailBite
+    loop: 1
+    playOnAwake: 0
+    playOneInstanceAtATime: 0
+  - source: {fileID: 0}
+    clip: {fileID: 8300000, guid: f69e9005c2040d34d9815ab6a7677b0a, type: 3}
+    volume: 1
+    pitch: 1
+    name: HubWorld
+    loop: 1
+    playOnAwake: 0
+    playOneInstanceAtATime: 0
+  _sounds3D: []
+  _soundGroups: []
+  _soundGroups3D: []
+--- !u!1 &1254324254341103312
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7905583440158682926}
+  - component: {fileID: 6261526294730391926}
+  - component: {fileID: 6719518983107993622}
+  m_Layer: 0
+  m_Name: Steam_manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7905583440158682926
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254324254341103312}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3697175854664139341}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6261526294730391926
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254324254341103312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bffeda13d7a748973ff9204401c07, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6719518983107993622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254324254341103312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 424bc86a384d2444cb73656afcf7f914, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3697175854664139342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3697175854664139341}
+  - component: {fileID: 1629915094}
+  m_Layer: 0
+  m_Name: DontDestroyOnLoad_group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &3697175854664139341
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3697175854664139342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1897126362}
+  - {fileID: 7905583440158682926}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1629915094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3697175854664139342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa32e4e0c5d2f7241bfc34859094c1c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

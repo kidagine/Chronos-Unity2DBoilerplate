@@ -1,10 +1,12 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
 
+[RequireComponent(typeof(AudioMixer))]
+[RequireComponent(typeof(Audio))]
 public class SoundManager : Singleton<SoundManager>
 {
-    [SerializeField] private AudioMixer _mainAudioMixer = default;
-    [SerializeField] private EntityAudio _mainAudio = default;
+    [SerializeField] private AudioMixer _audioMixer = default;
+    [SerializeField] private Audio _audio = default;
     private float _cachedMasterVolume;
     private float lerpRatio = 0.0f;
     private float startLerpValue;
@@ -34,7 +36,7 @@ public class SoundManager : Singleton<SoundManager>
 
     public void SetMusic(string name)
     {
-        _mainAudio.Sound(name).Play();
+        _audio.Sound(name).Play();
     }
 
 	public void FadeInMasterVolume()
@@ -59,12 +61,12 @@ public class SoundManager : Singleton<SoundManager>
         {
             _cachedMasterVolume = GetMasterVolume();
         }
-        _mainAudioMixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
+        _audioMixer.SetFloat("MasterVolume", Mathf.Log10(value) * 20);
     }
 
     private float GetMasterVolume()
     {
-		_mainAudioMixer.GetFloat("MasterVolume", out float masterVolume);
+		_audioMixer.GetFloat("MasterVolume", out float masterVolume);
 		return masterVolume;
     }
 
@@ -75,16 +77,16 @@ public class SoundManager : Singleton<SoundManager>
 
     public void SetMusicVolume(float value)
     {
-        _mainAudioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
+        _audioMixer.SetFloat("MusicVolume", Mathf.Log10(value) * 20);
     }
 
     public void SetVFXVolume(float value)
     {
-        _mainAudioMixer.SetFloat("VFXVolume", Mathf.Log10(value) * 20);
+        _audioMixer.SetFloat("VFXVolume", Mathf.Log10(value) * 20);
     }
 
     public void SetUIVolume(float value)
     {
-        _mainAudioMixer.SetFloat("UIVolume", Mathf.Log10(value) * 20);
+        _audioMixer.SetFloat("UIVolume", Mathf.Log10(value) * 20);
     }
 }

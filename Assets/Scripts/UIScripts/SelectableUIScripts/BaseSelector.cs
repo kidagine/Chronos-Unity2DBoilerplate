@@ -2,10 +2,10 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Audio))]
+public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
-    [SerializeField] private Animator _animator = default;
-    [SerializeField] private EntityAudio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Transform _values = default;
     [SerializeField] private Button _leftArrowButton = default;
@@ -16,11 +16,19 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     [SerializeField] private Image _rightArrowImage = default;
     [SerializeField] private UnityEventInt _onSelect = default;
     [SerializeField] private int _defaultValue = default;
+    private Animator _animator;
+    private Audio _audio;
     private int _currentSelectedIndex;
     private bool _isInitialSet = true;
 
     public int DefaultValue { get { return _defaultValue; } private set { } }
 
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _audio = GetComponent<Audio>();
+    }
 
     void OnEnable()
 	{
@@ -62,7 +70,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     {
         if (_rightArrowBackgroundImage.raycastTarget)
         {
-            _entityAudio.Sound("Pressed").Play();
+            _audio.Sound("Pressed").Play();
             for (int i = 0; i < _values.childCount; i++)
             {
                 if (_values.GetChild(i).gameObject.activeSelf)
@@ -92,7 +100,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     {
         if (_leftArrowBackgroundImage.raycastTarget)
         {
-            _entityAudio.Sound("Pressed").Play();
+            _audio.Sound("Pressed").Play();
             for (int i = 0; i < _values.childCount; i++)
             {
                 if (_values.GetChild(i).gameObject.activeSelf)
@@ -135,7 +143,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
 
     public void OnSelect(BaseEventData eventData)
     {
-        _entityAudio.Sound("Selected").Play();
+        _audio.Sound("Selected").Play();
         _animator.SetBool("IsSelected", true);
     }
 
@@ -149,14 +157,6 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
             _eventSystem.SetSelectedGameObject(gameObject);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (_eventSystem.currentSelectedGameObject != gameObject)
-        {
-            _eventSystem.SetSelectedGameObject(null);
         }
     }
 

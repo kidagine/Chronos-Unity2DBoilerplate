@@ -2,7 +2,7 @@
 
 public class ExitChoiceMenu : BaseMenu
 {
-    [SerializeField] private Levels _levels = default;
+    [SerializeField] private Level _levels = default;
 
 
     public void ExitToMainMenu()

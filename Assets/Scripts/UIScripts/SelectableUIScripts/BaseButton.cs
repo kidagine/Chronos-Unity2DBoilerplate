@@ -3,17 +3,24 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Animator))]
-public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+[RequireComponent(typeof(Audio))]
+public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
-    [SerializeField] protected Animator _animator = default;
-    [SerializeField] protected EntityAudio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private UnityEvent _onClickedAnimationEnd = default;
+    protected Animator _animator = default;
+    protected Audio _audio = default;
 
+
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _audio = GetComponent<Audio>();
+    }
 
     public void OnSelect(BaseEventData eventData)
     {
-        _entityAudio.Sound("Selected").Play();
+        _audio.Sound("Selected").Play();
         _animator.SetBool("IsSelected", true);
     }
 
@@ -24,20 +31,15 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-        _eventSystem.SetSelectedGameObject(gameObject);
-    }
-
-	public void OnPointerExit(PointerEventData eventData)
-	{
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
-            _eventSystem.SetSelectedGameObject(null);
+            _eventSystem.SetSelectedGameObject(gameObject);
         }
     }
 
 	public virtual void OnPress()
 	{
-        _entityAudio.Sound("Pressed").Play();
+        _audio.Sound("Pressed").Play();
         _animator.SetTrigger("Clicked");
     }
 

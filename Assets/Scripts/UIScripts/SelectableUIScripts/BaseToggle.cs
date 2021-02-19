@@ -3,10 +3,10 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+[RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(Audio))]
+public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
-    [SerializeField] private Animator _animator = default;
-    [SerializeField] private EntityAudio _entityAudio = default;
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Image _onImage = default;
     [SerializeField] private TextMeshProUGUI _onText = default;
@@ -14,13 +14,21 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
     [SerializeField] private TextMeshProUGUI _offText = default;
     [SerializeField] private UnityEventBool _onToggle = default;
     [SerializeField] private bool _isOn = true;
+    private Animator _animator;
+    private Audio _audio;
 
     public bool DefaultValue { get { return _isOn; } private set { } }
 
 
+    void Awake()
+    {
+        _animator = GetComponent<Animator>();
+        _audio = GetComponent<Audio>();
+    }
+
     public void OnSelect(BaseEventData eventData)
     {
-        _entityAudio.Sound("Selected").Play();
+        _audio.Sound("Selected").Play();
         _animator.SetBool("IsSelected", true);
     }
 
@@ -34,14 +42,6 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
             _eventSystem.SetSelectedGameObject(gameObject);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (_eventSystem.currentSelectedGameObject != gameObject)
-        {
-            _eventSystem.SetSelectedGameObject(null);
         }
     }
 
