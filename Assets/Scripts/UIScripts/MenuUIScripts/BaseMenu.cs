@@ -23,7 +23,6 @@ public class BaseMenu : MonoBehaviour
 
 	public void OpenMenuHideCurrent(BaseMenu menu)
 	{
-		Debug.Log("LOZ");
 		gameObject.SetActive(false);
 		menu.gameObject.SetActive(true);
 	}

@@ -1,21 +1,24 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Audio))]
+[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(Animator))]
 public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
-    [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private UnityEvent _onClickedAnimationEnd = default;
-    protected Animator _animator = default;
-    protected Audio _audio = default;
+    protected Audio _audio;
+    protected Button _button;
+    protected Animator _animator;
 
 
     void Awake()
     {
-        _animator = GetComponent<Animator>();
         _audio = GetComponent<Audio>();
+        _button = GetComponent<Button>();
+        _animator = GetComponent<Animator>();
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -31,10 +34,7 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-        if (_eventSystem.currentSelectedGameObject != gameObject)
-        {
-            _eventSystem.SetSelectedGameObject(gameObject);
-        }
+        _button.Select();
     }
 
 	public virtual void OnPress()

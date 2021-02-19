@@ -474,6 +474,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 979754913912444224, guid: b44e321452158ea49a7f0a1d75e924b0,
+        type: 3}
+      propertyPath: _defaultScreenMode
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 979754913912444225, guid: b44e321452158ea49a7f0a1d75e924b0,
         type: 3}
       propertyPath: m_Name
@@ -2676,6 +2681,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1046929973}
     - target: {fileID: 7055302938965927258, guid: fadf7e81e976581468db22827c81c6f7,
+        type: 3}
+      propertyPath: _eventSystem
+      value: 
+      objectReference: {fileID: 1046929973}
+    - target: {fileID: 7535336901443597866, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: _eventSystem
       value: 

@@ -2,23 +2,22 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Audio))]
+[RequireComponent(typeof(Slider))]
+[RequireComponent(typeof(Animator))]
 public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
-    [SerializeField] private EventSystem _eventSystem = default;
-    [SerializeField] private Slider _slider = default;
     [SerializeField] private float defaultValue = default;
-    private Animator _animator;
-    private Audio _audio;
-
-    public float DefaultValue { get { return defaultValue; } private set { } }
+    protected Audio _audio;
+    protected Slider _slider;
+    protected Animator _animator;
 
 
     void Awake()
     {
-        _animator = GetComponent<Animator>();
         _audio = GetComponent<Audio>();
+        _slider = GetComponent<Slider>();
+        _animator = GetComponent<Animator>();
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -34,10 +33,7 @@ public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_eventSystem.currentSelectedGameObject != gameObject)
-        {
-            _eventSystem.SetSelectedGameObject(gameObject);
-        }
+        _slider.Select();
     }
 
     public void ResetValue()
