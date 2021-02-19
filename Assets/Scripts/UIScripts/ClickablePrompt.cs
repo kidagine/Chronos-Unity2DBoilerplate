@@ -17,7 +17,6 @@ public class ClickablePrompt : Prompt, IPointerEnterHandler, IPointerExitHandler
 	public void OnPointerClick(PointerEventData eventData)
 	{
 		_audio.Sound("Pressed").Play();
-		_text.color = Color.grey;
 	}
 
 	public void OnPointerEnter(PointerEventData eventData)
@@ -27,6 +26,11 @@ public class ClickablePrompt : Prompt, IPointerEnterHandler, IPointerExitHandler
 	}
 
 	public void OnPointerExit(PointerEventData eventData)
+	{
+		_text.color = Color.grey;
+	}
+
+	void OnDisable()
 	{
 		_text.color = Color.grey;
 	}

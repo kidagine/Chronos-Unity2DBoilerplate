@@ -1,17 +1,20 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Audio))]
+[RequireComponent(typeof(Animator))]
 public class AudioMenu : BaseMenu, IOptionMenu
 {
 	[SerializeField] private BaseSlider _musicSlider = default;
 	[SerializeField] private BaseSlider _vfxSlider = default;
 	[SerializeField] private BaseSlider _uiSlider = default;
 	private Audio _audio;
+	private Animator _animator;
 
 
 	void Awake()
 	{
 		_audio = GetComponent<Audio>();
+		_animator = GetComponent<Animator>();
 		InitializePreferences();
 	}
 
@@ -43,6 +46,7 @@ public class AudioMenu : BaseMenu, IOptionMenu
 	public void ConfirmSettings()
 	{
 		_audio.Sound("Confirm").Play();
+		_animator.SetTrigger("PopUp");
 		PreferenceInitializer.Instance.SetMusicVolume(_musicSlider.GetValue());
 		PreferenceInitializer.Instance.SetVFXVolume(_vfxSlider.GetValue());
 		PreferenceInitializer.Instance.SetUIVolume(_uiSlider.GetValue());
@@ -51,6 +55,7 @@ public class AudioMenu : BaseMenu, IOptionMenu
 	public void ResetSettings()
 	{
 		_audio.Sound("Reset").Play();
+		_animator.SetTrigger("PopDown");
 		Debug.Log(PreferenceInitializer.Instance.DefaultMusicVolume);
 		_musicSlider.SetValue(PreferenceInitializer.Instance.DefaultMusicVolume);
 		_vfxSlider.SetValue(PreferenceInitializer.Instance.DefaultVFXVolume);

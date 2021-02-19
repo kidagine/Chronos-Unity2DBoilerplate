@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Audio))]
-public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Image _onImage = default;
@@ -42,14 +42,6 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
             _eventSystem.SetSelectedGameObject(gameObject);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (_eventSystem.currentSelectedGameObject != gameObject)
-        {
-            _eventSystem.SetSelectedGameObject(null);
         }
     }
 

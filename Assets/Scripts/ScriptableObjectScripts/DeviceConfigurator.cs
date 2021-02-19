@@ -23,7 +23,7 @@ public class DeviceConfigurator : ScriptableObject
 
     public DisconnectedSettings disconnectedDeviceSettings;
 
-    public string GetDeviceName(UnityEngine.InputSystem.PlayerInput playerInput)
+    public string GetDeviceName(PlayerInput playerInput)
     {
 
         string currentDeviceRawPath = playerInput.devices[0].ToString();
@@ -47,8 +47,6 @@ public class DeviceConfigurator : ScriptableObject
         return newDisplayName;
 
     }
-
-
 
     public Sprite GetDeviceBindingIcon(PlayerInput playerInput, string playerInputDeviceInputBinding)
     {

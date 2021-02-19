@@ -2,56 +2,60 @@
 
 public class CursorHandler : MonoBehaviour
 {
-    [SerializeField] private bool _permanentlyHide = default;
+    [SerializeField] private bool _isCursorVisible = default;
     [SerializeField] private bool _hideOnStart = true;
     [SerializeField] private bool _uiOnly = default;
 
 
-    void Start()
+	void Start()
     {
         if (_hideOnStart)
         {
             Cursor.visible = false;
         }
-        if (!_permanentlyHide)
-        {
-            InputManager.Instance.ControlsChanged += SetCursorVisibility;
-            GameManager.Instance.OnGamePauseStateChange += SetCursorVisibility;
-        }
+        InputManager.Instance.ControlsChanged += UpdateCursorVisibility;
+        GameManager.Instance.OnGamePauseStateChange += UpdateCursorVisibility;
     }
 
-    public void SetCursorVisibility()
+    public void UpdateCursorVisibility()
     {
-        if (!_permanentlyHide)
+        if (_isCursorVisible)
         {
             if (GameManager.Instance.GamePauseState || _uiOnly)
             {
                 if (InputManager.Instance.ActiveControlScheme == ControlSchemeEnum.KeyboardMouse)
                 {
                     Cursor.visible = true;
+                    Cursor.lockState = CursorLockMode.None;
                 }
                 else
                 {
                     Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
                 }
             }
             else
             {
                 Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
         }
         else
         {
             Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
         }
+    }
+
+    public void SetCursorVisibility(bool isCursorVisible)
+    {
+        _isCursorVisible = isCursorVisible;
+        UpdateCursorVisibility();
     }
 
     void OnDestroy()
     {
-        if (!_permanentlyHide)
-        {
-            InputManager.Instance.ControlsChanged -= SetCursorVisibility;
-            GameManager.Instance.OnGamePauseStateChange -= SetCursorVisibility;
-        }
+        InputManager.Instance.ControlsChanged -= UpdateCursorVisibility;
+        GameManager.Instance.OnGamePauseStateChange -= UpdateCursorVisibility;
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Audio))]
-public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private UnityEvent _onClickedAnimationEnd = default;
@@ -31,14 +31,9 @@ public class BaseButton : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
 	public void OnPointerEnter(PointerEventData eventData)
 	{
-        _eventSystem.SetSelectedGameObject(gameObject);
-    }
-
-	public void OnPointerExit(PointerEventData eventData)
-	{
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
-            _eventSystem.SetSelectedGameObject(null);
+            _eventSystem.SetSelectedGameObject(gameObject);
         }
     }
 

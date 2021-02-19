@@ -1,18 +1,19 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Audio))]
+[RequireComponent(typeof(Animator))]
 public class VideoMenu : BaseMenu, IOptionMenu
 {
     [SerializeField] private BaseSelector _screenModeSelector = default;
     [SerializeField] private BaseSelector _resolutionSelector = default;
     [SerializeField] private BaseToggle _vSyncToggle = default;
     private Audio _audio;
-
+    private Animator _animator;
 
     void Awake()
     {
         _audio = GetComponent<Audio>();
+        _animator = GetComponent<Animator>();
         InitializePreferences();
     }
 
@@ -107,6 +108,7 @@ public class VideoMenu : BaseMenu, IOptionMenu
     public void ConfirmSettings()
     {
         _audio.Sound("Confirm").Play();
+        _animator.SetTrigger("PopUp");
         PreferenceInitializer.Instance.SetScreenMode(_screenModeSelector.GetValue());
         PreferenceInitializer.Instance.SetResolution(GetResolutionVector(_resolutionSelector.GetValue()));
         PreferenceInitializer.Instance.SetVSync(_vSyncToggle.GetValue());
@@ -115,6 +117,7 @@ public class VideoMenu : BaseMenu, IOptionMenu
     public void ResetSettings()
     {
         _audio.Sound("Reset").Play();
+        _animator.SetTrigger("PopDown");
         _screenModeSelector.SetValue(PreferenceInitializer.Instance.DefaultScreenMode);
         _resolutionSelector.SetValue(GetResolutionIndex((int)PreferenceInitializer.Instance.DefaultResolution.x));
         _vSyncToggle.SetValue(PreferenceInitializer.Instance.DefaultVSync);

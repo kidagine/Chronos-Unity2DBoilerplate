@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Audio))]
-public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Slider _slider = default;
@@ -34,14 +34,9 @@ public class BaseSlider : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _eventSystem.SetSelectedGameObject(gameObject);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
-            _eventSystem.SetSelectedGameObject(null);
+            _eventSystem.SetSelectedGameObject(gameObject);
         }
     }
 

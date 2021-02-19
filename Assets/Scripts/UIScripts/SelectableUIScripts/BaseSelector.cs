@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 [RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Audio))]
-public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler, IPointerExitHandler
+public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
     [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Transform _values = default;
@@ -157,14 +157,6 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
         if (_eventSystem.currentSelectedGameObject != gameObject)
         {
             _eventSystem.SetSelectedGameObject(gameObject);
-        }
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (_eventSystem.currentSelectedGameObject != gameObject)
-        {
-            _eventSystem.SetSelectedGameObject(null);
         }
     }
 
