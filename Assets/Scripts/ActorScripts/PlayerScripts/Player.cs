@@ -4,16 +4,15 @@ using UnityEngine;
 [RequireComponent(typeof(Audio))]
 [RequireComponent(typeof(PlayerUI))]
 [RequireComponent(typeof(PlayerStats))]
-[RequireComponent(typeof(PlayerAnimator))]
 public class Player : MonoBehaviour, IHurtboxResponder
 {
+	[SerializeField] private PlayerAnimator _playerAnimator;
 	[SerializeField] private PlayerMovement _playerMovement = default;
 	[SerializeField] private GameObject _hurtboxes = default;
 	[SerializeField] private GameObject _pushboxes = default;
 	private Audio _audio;
 	private PlayerUI _playerUI;
 	private PlayerStats _playerStats;
-	private PlayerAnimator _playerAnimator;
 
 	public bool IsRecovered { get; private set; } = true;
 	public bool IsAttacking { get; set; }
@@ -24,7 +23,6 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		_audio = GetComponent<Audio>();
 		_playerUI = GetComponent<PlayerUI>();
 		_playerStats = GetComponent<PlayerStats>();
-		_playerAnimator = GetComponent<PlayerAnimator>();
 		_playerUI.PlayerStatsUI.SetMaxHealth(_playerStats.health);
 		_playerUI.PlayerStatsUI.SetHealth(_playerStats.currentHealth);
 	}

@@ -138,5 +138,13 @@ MonoBehaviour:
     m_Localized: Exiting game
     m_Metadata:
       m_Items: []
+  - m_Id: 7392948492201984
+    m_Localized: Exit to main menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7393058013868032
+    m_Localized: Exit to desktop
+    m_Metadata:
+      m_Items: []
   references:
     version: 1

@@ -131,6 +131,14 @@ MonoBehaviour:
     m_Key: exiting-game
     m_Metadata:
       m_Items: []
+  - m_Id: 7392948492201984
+    m_Key: exit-to-main-menu
+    m_Metadata:
+      m_Items: []
+  - m_Id: 7393058013868032
+    m_Key: exit-to-desktop
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

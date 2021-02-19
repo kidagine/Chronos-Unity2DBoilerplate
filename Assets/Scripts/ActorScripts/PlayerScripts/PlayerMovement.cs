@@ -3,14 +3,13 @@
 [RequireComponent(typeof(Audio))]
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerStats))]
-[RequireComponent(typeof(PlayerAnimator))]
 public class PlayerMovement : MonoBehaviour, IPushboxResponder
 {
     [SerializeField] private Player _player = default;
+    [SerializeField] private PlayerAnimator _playerAnimator;
     private Audio _audio;
     private Rigidbody2D _rigidbody;
     private PlayerStats _playerStats;
-    private PlayerAnimator _playerAnimator;
 
     public bool IsGrounded { get; private set; }
     public Vector2 MovementInput { private get; set; }
@@ -21,7 +20,6 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
         _audio = GetComponent<Audio>();
         _rigidbody = GetComponent<Rigidbody2D>();
         _playerStats = GetComponent<PlayerStats>();
-        _playerAnimator = GetComponent<PlayerAnimator>();
     }
 
     void Update()
