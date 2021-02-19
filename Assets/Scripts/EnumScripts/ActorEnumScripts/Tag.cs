@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public enum TagEnum { Player, Enemy };
 
-public class Tags : MonoBehaviour
+public class Tag : MonoBehaviour
 {
 	[SerializeField] private TagEnum _tagEnum = default;
 

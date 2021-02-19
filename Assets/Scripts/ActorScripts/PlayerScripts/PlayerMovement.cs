@@ -1,17 +1,28 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Audio))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerStats))]
+[RequireComponent(typeof(PlayerAnimator))]
 public class PlayerMovement : MonoBehaviour, IPushboxResponder
 {
     [SerializeField] private Player _player = default;
-    [SerializeField] private PlayerAnimator _playerAnimator = default;
-    [SerializeField] private Rigidbody2D _rigidbody = default;
-    [SerializeField] private Audio _playerAudio = default;
-    [SerializeField] private PlayerStats _playerStats = default;
+    private Audio _audio;
+    private Rigidbody2D _rigidbody;
+    private PlayerStats _playerStats;
+    private PlayerAnimator _playerAnimator;
 
     public bool IsGrounded { get; private set; }
     public Vector2 MovementInput { private get; set; }
 
+
+    void Awake()
+    {
+        _audio = GetComponent<Audio>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _playerStats = GetComponent<PlayerStats>();
+        _playerAnimator = GetComponent<PlayerAnimator>();
+    }
 
     void Update()
     {
@@ -59,7 +70,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     {
         if (_playerStats.currentJumpCount < _playerStats.jumpCount && _rigidbody.constraints != RigidbodyConstraints2D.FreezePosition)
         {
-            _playerAudio.Sound("Jump").Play();
+            _audio.Sound("Jump").Play();
             _playerStats.currentJumpCount++;
             _rigidbody.AddForce(new Vector2(0.0f, _playerStats.jumpImpulse), ForceMode2D.Impulse);
             ObjectPoolingManager.Instance.Spawn("JumpSmoke", transform.position, Quaternion.identity);
@@ -71,7 +82,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 	{
         if (!IsGrounded)
         {
-            _playerAudio.Sound("Landed").Play();
+            _audio.Sound("Landed").Play();
             IsGrounded = true;
             _playerStats.currentJumpCount = 0;
             ObjectPoolingManager.Instance.Spawn("LandSmoke", transform.position, Quaternion.identity);
@@ -98,5 +109,10 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
         {
             _rigidbody.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
+    }
+
+    public void Knockback(Vector2 knockbackDirection, float knockbackForce)
+    {
+        _rigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
     }
 }

@@ -3,8 +3,10 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
+[RequireComponent(typeof(Level))]
 public class SaveManager : Singleton<SaveManager>
 {
+    [SerializeField] private Level _startLevel = default;
     private CameraScreenshot _cameraScreenshot;
     private readonly int key = 02035;
 
@@ -46,7 +48,7 @@ public class SaveManager : Singleton<SaveManager>
         }
         else
         {
-            LevelManager.Instance.GoToLevel(0);
+            LevelManager.Instance.GoToLevel(_startLevel);
         }
     }
 

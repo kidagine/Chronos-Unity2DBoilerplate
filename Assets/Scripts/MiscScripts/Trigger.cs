@@ -9,6 +9,10 @@ public class Trigger : MonoBehaviour
 	void Awake()
 	{
 		_triggerResponder = GetComponent<ITriggerResponder>();
+	}
+
+	void Start()
+	{
 		_activatorTag = _triggerResponder.ReceiveActivatorTag();
 	}
 

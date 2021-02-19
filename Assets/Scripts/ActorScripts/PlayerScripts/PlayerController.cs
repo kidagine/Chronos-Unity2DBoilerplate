@@ -2,12 +2,15 @@
 using UnityEngine.InputSystem;
 using Yarn.Unity;
 
+[RequireComponent(typeof(Player))]
+[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerInteract))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Player _player = default;
-    [SerializeField] private PlayerMovement _playerMovement = default;
-    [SerializeField] private PlayerInteract _playerInteract = default;
     [SerializeField] private DialogueUI _playerDialogue = default;
+    private Player _player;
+    private PlayerMovement _playerMovement;
+    private PlayerInteract _playerInteract;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
     private readonly string _gameplayActionMap = "Gameplay";
@@ -16,6 +19,9 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
+        _player = GetComponent<Player>();
+        _playerMovement = GetComponent<PlayerMovement>();
+        _playerInteract = GetComponent<PlayerInteract>();
         _playerInput = GetComponent<PlayerInput>();
         PlayerInputSetup();
     }
