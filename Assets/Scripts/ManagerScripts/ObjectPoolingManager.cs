@@ -4,7 +4,7 @@ using UnityEngine;
 public class ObjectPoolingManager : MonoBehaviour
 {
 	[SerializeField] private List<ObjectPool> _objectPools;
-	[SerializeField] private Dictionary<string, Queue<GameObject>> _objectPoolDictionary = new Dictionary<string, Queue<GameObject>>();
+	[SerializeField] private Dictionary<GameObject, Queue<GameObject>> _objectPoolDictionary = new Dictionary<GameObject, Queue<GameObject>>();
 
 	public static ObjectPoolingManager Instance { get; private set; }
 
@@ -25,7 +25,7 @@ public class ObjectPoolingManager : MonoBehaviour
 				poolObject.SetActive(false);
 				objectPoolQueue.Enqueue(poolObject);
 			}
-			_objectPoolDictionary.Add(objectPool.name, objectPoolQueue);
+			_objectPoolDictionary.Add(objectPool.prefab, objectPoolQueue);
 		}
 	}
 
@@ -41,21 +41,22 @@ public class ObjectPoolingManager : MonoBehaviour
 		}
 	}
 
-	public GameObject Spawn(string name, Vector3 position = default, Quaternion rotation = default)
+	public GameObject Spawn(GameObject newPoolObject, Vector3 position = default, Quaternion rotation = default)
 	{
-		if (_objectPoolDictionary.ContainsKey(name))
+		if (_objectPoolDictionary.ContainsKey(newPoolObject))
 		{
-			GameObject poolObject = _objectPoolDictionary[name].Dequeue();
+			GameObject poolObject = _objectPoolDictionary[newPoolObject].Dequeue();
 			poolObject.transform.position = position;
 			poolObject.transform.rotation = rotation;
 			poolObject.SetActive(true);
-			_objectPoolDictionary[name].Enqueue(poolObject);
+			_objectPoolDictionary[newPoolObject].Enqueue(poolObject);
 			return poolObject;
 		}
 		else
 		{
-			Debug.LogError($"Pool with name {name} doesn't exist.");
+			Debug.LogError($"Pool with name {newPoolObject.name} doesn't exist.");
 			return null;
 		}
 	}
+
 }

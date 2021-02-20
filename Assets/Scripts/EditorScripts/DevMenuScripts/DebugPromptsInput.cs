@@ -22,7 +22,6 @@ public class DebugPromptsInput : MonoBehaviour
 
     private void Back(InputAction.CallbackContext context)
     {
-        Debug.Log("here");
         _backUnityEvent?.Invoke();
     }
 

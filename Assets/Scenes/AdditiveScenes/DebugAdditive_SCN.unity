@@ -5327,7 +5327,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.00042128703}
+  m_AnchoredPosition: {x: 0, y: 0.000097633034}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &849043454
@@ -7176,6 +7176,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 1203902961}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1203902963 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6954015775158520039, guid: 10321dcaa99fa804dbbea290c6e1954e,
+    type: 3}
+  m_PrefabInstance: {fileID: 1203902961}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1211564533
 GameObject:
   m_ObjectHideFlags: 0
@@ -7900,7 +7912,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 430653821}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.94063556
+  m_Size: 0.9999988
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -11653,6 +11665,16 @@ PrefabInstance:
       propertyPath: m_AnchorMin.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1960953512906992451, guid: 9ff81bfd13e162247ae74d4d2614a8b8,
+        type: 3}
+      propertyPath: m_Navigation.m_Mode
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1960953512906992451, guid: 9ff81bfd13e162247ae74d4d2614a8b8,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnDown
+      value: 
+      objectReference: {fileID: 1203902963}
     - target: {fileID: 1960953512906992451, guid: 9ff81bfd13e162247ae74d4d2614a8b8,
         type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target

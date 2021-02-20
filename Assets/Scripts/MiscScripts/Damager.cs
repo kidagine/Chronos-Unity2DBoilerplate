@@ -5,10 +5,10 @@ public class Damager : MonoBehaviour, IHitboxResponder
 	[SerializeField] private int _damage = 1;
 	[SerializeField] private Vector2 _knockbackDirection = default;
 	[SerializeField] private float _knockbackForce = default;
-	[SerializeField] private string _hitPrefabName = default;
 	[SerializeField] private LayerMask _damageLayers = default;
 	[SerializeField] private LayerMask _impactLayers = default;
 	[SerializeField] private bool _destroyOnImpact = default;
+	[SerializeField] private GameObject _hitPrefab = default;
 	private Audio _damagerAudio;
 	private SpriteRenderer _spriteRenderer;
 	private Hitbox _hitbox;
@@ -54,7 +54,7 @@ public class Damager : MonoBehaviour, IHitboxResponder
 			_spriteRenderer.enabled = false;
 			_hitbox.enabled = false;
 		}
-		GameObject hitEffect = ObjectPoolingManager.Instance.Spawn(_hitPrefabName, hit.point, Quaternion.identity);
+		GameObject hitEffect = ObjectPoolingManager.Instance.Spawn(_hitPrefab, hit.point, Quaternion.identity);
 		hitEffect.transform.up = hit.normal;
 	}
 

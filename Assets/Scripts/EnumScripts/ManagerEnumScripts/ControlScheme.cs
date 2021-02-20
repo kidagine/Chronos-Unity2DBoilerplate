@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public enum ControlSchemeEnum { KeyboardMouse, Xbox, Dualshock };
 
-public class ControlSchemes : MonoBehaviour
+public class ControlScheme : MonoBehaviour
 {
 	[SerializeField] private ControlSchemeEnum _controlSchemeEnum = default;
 

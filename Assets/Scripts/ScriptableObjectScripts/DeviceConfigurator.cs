@@ -23,30 +23,6 @@ public class DeviceConfigurator : ScriptableObject
 
     public DisconnectedSettings disconnectedDeviceSettings;
 
-    public string GetDeviceName(PlayerInput playerInput)
-    {
-
-        string currentDeviceRawPath = playerInput.devices[0].ToString();
-
-        string newDisplayName = null;
-
-        for (int i = 0; i < listDeviceSets.Count; i++)
-        {
-
-            if (listDeviceSets[i].deviceRawPath == currentDeviceRawPath)
-            {
-                newDisplayName = listDeviceSets[i].deviceDisplaySettings.deviceDisplayName;
-            }
-        }
-
-        if (newDisplayName == null)
-        {
-            newDisplayName = currentDeviceRawPath;
-        }
-
-        return newDisplayName;
-
-    }
 
     public Sprite GetDeviceBindingIcon(PlayerInput playerInput, string playerInputDeviceInputBinding)
     {

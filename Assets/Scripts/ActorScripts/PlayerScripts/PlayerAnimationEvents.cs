@@ -5,6 +5,8 @@ public class PlayerAnimationEvents : MonoBehaviour
     [SerializeField] private Player _player = default;
     [SerializeField] private PlayerMovement _playerMovement = default;
     [SerializeField] private Audio _playerAudio = default;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject _runStopSmokePrefab = default;
 
 
     public void PlayerDiedAnimationEvent()
@@ -30,6 +32,6 @@ public class PlayerAnimationEvents : MonoBehaviour
 
     public void PlayerStopRunningSmokeEffectAnimationEvent()
     {
-        ObjectPoolingManager.Instance.Spawn("RunStopSmoke", transform.position, Quaternion.identity);
+        ObjectPoolingManager.Instance.Spawn(_runStopSmokePrefab, transform.position, Quaternion.identity);
     }
 }

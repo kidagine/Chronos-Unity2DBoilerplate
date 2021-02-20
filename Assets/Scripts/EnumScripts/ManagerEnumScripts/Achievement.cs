@@ -4,7 +4,7 @@ using UnityEngine;
 [Serializable]
 public enum AchievementEnum { ACH_WIN_ONE_GAME };
 
-public class Achievements : MonoBehaviour
+public class Achievement : MonoBehaviour
 {
 	[SerializeField] private AchievementEnum _achievementEnum = default;
 

@@ -137,7 +137,6 @@ MonoBehaviour:
   _damage: 1
   _knockbackDirection: {x: 0, y: 0}
   _knockbackForce: 0
-  _hitPrefabName: LandSmoke
   _damageLayers:
     serializedVersion: 2
     m_Bits: 4096
@@ -145,6 +144,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 5120
   _destroyOnImpact: 1
+  _hitPrefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
+    type: 3}
 --- !u!114 &-1003173197279580599
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -474,11 +474,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 979754913912444224, guid: b44e321452158ea49a7f0a1d75e924b0,
-        type: 3}
-      propertyPath: _defaultScreenMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 979754913912444225, guid: b44e321452158ea49a7f0a1d75e924b0,
         type: 3}
       propertyPath: m_Name
@@ -2614,7 +2609,7 @@ PrefabInstance:
         type: 3}
       propertyPath: _backUnityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1590371319}
+      objectReference: {fileID: 1590371325}
     - target: {fileID: 4201786591943304221, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: _eventSystem
@@ -2823,7 +2818,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88cd7923a73e09a41af62e66ff17b76a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowPrefabName: Arrow
+  _spawnPrefab: {fileID: 1817817627978130301, guid: dc9bd6e97b852b54bb5506fc1be8f87e,
+    type: 3}
   _timeUntilRespawn: 2
 --- !u!4 &1064946880
 Transform:
@@ -4675,19 +4671,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a225dcca586e4ba43a5c62f08448d14d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1590371319 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8142760123009676067, guid: 934b1f57c9423aa4ebab5d46b8417483,
-    type: 3}
-  m_PrefabInstance: {fileID: 8142760124130136276}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1590371325 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8142760123009676073, guid: 934b1f57c9423aa4ebab5d46b8417483,
     type: 3}
   m_PrefabInstance: {fileID: 8142760124130136276}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1590371319}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 23d84ec8899cb754f9ce310af36ab01e, type: 3}
@@ -6256,6 +6246,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 488949834, guid: 5361f3a4c6912cf44b03779b57bdeace, type: 3}
+      propertyPath: _hitPrefab
+      value: 
+      objectReference: {fileID: 984813611755386008, guid: 282138f0f4608a44080f6b0fd756001e,
+        type: 3}
+    - target: {fileID: 532135324, guid: 5361f3a4c6912cf44b03779b57bdeace, type: 3}
+      propertyPath: _runStopSmokePrefab
+      value: 
+      objectReference: {fileID: 7310271610845027193, guid: 39afca3c109b26049a80bc07593eb271,
+        type: 3}
     - target: {fileID: 1570340768, guid: 5361f3a4c6912cf44b03779b57bdeace, type: 3}
       propertyPath: _playerDialogue
       value: 
@@ -6324,6 +6324,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 759910337160371080, guid: 5361f3a4c6912cf44b03779b57bdeace,
+        type: 3}
+      propertyPath: _jumpSmokePrefab
+      value: 
+      objectReference: {fileID: 8935918012585647707, guid: 4a4123fbc8b39d441868897a71d2b2b1,
+        type: 3}
+    - target: {fileID: 759910337160371080, guid: 5361f3a4c6912cf44b03779b57bdeace,
+        type: 3}
+      propertyPath: _landSmokePrefab
+      value: 
+      objectReference: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
+        type: 3}
     - target: {fileID: 1539008221801327677, guid: 5361f3a4c6912cf44b03779b57bdeace,
         type: 3}
       propertyPath: _playerUI

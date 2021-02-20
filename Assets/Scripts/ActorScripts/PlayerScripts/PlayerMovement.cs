@@ -6,7 +6,10 @@
 public class PlayerMovement : MonoBehaviour, IPushboxResponder
 {
     [SerializeField] private Player _player = default;
-    [SerializeField] private PlayerAnimator _playerAnimator;
+    [SerializeField] private PlayerAnimator _playerAnimator = default;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject _jumpSmokePrefab = default;
+    [SerializeField] private GameObject _landSmokePrefab = default;
     private Audio _audio;
     private Rigidbody2D _rigidbody;
     private PlayerStats _playerStats;
@@ -71,7 +74,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
             _audio.Sound("Jump").Play();
             _playerStats.currentJumpCount++;
             _rigidbody.AddForce(new Vector2(0.0f, _playerStats.jumpImpulse), ForceMode2D.Impulse);
-            ObjectPoolingManager.Instance.Spawn("JumpSmoke", transform.position, Quaternion.identity);
+            ObjectPoolingManager.Instance.Spawn(_jumpSmokePrefab, transform.position, Quaternion.identity);
             _playerAnimator.JumpAnimation();
         }
     }
@@ -83,7 +86,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
             _audio.Sound("Landed").Play();
             IsGrounded = true;
             _playerStats.currentJumpCount = 0;
-            ObjectPoolingManager.Instance.Spawn("LandSmoke", transform.position, Quaternion.identity);
+            ObjectPoolingManager.Instance.Spawn(_landSmokePrefab, transform.position, Quaternion.identity);
             _playerAnimator.GroundedAnimation();
         }   
 	}
