@@ -6365,6 +6365,151 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_NotificationBehavior
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionId
+      value: b974387a-378a-440d-b24d-8822f3c3bf9a
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionId
+      value: f45ade66-e129-44a5-b058-27823799e189
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionId
+      value: af2cfbdc-c013-4197-8d89-40eaa93771e8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionId
+      value: 5562489b-ede7-4983-8c2a-a95d0da6d5a0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionId
+      value: 969e1017-39d4-48a3-ac77-6227730c742c
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionId
+      value: 0e1b31a8-930d-414a-bf99-a6681e34d712
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionId
+      value: 9b9e65a4-1cb4-4ec1-b678-45ed341db766
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionId
+      value: 0ae5733d-d97c-4cfc-bdfa-6b18a1daa632
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionId
+      value: 1987c80a-35e0-4b44-840c-015f9156707f
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionId
+      value: 98a8577a-4936-4db9-b9a9-6be03ca12899
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[0].m_ActionName
+      value: Prompts/Confirm[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth,/XInputControllerWindows/buttonSouth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[1].m_ActionName
+      value: Prompts/Back[/Keyboard/escape,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID1/buttonEast,/XInputControllerWindows/buttonEast]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[2].m_ActionName
+      value: Prompts/MainSpecial[/Keyboard/r,/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/XInputControllerWindows/buttonNorth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[3].m_ActionName
+      value: Prompts/SecondarySpecial[/DualShock4GamepadHID/buttonWest,/DualShock4GamepadHID1/buttonWest,/XInputControllerWindows/buttonWest]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[4].m_ActionName
+      value: Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/DualShock4GamepadHID/leftStick,/DualShock4GamepadHID1/leftStick,/XInputControllerWindows/leftStick,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID1/dpad/up,/XInputControllerWindows/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID1/dpad/down,/XInputControllerWindows/dpad/down,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID1/dpad/left,/XInputControllerWindows/dpad/left,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID1/dpad/right,/XInputControllerWindows/dpad/right]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[5].m_ActionName
+      value: Gameplay/Jump[/Keyboard/space,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth,/XInputControllerWindows/buttonSouth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[6].m_ActionName
+      value: Gameplay/Attack[/Keyboard/j,/DualShock4GamepadHID/buttonWest,/DualShock4GamepadHID1/buttonWest,/XInputControllerWindows/buttonWest]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[7].m_ActionName
+      value: Gameplay/Interact[/Keyboard/e,/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/XInputControllerWindows/buttonNorth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[8].m_ActionName
+      value: Gameplay/Menu[/Keyboard/escape,/DualShock4GamepadHID/start,/DualShock4GamepadHID1/start,/XInputControllerWindows/start]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_ActionEvents.Array.data[9].m_ActionName
+      value: Dialogue/NextDialogue[/Keyboard/e,/Keyboard/enter,/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/XInputControllerWindows/buttonNorth]
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1590371325}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenPauseMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 1954291521482121242, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_DeviceLostEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3399636507634132437, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3399636507717802368, guid: ca9108b8958dbc44f9c64d65eb0e31a5,
         type: 3}
       propertyPath: m_Name

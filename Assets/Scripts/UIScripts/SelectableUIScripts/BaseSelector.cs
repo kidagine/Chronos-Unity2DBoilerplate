@@ -8,8 +8,6 @@ using UnityEngine.UI;
 public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
     [SerializeField] private Transform _values = default;
-    [SerializeField] private Button _leftArrowButton = default;
-    [SerializeField] private Button _rightArrowButton = default;
     [SerializeField] private Image _leftArrowBackgroundImage = default;
     [SerializeField] private Image _leftArrowImage = default;
     [SerializeField] private Image _rightArrowBackgroundImage = default;
@@ -162,7 +160,6 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
     {
         return _currentSelectedIndex;
     }
-
 
     public void SetValue(int value)
     {
