@@ -14,6 +14,10 @@ public class GameplayMenu : BaseMenu, IOptionMenu
     {
         _audio = GetComponent<Audio>();
         _animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
         InitializePreferences();
     }
 

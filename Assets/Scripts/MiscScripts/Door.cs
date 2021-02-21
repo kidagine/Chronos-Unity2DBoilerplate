@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Level))]
+[RequireComponent(typeof(Tag))]
 public class Door : MonoBehaviour, ITriggerResponder
 {
-	[SerializeField] private Level _levels = default;
-	[SerializeField] private Tags _tags = default;
 	[SerializeField] private GameObject _promptCanvas = default;
+	private Level _level;
+	private Tag _tag;
 
+
+	void Awake()
+	{
+		_level = GetComponent<Level>();
+		_tag = GetComponent<Tag>();
+	}
 
 	public string ReceiveActivatorTag()
 	{
-		return _tags.TagEnum.ToString();
+		return _tag.TagEnum.ToString();
 	}
 
 	public void TriggerEnter()
@@ -25,6 +33,6 @@ public class Door : MonoBehaviour, ITriggerResponder
 	public void Trigger()
 	{
 		_promptCanvas.SetActive(false);
-		LevelManager.Instance.GoToLevel(_levels);
+		LevelManager.Instance.GoToLevel(_level);
 	}
 }

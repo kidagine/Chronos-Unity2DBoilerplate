@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class RemapButton : BaseButton
 {
-	[SerializeField] private Button _button = default;
 	[SerializeField] private Image _promptImage = default;
 	[SerializeField] private InputActionReference _inputActionReference = default;
 	[SerializeField] private bool _isComposite = default;

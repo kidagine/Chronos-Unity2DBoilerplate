@@ -2,7 +2,7 @@
 
 public class Respawner : MonoBehaviour
 {
-    [SerializeField] private string _arrowPrefabName = default;
+    [SerializeField] private GameObject _spawnPrefab;
     [SerializeField] private float _timeUntilRespawn = 2.0f;
     private float _currentTimeUntilRespawn;
 
@@ -13,7 +13,7 @@ public class Respawner : MonoBehaviour
         if (_currentTimeUntilRespawn <= 0.0f)
         {
             _currentTimeUntilRespawn = _timeUntilRespawn;
-            ObjectPoolingManager.Instance.Spawn("Arrow", transform.position, Quaternion.identity);
+            ObjectPoolingManager.Instance.Spawn(_spawnPrefab, transform.position, Quaternion.identity);
         }
     }
 }

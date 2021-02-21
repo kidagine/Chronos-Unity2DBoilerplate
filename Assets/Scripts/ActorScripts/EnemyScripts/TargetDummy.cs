@@ -1,19 +1,27 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Audio))]
 public class TargetDummy : MonoBehaviour, IHurtboxResponder
 {
-	[SerializeField] private Audio _targetDummyAudio = default;
-	[SerializeField] private SpriteRenderer _spriteRenderer = default;
-	[SerializeField] private Rigidbody2D _rigidbody = default;
+	private Audio _audio;
+	private Rigidbody2D _rigidbody;
+	private SpriteRenderer _spriteRenderer;
 	private bool _isRecovered = true;
 
+
+	void Awake()
+	{
+		_audio = GetComponent<Audio>();
+		_rigidbody = GetComponent<Rigidbody2D>();
+		_spriteRenderer = GetComponent<SpriteRenderer>();
+	}
 
 	public void TakeDamage(int damage, Vector2 knockbackDirection = default, float knockbackForce = 0)
 	{
 		if (_isRecovered)
 		{
-			_targetDummyAudio.Sound("Hurt").Play();
+			_audio.Sound("Hurt").Play();
 			Knockback(knockbackDirection, knockbackForce);
 			StartCoroutine(FlashRedCoroutine());
 		}

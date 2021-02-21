@@ -60,7 +60,7 @@ public class FileRenamer : EditorWindow
     void OnGUI()
     {
         EditorGUILayout.Space();
-        if (GUILayout.Button("Rename Files", GUILayout.Height(60f)))
+        if (GUILayout.Button("Rename Files", GUILayout.Height(50f)))
         {
             RenameAllFiles();
         }

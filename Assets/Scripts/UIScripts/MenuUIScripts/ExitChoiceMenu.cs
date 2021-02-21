@@ -1,13 +1,19 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Level))]
 public class ExitChoiceMenu : BaseMenu
 {
-    [SerializeField] private Level _levels = default;
+    private Level _level;
 
 
-    public void ExitToMainMenu()
+	void Awake()
+	{
+        _level = GetComponent<Level>();
+	}
+
+	public void ExitToMainMenu()
     {
-        LevelManager.Instance.GoToLevel(_levels);
+        LevelManager.Instance.GoToLevel(_level);
     }
 
     public void ExitToDesktop()

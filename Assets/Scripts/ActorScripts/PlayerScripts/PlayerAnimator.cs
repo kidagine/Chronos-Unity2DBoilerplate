@@ -4,11 +4,17 @@
 [RequireComponent(typeof(SpriteRenderer))]
 public class PlayerAnimator : MonoBehaviour
 {
-    [SerializeField] private Animator _animator = default;
-    [SerializeField] private SpriteRenderer _spriteRenderer = default;
+    private Animator _animator;
+    private SpriteRenderer _spriteRenderer;
 
 
-    public void IdleAnimation()
+	void Awake()
+	{
+        _animator = GetComponent<Animator>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
+	}
+
+	public void IdleAnimation()
     {
         _animator.SetBool("IsMoving", false);
     }

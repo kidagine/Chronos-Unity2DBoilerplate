@@ -3,27 +3,27 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Audio))]
+[RequireComponent(typeof(Toggle))]
+[RequireComponent(typeof(Animator))]
 public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
-    [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Image _onImage = default;
     [SerializeField] private TextMeshProUGUI _onText = default;
     [SerializeField] private Image _offImage = default;
     [SerializeField] private TextMeshProUGUI _offText = default;
     [SerializeField] private UnityEventBool _onToggle = default;
     [SerializeField] private bool _isOn = true;
-    private Animator _animator;
-    private Audio _audio;
-
-    public bool DefaultValue { get { return _isOn; } private set { } }
+    protected Audio _audio;
+    protected Toggle _toggle;
+    protected Animator _animator;
 
 
     void Awake()
     {
-        _animator = GetComponent<Animator>();
         _audio = GetComponent<Audio>();
+        _toggle = GetComponent<Toggle>();
+        _animator = GetComponent<Animator>();
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -39,24 +39,7 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_eventSystem.currentSelectedGameObject != gameObject)
-        {
-            _eventSystem.SetSelectedGameObject(gameObject);
-        }
-    }
-
-    public void ResetValue()
-    {
-        if (_isOn)
-        {
-            _isOn = true;
-            SetToggle(_isOn);
-        }
-        else
-        {
-            _isOn = false;
-            SetToggle(_isOn);
-        }
+        _toggle.Select();
     }
 
     public void SetValue(bool value)
@@ -75,19 +58,19 @@ public class BaseToggle : MonoBehaviour, ISelectHandler, IDeselectHandler, IPoin
     {
         _isOn = true;
         SetToggle(_isOn);
-        _eventSystem.SetSelectedGameObject(gameObject);
+        _toggle.Select();
     }
 
     public void ToggleOff()
     {
         _isOn = false;
         SetToggle(_isOn);
-        _eventSystem.SetSelectedGameObject(gameObject);
+        _toggle.Select();
     }
 
     private void SetToggle(bool isOn)
     {
-        //_entityAudio.Sound("Pressed").Play();
+        //_audio.Sound("Pressed").Play();
         if (isOn)
         {
             _onImage.color = Color.white;

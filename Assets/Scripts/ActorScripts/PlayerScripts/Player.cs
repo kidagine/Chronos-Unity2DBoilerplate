@@ -1,17 +1,18 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+[RequireComponent(typeof(Audio))]
+[RequireComponent(typeof(PlayerUI))]
+[RequireComponent(typeof(PlayerStats))]
 public class Player : MonoBehaviour, IHurtboxResponder
 {
-	[SerializeField] private PlayerAnimator _playerAnimator = default;
+	[SerializeField] private PlayerAnimator _playerAnimator;
 	[SerializeField] private PlayerMovement _playerMovement = default;
-	[SerializeField] private PlayerUI _playerUI = default;
-	[SerializeField] private Audio _playerAudio = default;
-	[SerializeField] private Rigidbody2D _rigidbody = default;
-	[SerializeField] private SpriteRenderer _spriteRenderer = default;
 	[SerializeField] private GameObject _hurtboxes = default;
 	[SerializeField] private GameObject _pushboxes = default;
-	[SerializeField] private PlayerStats _playerStats = default;
+	private Audio _audio;
+	private PlayerUI _playerUI;
+	private PlayerStats _playerStats;
 
 	public bool IsRecovered { get; private set; } = true;
 	public bool IsAttacking { get; set; }
@@ -19,6 +20,9 @@ public class Player : MonoBehaviour, IHurtboxResponder
 
 	void Awake()
 	{
+		_audio = GetComponent<Audio>();
+		_playerUI = GetComponent<PlayerUI>();
+		_playerStats = GetComponent<PlayerStats>();
 		_playerUI.PlayerStatsUI.SetMaxHealth(_playerStats.health);
 		_playerUI.PlayerStatsUI.SetHealth(_playerStats.currentHealth);
 	}
@@ -28,7 +32,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		if (_playerMovement.IsGrounded && !IsAttacking)
 		{
 			IsAttacking = true;
-			_playerAudio.Sound("Attack").Play();
+			_audio.Sound("Attack").Play();
 			_playerMovement.SetMovementLock(true);
 			_playerAnimator.AttackAnimation();
 		}
@@ -46,7 +50,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 			IsRecovered = false;
 			_playerMovement.SetMovementLock(true);
 			_playerStats.currentHealth--;
-			Knockback(knockbackDirection, knockbackForce);
+			_playerMovement.Knockback(knockbackDirection, knockbackForce);
 			if (_playerStats.currentHealth > 0)
 			{
 				_playerAnimator.HurtAnimation();
@@ -61,15 +65,8 @@ public class Player : MonoBehaviour, IHurtboxResponder
 
 	IEnumerator FlashRedCoroutine()
 	{
-		_spriteRenderer.color = Color.red;
 		_playerUI.PlayerStatsUI.SetHealth(_playerStats.currentHealth);
 		yield return new WaitForSeconds(0.25f);
 		IsRecovered = true;
-		_spriteRenderer.color = Color.white;
-	}
-
-	private void Knockback(Vector2 knockbackDirection, float knockbackForce)
-	{
-		_rigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
 	}
 }

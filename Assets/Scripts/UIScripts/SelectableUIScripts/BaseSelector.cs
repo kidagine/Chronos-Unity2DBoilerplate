@@ -2,32 +2,28 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(Animator))]
 [RequireComponent(typeof(Audio))]
+[RequireComponent(typeof(Button))]
+[RequireComponent(typeof(Animator))]
 public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerEnterHandler
 {
-    [SerializeField] private EventSystem _eventSystem = default;
     [SerializeField] private Transform _values = default;
-    [SerializeField] private Button _leftArrowButton = default;
-    [SerializeField] private Button _rightArrowButton = default;
     [SerializeField] private Image _leftArrowBackgroundImage = default;
     [SerializeField] private Image _leftArrowImage = default;
     [SerializeField] private Image _rightArrowBackgroundImage = default;
     [SerializeField] private Image _rightArrowImage = default;
     [SerializeField] private UnityEventInt _onSelect = default;
-    [SerializeField] private int _defaultValue = default;
-    private Animator _animator;
-    private Audio _audio;
+    protected Audio _audio;
+    protected Button _button;
+    protected Animator _animator;
     private int _currentSelectedIndex;
-    private bool _isInitialSet = true;
-
-    public int DefaultValue { get { return _defaultValue; } private set { } }
 
 
     void Awake()
     {
-        _animator = GetComponent<Animator>();
         _audio = GetComponent<Audio>();
+        _button = GetComponent<Button>();
+        _animator = GetComponent<Animator>();
     }
 
     void OnEnable()
@@ -126,19 +122,9 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
         }
     }
 
-    public void ResetValue()
-    {
-        _values.GetChild(_currentSelectedIndex).gameObject.SetActive(false);
-        _values.GetChild(_defaultValue).gameObject.SetActive(true);
-        _leftArrowBackgroundImage.raycastTarget = false;
-        _rightArrowBackgroundImage.raycastTarget = true;
-        CheckSelectorArrows();
-        _onSelect?.Invoke(_defaultValue);
-    }
-
     public void ReSelectSelectable()
 	{
-        _eventSystem.SetSelectedGameObject(gameObject);
+        _button.Select();
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -154,10 +140,7 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (_eventSystem.currentSelectedGameObject != gameObject)
-        {
-            _eventSystem.SetSelectedGameObject(gameObject);
-        }
+        _button.Select();
     }
 
     public void SelectValue(BaseEventData eventData)
@@ -178,18 +161,9 @@ public class BaseSelector : MonoBehaviour, ISelectHandler, IDeselectHandler, IPo
         return _currentSelectedIndex;
     }
 
-
     public void SetValue(int value)
     {
-        if (_isInitialSet)
-        {
-            _values.GetChild(_defaultValue).gameObject.SetActive(false);
-            _isInitialSet = false;
-        }
-        else
-        {
-            _values.GetChild(_currentSelectedIndex).gameObject.SetActive(false);
-        }
+        _values.GetChild(_currentSelectedIndex).gameObject.SetActive(false);
         _values.GetChild(value).gameObject.SetActive(true);
         CheckSelectorArrows();
         _onSelect?.Invoke(value);

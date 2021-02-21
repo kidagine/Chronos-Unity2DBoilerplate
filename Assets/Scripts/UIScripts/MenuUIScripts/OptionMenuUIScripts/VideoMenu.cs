@@ -14,6 +14,10 @@ public class VideoMenu : BaseMenu, IOptionMenu
     {
         _audio = GetComponent<Audio>();
         _animator = GetComponent<Animator>();
+    }
+
+    void Start()
+    {
         InitializePreferences();
     }
 
@@ -50,7 +54,7 @@ public class VideoMenu : BaseMenu, IOptionMenu
             case 2:
                 return new Vector2(1280, 720);
             case 3:
-                return new Vector2(1360, 76);
+                return new Vector2(1360, 760);
             case 4:
                 return new Vector2(1600, 900);
             case 5:

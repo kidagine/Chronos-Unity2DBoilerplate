@@ -18,6 +18,11 @@ public class ControlsMenu : BaseMenu
 		_animator = GetComponent<Animator>();
 	}
 
+	void Start()
+	{
+		//InitializePreferences();
+	}
+
 	public void RemapInput(RemapButton remapButton, string rebindKey, string controlMatch, string controlCancel, string[] controlsExcluding = default)
 	{
 		InputManager.Instance.DisablePlayerInput();

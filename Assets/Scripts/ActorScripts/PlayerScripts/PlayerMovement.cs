@@ -1,17 +1,29 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Audio))]
 [RequireComponent(typeof(Rigidbody2D))]
+[RequireComponent(typeof(PlayerStats))]
 public class PlayerMovement : MonoBehaviour, IPushboxResponder
 {
     [SerializeField] private Player _player = default;
     [SerializeField] private PlayerAnimator _playerAnimator = default;
-    [SerializeField] private Rigidbody2D _rigidbody = default;
-    [SerializeField] private Audio _playerAudio = default;
-    [SerializeField] private PlayerStats _playerStats = default;
+    [Header("Prefabs")]
+    [SerializeField] private GameObject _jumpSmokePrefab = default;
+    [SerializeField] private GameObject _landSmokePrefab = default;
+    private Audio _audio;
+    private Rigidbody2D _rigidbody;
+    private PlayerStats _playerStats;
 
     public bool IsGrounded { get; private set; }
     public Vector2 MovementInput { private get; set; }
 
+
+    void Awake()
+    {
+        _audio = GetComponent<Audio>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _playerStats = GetComponent<PlayerStats>();
+    }
 
     void Update()
     {
@@ -59,10 +71,10 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     {
         if (_playerStats.currentJumpCount < _playerStats.jumpCount && _rigidbody.constraints != RigidbodyConstraints2D.FreezePosition)
         {
-            _playerAudio.Sound("Jump").Play();
+            _audio.Sound("Jump").Play();
             _playerStats.currentJumpCount++;
             _rigidbody.AddForce(new Vector2(0.0f, _playerStats.jumpImpulse), ForceMode2D.Impulse);
-            ObjectPoolingManager.Instance.Spawn("JumpSmoke", transform.position, Quaternion.identity);
+            ObjectPoolingManager.Instance.Spawn(_jumpSmokePrefab, transform.position, Quaternion.identity);
             _playerAnimator.JumpAnimation();
         }
     }
@@ -71,10 +83,10 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 	{
         if (!IsGrounded)
         {
-            _playerAudio.Sound("Landed").Play();
+            _audio.Sound("Landed").Play();
             IsGrounded = true;
             _playerStats.currentJumpCount = 0;
-            ObjectPoolingManager.Instance.Spawn("LandSmoke", transform.position, Quaternion.identity);
+            ObjectPoolingManager.Instance.Spawn(_landSmokePrefab, transform.position, Quaternion.identity);
             _playerAnimator.GroundedAnimation();
         }   
 	}
@@ -98,5 +110,10 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
         {
             _rigidbody.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
+    }
+
+    public void Knockback(Vector2 knockbackDirection, float knockbackForce)
+    {
+        _rigidbody.AddForce(knockbackDirection * knockbackForce, ForceMode2D.Impulse);
     }
 }

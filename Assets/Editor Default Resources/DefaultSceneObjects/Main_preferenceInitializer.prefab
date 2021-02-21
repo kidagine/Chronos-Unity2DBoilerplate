@@ -44,11 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eb25efc6eea5810438ae8f9b949ef64c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initializeMenues: 0
+  _defaultLanguageIndex: 1
+  _defaultScreenMode: 0
+  _defaultVSync: 0
   _defaultMusicVolume: 1
   _defaultVFXVolume: 1
   _defaultUIVolume: 1
-  _defaultLanguageIndex: 1
 --- !u!114 &979754913912444238
 MonoBehaviour:
   m_ObjectHideFlags: 0

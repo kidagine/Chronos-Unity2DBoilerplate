@@ -15,6 +15,10 @@ public class AudioMenu : BaseMenu, IOptionMenu
 	{
 		_audio = GetComponent<Audio>();
 		_animator = GetComponent<Animator>();
+	}
+
+	void Start()
+	{
 		InitializePreferences();
 	}
 

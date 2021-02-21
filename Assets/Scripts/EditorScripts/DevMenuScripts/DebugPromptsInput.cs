@@ -2,14 +2,12 @@
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
-
+    
 public class DebugPromptsInput : MonoBehaviour
 {
-    [SerializeField] private DebugInputActions _debugInputActions = default;
     [SerializeField] private UnityEvent _backUnityEvent = default;
-    [SerializeField] private Image[] _promptImages = default;
-
+    private DebugInputActions _debugInputActions = default;
+    
 
     void Awake()
     {

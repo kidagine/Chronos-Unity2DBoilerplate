@@ -6,14 +6,10 @@ public class PressAnyButton : MonoBehaviour
     private Level _level;
     private bool _keyHold;
 
+
 	void Awake()
 	{
 		_level = GetComponent<Level>();	
-	}
-
-	void Start()
-	{
-        SoundManager.Instance.SetMusic("slip");	
 	}
 
 	void Update()

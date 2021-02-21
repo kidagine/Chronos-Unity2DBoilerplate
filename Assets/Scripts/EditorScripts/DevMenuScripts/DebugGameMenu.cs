@@ -22,5 +22,9 @@ public class DebugGameMenu : BaseMenu
 	{
 		CheckpointManager.Instance.GoToPreviousCheckpoint();
 	}
+	public void Test()
+	{
+		Debug.Log("tesT");
+	}
 }
 #endif

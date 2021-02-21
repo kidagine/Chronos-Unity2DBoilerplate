@@ -1,15 +1,23 @@
 ﻿using UnityEngine;
 
+[RequireComponent(typeof(Tag))]
+[RequireComponent(typeof(DialogueStarter))]
 public class Sign : MonoBehaviour, ITriggerResponder
 {
-	[SerializeField] private Tags _tags = default;
 	[SerializeField] private GameObject _promptCanvas = default;
-	[SerializeField] private DialogueStarter dialogueStarter = default;
+	private Tag _tag;
+	private DialogueStarter _dialogueStarter;
 
-	
+
+	void Awake()
+	{
+		_tag = GetComponent<Tag>();
+		_dialogueStarter = GetComponent<DialogueStarter>();
+	}
+
 	public string ReceiveActivatorTag()
 	{
-		return _tags.TagEnum.ToString();
+		return _tag.TagEnum.ToString();
 	}
 
 	public void TriggerEnter()
@@ -25,6 +33,6 @@ public class Sign : MonoBehaviour, ITriggerResponder
 	public void Trigger()
 	{
 		_promptCanvas.SetActive(false);
-		dialogueStarter.StartDialogue();
+		_dialogueStarter.StartDialogue();
 	}
 }

@@ -3,16 +3,35 @@ using System.IO;
 using System.Text;
 using UnityEngine;
 
-public class SaveManager : Singleton<SaveManager>
+[RequireComponent(typeof(Level))]
+public class SaveManager : MonoBehaviour
 {
+    [SerializeField] private Level _startLevel = default;
     private CameraScreenshot _cameraScreenshot;
     private readonly int key = 02035;
+    public static SaveManager Instance { get; private set; }
 
-	public int SelectedSaveSlot { get; set; }
+    public int SelectedSaveSlot { get; set; }
 	public bool IsLoading { get; private set; }
 
-    
-	void Start()
+
+    void Awake()
+    {
+        CheckInstance();
+    }
+    private void CheckInstance()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
+    void Start()
     {
         string savePath = Application.persistentDataPath;
         _cameraScreenshot = Camera.main.GetComponent<CameraScreenshot>();
@@ -46,7 +65,7 @@ public class SaveManager : Singleton<SaveManager>
         }
         else
         {
-            LevelManager.Instance.GoToLevel(0);
+            LevelManager.Instance.GoToLevel(_startLevel);
         }
     }
 
