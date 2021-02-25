@@ -7,6 +7,8 @@
 **Chronos** is a 2D boilerplate for unity primarily aimed for pixel art games. It includes project structures, helper classes, editor scripts and more.<br>
 This started as boilerplate that I will be using for my own personal Unity game projects, which I decided to share in case it can help anyone, for that reason expect some very specific structures and features.
 
+I will be updating and polishing Chronos in the future whenever necessary.
+
 ## Features
 - Base folder structure
 - Base UI structure
