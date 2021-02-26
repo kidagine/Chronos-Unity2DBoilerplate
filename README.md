@@ -18,7 +18,7 @@ I will be updating and polishing Chronos in the future whenever necessary.
 - Dialogue mechanic - [Example PNG](https://i.imgur.com/7oToEPr.png)
 - Save/load system - [Example PNG](https://i.imgur.com/bbgTtsN.png)
 - Audio/Video settings - [Examples PNG](https://imgur.com/a/RJTiNkp)
-- Control remapping - [Examples PNG](https://imgur.com/a/T2Vijqb)
+- Control remapping - [Examples PNG](https://imgur.com/a/wiuGRyw)
 - Support for multiple input devices - [Examples PNG](https://imgur.com/a/T2Vijqb)
 - Custom collision system - [Example PNG](https://i.imgur.com/Ok6wPA2.png)
 - Intro splash screen and outro credits screen - [Example GIF](https://media0.giphy.com/media/rVYoqTqgEzldN3e3pa/giphy.gif) [Example GIF](https://media0.giphy.com/media/rVYoqTqgEzldN3e3pa/giphy.gif)
