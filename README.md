@@ -19,7 +19,7 @@ I will be updating and polishing Chronos in the future whenever necessary.
 - Save/load system - [Save/load PNG](https://i.imgur.com/bbgTtsN.png)
 - Audio/Video settings - [Audio/Video PNG](https://imgur.com/a/RJTiNkp)
 - Control remapping - [Remap PNG](https://imgur.com/a/wiuGRyw)
-- Support for multiple input devices - [Prompts PNG](https://imgur.com/a/T2Vijqb)
+- Support for multiple input devices - [Prompts PNG](https://imgur.com/a/IpyV2dz)
 - Custom collision system - [Collision PNG](https://i.imgur.com/Ok6wPA2.png)
 - Intro splash screen and outro credits screen - [Intro GIF](https://media0.giphy.com/media/rVYoqTqgEzldN3e3pa/giphy.gif) | [Outro GIF](https://media1.giphy.com/media/ihYY9SpnHS2S2Pt7gx/giphy.gif)
 - Base steam integration - [Steam PNG](https://i.imgur.com/cxt6TCN.png)
