@@ -13,17 +13,17 @@ I will be updating and polishing Chronos in the future whenever necessary.
 - Base folder structure
 - Base UI structure
 - Base Gameplay structure
-- 2D Tilemap with rule tiles - [Example GIF](https://media4.giphy.com/media/heL50v6nl4imeRiIpJ/giphy.gif)
-- Localisation system (i dont actually know spanish) - [Example GIF](https://media1.giphy.com/media/arakNarJmsUEtwhcaO/giphy.gif)
-- Dialogue mechanic - [Example PNG](https://i.imgur.com/7oToEPr.png)
-- Save/load system - [Example PNG](https://i.imgur.com/bbgTtsN.png)
-- Audio/Video settings - [Examples PNG](https://imgur.com/a/RJTiNkp)
-- Control remapping - [Examples PNG](https://imgur.com/a/wiuGRyw)
-- Support for multiple input devices - [Examples PNG](https://imgur.com/a/T2Vijqb)
-- Custom collision system - [Example PNG](https://i.imgur.com/Ok6wPA2.png)
-- Intro splash screen and outro credits screen - [Example GIF](https://media0.giphy.com/media/rVYoqTqgEzldN3e3pa/giphy.gif) [Example GIF](https://media0.giphy.com/media/rVYoqTqgEzldN3e3pa/giphy.gif)
-- Base steam integration - [Example PNG](https://i.imgur.com/cxt6TCN.png)
-- Dev menu - [Example PNG](https://i.imgur.com/jLaPrz0.png)
+- 2D Tilemap with rule tiles - [Tilemap GIF](https://media4.giphy.com/media/heL50v6nl4imeRiIpJ/giphy.gif)
+- Localisation system (i dont actually know spanish) - [Localisation GIF](https://media1.giphy.com/media/arakNarJmsUEtwhcaO/giphy.gif)
+- Dialogue mechanic - [Dialogue PNG](https://i.imgur.com/7oToEPr.png)
+- Save/load system - [Save/load PNG](https://i.imgur.com/bbgTtsN.png)
+- Audio/Video settings - [Audio/Video PNG](https://imgur.com/a/RJTiNkp)
+- Control remapping - [Remap PNG](https://imgur.com/a/wiuGRyw)
+- Support for multiple input devices - [Prompts PNG](https://imgur.com/a/T2Vijqb)
+- Custom collision system - [Collision PNG](https://i.imgur.com/Ok6wPA2.png)
+- Intro splash screen and outro credits screen - [Intro GIF](https://media0.giphy.com/media/rVYoqTqgEzldN3e3pa/giphy.gif) | [Outro GIF](https://media1.giphy.com/media/ihYY9SpnHS2S2Pt7gx/giphy.gif)
+- Base steam integration - [Steam PNG](https://i.imgur.com/cxt6TCN.png)
+- Dev menu - [Dev PNG](https://i.imgur.com/jLaPrz0.png)
 - Helper scripts and editor classes
 
 ## Tech Info
