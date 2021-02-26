@@ -122,7 +122,6 @@ MonoBehaviour:
   _damage: 1
   _knockbackDirection: {x: 5, y: 5}
   _knockbackForce: 0.2
-  _hitPrefabName: HitSlash
   _damageLayers:
     serializedVersion: 2
     m_Bits: 8192
@@ -130,6 +129,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8192
   _destroyOnImpact: 0
+  _hitPrefab: {fileID: 0}
 --- !u!1 &903759321
 GameObject:
   m_ObjectHideFlags: 0
@@ -604,8 +604,9 @@ GameObject:
   - component: {fileID: 759910337160371080}
   - component: {fileID: 8976487528706884435}
   - component: {fileID: 3633829989900122434}
-  - component: {fileID: 333648338796558923}
   - component: {fileID: 1570340768}
+  - component: {fileID: 4092265390584617298}
+  - component: {fileID: 333648338796558923}
   - component: {fileID: 1570340775}
   m_Layer: 12
   m_Name: Player_actor
@@ -664,13 +665,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _playerAnimator: {fileID: 312063163827800735}
   _playerMovement: {fileID: 759910337160371080}
-  _playerUI: {fileID: 0}
-  _playerAudio: {fileID: 333648338796558923}
-  _rigidbody: {fileID: 759910337160371082}
-  _spriteRenderer: {fileID: 5864836275282370029}
   _hurtboxes: {fileID: 1120979992}
   _pushboxes: {fileID: 547810544309903528}
-  _playerStats: {fileID: 3633829989900122434}
 --- !u!114 &759910337160371080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,9 +681,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _player: {fileID: 1539008221801327677}
   _playerAnimator: {fileID: 312063163827800735}
-  _rigidbody: {fileID: 759910337160371082}
-  _playerAudio: {fileID: 333648338796558923}
-  _playerStats: {fileID: 3633829989900122434}
+  _jumpSmokePrefab: {fileID: 8935918012585647707, guid: 4a4123fbc8b39d441868897a71d2b2b1,
+    type: 3}
+  _landSmokePrefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
+    type: 3}
 --- !u!114 &8976487528706884435
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -719,6 +716,33 @@ MonoBehaviour:
   currentHealth: 0
   currentSpeed: 0
   currentJumpCount: 0
+--- !u!114 &1570340768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759910337160371077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a225dcca586e4ba43a5c62f08448d14d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4092265390584617298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 759910337160371077}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 082c8d1662f897f44a1426b1189f86a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _playerStatsUI: {fileID: 0}
+  _playerPauseMenuUI: {fileID: 0}
+  _playerDialogueUI: {fileID: 0}
 --- !u!114 &333648338796558923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -796,22 +820,6 @@ MonoBehaviour:
       playOnAwake: 0
       playOneInstanceAtATime: 0
   _soundGroups3D: []
---- !u!114 &1570340768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 759910337160371077}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a225dcca586e4ba43a5c62f08448d14d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _player: {fileID: 1539008221801327677}
-  _playerMovement: {fileID: 759910337160371080}
-  _playerInteract: {fileID: 8976487528706884435}
-  _playerDialogue: {fileID: 0}
 --- !u!114 &1570340775
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -958,6 +966,14 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 98a8577a-4936-4db9-b9a9-6be03ca12899
     m_ActionName: Dialogue/NextDialogue[/Keyboard/e,/Keyboard/enter,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: af2cfbdc-c013-4197-8d89-40eaa93771e8
+    m_ActionName: Prompts/MainSpecial[/Keyboard/r]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5562489b-ede7-4983-8c2a-a95d0da6d5a0
+    m_ActionName: Prompts/SecondarySpecial
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Gameplay
@@ -1079,8 +1095,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6d7c02d161f185488de83fd5c5bdd00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _animator: {fileID: 700344641451654525}
-  _spriteRenderer: {fileID: 5864836275282370029}
 --- !u!114 &532135324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,3 +1110,4 @@ MonoBehaviour:
   _player: {fileID: 1539008221801327677}
   _playerMovement: {fileID: 759910337160371080}
   _playerAudio: {fileID: 333648338796558923}
+  _runStopSmokePrefab: {fileID: 0}

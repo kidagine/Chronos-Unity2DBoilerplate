@@ -7,7 +7,7 @@ public enum LevelEnum { SplashScreen, PressStart, MainMenu, FirstLevel, SecondLe
 
 public class Level : MonoBehaviour
 {
-	[SerializeField] private LevelEnum _levelsEnum = default;
+	[SerializeField] private LevelEnum _levelEnum = default;
 
-	public LevelEnum LevelsEnum { get { return _levelsEnum; } private set { } }
+	public LevelEnum LevelEnum { get { return _levelEnum; } private set { } }
 }

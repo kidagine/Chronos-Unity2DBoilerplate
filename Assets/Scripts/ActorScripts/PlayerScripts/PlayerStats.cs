@@ -35,16 +35,13 @@ public class PlayerStats : MonoBehaviour, ISceneDataSerializer
 
 	public void SaveSceneData()
 	{
-		if (!SaveManager.Instance.IsLoading)
-		{
-			SceneDataCarrier.SetInt("PlayerHealth", health);
-			SceneDataCarrier.SetFloat("PlayerSpeed", speed);
-			SceneDataCarrier.SetInt("PlayerJumpCount", jumpCount);
-			SceneDataCarrier.SetInt("PlayerCurrentHealth", currentHealth);
-			SceneDataCarrier.SetFloat("PlayerCurrentSpeed", currentSpeed);
-			SceneDataCarrier.SetInt("PlayerCurrentJumpCount", currentJumpCount);
-			SceneDataCarrier.SetFloat("PlayerPositionX", transform.position.x);
-			SceneDataCarrier.SetFloat("PlayerPositionY", transform.position.y);
-		}
+		SceneDataCarrier.SetInt("PlayerHealth", health);
+		SceneDataCarrier.SetFloat("PlayerSpeed", speed);
+		SceneDataCarrier.SetInt("PlayerJumpCount", jumpCount);
+		SceneDataCarrier.SetInt("PlayerCurrentHealth", currentHealth);
+		SceneDataCarrier.SetFloat("PlayerCurrentSpeed", currentSpeed);
+		SceneDataCarrier.SetInt("PlayerCurrentJumpCount", currentJumpCount);
+		SceneDataCarrier.SetFloat("PlayerPositionX", transform.position.x);
+		SceneDataCarrier.SetFloat("PlayerPositionY", transform.position.y);
 	}
 }

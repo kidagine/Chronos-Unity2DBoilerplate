@@ -12,8 +12,8 @@ public class Prompt : MonoBehaviour
     void Start()
     {
         InputManager.Instance.ControlsChanged += UpdatePromptImage;
-        UpdatePromptImage();
-    }
+		UpdatePromptImage();
+	}
 
     private void UpdatePromptImage()
     {
