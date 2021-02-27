@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e52b5764ecf7fa943af9cabe04209896, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _groundedBoxResponder: {fileID: 0}
+  _groundedBoxResponder: {fileID: 8725972032605764309}
 --- !u!1 &8725972031889626893
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,9 +400,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbceb90d86c2c3e43bbda123f2e3b328, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetDummyAudio: {fileID: 8725972032605764304}
-  _spriteRenderer: {fileID: 8725972032605764307}
-  _rigidbody: {fileID: 8725972032605764308}
 --- !u!114 &8725972032605764304
 MonoBehaviour:
   m_ObjectHideFlags: 0

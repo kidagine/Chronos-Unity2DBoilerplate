@@ -5,8 +5,8 @@ public class Damager : MonoBehaviour, IHitboxResponder
 	[SerializeField] private int _damage = 1;
 	[SerializeField] private Vector2 _knockbackDirection = default;
 	[SerializeField] private float _knockbackForce = default;
-	[SerializeField] private LayerMask _damageLayers = default;
-	[SerializeField] private LayerMask _impactLayers = default;
+	[SerializeField] private UnityEngine.LayerMask _damageLayers = default;
+	[SerializeField] private UnityEngine.LayerMask _impactLayers = default;
 	[SerializeField] private bool _destroyOnImpact = default;
 	[SerializeField] private GameObject _hitPrefab = default;
 	private Audio _damagerAudio;

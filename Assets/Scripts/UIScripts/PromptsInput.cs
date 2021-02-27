@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
-using UnityEngine.UI;
 
 public class PromptsInput : MonoBehaviour
 {
@@ -10,7 +9,6 @@ public class PromptsInput : MonoBehaviour
     [SerializeField] private UnityEvent _backUnityEvent = default;
     [SerializeField] private UnityEvent _mainSpecialUnityEvent = default;
     [SerializeField] private UnityEvent _secondarySpecialUnityEvent = default;
-    [SerializeField] private Image[] _promptImages = default;
 
 
     void Awake()

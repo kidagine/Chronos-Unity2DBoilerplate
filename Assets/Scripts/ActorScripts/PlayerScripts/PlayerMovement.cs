@@ -5,7 +5,6 @@
 [RequireComponent(typeof(PlayerStats))]
 public class PlayerMovement : MonoBehaviour, IPushboxResponder
 {
-    [SerializeField] private Player _player = default;
     [SerializeField] private PlayerAnimator _playerAnimator = default;
     [Header("Prefabs")]
     [SerializeField] private GameObject _jumpSmokePrefab = default;
@@ -14,7 +13,8 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     private Rigidbody2D _rigidbody;
     private PlayerStats _playerStats;
 
-    public bool IsGrounded { get; private set; }
+	public bool IsMovementLocked { get; private set; }
+	public bool IsGrounded { get; private set; }
     public Vector2 MovementInput { private get; set; }
 
 
@@ -38,7 +38,7 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
 
     private void Movement()
     {
-        if (_player.IsRecovered)
+        if (!IsMovementLocked)
         {
             _rigidbody.velocity = new Vector2(MovementInput.x * _playerStats.currentSpeed, _rigidbody.velocity.y);
             if (_rigidbody.velocity != Vector2.zero && MovementInput.x != 0.0f)
@@ -104,10 +104,12 @@ public class PlayerMovement : MonoBehaviour, IPushboxResponder
     {    
         if (state)
         {
+            IsMovementLocked = true;
             _rigidbody.constraints = RigidbodyConstraints2D.FreezePosition;
         }
         else
         {
+            IsMovementLocked = false;
             _rigidbody.constraints = RigidbodyConstraints2D.None | RigidbodyConstraints2D.FreezeRotation;
         }
     }

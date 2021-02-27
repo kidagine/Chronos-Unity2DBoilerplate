@@ -1,16 +1,15 @@
 ﻿using UnityEngine;
 using UnityEngine.InputSystem;
-using Yarn.Unity;
 
 [RequireComponent(typeof(Player))]
 [RequireComponent(typeof(PlayerMovement))]
 [RequireComponent(typeof(PlayerInteract))]
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private DialogueUI _playerDialogue = default;
     private Player _player;
     private PlayerMovement _playerMovement;
     private PlayerInteract _playerInteract;
+    private PlayerUI _playerUI;
     private PlayerInput _playerInput;
     private PlayerInputActions _playerInputActions;
     private readonly string _gameplayActionMap = "Gameplay";
@@ -22,6 +21,7 @@ public class PlayerController : MonoBehaviour
         _player = GetComponent<Player>();
         _playerMovement = GetComponent<PlayerMovement>();
         _playerInteract = GetComponent<PlayerInteract>();
+        _playerUI = GetComponent<PlayerUI>();
         _playerInput = GetComponent<PlayerInput>();
         PlayerInputSetup();
     }
@@ -69,7 +69,7 @@ public class PlayerController : MonoBehaviour
     public void NextDialogue(InputAction.CallbackContext context)
     {
         if (context.performed)
-            _playerDialogue.MarkLineComplete();
+            _playerUI.PlayerDialogueUI.MarkLineComplete();
     }
 
     public void SwitchToDialogueActionMap()

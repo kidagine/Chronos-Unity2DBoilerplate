@@ -30,7 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3399636507717802383}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1311268670675301937
 MonoBehaviour:
@@ -58,66 +58,74 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Actions: {fileID: -944628639613478452, guid: 03ab7e2b83593844ebfaa1a168597dac,
     type: 3}
-  m_NotificationBehavior: 0
+  m_NotificationBehavior: 2
   m_UIInputModule: {fileID: 0}
   m_DeviceLostEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_MethodName: OpenPauseMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_DeviceRegainedEvent:
     m_PersistentCalls:
       m_Calls: []
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b974387a-378a-440d-b24d-8822f3c3bf9a
+    m_ActionName: Prompts/Confirm[/Keyboard/enter,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f45ade66-e129-44a5-b058-27823799e189
+    m_ActionName: Prompts/Back[/Keyboard/escape,/DualShock4GamepadHID/buttonEast,/DualShock4GamepadHID1/buttonEast,/XInputControllerWindows/buttonEast]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: af2cfbdc-c013-4197-8d89-40eaa93771e8
+    m_ActionName: Prompts/MainSpecial[/Keyboard/r,/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5562489b-ede7-4983-8c2a-a95d0da6d5a0
+    m_ActionName: Prompts/SecondarySpecial[/DualShock4GamepadHID/buttonWest,/DualShock4GamepadHID1/buttonWest,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 969e1017-39d4-48a3-ac77-6227730c742c
+    m_ActionName: Gameplay/Movement[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/DualShock4GamepadHID/leftStick,/DualShock4GamepadHID1/leftStick,/XInputControllerWindows/leftStick,/DualShock4GamepadHID/dpad/up,/DualShock4GamepadHID1/dpad/up,/XInputControllerWindows/dpad/up,/DualShock4GamepadHID/dpad/down,/DualShock4GamepadHID1/dpad/down,/XInputControllerWindows/dpad/down,/DualShock4GamepadHID/dpad/left,/DualShock4GamepadHID1/dpad/left,/XInputControllerWindows/dpad/left,/DualShock4GamepadHID/dpad/right,/DualShock4GamepadHID1/dpad/right,/XInputControllerWindows/dpad/right]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0e1b31a8-930d-414a-bf99-a6681e34d712
+    m_ActionName: Gameplay/Jump[/Keyboard/space,/DualShock4GamepadHID/buttonSouth,/DualShock4GamepadHID1/buttonSouth,/XInputControllerWindows/buttonSouth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 9b9e65a4-1cb4-4ec1-b678-45ed341db766
+    m_ActionName: Gameplay/Attack[/Keyboard/j,/DualShock4GamepadHID/buttonWest,/DualShock4GamepadHID1/buttonWest,/XInputControllerWindows/buttonWest]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0ae5733d-d97c-4cfc-bdfa-6b18a1daa632
+    m_ActionName: Gameplay/Interact[/Keyboard/e,/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/XInputControllerWindows/buttonNorth]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 1987c80a-35e0-4b44-840c-015f9156707f
+    m_ActionName: Gameplay/Menu[/Keyboard/escape,/DualShock4GamepadHID/start,/DualShock4GamepadHID1/start,/XInputControllerWindows/start]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 98a8577a-4936-4db9-b9a9-6be03ca12899
+    m_ActionName: Dialogue/NextDialogue[/Keyboard/e,/Keyboard/enter,/DualShock4GamepadHID/buttonNorth,/DualShock4GamepadHID1/buttonNorth,/XInputControllerWindows/buttonNorth]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Prompts
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!1 &3399636507061750346
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3399636507061750349}
-  - component: {fileID: 3399636507061750348}
-  m_Layer: 0
-  m_Name: Checkpoint_manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3399636507061750349
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3399636507061750346}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3399636507717802383}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3399636507061750348
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3399636507061750346}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b1ff656fbfb05141959ff4332691ee7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &3399636507486057222
 GameObject:
   m_ObjectHideFlags: 0
@@ -147,7 +155,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3399636507717802383}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3399636507486057208
 MonoBehaviour:
@@ -161,64 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21152c5a3e3a8e14684f809793f8536b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &3399636507634132437
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3399636507634132436}
-  - component: {fileID: 3399636507634132434}
-  - component: {fileID: 3399636507634132435}
-  m_Layer: 0
-  m_Name: Save_manager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &3399636507634132436
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3399636507634132437}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 3399636507717802383}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3399636507634132434
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3399636507634132437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9d6cf339eb3eb1f47862c0c0c139bd69, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _startLevel: {fileID: 3399636507634132435}
---- !u!114 &3399636507634132435
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3399636507634132437}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a120f18518bcadb4a8232f8157824d75, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelsEnum: 3
 --- !u!1 &3399636507717802368
 GameObject:
   m_ObjectHideFlags: 0
@@ -229,7 +179,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3399636507717802383}
   m_Layer: 0
-  m_Name: Manager_group
+  m_Name: MainManagers_group
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -246,16 +196,14 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6892443488018049725}
   - {fileID: 6889058959795816344}
   - {fileID: 6857194331963739359}
   - {fileID: 3399636507486057209}
-  - {fileID: 3399636507061750349}
-  - {fileID: 3399636507634132436}
+  - {fileID: 5247410759630715044}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &4214422356584031696
+--- !u!1 &5247410759630715045
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -263,61 +211,56 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6892443488018049725}
-  - component: {fileID: 4623533912115715988}
+  - component: {fileID: 5247410759630715044}
+  - component: {fileID: 5247410759630715042}
+  - component: {fileID: 5247410759630715043}
   m_Layer: 0
-  m_Name: ObjectPooling_manager
+  m_Name: Save_manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6892443488018049725
+--- !u!4 &5247410759630715044
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4214422356584031696}
+  m_GameObject: {fileID: 5247410759630715045}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3399636507717802383}
-  m_RootOrder: 0
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4623533912115715988
+--- !u!114 &5247410759630715042
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4214422356584031696}
+  m_GameObject: {fileID: 5247410759630715045}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d41e7c6ffb111a43adac20fa0ad1ca8, type: 3}
+  m_Script: {fileID: 11500000, guid: 9d6cf339eb3eb1f47862c0c0c139bd69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _objectPools:
-  - name: Arrow
-    prefab: {fileID: 1817817627978130301, guid: dc9bd6e97b852b54bb5506fc1be8f87e,
-      type: 3}
-    size: 3
-  - name: JumpSmoke
-    prefab: {fileID: 8935918012585647707, guid: 4a4123fbc8b39d441868897a71d2b2b1,
-      type: 3}
-    size: 1
-  - name: LandSmoke
-    prefab: {fileID: 9076098953984712191, guid: 0b745be9abb3a6d4dadd8705950196d1,
-      type: 3}
-    size: 1
-  - name: HitSlash
-    prefab: {fileID: 984813611755386008, guid: 282138f0f4608a44080f6b0fd756001e, type: 3}
-    size: 5
-  - name: RunStopSmoke
-    prefab: {fileID: 7310271610845027193, guid: 39afca3c109b26049a80bc07593eb271,
-      type: 3}
-    size: 5
+  _startLevel: {fileID: 5247410759630715043}
+--- !u!114 &5247410759630715043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5247410759630715045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a120f18518bcadb4a8232f8157824d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelEnum: 3
 --- !u!1 &9072775984727633221
 GameObject:
   m_ObjectHideFlags: 0
@@ -347,7 +290,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 3399636507717802383}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8376843861267966184
 MonoBehaviour:

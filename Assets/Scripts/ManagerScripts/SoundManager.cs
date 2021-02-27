@@ -12,6 +12,7 @@ public class SoundManager : Singleton<SoundManager>
     private float startLerpValue;
     private float endLerpValue;
     private bool isLerping;
+    private string _currentlyPlayingMusic;
 
 
 	void Start()
@@ -36,7 +37,18 @@ public class SoundManager : Singleton<SoundManager>
 
     public void SetMusic(string name)
     {
-        _audio.Sound(name).Play();
+        if (!string.IsNullOrEmpty(name))
+        {
+            _audio.Sound(name).Play();
+            _currentlyPlayingMusic = name;
+        }
+        else
+        {
+            if (!string.IsNullOrEmpty(_currentlyPlayingMusic))
+            {
+                _audio.Sound(_currentlyPlayingMusic).Stop();
+            }
+        }
     }
 
 	public void FadeInMasterVolume()

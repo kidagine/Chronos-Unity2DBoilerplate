@@ -17,7 +17,7 @@ public class LevelManager : Singleton<LevelManager>
     {
         if (!_sceneTransitions)
         {
-            SceneManager.LoadScene(levels.LevelsEnum + _sceneAppendix);
+            SceneManager.LoadScene(levels.LevelEnum + _sceneAppendix);
         }
         else
         {
@@ -32,7 +32,7 @@ public class LevelManager : Singleton<LevelManager>
         if (_cachedLevel != null)
         {
             SoundManager.Instance.SetMasterVolumeToCached();
-            SceneManager.LoadScene(_cachedLevel.LevelsEnum + _sceneAppendix);
+            SceneManager.LoadScene(_cachedLevel.LevelEnum + _sceneAppendix);
         }
     }
 
@@ -49,7 +49,7 @@ public class LevelManager : Singleton<LevelManager>
 
     IEnumerator AddAdditiveSceneCoroutine(Level levels)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levels.LevelsEnum + _sceneAppendix, LoadSceneMode.Additive);
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(levels.LevelEnum + _sceneAppendix, LoadSceneMode.Additive);
         while (!asyncLoad.isDone)
         {
             yield return null;

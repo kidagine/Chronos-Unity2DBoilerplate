@@ -4,17 +4,22 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameObject _player;
-    public event Action OnPlayerFound;
-    public event Action OnGamePauseStateChange;
-    public static GameManager Instance { get; private set; }
+    private PlayerController _playerController;
 
+    public static GameManager Instance { get; private set; }
     public bool GamePauseState { get; private set; }
+
+    public event Action OnGamePauseStateChange;
 
 
     void Awake()
     {
         CheckInstance();
         _player = GameObject.FindGameObjectWithTag("Player");
+        if (_player)
+        {
+            _playerController = _player.GetComponent<PlayerController>();
+        }
     }
 
     private void CheckInstance()
@@ -32,7 +37,29 @@ public class GameManager : MonoBehaviour
     public void SetGamePauseState(bool state)
     {
         GamePauseState = state;
+        if (GamePauseState)
+        {
+            _playerController.DeactivateInput();
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            _playerController.ActivateInput();
+            Time.timeScale = 1.0f;
+        }
         OnGamePauseStateChange?.Invoke();
+    }
+
+    public void SetPlayerControllerActivation(bool state)
+    {
+        if (state)
+        {
+            _playerController.ActivateInput();
+        }
+        else
+        {
+            _playerController.DeactivateInput();
+        }
     }
 
     public GameObject GetPlayer()

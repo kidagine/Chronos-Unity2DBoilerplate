@@ -1,20 +1,17 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(Audio))]
 [RequireComponent(typeof(PlayerUI))]
 [RequireComponent(typeof(PlayerStats))]
+[RequireComponent(typeof(PlayerMovement))]
 public class Player : MonoBehaviour, IHurtboxResponder
 {
-	[SerializeField] private PlayerAnimator _playerAnimator;
-	[SerializeField] private PlayerMovement _playerMovement = default;
-	[SerializeField] private GameObject _hurtboxes = default;
-	[SerializeField] private GameObject _pushboxes = default;
+	[SerializeField] private PlayerAnimator _playerAnimator = default;
 	private Audio _audio;
 	private PlayerUI _playerUI;
 	private PlayerStats _playerStats;
+	private PlayerMovement _playerMovement;
 
-	public bool IsRecovered { get; private set; } = true;
 	public bool IsAttacking { get; set; }
 
 
@@ -23,6 +20,7 @@ public class Player : MonoBehaviour, IHurtboxResponder
 		_audio = GetComponent<Audio>();
 		_playerUI = GetComponent<PlayerUI>();
 		_playerStats = GetComponent<PlayerStats>();
+		_playerMovement = GetComponent<PlayerMovement>();
 		_playerUI.PlayerStatsUI.SetMaxHealth(_playerStats.health);
 		_playerUI.PlayerStatsUI.SetHealth(_playerStats.currentHealth);
 	}
@@ -45,12 +43,12 @@ public class Player : MonoBehaviour, IHurtboxResponder
 
 	public void TakeDamage(int damage, Vector2 knockbackDirection, float knockbackForce)
 	{
-		if (IsRecovered)
+		if (!_playerMovement.IsMovementLocked)
 		{
-			IsRecovered = false;
-			_playerMovement.SetMovementLock(true);
 			_playerStats.currentHealth--;
+			_playerMovement.SetMovementLock(true);
 			_playerMovement.Knockback(knockbackDirection, knockbackForce);
+			_playerUI.PlayerStatsUI.SetHealth(_playerStats.currentHealth);
 			if (_playerStats.currentHealth > 0)
 			{
 				_playerAnimator.HurtAnimation();
@@ -59,14 +57,6 @@ public class Player : MonoBehaviour, IHurtboxResponder
 			{
 				_playerAnimator.DeathAnimation();
 			}
-			StartCoroutine(FlashRedCoroutine());
 		}
-	}
-
-	IEnumerator FlashRedCoroutine()
-	{
-		_playerUI.PlayerStatsUI.SetHealth(_playerStats.currentHealth);
-		yield return new WaitForSeconds(0.25f);
-		IsRecovered = true;
 	}
 }

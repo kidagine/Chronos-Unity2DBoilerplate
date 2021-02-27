@@ -5,8 +5,8 @@ public class Hitbox : MonoBehaviour
     [SerializeField] private Vector2 _hitboxSize = default;
     [SerializeField] private Vector2 _offset = default;
     private Color _hitboxColor = Color.red;
-    private LayerMask _groundLayerMask;
-    private LayerMask _hurtboxLayerMask;
+    private UnityEngine.LayerMask _groundLayerMask;
+    private UnityEngine.LayerMask _hurtboxLayerMask;
     private IHitboxResponder _hitboxResponder;
     [HideInInspector] public bool _hasHit;
 
