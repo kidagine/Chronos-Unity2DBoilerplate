@@ -5,7 +5,7 @@ public class SaveMenu : BaseMenu
 	[SerializeField] private SaveSlot[] _saveSlots = default;
 
 
-	void OnEnable()
+	void Start()
 	{
 		SetSaveSlotsInformation();	
 	}
