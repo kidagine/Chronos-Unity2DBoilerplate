@@ -7,9 +7,6 @@
 public class Player : MonoBehaviour, IHurtboxResponder
 {
 	[SerializeField] private PlayerAnimator _playerAnimator = default;
-	[Header("Collision boxes")]
-	[SerializeField] private GameObject _hurtboxes = default;
-	[SerializeField] private GameObject _pushboxes = default;
 	private Audio _audio;
 	private PlayerUI _playerUI;
 	private PlayerStats _playerStats;

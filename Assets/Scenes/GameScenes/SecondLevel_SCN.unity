@@ -2288,6 +2288,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1281712051}
     m_Modifications:
+    - target: {fileID: 96824961, guid: fadf7e81e976581468db22827c81c6f7, type: 3}
+      propertyPath: _cursorHandler
+      value: 
+      objectReference: {fileID: 1823166112}
     - target: {fileID: 214943261908479960, guid: fadf7e81e976581468db22827c81c6f7,
         type: 3}
       propertyPath: _eventSystem

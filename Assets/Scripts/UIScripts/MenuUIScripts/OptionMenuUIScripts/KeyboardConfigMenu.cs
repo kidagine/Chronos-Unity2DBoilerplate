@@ -4,7 +4,6 @@ using UnityEngine.InputSystem;
 [RequireComponent(typeof(Animator))]
 public class KeyboardConfigMenu : BaseMenu
 {
-	[SerializeField] private DeviceConfigurator _deviceConfigurator = default;
 	[SerializeField] private ControlsMenu _controlsMenu = default;
 	[SerializeField] private RemapButton[] _remapButtons = default;
 	private readonly string _controlMatch = "<Keyboard>";
