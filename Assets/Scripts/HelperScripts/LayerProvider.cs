@@ -3,12 +3,12 @@ using UnityEngine;
 
 public class LayerProvider : MonoBehaviour
 {
-    private static List<LayerMask> _layerMasks = new List<LayerMask>();
+    private static List<UnityEngine.LayerMask> _layerMasks = new List<UnityEngine.LayerMask>();
 
 
-    public static LayerMask GetLayerMask(LayerMaskEnum layerMaskEnum)
+    public static UnityEngine.LayerMask GetLayerMask(LayerMaskEnum layerMaskEnum)
     {
-        LayerMask layerMask = LayerMask.GetMask(layerMaskEnum.ToString());
+		UnityEngine.LayerMask layerMask = UnityEngine.LayerMask.GetMask(layerMaskEnum.ToString());
         if (!_layerMasks.Contains(layerMask))
         {
 
@@ -18,7 +18,7 @@ public class LayerProvider : MonoBehaviour
 
     public static int GetLayerMaskIndex(LayerMaskEnum layerMasksEnum)
     {
-        int index = LayerMask.NameToLayer(layerMasksEnum.ToString());
+        int index = UnityEngine.LayerMask.NameToLayer(layerMasksEnum.ToString());
         return index;
     }
 }
