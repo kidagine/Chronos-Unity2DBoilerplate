@@ -49,5 +49,4 @@ Tested on Windows 10.
 ## Credits
 Music - Yotam Perel : https://perel.bandcamp.com<br>
 Prototype Hero - Sven Thole : https://sventhole.itch.io/prototype-hero<br>
-More Effective Coroutines - Trinary Software : https://assetstore.unity.com/packages/tools/animation/more-effective-coroutines-free-54975<br>
 Yarn Spinner - Tech Lab : https://yarnspinner.dev<br>
