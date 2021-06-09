@@ -28,13 +28,13 @@ I may be updating and fixing bugs in the future, but this is meant more as a sta
 
 ## Tech Info
 #### Unity Version
-Current: [2019.4.21f1](https://unity.com/releases/2019-lts)
+Current: [2020.3.8f1](https://unity.com/releases/2019-lts)
 
 #### Packages
 - 2D Tilemap Extras: 1.5.1-preview
-- Yarn Spinner: 1.2.6
-- Input System: 1.0.1
-- Localization: 0.10.0-preview
+- Yarn Spinner: 1.2.7
+- Input System: 1.1.0-preview.3
+- Localization: 0.10.0-pre9
 - TextMeshPro: 2.1.3
 
 #### Hardware
